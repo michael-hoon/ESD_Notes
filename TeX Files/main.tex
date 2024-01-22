@@ -1,0 +1,510 @@
+\documentclass{article}
+\usepackage{LectureNotes}
+
+\setstretch{1.2}
+
+\begin{comment}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+\end{comment}
+
+
+\geometry
+{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=20mm,
+}
+
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{Econometrics}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{Introductory Notes for Machine Learning} \vspace*{10\baselineskip}}
+		}
+\date{\today}
+\author{\textbf{Michael Hoon}}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+
+
+\section{Introduction}
+These notes are heavily inspired by "Introductory Econometrics: A Modern Approach" by Jeffrey Wooldridge, and UC Berkeley's ENVECON C118 course. 
+
+\section{Linear Models}
+
+\begin{equation}
+    y = \theta_0 + \theta_1 x_{1} + \epsilon
+\end{equation}
+
+\noindent The variable $\epsilon$ is called the error term in the relationship, representing factors other than $x$ that affect $y$. 
+
+\subsection{Unbiased Estimators}
+An estimator, $\hat{\theta}$ of $\theta$ is an \textbf{unbiased estimator} if 
+
+\begin{equation}
+    \mathbb{E}(\hat{\theta}) = \theta
+\end{equation}
+
+\noindent for all possible values of $\theta$. This means that its probability distribution has an expected value equal to the parameter it is supposed to be estimating. 
+
+\subsection{Efficient Estimators}
+
+\begin{definition}
+    The Cramér-Rao bound states that the precision of any unbiased estimator is at most the Fisher Information. Equivalently, the reciprocal of the Fisher Information is a lower bound on its variance. 
+\end{definition}
+
+\noindent An unbiased estimator that achieves the \textbf{Cramér-Rao bound (CRB)} is said to be \textbf{fully efficient}. Such a solution achieves the lowest possible mean squared error among all unbiased methods, and is therefore the minimum variance unbiased estimator (MVUE). \\
+
+\noindent In statistics, efficiency is a measure of quality of an estimator, of an experimental design, or of a hypothesis testing procedure. Essentially, a more efficient estimator needs fewer input data or observations than a less efficient one to achieve the Cramér-Rao bound. \\
+
+\noindent In the scalar unbiased case, suppose $\theta$ is an unknown deterministic parameter that is to be estimated from $n$ independent observations of $x$, each from a distribution according to some probability density function $f(x\vert\theta)$. The variance of any unbiased estimator $\hat{\theta}$ of $\theta$ is then bounded by the reciprocal of the Fisher Information $I(\theta)$:
+
+\[
+    \text{var}(\hat{\theta}) \geq \frac{1}{I(\theta)} 
+\]
+\begin{definition}
+    The Fisher Information is defined by 
+\[
+    I(\theta) = n \mathbb{E}(X\vert\theta)\left[\left( \frac{\partial \ln [f(x\vert\theta)]}{\partial\theta}\right)^{2}\right]
+\]
+\end{definition}
+
+\noindent The efficiency of an unbiased estimator $\hat{\theta}$ measures how close this estimator's variance comes to this lower bound. Estimator efficiency is defined as 
+
+\[
+    e(\hat{\theta}) = \frac{I(\theta)^{-1}}{\text{var}(\hat{\theta})}
+\]
+
+\noindent or the \textbf{minimum possible variance} for an unbiased estimator divided by its \textbf{actual variance}. The Cramér-Rao lower bound thus gives 
+
+\[
+    e(\hat{\theta}) \leq 1
+\]
+
+\section{Ordinary Least Squares}
+
+\subsection{OLS Scalar Form Derivation}
+
+Let $\{(x_i, y_i): i= 1, \dots , n \}$ denote a random sample of size $n$ from the population. We start by defining the simple linear regression model: 
+
+\begin{equation}
+    y_i = \alpha + \beta x_i + \epsilon_i
+\end{equation}
+
+\noindent where $\epsilon_i$ denotes the error term for observation $i$, which can be calculated by $\epsilon_i = y_i - \hat{y_i}$. To derive OLS estimators for $\hat{\alpha}$ and $\hat{\beta}$, we seek to minimise the sum of squared residuals (errors) (SSE). We can then treat this as a linear optimization problem:
+
+\begin{equation}\label{eqn:olsmin}
+    \min_{\hat{\alpha},\hat{\beta}} \sum_{i=1}^N (y_i - \hat{\alpha} - \hat{\beta} x_i)^2
+\end{equation}
+
+\noindent Taking the partial derivative of equation (\ref{eqn:olsmin}) with respect to $\hat{\alpha}$ and $\hat{\beta}$, and setting them both to 0 yields 
+
+\begin{align}\label{eqn:olsalpha}
+    \frac{\partial{(\text{SSE})}}{\partial{\hat{\alpha}}} &= \sum_{i=1}^N -2(y_i - \hat{\alpha} - \hat{\beta} x_i) = 0 \\
+    \frac{\partial{(\text{SSE})}}{\partial{\hat{\beta}}} &= \sum_{i=1}^N -2x_i(y_i - \hat{\alpha} - \hat{\beta} x_i) = 0 \label{eqn:olsbeta}
+\end{align}
+
+\noindent From equation (\ref{eqn:olsalpha}), we can remove the $-2$ and simplify the summation terms where $\frac{1}{N}\sum_{i=1}^N y_i = \Bar{y}$. From here, we obtain 
+
+\begin{equation}
+    N\hat{\alpha} = N\Bar{y} - N\hat{\beta}\Bar{x}
+\end{equation}
+
+\noindent and dividing by N gives us: 
+
+\begin{equation}\label{eqn:olsalpha2}
+    \hat{\alpha} = \Bar{y} - \hat{\beta}\Bar{x}
+\end{equation}
+
+\noindent Now, solving for $\hat{\beta}$. From equation (\ref{eqn:olsbeta}), eliminating the $-2$ and distributing the $x_i$ term element-wise gives us:
+
+\begin{equation}\label{eqn:olsbeta2}
+    \sum_{i=1}^N \left ( y_i x_i - \hat{\alpha}x_i - \hat{\beta} x_i^2 \right ) = 0
+\end{equation}
+
+\noindent Substituting equation (\ref{eqn:olsalpha2}) into equation (\ref{eqn:olsbeta2}) gives us: 
+
+\begin{equation}
+    \sum_{i=1}^N \left ( y_i x_i - (\Bar{y} - \hat{\beta}\Bar{x})x_i - \hat{\beta} x_i^2 \right ) = 0
+\end{equation}
+
+\noindent We can distribute the sum to each term:
+
+\begin{equation}
+    \sum_{i=1}^N y_i x_i - \Bar{y} \sum_{i=1}^N x_i + \hat{\beta}\Bar{x} \sum_{i=1}^N x_i - \hat{\beta} \sum_{i=1}^N x_i^2 = 0
+\end{equation}
+
+\noindent rearranging and algebraically solving for $\hat{\beta}$ gives us:
+
+\begin{equation}\label{eqn:olsfinal}
+    \hat{\beta} = \frac{\sum_{i=1}^N y_i x_i - N \Bar{x} \Bar{y}}{\sum_{i=1}^N x_i^2 - N \Bar{x}^2}
+\end{equation}
+
+\noindent Using the properties of the summation operator from equation (\ref{appeqn:olsproof2}) and (\ref{appeqn:olsproof3}) in Appendix: \nameref{app:olspropertiesderiv}, we substitute this into equation (\ref{eqn:olsfinal}) to obtain the final expression for $\hat{\beta}$:
+
+\begin{equation}\label{eqn:olsbetafinal}
+    \hat{\beta} = \frac{\sum_{i=1}^N (x_i - \Bar{x})(y_i - \Bar{y})}{\sum_{i=1}^N (x_i - \Bar{x})^2}
+\end{equation}
+
+\noindent and substituting (\ref{eqn:olsbetafinal}) into (\ref{eqn:olsalpha2}), $\hat{\alpha}$ can now be formally expressed as: 
+
+\begin{equation}
+    \hat{\alpha} = \Bar{y} - \frac{\sum_{i=1}^N (x_i - \Bar{x})(y_i - \Bar{y})}{\sum_{i=1}^N (x_i - \Bar{x})^2} \Bar{x}
+\end{equation}
+
+
+\subsection{OLS Normal Equation Derivation}
+
+Let $\mathbf{X}$ be a $n \times (k+1)$ matrix with observations on $(k+1)$ independent variables for $n$ observations. Since our model usually contains a constant term, one of the columns in the $\mathbf{X}$ matrix will contain only ones. We define the following:
+
+\begin{itemize}
+    \item Let $\mathbf{y}$ be an $n \times 1$ vector of observations on the dependent variable.
+    \item Let $\bm{\epsilon}$ be an $n \times 1$ vector of errors.
+    \item Let $\bm{\beta}$ be a $(k+1) \times 1$ vector of unknown population parameters that we want to estimate.
+\end{itemize}
+
+\noindent Our equation in matrix form will be the following:
+
+\begin{equation*}
+    \begin{bmatrix}
+        Y_1 \\
+        Y_2 \\
+        \vdots \\
+        Y_n
+    \end{bmatrix}_{n \times 1}
+    = 
+    \begin{bmatrix}
+        1 & X_{11} & X_{21} & \dots & X_{k1} \\
+        1 & X_{12} & X_{22} & \dots & X_{k2} \\
+        \vdots & \vdots & \vdots & \ddots & \vdots\\
+        1 & X_{1n} & X_{2n} & \dots & X_{kn} \\
+    \end{bmatrix}_{n \times (k+1)}
+    \begin{bmatrix}
+        \beta_1 \\
+        \beta_2 \\
+        \vdots \\
+        \beta_k
+    \end{bmatrix}_{k \times 1}
+    + 
+    \begin{bmatrix}
+        \epsilon_1 \\
+        \epsilon_2 \\
+        \vdots \\
+        \epsilon_n
+    \end{bmatrix}_{n \times 1}
+\end{equation*}
+
+\noindent which we can rewrite as:
+
+\begin{equation}
+    \mathbf{y} = \mathbf{X}\bm{\beta} + \bm{\epsilon}
+\end{equation}
+
+\noindent To obtain the estimates of the population parameter $\bm{\Hat{\beta}}$, we must minimize the sum of squared errors (SSE). The vector of residuals is given by:
+
+\begin{equation}\label{eqn:olsepsilonerror}
+    \bm{\epsilon} =  \mathbf{y} - \bm{X}\bm{\Hat{\beta}}
+\end{equation}
+
+\noindent and the SSE is given by:
+
+\begin{equation}
+    \bm{\epsilon^\top \epsilon} = \begin{bmatrix}
+    \epsilon_1 & \epsilon_2 \dots \epsilon_n
+    \end{bmatrix}_{1 \times n}
+    \begin{bmatrix}
+        \epsilon_1 \\
+        \epsilon_2 \\
+        \vdots \\
+        \epsilon_n
+    \end{bmatrix}_{n \times 1}
+\end{equation}
+
+\noindent a little matrix algebra using the transpose property $(AB)^\top = B^\top A^\top$ gives us: 
+
+\begin{align}\label{eqn:olstransposeprop}
+    \nonumber \bm{\epsilon^\top \epsilon} &= \bm{({y} - {X}\Hat{\beta})^\top (y - X \Hat{\beta}}) \\ \nonumber
+    &= \bm{y^\top y - \Hat{\beta}^\top X^\top y - y^\top X \Hat{\beta} + \Hat{\beta}^\top X^\top X \Hat{\beta}} \\ 
+    &= \bm{y^\top y - 2\Hat{\beta}^\top X^\top y + \Hat{\beta}^\top X^\top X \Hat{\beta}}
+\end{align}
+
+\noindent To minimise the SSE, we take the derivative of equation \ref{transposeprop} with respect to $\bm{\Hat{\beta}}$.
+
+\begin{equation}\label{eqn:olsderivativessr}
+    \frac{\partial (\bm{\epsilon^\top \epsilon)}}{\partial \bm{\Hat{\beta}}} = -2 \bm{X^\top y} + 2\bm{X^\top X \Hat{\beta}} = 0
+\end{equation}
+
+\noindent Taking the second derivative with respect to $\bm{\Hat{\beta}}$, we get $2\bm{X^\top X}$, where if $\bm{X}$ has full rank, then the second derivative has a positive value and $\bm{\epsilon^\top \epsilon}$ is indeed a minimum. \\
+
+\noindent From equation \ref{derivativessr}, manipulating the terms gives us:
+
+\begin{equation}
+    (\bm{X^\top X})\bm{\Hat{\beta}} = \bm{X^\top} \mathbf{y}
+\end{equation}
+
+\noindent If $(\bm{X^\top X})$ is of full rank (no multicollinearity), then its inverse exists and we can pre-multiply both sides by the inverse:
+
+\begin{equation}
+    (\bm{X^\top X})^{-1} (\bm{X^\top X})\bm{\Hat{\beta}} = (\bm{X^\top X})^{-1} \bm{X^\top} \mathbf{y}
+\end{equation}
+
+\noindent By definition, $(\bm{X^\top X})^{-1} (\bm{X^\top X}) = I$ which is the identity matrix, so 
+
+\begin{align}\label{eqn:olsbetahat}
+    \nonumber I \bm{\Hat{\beta}} &= (\bm{X^\top X})^{-1} \bm{X^\top} \mathbf{y} \\
+    \bm{\Hat{\beta}} &= (\bm{X^\top X})^{-1} \bm{X^\top} \mathbf{y}
+\end{align}
+
+\subsection{Orthogonal Projection}
+
+
+\subsection{Derivation of $R^2$ in Matrix Form}
+% To obtain the result for $R^2$ Coefficient of determination, we first consider the hat matrix by substituting $\bm{\Hat{\beta}}$ from equation \ref{betahat} into the vector equation for fitted values $\bm{\Hat{y} = X\Hat{\beta}}$. This gives us the result:
+
+%\begin{align}
+%    \nonumber \bm{\Hat{y}} &= \bm{X\Hat{\beta}} \\ \nonumber
+%    &= \bm{X}(\bm{X^\top X})^{-1} \bm{X^\top} \mathbf{y} \\
+%    &= \bm{Hy}
+%\end{align}
+
+% \noindent We denote the products involving the $\bm{X}$ terms as $\bm{H}$, referred to as the H-matrix, where $\bm{H} = \bm{X}(\bm{X^\top X})^{-1} \bm{X^\top}$. $\bm{H}$ is a square $(n \times n)$ matrix, is symmetric, and idempotent. \\
+
+\noindent Recall that the formula for $R^2$ Coefficient of Determination is: 
+
+\begin{equation}
+    R^2 = \frac{\text{SSR}}{\text{SST}}
+\end{equation} \\
+
+\noindent where SSR is the Sum of Squares due to Regression, and the SST is the Sum of Squares Total, and SSE is the Sum of Squared Errors. The expressions are listed below, with matrix notation on the right hand side. 
+
+\begin{align}
+    \text{SSR} &= \sum_{i=1}^n (\hat{Y_i}-\Bar{Y})^2 = \bm{(\Hat{y} - \Bar{y})^2} = \bm{(\Hat{y} - \Bar{y})}^\top \bm{(\Hat{y} - \Bar{y})} \\
+    \text{SST} &= \sum_{i=1}^n (Y_i-\Bar{Y})^2 = \bm{({y} - \Bar{y})^2} = \bm{(y - \Bar{y})}^\top \bm{(y - \Bar{y})} \\
+    \text{SSE} &= \sum_{i=1}^n (Y_i-\Hat{Y})^2 = \bm{\epsilon^2} = \bm{\epsilon^\top \epsilon}
+\end{align}
+
+\noindent Considering that the assumptions of the Classical Linear Regression Model holds, we have mean centering where $\bm{\Bar{y}} = 0$. This simplifies the quantity $\bm{y - \Bar{y} = y - 0 = y}$, and gives us the following results:
+
+\begin{align}
+    \label{eqn:olsssr} \text{SSR} &= \bm{\Hat{y}^\top}\bm{\Hat{y}} \\
+    \label{eqn:olssst} \text{SST} &= \bm{\bm{y^\top y}} \\
+    \label{eqn:olssse} \text{SSE} &= \bm{\epsilon^\top \epsilon}
+\end{align}
+
+% \noindent Now, consider the equation for fitted values $\bm{\Hat{y} = X\Hat{\beta}}$, which are the predicted values of the responses based on the linear model. 
+
+\noindent With equations (\ref{eqn:olsssr}) and (\ref{eqn:olssst}), we can express the $R^2$ coefficient of determination in matrix form as:
+
+\begin{equation}\label{eqn:olsr2}
+    R^2 = \frac{\bm{\Hat{y}^\top}\bm{\Hat{y}}}{\bm{\bm{y^\top y}}} 
+\end{equation}
+
+\noindent To find the SSR expression $\bm{\Hat{y}^\top \Hat{y}}$, consider the given equation $\bm{y} = \bm{X\beta + \epsilon}$. To calculate the SST expressed as $\bm{y^\top y}$ in equation (\ref{eqn:olssst}):
+
+\begin{align}
+    \nonumber \bm{y} &= \bm{X\beta + \epsilon} \\ \nonumber
+    \bm{y^\top y} &= \bm{(XB + \epsilon)^\top (XB + \epsilon)} \\ \nonumber
+    &= \bm{(B^\top X^\top  + \epsilon^\top)(XB + \epsilon)} \\ \nonumber
+    &= \bm{(B^\top X^\top X B + B^\top X^\top \epsilon + \epsilon^\top XB + \epsilon^\top \epsilon)} \\
+    \label{eqn:olsyty} &= \bm{B^\top X^\top XB + B^\top X^\top \epsilon + (B^\top X^\top \epsilon)^\top + \epsilon^\top \epsilon}
+\end{align}
+
+\noindent From (\ref{eqn:olsyty}), we see that for the term $\bm{X^\top \epsilon}$, the residual $\bm{\epsilon}$ is \textbf{orthogonal to all columns of} $\bm{X}$. This can be seen from:
+
+\begin{align}
+    \nonumber \bm{X^\top \epsilon} &= \bm{X^\top y - X^\top X\Hat{\bm{\beta}}} \\ \nonumber
+    &= \bm{X^\top y} - \bm{X^\top X}(\bm{X^\top X})^{-1} \bm{X^\top} \bm{y} \\ \nonumber
+    &= \bm{X^\top y - X^\top y} \\ 
+    \label{eqn:olsorthogonalproof} &= \bm{0}
+\end{align}
+
+\noindent and also geometrically from Figure \ref{fig:olsdecomss}, where the vector $\epsilon$ is orthogonal to the component of $\bm{y}$, being $\bm{X\Hat{\beta}}$. The dot product $(\bm{X^\top \epsilon})$ of two orthogonal vectors is 0.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.35\textwidth]{Images/orthogonalvectorsols.png}
+    \caption{Orthogonal Decomposition of the Sum of Squares}
+    \label{fig:olsdecomss}
+\end{figure}
+
+\noindent Given the result from equation (\ref{eqn:olsorthogonalproof}), we plug back into equation (\ref{eqn:olsyty}) to obtain the expression for SST:
+
+\begin{align}
+    \nonumber \bm{y^\top y} &= \bm{B^\top X^\top XB + 0 + 0 + \epsilon^\top \epsilon} \\ 
+    &= \bm{B^\top X^\top XB + \epsilon^\top \epsilon}
+\end{align}
+
+\noindent Now, we know that $\text{SST} = \text{SSR} + \text{SSE}$, we can rearrange to find: $\text{SSR} = \text{SST} - \text{SSE}$. Expressing this in matrix form, we have:
+
+\begin{align}
+    \nonumber \bm{\Hat{y}^\top}\bm{\Hat{y}} &= \bm{y^\top y} - \bm{\epsilon^\top \epsilon} \\ \nonumber
+    &= \bm{B^\top X^\top XB + \epsilon^\top \epsilon} - \bm{\epsilon^\top \epsilon} \\ 
+    \label{eqn:olsyhattyhat} &= \bm{B^\top X^\top XB}
+\end{align}
+
+\noindent Finally, plugging equation (\ref{eqn:olsyhattyhat}) back into equation (\ref{eqn:olsr2}), we get the expression for $R^2$ coefficient of determination in matrix form: 
+
+\begin{align}
+    R^2 = \frac{\bm{B^\top X^\top XB}}{\bm{y^\top y}}
+\end{align}
+
+\subsection{Derivation of OLS Error term $\epsilon$}
+From equation \ref{eqn:olsbetahat}, we can substitute the expression back into equation \ref{eqn:olsepsilonerror}, and factoring out the $\mathrm{y}$ vector we obtain:
+
+\begin{align}
+    \nonumber \epsilon &= \mathrm{y} - \bm{X\beta} \\ \nonumber
+    &= \mathrm{y} - \bm{X}[(\bm{X^\top X})^{-1} \bm{X^\top} \mathbf{y}] \\
+    &= \left (I - \bm{X}(\bm{X^\top X})^{-1} \bm{X^\top} \right ) \mathrm{y} = M \mathrm{y}
+\end{align}
+
+\noindent where $I$ is the identity matrix, and M is the residual maker matrix. 
+
+\subsection{The Gauss-Markov Assumptions}
+
+
+
+\section{Maximum Likelihood Estimation}
+There are many methods of constructing an estimator for an unknown parameter $\theta$, such as the Generalised Method of Moments (GMM), Maximum Likelihood Estimation (MLE), etc. In particular, MLE has a strong intuitive appeal, and often yields reasonable estimates of $\theta$. If the \textbf{sample is large}, it will yield an excellent estimator of $\theta$, and thus is the most widely use method of estimation in statistics. \\
+
+\noindent Suppose that the random variables $X_{1}, \dots , X_n$ form a random sample from a distribution $f(x\vert\theta)$; if $X$ is a \textbf{continuous random variable}, $f(x\vert\theta)$ is a pdf, and if $X$ is \textbf{discrete}, then $f(x\vert\theta)$ is a point mass function. The parameter $\theta$ could be a real-valued \textbf{unknown} parameter of a vector of parameters. \\
+
+\begin{definition}
+    For every observed random sample $x_{1}, \dots , x_n$ we define:
+
+    \begin{equation}
+        L(\theta) = \prod_{i=1}^{n}f(x_i \vert \theta) = f(x_{1}, \dots , x_n \vert \theta) = f(x_{1} \vert \theta) \dots f(x_n \vert \theta) 
+    \end{equation}
+
+    where $L(\theta)$ is the \textbf{likelihood function}. 
+\end{definition}
+
+\noindent The meaning of maximum likelhood is as follows: we choose the parameter that maximises the likelihood of obtaining the data at hand. For discrete distributions, the likelihood is the same as the probability. \\
+
+\noindent If the maximum of $L$ occurs at a point $\hat{\theta}$, then $\hat{\theta}$ is the parameter value for which the observed data is most likely to have been generated, so we use it for our estimate for $\theta$. We call $\hat{\theta}$ the MLE for $\theta$. \\
+
+\noindent To simplify the product terms, we can equivalently maximise the log of the likelihood function:
+
+\begin{equation}
+    \ell = \ln [L(\theta)] = \ln \left[\prod_{i=1}^{n} f(X_i \vert \theta)\right] = \sum_{i=1}^{n} \ln [f(X_i \vert \theta)]
+\end{equation}
+
+\subsection{Preliminary Intuition for MLE}
+Suppose we have $y_i \sim N(\mu, \sigma^{2})$, and thus $\mathbb{E}[y] = \mu$, $\text{var}(y) = \sigma^{2}$. In general, we have some observations on $Y$ and we want to estimate the parameters $\mu, \sigma^{2}$ from the data. The idea of maximum likelihood however, is to find the estimate of the parameters that maximises the probability of observing the data that we have. This problem that we face is now the opposite of the typical probability problem: we have the data, but want to learn about the model (specifically the parameters). \\
+
+\noindent Mathematically, in a traditional probability problem we would like to know $P(Data\vert Model)$, i.e. $P(y\vert \theta)$, but now we want to know $P(Model \vert Data)$, i.e. $P(\theta\vert y)$ - This is the inverse probability problem. 
+
+\subsubsection{Bayes' Theorem}
+Recall that 
+
+\begin{equation}
+    P(\theta\vert y) = \frac{P(\theta)P(y\vert\theta)}{P(y)}
+\end{equation}
+
+\noindent where $P(y)$ is just a function of the data, and we can ignore it. Thus, 
+
+\begin{equation}\label{eqn:mlepropto}
+    P(\theta\vert y) \propto P(\theta) P(y\vert\theta)
+\end{equation}
+
+\noindent $P(\theta)$ is the prior density of $\theta$, $P(y\vert \theta)$ is the likelihood, and $P(\theta\vert y)$ is the posterior density of $\theta$. We can see that the likelihood is the sample information that transforms a 'prior' into a 'posterior' density of $\theta$. \\
+
+\noindent Note that the prior, $\theta$, is fixed before our observations and so can be treated as invariant to our problem. We can then rewrite \ref{eqn:mlepropto} to \\
+
+\begin{equation}
+    P(\theta\vert y) = k(y) P(y\vert\theta)
+\end{equation}
+
+\noindent where $k(y) = \frac{P(\theta)}{P(y)}$ is an unknown function of the data. Since $k(y)$ is not a function of $\theta$, it is treated as unknown positive constant (for any given data, $k(y)$ remains same over all hypothetical values of $\theta$). 
+
+\subsubsection{Likelihood}
+
+\begin{definition}
+    Fisher defined the notion of likelihood and the Likelihood Axiom: 
+    \begin{align*}
+        \ell (\theta\vert y) &= k(y) P(y\vert \theta) \\
+        &\propto P(y\vert \theta)
+    \end{align*}    
+    \noindent The best estimator, $\hat{\theta}$ is whatever value of $\hat{\theta}$ that \textbf{maximises} 
+    \begin{equation*}
+        \ell (\theta\vert y) = P(y\vert\theta)
+    \end{equation*}
+    \noindent We are looking for the $\hat{\theta}$ that maximises the likelihood of observing our sample. Because of proportionality, the $\hat{\theta}$ that maximises $\ell (\theta\vert y)$ will also maximise $P(y\vert \theta)$, i.e. probability of observing the data. 
+\end{definition}
+
+\subsection{Analytical Method}
+
+If the $y_i$ are all independent, then the likelihood of the whole sample is the product of the individual likelihoods over all the observations. 
+
+\begin{align*}
+    \ell &= \prod_{i=1}^{n} \ell_i \\
+    &= \prod_{i=1}^{n}P(y_i | \hat{\theta}) \\ 
+    \therefore \ln [\ell] &= \sum_{i=1}^{n} \ln [P(y_i | \hat{\theta})] 
+\end{align*}
+
+\noindent Now to find $\hat{\theta}$, we first differentiate the likelihood function with respect to the parameter vector and set the resulting gradient vector to zero. Solve the system of equations to find the extrema. Then, take the second derivative to ensure maxima.
+
+
+
+
+\newpage
+\pagenumbering{roman}
+\begin{appendices}
+
+\section{Properties for Scalar Form OLS Derivation}\label{app:olspropertiesderiv}
+
+To derive the two properties used to obtain equation (\ref{eqn:olsbetafinal}), we use three basic properties of the summation operator:
+
+\begin{align}\label{appeqn:olsproof1}
+    \sum_{i=1}^N (x_i - \Bar{x}) &= \sum_{i=1}^N x_i - \sum_{i=1}^N \Bar{x} \\ \nonumber
+    &= \sum_{i=1}^N x_i - N \Bar{x} \\ \nonumber
+    &= \sum_{i=1}^N x_i - N \left (\frac{1}{N} \sum_{i=1}^N x_i \right ) \\ \nonumber
+    &= \sum_{i=1}^N x_i - \sum_{i=1}^N x_i \\ \nonumber
+    &= 0
+\end{align} 
+
+\begin{align}\label{appeqn:olsproof2}
+        \sum_{i=1}^N (x_i - \Bar{x})^2 &= \sum_{i=1}^N (x_i^2 - 2x_i \Bar{x}  + \Bar{x}^2) \\ \nonumber
+        &= \sum_{i=1}^N x_i^2 - 2\Bar{x} \sum_{i=1}^N x_i + N\Bar{x}^2 \\ \nonumber
+        &= \sum_{i=1}^N x_i^2 - 2N\Bar{x}^2 + N\Bar{x}^2 \\ \nonumber
+        &= \sum_{i=1}^Nx_i^2 - N\Bar{x}^2 
+\end{align}
+
+\noindent It can also be shown by using property (\ref{appeqn:olsproof1}) that: 
+
+\begin{align}\label{appeqn:olsproof3}
+    \sum_{i=1}^N (x_i - \Bar{x})(y_i - \Bar{y}) &= \sum_{i=1}^N ( x_i y_i - x_i \Bar{y} - \Bar{x}y_i + \Bar{x} \Bar{y}) \\ \nonumber
+    &= \sum_{i=1}^N x_i(y_i - \Bar{y}) - \sum_{i=1}^N \Bar{x}(y_i - \Bar{y}) \\ \nonumber
+    &= \sum_{i=1}^N x_i(y_i - \Bar{y}) - 0 \\ \nonumber
+    &= \sum_{i=1}^N x_i(y_i - \Bar{y}) \\ \nonumber
+    &= \sum_{i=1}^N (x_i - \Bar{x})y_i \\ \nonumber
+    &= \sum_{i=1}^N x_i y_i - N\Bar{x} \Bar{y} 
+\end{align}
+
+\noindent which is a generalization of property (\ref{appeqn:olsproof2}).
+
+\end{appendices}
+
+\end{document}
