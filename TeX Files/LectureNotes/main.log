@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.22)  22 JAN 2024 23:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.22)  29 JAN 2024 17:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/LaTeX_Tracker/SUTD_Notes_Homework/Optimisation/TeX Files/main.tex"
-(c:/LaTeX_Tracker/SUTD_Notes_Homework/Optimisation/TeX Files/main.tex
+**"c:/LaTeX_Tracker/SUTD_Notes_Homework/Optimisation/TeX Files/LectureNotes/main.tex"
+(c:/LaTeX_Tracker/SUTD_Notes_Homework/Optimisation/TeX Files/LectureNotes/main.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-05-15> (c:/TeXLive/2023/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
@@ -783,49 +783,105 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [2]
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 103.
- [3{c:/TeXLive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 126--127
+ [2] [3{c:/TeXLive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 110.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
 
  []
 
 [4]
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 175--176
 
  []
 
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 179.
-[5] (./main.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 199--200
+
+ []
+
+<Images/LP_Graphical.png, id=192, 534.49687pt x 408.77719pt>
+File: Images/LP_Graphical.png Graphic file (type png)
+<use Images/LP_Graphical.png>
+Package pdftex.def Info: Images/LP_Graphical.png  used on input line 203.
+(pdftex.def)             Requested size: 241.84842pt x 184.96472pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--209
+
+ []
+
+[5 <./Images/LP_Graphical.png>]
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 213.
+
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
+
+ []
+
+<Images/convexity.png, id=201, 839.38594pt x 220.57407pt>
+File: Images/convexity.png Graphic file (type png)
+<use Images/convexity.png>
+Package pdftex.def Info: Images/convexity.png  used on input line 236.
+(pdftex.def)             Requested size: 338.5863pt x 88.97186pt.
+<Images/convexityfn.png, id=202, 810.77907pt x 264.99pt>
+File: Images/convexityfn.png Graphic file (type png)
+<use Images/convexityfn.png>
+Package pdftex.def Info: Images/convexityfn.png  used on input line 253.
+(pdftex.def)             Requested size: 338.5863pt x 110.66426pt.
+[6 <./Images/convexity.png>]
+<Images/convexityfn2.png, id=214, 615.80063pt x 271.76532pt>
+File: Images/convexityfn2.png Graphic file (type png)
+<use Images/convexityfn2.png>
+Package pdftex.def Info: Images/convexityfn2.png  used on input line 266.
+(pdftex.def)             Requested size: 290.22105pt x 128.08218pt.
+<Images/convexityfn3.png, id=215, 353.06906pt x 115.18031pt>
+File: Images/convexityfn3.png Graphic file (type png)
+<use Images/convexityfn3.png>
+Package pdftex.def Info: Images/convexityfn3.png  used on input line 278.
+(pdftex.def)             Requested size: 386.95894pt x 126.23648pt.
+ [7 <./Images/convexityfn.png> <./Images/convexityfn2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 293--294
+
+ []
+
+[8 <./Images/convexityfn3.png>] [9] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A16EC7DF12BF60CF66CD0AF906A596FA;2788.
+(rerunfilecheck)             Checksum: 343C1894232D67CD0AC1850AC5B8A6EC;4389.
  ) 
 Here is how much of TeX's memory you used:
- 30909 strings out of 476096
- 638630 string characters out of 5795114
- 1870845 words of memory out of 5000000
- 50755 multiletter control sequences out of 15000+600000
- 526350 words of font info for 83 fonts, out of 8000000 for 9000
+ 31019 strings out of 476096
+ 640778 string characters out of 5795114
+ 1866845 words of memory out of 5000000
+ 50820 multiletter control sequences out of 15000+600000
+ 527048 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,10n,118p,619b,953s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 116i,10n,118p,635b,901s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist, replaced by a fixed one
+
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
-<c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (5 pages, 189312 bytes).
+<c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (9 pages, 596595 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 184 compressed objects within 2 object streams
- 33 named destinations out of 1000 (max. 500000)
- 165 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 350 PDF objects out of 1000 (max. 8388607)
+ 288 compressed objects within 3 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 262 words of extra memory for PDF output out of 10000 (max. 10000000)
 
