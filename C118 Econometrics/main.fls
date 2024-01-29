@@ -1,8 +1,8 @@
-PWD c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/Econometrics
+PWD c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/C118 Econometrics
 INPUT c:/TeXLive/2023/texmf.cnf
 INPUT c:/TeXLive/2023/texmf-dist/web2c/texmf.cnf
 INPUT c:/TeXLive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/Econometrics/main.tex
+INPUT c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/C118 Econometrics/main.tex
 OUTPUT main.log
 INPUT c:/TeXLive/2023/texmf-dist/tex/latex/base/article.cls
 INPUT c:/TeXLive/2023/texmf-dist/tex/latex/base/article.cls
