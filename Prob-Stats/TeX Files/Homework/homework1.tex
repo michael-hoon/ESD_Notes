@@ -1,0 +1,252 @@
+
+\documentclass[12pt]{article}
+
+\usepackage{Homework}
+
+% Creates the header and footer.
+\pagestyle{fancy}
+\fancyhead[l]{Michael Hoon, $1006617$}
+\fancyhead[c]{40.017 Probability \& Statistics HW1}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt} %Creates a horizontal line underneath the header
+\renewcommand{\footrulewidth}{0.2pt}
+\setlength{\headheight}{15pt} %Sets enough space for the header
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+
+\begin{document}
+
+% \title{Another fancyhdr demo}
+% \author{\texttt{tex.stackexchange} \textit{et al}}
+% \maketitle
+% \newpage
+
+
+\title{ \normalsize \textsc{} 
+        \\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{40.017 Probability \& Statistics} 
+        \HRule{2.0pt} \\ [0.6cm]
+        \LARGE{Homework 1} \vspace*{10\baselineskip}}
+		}
+\date{\today}
+\author{\textbf{Michael Hoon} \\ 1006617}
+
+\maketitle 
+\newpage
+
+
+\section*{Question 1}
+
+a) Let $D$ and $F$ denote Domestic and Foreign stocks (in millions) respectively. We formulate the Linear Program (LP): 
+
+\begin{align*}
+    \max_{D, F} \; 0.11D &+ 0.17F \\
+    \text{s.t.} \; \; D + F & \leq 12 \\ 
+    0 \leq D & \leq 10 \\
+    0 \leq F & \leq 7 \\ 
+    D & \geq \frac{1}{2}F \\ 
+    F & \geq \frac{1}{2}D 
+\end{align*} \\
+
+\noindent b) Graphically, we have Figure \ref{fig:1-feasibleregionlp} with corner points labelled and the feasible region shaded:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=0.5]
+        % Draw axes
+        \draw[->] (-2,0) -- (14,0) node[below] {$D$};
+        \draw[->] (0,-2) -- (0,14) node[left] {$F$};
+
+        % Constraint 1: x + y <= 12
+        \draw[thick] (0,12) -- (12,0) node[above right]{\small $D + F \leq 12$};
+
+        % Constraint 2: 0 <= x <= 10
+        \draw[dashed] (10,0) -- (10,12) node[right]{\small $D \leq 10$};
+
+        % Constraint 3: 0 <= y <= 7
+        \draw[dashed] (0,7) -- (12,7) node[right]{\small $F \leq 7$};
+
+        % Constraint 4: x >= 1/2 y
+        \draw[thick] (0,0) -- (12,6) node[right]{\small $D \geq \frac{1}{2}F$};
+
+        % Constraint 5: y >= 1/2 x
+        \draw[thick] (0,0) -- (6,12) node[right]{\small $F \geq \frac{1}{2}D$};
+
+        \fill[gray, opacity=0.3] (0,0) -- (3.5,7) -- (5,7) -- (8,4) -- cycle;
+
+        % Corner Points
+        \fill (10,0) circle (3pt) node[above left] {$(10,0)$};
+        \fill (8,4) circle (3pt) node[above] {$(8,4)$};
+        \fill (5,7) circle (3pt) node[above right] {$(5,7)$};
+        \fill (0,7) circle (3pt) node[left] {$7$};
+        \fill (0,0) circle (3pt) node[below left] {$0$};
+        \fill (0,12) circle (3pt) node[left] {$12$};
+        \fill (12,0) circle (3pt) node[below] {$12$};
+        \fill (3.5,7) circle (3pt) node[above left] {$(3.5,7)$};
+    \end{tikzpicture}
+    \caption{Feasible Region of LP}
+    \label{fig:1-feasibleregionlp}
+\end{figure} 
+
+
+\noindent c) Solving graphically, the optimal value of $F$ and $D$ that maximises returns are $D = 5$, $F = 7$ from Figure \ref{fig:1-feasibleregionlp}, for a total (maximum) return of:
+
+\begin{equation*}
+    \boxed{0.11(5) + 0.17(7) = \$ 1.74 \; \text{million}}
+\end{equation*}
+
+\newpage 
+
+\section*{Question 2}
+a) Given the LP constraints 
+
+\begin{align*}
+    -x_{1} + x_{2} & \geq 1 \\ 
+    x_{1} & \geq 0
+\end{align*}
+
+\noindent We have the feasible region shaded and corner points labelled: 
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=0.5]
+        % Axis
+        \draw[->] (-2,0) -- (12,0) node[below]{$x_1$};
+        \draw[->] (0,-2) -- (0,12) node[left]{$x_2$};
+
+        % Constraint 1
+        \draw[thick] (-0.5,0.5) -- (10,11) node[right]{\small $-x_1 + x_2 \geq 1$};
+
+        % Feasible Region
+        \filldraw[fill=gray, opacity=0.3] (0,1) -- (0,11) -- (10,11) -- cycle;
+
+        % Corner Points
+        \fill (0,1) circle (3pt) node[above left] {$(0,1)$};
+        \fill (0,0) circle (3pt) node[below left] {$0$};
+    \end{tikzpicture}
+    \caption{Feasible Region of LP}
+    \label{fig:2-feasiblelp2}
+\end{figure} 
+
+\noindent b) For a minimisation problem, we have the complete LP: 
+
+\begin{align*}
+    \min_{x_{1}, x_{2}} \; \alpha x_{1} + x_{2} \\ 
+    \text{s.t.} \; -x_{1}+x_{2} & \geq 1 \\
+    x_{1} & \geq 0
+\end{align*}
+
+\noindent i) For the optimal solution to be unique, we need $\alpha = 0$ for a minimum at $x_{2} = 1$. \\ 
+
+\noindent ii) For there to be multiple optimal solutions with infinite optimal objective values, we need $\alpha \in \mathbb{R} \backslash \{-1,0\}$. \\ 
+
+\noindent iii) For there to be an unbounded optimal objective value, we need $\alpha = -1$. 
+
+\newpage 
+
+\section*{Question 3}
+a) Since $Z$ is a discrete random variable that takes values in the set $\{1, 2, \dots, 10\}$, and $p_i = \text{Prob}(Z = i) \; \forall i \in \{1, 2, \dots , 10\}$, with sum and non-negative constraints, we can formulate the LP: 
+
+\begin{align*}
+    \max_{p_i} \; \sum_{i=5}^{10} p_i & \\ 
+    \text{s.t.} \; \; \sum_{i=1}^{10} p_i &= 1 \\ 
+    \sum_{i=1}^{10} i \cdot p_i &= 4 \\ 
+    p_i &\geq 0
+\end{align*}
+
+\noindent We want to optimise the probability distribution of $Z$ such that the likelihood of $Z$ being 5, 6, 7, 8, 9, or 10 is maximised. \\ 
+
+\noindent Using the following \textit{JuMP} code, we have the final probability distribution of $Z$ being: 
+
+\begin{equation*}
+    \boxed{p = \{0.25, 0, 0, 0, 0.75, 0, 0, 0, 0, 0\}}
+\end{equation*}
+
+% \begin{minted}{Julia}
+%     using JuMP
+%     using GLPK
+    
+%     model = Model(GLPK.Optimizer)
+    
+%     # Decision variables
+%     @variable(model, p[1:10] >= 0)
+    
+%     # Objective function
+%     @objective(model, Max, sum(p[5:10]))
+    
+%     # Normalization constraint
+%     @constraint(model, sum(p) == 1)  
+%     # Average value constraint
+%     @constraint(model, sum(i * p[i] for i in 1:10) == 4)  
+    
+%     # Solving LP
+%     optimize!(model)
+
+%     optimal_probabilities = value.(p)
+%     println("Optimal Probability Distribution: ", optimal_probabilities)
+% \end{minted}
+
+\newpage
+
+\section*{Question 4}
+For the minimisation problem: 
+
+\begin{align*}
+    \min \; x_{1}-x_{2} \qquad \qquad \qquad & \\ 
+    \text{s.t.} \quad 2 x_{1} + 3 x_{2} - x_{3} + x_{4} & \leq 0 \\ 
+    3 x_{1} + x_{2} + 4 x_{3} - 2 x_{4} & \geq 3 \\ 
+    - x_{1} - x_{2} + 2 x_{3} + x_{4} & = 6 \\ 
+    x_{1} &\leq 0 \\ 
+    x_{2},\; x_{3} & \geq 0 
+\end{align*}
+
+\noindent We can rearrange the LP into the form: 
+
+\begin{align*}
+    \max \; \mathbf{c}^{\top} \mathbf{x} & \\ 
+    \text{s.t.} \quad \mathbf{A} \mathbf{x} & \leq \mathbf{b}
+\end{align*}
+
+\noindent For the $3^{\text{rd}}$ constraint, we separate into two cases: 
+
+\begin{align*}
+    - x_{1} - x_{2} + 2 x_{3} + x_{4} & \geq 6 \\
+    x_{1} + x_{2} -2 x_{3} -x_{4} & \leq -6
+\end{align*}
+
+\noindent where:
+
+\begin{equation*}
+    \mathbf{x} = \begin{bmatrix}
+        x_{1} \\ x_{2} \\ x_{3} \\ x_{4} 
+    \end{bmatrix},
+    \quad 
+    \mathbf{c} = \begin{bmatrix}
+        1 \\ -1 \\ 0 \\ 0
+    \end{bmatrix},
+    \quad 
+    \mathbf{A} = \begin{bmatrix}
+        2 & 3 & -1 & 4 \\ 
+        -3 & -1 & -4 & 2 \\ 
+        -1 & -1 & 2 & 1 \\ 
+        1 & 1 & -2 & -1 \\ 
+        1 & 0 & 0 & 0 \\ 
+        0 & -1 & 0 & 0 \\ 
+        0 & 0 & -1 & 0 
+    \end{bmatrix},
+    \quad 
+    \mathbf{b} = \begin{bmatrix}
+        0 \\ -3 \\ 6 \\ -6 \\ 0 \\ 0 \\ 0
+    \end{bmatrix}
+\end{equation*}
+
+
+\section*{Question 5}
+
+\section*{Question 6}
+
+\section*{Question 7}
+
+\end{document}

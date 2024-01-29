@@ -1,0 +1,582 @@
+\documentclass{article}
+\usepackage{LectureNotes}
+
+\setstretch{1.2}
+
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+\begin{comment}
+    \geometry
+    {
+        a4paper,
+        total={170mm,257mm},
+        left=20mm,
+        top=20mm,
+    }
+\end{comment}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{Linear Algebra}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{Introductory Notes for Machine Learning} \vspace*{10\baselineskip}}
+		}
+\date{\today}
+\author{\textbf{Michael Hoon}}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+
+\section{Introduction}
+
+Linear Algebra is foremost the study of vector spaces, and the functions between vector spaces called mappings. However, underlying every vector space is a structure known as a field, and underlying every field there is what is known as a ring. We begin with the definition of a ring and proceed from there.
+
+\subsection{Rings}
+
+\begin{definition}
+    A \textbf{\textit{ring}} is a triple (\textit{R}, $+$, $\cdot$) consisting of a set $R$ of objects, along with binary operations \textbf{\textit{addition}} $+:R \times R \rightarrow R$ and \textbf{\textit{multiplication}} $\cdot : R \times R \rightarrow R$ subject to the following axioms: 
+    \begin{enumerate}
+        \item $a + b = b + a \; \forall a, b \in R$. 
+        \item $a + (b + c) = (a + b) + c, \; \forall a, b, c \in R$.
+        \item $\exists \; 0 \in R \; \text{s.t.} \; a + 0 = a, \; \forall a \in R$. 
+        \item For each $a \in R, \; \exists -a \in R \; \text{s.t.} - a + a = 0$. (Additive Identity)
+        \item $a \cdot (b \cdot c) = (a \cdot b) \cdot c, \; \forall a, b, c \in R$.
+        \item $a \cdot (b + c) = (a \cdot b) + (a \cdot c) , \; \forall a, b, c \in R$.
+    \end{enumerate}
+\end{definition}
+
+\noindent We define a \textbf{subtraction} operation as follows: 
+
+\begin{equation*}
+    a - b = a + (- b)
+\end{equation*}
+
+\noindent where 
+
+\begin{equation*}
+    a - a = 0
+\end{equation*}
+
+\begin{theorem}\label{commutativering}
+    A ring (\textit{R}, $+$, $\cdot$) is \textbf{\textit{commutative}} if it satisfies the additional axiom: 
+    $a \cdot b = b \cdot a, \; \forall \; a, b \in R$
+\end{theorem}
+
+\begin{theorem}\label{unitarycommutativering}
+    A \textit{commutative ring} (\textit{R}, $+$, $\cdot$) is a \textbf{\textit{unitary commutative ring}} if it satisfies the additional axiom:
+    $\exists \; 1 \in R \  \text{s.t.} \  a \cdot 1 = a, \; \forall \; a \in R$
+\end{theorem}
+
+\begin{theorem}\label
+    Let (\textit{R}, $+$, $\cdot$) be a unitary ring (satisfies \ref{unitarycommutativering} but not \ref{commutativering}). The \textbf{\textit{multiplicative inverse}} of an object $a \in R$ is an object $a^{-1} \in R$ for which:
+    $a \cdot a^{-1} = a^{-1} \cdot a = 1$  
+\end{theorem}
+
+\noindent Now we have the necessary definitions to properly define a field:
+
+\subsection{Fields}
+
+\begin{definition}
+    A \textbf{\textit{field}} is a unitary commutative ring (\textit{R}, $+$, $\cdot$) for which $1 \neq 0$, and every $a \in R \text{s.t.} a \neq 0$ has a multiplicative inverse. 
+    To summarise, a field is a set of objects $\mathbb{F}$, together with binary operations $+$ and $\cdot$ on $\mathbb{F}$, that are subject to the following \textbf{\textit{field axioms}}: 
+    \begin{enumerate}
+        \item $a + b = b + a \ \forall \ a,b \in \mathbb{F}$.
+        \item $a + (b + c) = (a + b) + c, \ \forall a, b, c \in \mathbb{F}$.
+        \item $\exists \ 0 \in \mathbb{F} \ \text{s.t.} \ a + 0 = a \ \forall \ a,b,c \in \mathbb{F}$.
+        \item For each $a \in \mathbb{F}, \ \exists \ -a \in \mathbb{F} \ \text{s.t.} \ -a + a = 0$. 
+        \item $a \cdot (b \cdot c) = (a \cdot b) \cdot c \ \forall \ a, b, c \in \mathbb{F}$. 
+        \item $a \cdot (b + c) = (a \cdot b) + (a \cdot c), \ \forall \ a, b, c \in \mathbb{F}$.
+        \item $a \cdot b = b \cdot a, \ \forall \ a, b \in \mathbb{F}$.
+        \item $\exists \ 0 \neq 1 \in \mathbb{F} \ \text{s.t.} \ a \cdot 1 = a \ \forall \ a \in \mathbb{F}$.
+        \item For each $0 \neq a \in \mathbb{F} \ \exists \ a^{-1} \in \mathbb{F} \ \text{s.t.} \ a a^{-1} = 1$. 
+    \end{enumerate}
+\end{definition}
+
+\noindent where $\mathbb{F}$ denotes both the sets $\mathbb{R}$ and $\mathbb{C}$, which are commonly encountered fields in Linear Algebra.
+
+\subsection{Real Euclidean Space}
+Let $\mathbb{R}$ denote the set of real numbers. GIven a positive integer $n$, we define \textbf{\textit{n-space}} to be the set: 
+
+\begin{equation}
+    \mathbb{R}^n = \{(x_{1}, x_{2}, \dots , x_n): x_i \in \mathbb{R} \ \text{for} \ 1 \leq i \leq n\}.
+\end{equation}
+
+\noindent where any ordered list of $n$ objects is called an \textbf{\textit{n-tuple}}.
+
+\section{Vectors}
+An ordered set of numbers. For example, $\vec{v} = \begin{bmatrix}
+    2 \\ -3 \\ 1
+\end{bmatrix} \in \mathbb{R}^3$ is a 3-dimensional vector. 
+
+
+\subsection{Vector Operations}
+
+\subsubsection{Addition}
+Suppose $\vec{v} = \begin{bmatrix}
+    v_{1} \\ v_{2} \\ \vdots \\ v_n 
+\end{bmatrix}, v_{2} = \begin{bmatrix}
+    w_{1} \\ w_{2} \\ \vdots \\ w_n
+\end{bmatrix} \implies \vec{v} + \vec{w} = \begin{bmatrix}
+    v_{1} + w_{1} \\ v_{2} + w_{2} \\ \vdots \\ v_n + w_n
+\end{bmatrix}$ \\
+
+\subsubsection{Scalar Multiplication}
+$\forall c \in \mathbb{R}: c \cdot \vec{v} = \begin{bmatrix}
+    c \cdot v_{1} \\ c \cdot v_{2} \\ \vdots \\ c \cdot v_n
+\end{bmatrix}$, where $c$ is a scalar. 
+
+\subsubsection{Linear Combination}
+Now we combine addition with scalar multiplication to produce a \textbf{``linear combination"} of $\bm{v}$ and $\bm{w}$. 
+
+\begin{theorem}
+    The sum of $c\bm{v}$ and $d\bm{w}$ is a linear combination of $c\bm{v} + d\bm{w}$. 
+\end{theorem}
+
+\subsection{Dot Product}\label{sec:dotproduct}
+\begin{definition}
+    Let $\bm{u} = [u_{1}, u_{2}, \dots, u_n]$ and $\bm{v} = [v_{1}, v_{2}, \dots , v_n]$ be two vectors in $\mathbb{R}^n$. Then the dot (or inner) product of $\bm{u}$ and $\bm{v}$ is the \textbf{\textit{real}} number:
+    \begin{equation*}
+        \bm{u} \cdot \bm{v} = u_{1}v_{1} + u_{2}v_{2} + \cdots + u_n v_n = \sum_{i=1}^{n} u_i v_i 
+    \end{equation*}
+\end{definition}
+
+\noindent Some properties of the dot product:
+
+\begin{theorem}
+    For any vectors $\bm{u}, \bm{v}, \bm{w} \in \mathbb{R}^n$ and scalar $c$:
+    \begin{enumerate}
+        \item $\bm{u} \cdot \bm{v} = \bm{v} \cdot \bm{u}$
+        \item $\bm{u} \cdot (\bm{v} + \bm{w}) = \bm{u} \cdot \bm{v} + \bm{u} \cdot \bm{w}$
+        \item $(c\bm{u}) \cdot \bm{v} = c(\bm{u} \cdot v) = \bm{u} \cdot (c\bm{v})$
+        \item $\bm{u} \cdot \bm{u} > 0$ if $\bm{u} \neq 0$ 
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}\label{thm:orthogonality}
+    Two vectors $\bm{u}, \bm{v}$ are \textbf{\textit{orthogonal}}, written $\bm{u} \perp \bm{v}$, if $\bm{u} \cdot \bm{v} = 0$.
+\end{theorem}
+
+\subsection{Normed Spaces}\label{sec:normedspaces}
+Norms generalize the notion of length from Euclidean space. 
+
+\begin{definition}
+    The \textbf{\textit{Euclidean norm}} of a vector $\bm{v} \in \mathbb{R}^n$ is $\Vert \bm{v} \Vert = \sqrt{\bm{v} \cdot \bm{v}}$. 
+\end{definition}
+
+If $\bm{v} = [v_{1}, \dots, v_n]$, then
+
+\begin{equation}
+    \Vert \bm{v} \Vert = \sqrt{[v_{1}, \dots, v_n] \cdot [v_{1}, \dots, v_n]} = \sqrt{\displaystyle \sum_{i=1}^{n} v_i^2}
+\end{equation}
+
+Which is also commonly known as the vector's magnitude or length. 
+
+\begin{theorem}
+    Let $\bm{x}, \bm{y} \in \mathbb{R}^n$. The \textbf{\textit{distance}} $d(\bm{x}, \bm{y})$, between $\bm{x}$ and $\bm{y}$ is given by
+    \begin{equation*}
+        d(\bm{x}, \bm{y}) = \Vert \bm{x} - \bm{y} \Vert
+    \end{equation*}
+\end{theorem}
+
+Thus again, if $\bm{x} = [x_{1}, \dots, x_n]$, $\bm{y} = [y_{1}, \dots, y_n]$, then 
+
+
+\subsubsection{$L^p$ Norms}
+\begin{equation*}
+    d(\bm{x}, \bm{y}) = \sqrt{\displaystyle \sum_{i=1}^{n} (x_i - y_i)^{2}}
+\end{equation*}
+
+\begin{definition}
+    Formally, the $L^p$ norm is given by
+    \begin{equation}
+        \Vert x \Vert^p = \left(\sum_{i}\vert x_i \vert^p\right)^\frac{1}{p}, \quad \forall p \in \mathbb{R}, p\geq 1.
+    \end{equation}
+    Norms, including the $L^{p}$ norm, are functions mapping vectors to non-negative values. On an intuitive level, the norm of a vector $\bm{x}$ measures the distance from the origin to the point $\bm{x}$.  
+\end{definition}
+
+More rigorously, a norm is any function $f$ that satisfies the following properties:
+
+\begin{itemize}
+    \item Positive Definite-ness: $f(\bm{x}) = 0 \implies \bm{x} = \bm{0}$
+    \item Triangle Inequality: $f(\bm{x} + \bm{y}) \leq f(\bm{x}) + f(\bm{y})$
+    \item Absolute homogeneity: $\forall \alpha \in \mathbb{R}, f(\alpha\bm{x} = \lvert \alpha \rvert f(\bm{x}))$
+\end{itemize}
+
+\noindent A vector space endowed with a norm is called a normed vector
+space, or simply a normed space.
+
+
+\subsubsection{$L^\infty$ Norm}
+\noindent One other norm that commonly arises in Machine Learning is the $L^{\infty}$ norm, also known as the \textbf{max norm} (the limit of the $p$-norm when $p$ tends to infinity). This norm simplifies to the absolute value of the element with the largest magnitude in the vector:
+
+\begin{equation*}
+    \lVert \bm{x} \rVert_\infty = \max_i \lvert x_i \rvert 
+\end{equation*}
+
+\subsection{Unit Vectors}
+\begin{definition}
+    A unit vector $\bm{u}$ is a vector whose length equals 1, and $\bm{u} \cdot \bm{u} = 1$. To obtain a unit vector in the direction of any nonzero vector $\bm{v}$, divide by its length $\Vert \bm{v} \Vert$.
+    \begin{equation*}
+        \bm{u} = \frac{\bm{v}}{\Vert \bm{v} \Vert}
+    \end{equation*} is a unit vector in the same direction as $\bm{v}$.
+\end{definition}
+
+\subsection{Orthogonality}\label{sec:orthogonality}
+Given Definition \ref{thm:orthogonality}, suppose $\bm{u}, \bm{v} \in \mathbb{R}^n$ are orthogonal vectors. Geometrically, $\Vert \bm{u} + \bm{v} \Vert$ is the length of the longest side of the triangle, and $\Vert \bm{u} \Vert, \Vert \bm{v} \Vert$ are the shorter sides. We can see that 
+
+\begin{theorem}\label{thm:triangleperp}
+    Magnitude of perpendicular vectors:
+    \begin{align*}
+        \Vert \bm{u} + \bm{v} \Vert &= \left(\sqrt{(\bm{u} + \bm{v}) \cdot (\bm{u} + \bm{v})} \right)^{2} = (\bm{u} + \bm{v}) \cdot (\bm{u} + \bm{v}) \\ 
+        &= (\bm{u} + \bm{v}) \cdot \bm{u} + (\bm{u} + \bm{v}) \cdot \bm{v} = \bm{u} \cdot \bm{v} + \bm{v} \cdot \bm{u} + \bm{u} \cdot \bm{v} + \bm{v} \cdot \bm{v} \\ 
+        &= \Vert \bm{u} \Vert ^{2} + \Vert \bm{v} \Vert ^{2}
+    \end{align*}
+\end{theorem}
+
+\noindent Which obeys the Pythagorean Theorem, and so it must be that the triangle is a right triangle (i.e. $\bm{u}, \bm{v}$ are 'perpendicular').
+
+\subsubsection{Orthogonal Projection}
+\begin{theorem}
+    Let $v \neq 0$. The orthogonal projection of $\bm{u}$ onto $\bm{v}, \text{proj}_{\bm{v}}\bm{u}$, is given by 
+    \begin{equation*}
+        \text{proj}_{\bm{v}}\bm{u} = \left(\frac{\bm{u} \cdot \bm{v}}{\bm{v} \cdot \bm{v}}\right)
+    \end{equation*}
+\end{theorem}
+
+\begin{proposition}
+    If $\bm{u}, \bm{v} \in \mathbb{R}^n, \bm{v} \neq 0$, and $c = \frac{\bm{u} \cdot \bm{v}}{\bm{v} \cdot \bm{v}}$, then $\bm{u} - c\bm{v}$ is orthogonal to $\bm{v}$.  
+\end{proposition}
+
+\begin{proof}\label{proof:scalarorthogonal}
+    Taking the dot product, 
+    \begin{equation*}
+        (\bm{u} - c\bm{v}) \cdot \bm{v} = \bm{u} \cdot \bm{v} - c(\bm{v} \cdot \bm{v}) = \bm{u} \cdot \bm{v} - \left(\frac{\bm{u} \cdot \bm{v}}{\bm{v} \cdot \bm{v}}\right) (\bm{v} \cdot \bm{v}) = \bm{u} \cdot \bm{v} - \bm{u} \cdot \bm{v} = 0
+    \end{equation*}
+    \noindent where $\bm{u} - c\bm{v} \perp \bm{v}$. This also applies to any scalar $a$. 
+\end{proof}
+
+\subsection{Cauchy-Schwarz Inequality}
+
+\begin{definition}
+    If $\bm{u}, \bm{v} \in \mathbb{R}^n$, then $|\bm{u} \cdot \bm{v}| \leq \Vert \bm{u} \Vert \Vert \bm{v} \Vert$.
+\end{definition}
+
+\begin{proof}\label{proof:cauchyschwarz}
+    Suppose $\bm{u}, \bm{v} \in \mathbb{R}^n$. If $\bm{u} = \bm{0}$ or $\bm{v} = \bm{0}$, then: 
+    \begin{equation*}
+        |\bm{u} \cdot \bm{v}| = |0| = 0 = \Vert \bm{u} \Vert \Vert \bm{v}\Vert 
+    \end{equation*}
+    \noindent which affirms the theorem's conclusions. So, suppose $\bm{u}, \bm{v} \neq \bm{0}$, and let $c \in \mathbb{R}$ similar to above, 
+    \begin{equation*}
+        (\bm{u} - c\bm{v}) \cdot c\bm{v} = c[(\bm{u} - c\bm{v}) \cdot \bm{v}] = c(0) = 0
+    \end{equation*}
+    \noindent by \ref{proof:scalarorthogonal}. Thus $\bm{u} - c\bm{v}$ and $c\bm{v}$ are orthogonal. Using \ref{thm:triangleperp}, we have 
+    \begin{equation*}
+        \Vert \bm{u} \Vert^{2} = \Vert (\bm{u}-c\bm{v}+c\bm{v})\Vert^{2} = \Vert \bm{u} - c\bm{v} \Vert^{2} + \Vert c\bm{v}\Vert^{2}. 
+    \end{equation*}
+    \noindent Since $\Vert \bm{u} - c\bm{v} \Vert^{2} \geq 0$, this implies that $\Vert c\bm{v}\Vert^{2} \leq \Vert \bm{u} \Vert^{2}$. However, 
+    \begin{equation*}
+        \Vert c\bm{v} \Vert^{2} = c^2\Vert \bm{v} \Vert^{2} = \left(\frac{\bm{u} \cdot \bm{v}}{\bm{v} \cdot \bm{v}}\right)^{2} (\bm{v} \cdot \bm{v}) = \frac{(\bm{u} \cdot \bm{v})^{2}}{\bm{v} \cdot \bm{v}} = \frac{(\bm{u} \cdot \bm{v})^{2}}{\Vert \bm{v} \Vert^{2}}
+    \end{equation*}
+    \noindent and so from $\Vert c\bm{v} \Vert^{2} \leq \Vert \bm{u}\Vert^{2}$ we obtain 
+    \begin{equation*}
+        \frac{(\bm{u} \cdot \bm{v})^{2}}{\Vert \bm{v} \Vert^{2}} \leq \Vert \bm{u} \Vert^{2}
+    \end{equation*}
+    \noindent whence comes $(\bm{u} \cdot \bm{v})^{2} \leq \Vert \bm{u} \Vert^{2} \Vert \bm{v} \Vert^{2}$.
+    \noindent Taking square root of both sides completes the proof.
+\end{proof}
+
+\noindent From here, we have 
+
+\begin{equation*}
+    -\Vert\bm{u}\Vert\Vert\bm{v}\Vert\leq \bm{u} \cdot \bm{v} \leq \Vert\bm{u}\Vert\Vert\bm{v}\Vert = -1 \leq \frac{\bm{u} \cdot \bm{v}}{\Vert\bm{u}\Vert\Vert\bm{v}\Vert} \leq 1, \ \forall \bm{u}, \bm{v} \neq \bm{0}
+\end{equation*}
+
+\begin{theorem}\label{thm:cosinedotproduct}
+    Let $\bm{u}, \bm{v} \in \mathbb{R}^n$ be nonzero vectors. The angle between $\bm{u}, \bm{v}$ is the number $\theta \in [0,\pi]$ for which 
+    \begin{equation*}
+        \cos \theta = \frac{\bm{u}\cdot \bm{v}}{\Vert\bm{u}\Vert\Vert\bm{v}\Vert} \quad \textbf{or} \quad \bm{u}\cdot \bm{v} = \Vert\bm{u}\Vert\Vert\bm{v}\Vert \cos \theta
+    \end{equation*}
+\end{theorem}
+
+\section{Matrices}
+
+\begin{definition}
+    Let $m,n \in \mathbb{N}$, and let $\mathbb{F}$ be a field. An $m \times n$ matrix over $\mathbb{F}$ is a rectangular array of elements of $\mathbb{F}$ arranged in $m$ rows and $n$ columns (dimensions):
+    \begin{equation}
+        \begin{bmatrix}
+            a_{11} & a_{12} & \dots & a_{1n} \\ 
+            a_{21} & a_{22} & \dots & a_{2n} \\ 
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{m1} & a_{m2} & \dots & a_{mn} \\  
+        \end{bmatrix} = [a_{ij}]_{m,n} \quad \forall \; a_{ij} \in \mathbb{F} 
+    \end{equation}
+\end{definition}
+
+\noindent The set of all $m \times n$ matrices with entries in the field $\mathbb{F}$ will be denoted by $\mathbb{F}^{m\times n}$:
+
+\begin{equation*}
+    \mathbb{F}^{m\times n} = \{[a_{ij}]_{m,n}:a_{ij}\in \mathbb{F} \quad \forall 1 \leq i \leq m, 1 \leq j \leq n\}, \quad \text{and} \quad \mathbb{F}^n = \mathbb{F}^{n\times 1} 
+\end{equation*}
+
+\subsection{Addition and Scalar Multiplication}
+\lipsum[1]
+
+\subsection{Transpose}
+\lipsum[1]
+
+\subsection{Matrix Multiplication}
+\begin{definition}
+    Let $\mathbf{A} \in \mathbb{F}^{m\times n}$ and $\mathbf{B} \in \mathbb{F}^{n\times p}$. Then the \textbf{\textit{product}} of $\mathbf{A}$ and $\mathbf{B}$ is the matrix $\mathbf{AB} \in \mathbb{F}^{m\times p}$
+    \begin{equation*}
+        [\mathbf{AB}]_{ij} = \sum_{k=1}^{n} [\mathbf{A}]_{ik}[\mathbf{B}]_{kj}, \quad 1\leq i \leq m, \; 1\leq j\leq p 
+    \end{equation*} 
+\end{definition}
+
+\noindent If we let $\mathbf{A} = [a_{ij}]_{m,n}$ and $\mathbf{B} = [b_{ij}]_{n,p}$, then $\mathbf{AB} = [c_{ij}]_{m,p}$ where 
+
+\begin{equation*}
+    c_{ij} = \sum_{k=1}^{n} a_{ik} b_{kj}   
+\end{equation*}
+
+\noindent Thus 
+
+\begin{equation}
+    \mathbf{AB} = [a_{ij}]_{m,n} [b_{ij}]_{n,p} = \left[\sum_{k=1}^{n} a_{ik} b_{kj} \right]
+\end{equation}
+
+\noindent Where $\mathbf{AB} \neq \mathbf{BA}$, i.e. matrix multiplication is non-commutative. 
+
+\subsubsection{Matrix Multiplication Properties}
+\begin{theorem}
+    Let $\mathbf{A} \in \mathbb{F}^{m\times n}, \mathbf{B}, \mathbf{C} \in \mathbb{F}^{p\times q}, \mathbf{D} \in \mathbb{F}^{p\times q}$, and $c \in \mathbb{F}$. Then
+    \begin{enumerate}
+        \item $\mathbf{A(c \mathbf{B}) = c(\mathbf{AB})}$
+        \item Distributivity: $\mathbf{A}(\mathbf{B + C}) = \mathbf{AB} + \mathbf{AC}$
+        \item Associativity: $(\mathbf{AB})\mathbf{D} = \mathbf{A}(\mathbf{BD})$
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+    If $\mathbf{A} \in \mathbb{F}^{n\times n}$ and $m \in \mathbb{N}$, then 
+    \begin{equation*}
+        \mathbf{A}^m = \underbrace{\mathbf{A}\mathbf{A}\dots\mathbf{A}}_{\text{m factors}} = \prod_{k=1}^{m} \mathbf{A}
+    \end{equation*}
+\end{definition}
+
+\subsubsection{Dot Product Revisited}
+Matrix multiplication is \textit{not} commutative, but the dot product between two vectors is commutative:
+
+\begin{equation}
+    x^{\top}y = (x^{\top}y)^{\top} = y^{\top}x
+\end{equation}
+
+
+\noindent by exploiting the fact that the value of such a product is a scalar and therefore equal to its own transpose. 
+
+\subsection{Identity Matrices}
+The \textbf{Kronecker Delta} is a function $\delta_{ij}: \mathbb{Z} \times \mathbb{Z} \rightarrow \{0,1\}$ defined as follows for integers $i,j$:
+
+\begin{equation*}
+    \delta_{ij} = \begin{cases}
+        1 & i = j \\ 
+        0 & i \neq j
+    \end{cases}
+\end{equation*}
+
+\noindent and thus the $n \times n$ identity matrix: 
+
+\begin{equation*}
+    \mathbf{I}_n = [\delta_{ij}]_n = \begin{bmatrix}
+        1 & 0 & \dots & 0 \\ 
+        0 & 1 & \dots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \dots & 1 \\
+    \end{bmatrix}
+\end{equation*}
+
+\begin{definition}
+    For any $\mathbf{A} \in \mathbb{F}^{n\times n}$ we define $\mathbf{A}^{0} = \mathbf{I}_n$ where $I_n$ acts as \textbf{the} identity with respect to matrix multiplication, just as $1$ is the identity with respect to multiplication of real numbers.    
+\end{definition}
+
+Where more generally, $I_n$ is the only matrix for which
+
+\begin{equation}
+    \mathbf{I}_n \mathbf{A} = \mathbf{A} \mathbf{I}_n = \mathbf{A}, \quad \forall \mathbf{A} \in \mathbb{F}^{n \times n}
+\end{equation}
+
+\begin{definition}
+    An $n\times n$ matrix $\mathbf{A}$ is \textbf{invertible} if there exists a matrix $\mathbf{B}$ s.t. 
+    \begin{equation*}
+        \mathbf{AB} = \mathbf{BA} = \mathbf{I}_n 
+    \end{equation*}
+    in which case we will call $\mathbf{B}$ the inverse of $\mathbf{A}$ and denote it by the symbol $\mathbf{A}^{-1}$. A matrix that is not invertible is said to be \textbf{\textit{nonsingular}}. 
+\end{definition}
+
+\begin{theorem}
+    Let $k \in \mathbb{N}$. If $\mathbf{A}_1,\dots, \mathbf{A}_k \in \mathbb{F}^{n\times n}$ are invertible, then $\mathbf{A}_1\dots \mathbf{A}_k$ is invertible and 
+    \begin{equation*}
+        (\mathbf{A}_{1}\dots \mathbf{A}_k)^{-1} = \mathbf{A}^{-1}\dots \mathbf{A}_{1}^{-1}
+    \end{equation*}
+\end{theorem}
+
+\begin{proposition}
+    If $(\mathbf{A}^\top)^{-1} = (\mathbf{A}^{-1})^\top$
+\end{proposition}
+
+\begin{proof}
+    Suppose that $\mathbf{A}\in \mathbb{F}^{n\times n}$ is invertible, so that $\mathbf{A}^{-1}$ exists.
+    \begin{equation*}
+        \mathbf{A}\mathbf{A}^{-1} = \mathbf{I}_n \implies (\mathbf{A}\mathbf{A}^{-1})^\top = \mathbf{I}_n^\top \implies (\mathbf{A}^{-1})^\top \mathbf{A}^\top = \mathbf{I}_n 
+    \end{equation*}
+    and 
+    \begin{equation*}
+        \mathbf{A}^{-1}\mathbf{A} = \mathbf{I}_n \implies (\mathbf{A}^{-1}\mathbf{A}^\top) = \mathbf{I}_n^\top \implies \mathbf{A}^\top (\mathbf{A}^{-1})^\top  = \mathbf{I}_n 
+    \end{equation*}
+    Now, 
+    \begin{equation*}
+        (\mathbf{A}^{-1})^\top \mathbf{A}^\top = \mathbf{A}^\top (\mathbf{A}^{-1})^\top = \mathbf{I}_n
+    \end{equation*}
+    shows that $(\mathbf{A}^{-1})^\top$ is the inverse of $\mathbf{A}^\top$. Therefore $\mathbf{A}^\top$ is invertible, and moreover $(\mathbf{A}^\top)^{-1} = (\mathbf{A}^{-1})^\top$.
+\end{proof}
+
+\section{Linear Mappings}
+As with functions in general, to say a mapping $T$ \textbf{maps} a set $X$ into a set $Y$, written $T: X \rightarrow Y$, means that $T$ maps each object $x\in X$ yo a unique object $y \in Y$. We denote this by writing $T(x) = y$, and call $X$ the \textbf{domain} of $T$ and $Y$ and the \textbf{codomain}. A little more formally a mapping $T$ is a set of ordered pairs $(x,y) \in X \times Y$ with the property that 
+
+\begin{equation*}
+    \forall x \in X [\exists y \in Y (((x,y) \in T) \wedge (\hat{y} \neq y \rightarrow(x, \hat{y}) \notin T))].
+\end{equation*}
+
+\noindent We call $T(x)$ the value of $T$ at $x$. Given any set $A \subseteq X$, we define the image of $A$ under $T$ to be the set 
+
+\begin{equation*}
+    T(A) = \{T(x): x \in A \} \subseteq Y
+\end{equation*}
+
+\noindent with $T(x)$ in particular being called the \textbf{image} of T (or the \textbf{range} of $T$). To denote a \textbf{mapping} we write $T:\mathbb{R}\rightarrow \mathbb{R}$ for which $T(x) = \sqrt[3]{x} \quad \forall x \in \mathbb{R}$. '$\rightarrow$' is used for mappings between \textit{sets}, while '$\mapsto$' is used \textit{between elements of sets}.
+
+\begin{definition}
+    A mapping $T: X \rightarrow Y$ is \textbf{injective} if 
+    \begin{equation*}
+        T(x_{1}) = T(x_{2}) \implies x_{1} = x_{2}, \quad \forall x_{1}, x_{2} \in X
+    \end{equation*}
+    Thus if $x_{1} \neq x_{2}$, then $T(x_{1}) \neq T(x_{2})$. A mapping $T: X\rightarrow Y$ is \textbf{surjective} if for each $y\in Y \ \exists x \in X$ such that $T(x) = y$  
+\end{definition}
+
+If a mapping is both \textbf{injective} and \textbf{surjective}, we call it a \textbf{bijection}. A linear map to itself is called a \textbf{linear operator}. 
+
+\begin{definition}
+    Let $V$ and $W$ be vector spaces over $\mathbb{F}$. A mapping $L:V\rightarrow W$ is called a \textbf{linear mapping} if the following hold:
+    \begin{enumerate}
+        \item $L(\bm{u} + \bm{v}) = L(\bm{u}) + L(\bm{v}) \quad \forall \bm{u}, \bm{v} \in V$.  
+        \item $L(c\bm{u}) = cL(\bm{u}) \forall c\in \mathbb{F}$ and $\bm{u} \in V$.  
+    \end{enumerate}
+\end{definition}
+
+\begin{proposition}
+    If $L: V \rightarrow W$ is a linear mapping, then 
+    \begin{enumerate}
+        \item $L(\bm{0}) = \bm{0}$
+        \item $L(-\bm{v}) = -L(\bm{v})$ for any $\bm{v} \in V$
+        \item For any $c_{1}c_{2} \dots c_n \in \mathbb{F}, \ \bm{v}_{1} \bm{v}_2 \dots v_n \in V$: 
+    \end{enumerate}
+    \begin{equation*}
+        L\left(\displaystyle\sum_{k=1}^{n}c_k \bm{v}_k\right) = \displaystyle\sum_{k=1}^{n} c_{k}L(\bm{v}_k)
+    \end{equation*}
+\end{proposition}
+
+\subsection{Isomorphisms \& Homomorphisms}
+
+The definition of a linear map is suited to reflect the structure of vector spaces, since it preserves a vector spaces' two main operations: \textbf{addition and scalar multiplication}. In algebraic terms, a linear map is called a \textbf{homomorphism} of vector spaces. An \textit{invertible homomorphism} (where the
+inverse is also a homomorphism) is called an isomorphism.
+
+\begin{definition}
+    A \textbf{bijective} linear mapping is called an \textbf{isomorphism}. If $V$ and $W$ are vector spaces and there exists a linear mapping $L: V \rightarrow W$ that is an isomorphism, then $V$ and $W$ are said to be \textbf{isomorphic} and we write $V \simeq W$.  
+\end{definition}
+
+\noindent Isomorphic spaces are truly identical in save for the symbols used to represent their elements. In fact any vector space $V$ of dimension $n$ can be shown to be isomorphic to $\mathbb{R}^{n}$. \\
+
+\section{Vector Spaces}
+
+\subsection{Metric Spaces}
+Metrics generalize the notion of distance from Euclidean space (although metric spaces need not be
+vector spaces). 
+
+\begin{definition}
+    A metric on a set $S$ is a function $d: S \times S \rightarrow \mathbb{R}$ that satisfies:
+    \begin{enumerate}
+        \item $d(x, y) \geq 0$ with equality \textbf{iff} $x = y$
+        \item $d(x,y) = d(y, x)$
+        \item $d(x,z) = d(x, y) + d(y, z)$ (\textbf{Triangle Inequality})
+    \end{enumerate}
+\end{definition}
+
+\noindent for all $x, y, z \in S$. Metrics allow for limits to be defined for mathematical objects other than real numbers. 
+
+\subsection{Normed Spaces}
+Refer to Section \ref{sec:normedspaces}. Note that the axioms for \textbf{metrics} are satisfied under this definition and follow directly from
+the axioms for norms. Therefore, any normed space is also a metric space (If a normed space is complete with respect to the distance metric induced by its norm, we say that it is a \textbf{Banach space}). 
+
+\subsection{Inner Product Space}
+
+\begin{definition}
+    An \textbf{inner product} on a real vector space $V$ is a function $\braket{\cdot, \cdot}: V \times V \rightarrow \mathbb{R}$, satisfying: 
+
+    \begin{enumerate}
+        \item $\braket{\bm{x}, \bm{x}}$, with equality if and only if $\bm{x} = \bm{0}$
+        \item Linearity in the first slot: $\braket{\bm{x} + \bm{y}, \bm{z}} = \braket{\bm{x}, \bm{z}} + \braket{\bm{y}, \bm{z}}$ and $\braket{\alpha\bm{x}, \bm{y}} = \alpha\braket{\bm{x}, \bm{y}}$. 
+        \item $\braket{\bm{x}, \bm{y}} = \braket{\bm{y}, \bm{x}}$
+    \end{enumerate}
+    \noindent for all $\bm{x, y, z} \in \mathbb{R}$, and $\alpha \in \mathbb{R}$.
+\end{definition}
+
+\noindent A vector space endowed with an inner product is called an \textbf{inner product space}. Any inner product on $V$ induces a norm on $V$:
+
+\begin{equation*}
+    \lVert x \rVert = \sqrt{\braket{\bm{x}, \bm{x}}}
+\end{equation*}
+
+\noindent Again, more formally, two vectors $\bm{x}$ and $\bm{y}$ are said to be \textbf{orthogonal} \ref{sec:orthogonality} if $\braket{\bm{x}, \bm{y}} = 0$. If two orthogonal vectors additionally have unit length ($\lVert \bm{x} \rVert = \lVert \bm{y} \rVert = 1$), then they are described as \textbf{orthonormal}. 
+
+\begin{definition}
+    The standard inner product on $\mathbb{R}^n$ is given by:
+    \begin{equation*}
+        \braket{\bm{x}, \bm{y}} = \sum_{i=1}^{n} x_i y_i = \bm{x}^\top \bm{y}
+    \end{equation*}
+\end{definition}
+
+\section{Eigenthings}
+
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% Reference and Cited Works
+% ------------------------------------------------------------------------------
+
+% \bibliographystyle{IEEEtran}
+% \bibliography{References.bib}
+
+% ------------------------------------------------------------------------------
+
+\end{document}

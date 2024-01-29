@@ -1,0 +1,246 @@
+\documentclass{article}
+\usepackage{LectureNotes}
+
+\setstretch{1.2}
+
+\begin{comment}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+\end{comment}
+
+
+\geometry
+{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=20mm,
+}
+
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{40.017 Probability \& Statistics}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{An Introduction to Probability \& Statistics} \vspace*{10\baselineskip}}
+		}
+\date{\today}
+\author{\textbf{Michael Hoon}}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+
+
+\section{Set Theory}
+
+\subsection{Sample Spaces}
+
+The mathematical framework for probability is built around \textit{sets}. The \textit{sample space} $S$ of an experiment is the set of all possible outcomes of the experiment. An \textit{event} $A$ is a subset of $S$, and we say that $A$ occurred if the actual outcome is in $A$.  
+
+\subsection{Naive Definition of Probability}
+
+Let $A$ be an event for an experiment with a finite sample space $S$. A naive probability of $A$ is 
+
+\begin{equation}
+    \mathbb{P}_{\text{naive}}(A) = \frac{|A|}{|S|} = \frac{\text{number of outcomes favorable to A}}{\text{total number of outcomes}}
+\end{equation}
+
+\noindent In general, the result about complements always holds:
+
+\begin{equation*}
+    \mathbb{P}_{\text{naive}}(A^{c}) = \frac{|A^{c}|}{|S|} = \frac{|S| - |A|}{|S|} = 1- \frac{|A|}{|S|} = 1 - \mathbb{P}_{\text{naive}}(A)
+\end{equation*}
+
+An important factor about the naive definition is that it is restrictive in requiring $S$ to be finite. 
+
+\subsection{General Definition of Probability}
+
+\begin{definition}
+    A probability space consists of a sample space $S$ and a probability function $P$ which takes an event $A \subseteq S$ as input and returns $P(A)$, where $P(A) \in \mathbb{R}, \; P(A) \in [0, 1]$. The function must satisfy the following axioms:
+
+    \begin{enumerate}
+        \item $\mathbb{P}(\emptyset) = 1, \; \mathbb{P}(S) = 1$ 
+        \item $\mathbb{P}(A) \geq 0$
+        \item If $A_{1}, A_{2}, \dots$ are \textbf{disjoint events}, then: \begin{equation*}
+            \mathbb{P} \left( \bigcup_{j=1}^{\infty} \right) = \sum_{j=1}^{\infty} \mathbb{P}(A_j)
+        \end{equation*}
+        \noindent Disjoint events are \textbf{mutually exclusive} (i.e. $A_i \cap A_j = \emptyset \; \forall \; i \neq j$).
+    \end{enumerate}
+\end{definition}
+
+\subsubsection{Properties of Probability}
+\begin{theorem}
+
+Probability has the following properties, for any events $A$ and $B$: 
+
+\begin{enumerate}
+    \item $\mathbb{P}(A^{c}) = 1 - \mathbb{P}(A)$
+    \item If $A \subseteq B$, then $\mathbb{P}(A) \leq \mathbb{P}(B)$
+    \item $\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P} (B) - \mathbb{P}(A \cap B)$ 
+\end{enumerate}
+\end{theorem}
+
+\subsubsection{Inclusion-Exclusion Principle}
+
+For any events $A_{1}, \dots A_n$, 
+
+\begin{equation}
+    \mathbb{P}\left( \bigcup_{i=1}^{n} A_i \right) = \sum_{i} \mathbb{P}(A_i) - \sum_{i<j} \mathbb{P}(A_i \cap A_j) + \sum_{i<j<k} \mathbb{P}(A_i \cap A_j \cap A_k) - \dots + (-1)^{n+1} \mathbb{P}(A_{1} \cap \dots \cap A_n)
+\end{equation}
+
+\noindent For $n=2$, we have a nicer result:
+
+\begin{equation*}
+    \mathbb{P}(A_{1} \cup A_{2}) = \mathbb{P}(A_{1}) + \mathbb{P}(A_{2}) - \mathbb{P}(A_{1} \cap A_{2})
+\end{equation*}
+
+\subsection{Conditional Probability}
+
+\begin{definition}
+    If $A$ and $B$ are events with $\mathbb{P}(B) > 0$, then the \textit{conditional probability} of $A$ given $B$, denoted by $\mathbb{P}(A \mid B)$ is defined as: 
+
+    \begin{equation*}
+        \mathbb{P}(A | B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}
+    \end{equation*}
+\end{definition}
+
+\noindent Here $A$ is the event whose uncertainty we want to update, and $B$ is the evidence we observe. $\mathbb{P}(A)$ is the \textit{prior} probability of $A$ and $\mathbb{P}(A | B)$ is the \textit{posterior} probability of $A$. (For any event $A$, $\mathbb{P}(A|A) = \frac{\mathbb{P}(A \cap A)}{\mathbb{P}(A)}$).
+
+
+
+
+\section{Derangement}
+
+A derangement is a permutation of the elements of a set in which no element appears in its original position. We use $D_n$ to denote the number of derangements of $n$ distinct objects. 
+
+\subsection{Counting Derangements}
+We consider the number of ways in which $n$ hats ($h_{1}, \dots, h_n$) can be returned to $n$ people ($P_{1}, \dots, P_n$) such that no hat makes it back to its owner. \\
+
+We obtain the recursive formula:
+
+\begin{equation}\label{1-eq: derangement}
+    D_n = (n-1)(D_{n-1} + D_{n-2}), \; \forall \; n \geq 2
+\end{equation}
+
+\noindent With the initial conditions $D_{1} = 0$ and $D_{2} = 1$, we can use the formula to recursively compute $D_n$ for any $n$. \\
+
+\noindent There are various other expressions for $D_n$, equivalent to formula \ref{1-eq: derangement}:
+
+\begin{equation}\label{1-eq: derangement sum}
+    D_n = n! \sum_{i=0}^{n} \frac{(-1)^{i}}{i!}, \; \forall \; n \geq 0
+\end{equation}
+
+\subsubsection{Limiting Growth}
+From Equation \ref{1-eq: derangement sum}, and the taylor series expansion for $e$:
+
+\begin{equation}
+    e^{x} = \sum_{i=0}^{\infty} \frac{x^{i}}{i!} 
+\end{equation}
+
+\noindent we substitute $x=-1$ and obtain the limiting value as $n \to \infty$:
+
+\begin{equation*}
+    \lim_{n \to \infty} \frac{D_n}{n!} = \lim_{n \to \infty} \sum_{i=0}^{n} \frac{(-1)^{i}}{i!} = e^{-1} \approx 0.367879\dots
+\end{equation*}
+
+\noindent This is the limit of the probability that a randomly selected permutation of a large number of objects is a derangement. The probability converges to this limit extremely quickly as $n$ increases, which is why $D_n$ is the nearest integer to $\frac{n!}{e}$. 
+
+\section{Discrete Random Variables}
+
+We formally define a random variable:
+
+\begin{definition}
+    Given an experiment with sample space $S$, a \textit{random variable} (r.v.) is a function from the sample space $S$ to the real numbers $\mathbb{R}$. It is common to denote random variables by capital letters. 
+\end{definition}
+
+\noindent Thus, a random variable $X$ assigns a numerical value $X(s)$ to each possible outcome $s$ of the experiment. The randomness comes from the fact that we have a random experiment (with Probabilities described by the probability function $P$); the mapping itself is deterministic. \\
+
+There are two main types of random variables used in practice: \textit{discrete} and \textit{continuous} r.v.s. 
+
+\begin{definition}
+    A random variable $X$ is said to be \textit{discrete} if there is a finite list of values $a_{1}, a_{2}, \dots, a_n$ or an infinite list of values $a_{1}, a_{2}, \dots$ such that $\mathbb{P}(X = a_j \; \text{for some }j) = 1$. If $X$ is a discrete r.v., then the finite or countably infinite set of values $x$ such that $P(X = x) > 0$ is called the \textit{support} of $X$.  
+\end{definition}
+
+
+
+
+
+
+
+\subsection{Binomial}
+
+\subsection{Hypergeometric}
+
+If we have an urn filled with $w$ white and $b$ black balls, then drawing $n$ balls out of the urn \textit{with replacement} yields a $\text{Binom}(n, \frac{w}{(w+b)})$. If we instead sample \textit{without replacement}, then the number of white balls follow a \textbf{Hypergeometric} distribution. 
+
+\begin{theorem}
+    If $X \sim \text{hypgeo}(n, j, k)$, then the PMF of $X$ is:
+
+    \begin{equation*}
+        \mathbb{P}(X = x) = \frac{\binom{j}{x}\binom{k}{n-x}}{\binom{j+k}{n}}
+    \end{equation*}
+    \noindent $\forall x \in \mathbb{Z}$ satisfying $0\leq x \leq n$ and $0\leq n-x \leq j$, and $P(X=x) = 0$ otherwise. 
+\end{theorem}
+
+\noindent If $j$ and $k$ are large compared to $n$, then selection without replacement can be approximated by selection with replacement. In that case, the hypergeometric RV $X \sim \text{hypgeo}(n,j,k)$ can be approximated by a binomial RV $Y \sim \text{binomial}(n,p)$, where $p := \frac{j}{j+k}$ is the probability of selecting a black marble. \\
+
+\noindent We can also write $X$ as the sum of (dependent) Bernoulli random variables:
+
+\begin{equation*}
+    X = X_{1} + X_{2} + \dots + X_n
+\end{equation*}
+
+where each $X_i$ equals 1 if the $i$th selected marble is black, and 0 otherwise. 
+
+
+\subsubsection{Hypergeometric Symmetry}
+
+\begin{theorem}
+    The hypergeo$(w,b,n)$ and hypergeo$(n,w+b-n,w)$ distributions are identical. 
+\end{theorem}
+
+\noindent The proof follows from swapping the two sets of tags in the Hypergeometric story (white/black balls in urn) \footnote[3]{The binomial and hypergeometric distributions are often confused. Note that in Binomial distributions, the Bernoulli trials are \textbf{independent}. The Bernoulli trials in Hypergeometric distribution are \textbf{dependent}, since the sampling is done \textit{without replacement}.}. 
+
+
+\subsection{Geometric}
+
+\subsection{Negative Binomial}
+
+In a sequence of independent Bernoulli trials with success probability $p$, if $X$ is the number of failures before the $r$th success, then $X$ is said to have the Negative Binomial distribution with parameters $r$ and $p$, denoted $X \sim \text{NBin}(r,p)$. \\ 
+
+\noindent Both the Binomial and Negative Binomial distributions are based on independent Bernoulli trials; they differ in the \textit{stopping rule} and in what they are counting. The Negative Binomial counts the \textbf{number of failures until a fixed number of successes}. 
+
+\begin{theorem}
+    If $X \sim \text{NBin}(r,p)$, then the PMF of $X$ is 
+
+    \begin{equation*}
+        P(X=x) = \binom{x-1}{n-1} (1-p)^{x-n}p^{n}, \; \forall \; x\geq n 
+    \end{equation*}
+\end{theorem}
+
+
+
+
+
+\section{}
+
+\end{document}
