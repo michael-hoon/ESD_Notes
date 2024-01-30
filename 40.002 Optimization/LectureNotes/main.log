@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.22)  29 JAN 2024 22:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.22)  30 JAN 2024 16:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -810,7 +810,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 199--200
 
  []
 
-<Images/LP_Graphical.png, id=192, 534.49687pt x 408.77719pt>
+<Images/LP_Graphical.png, id=207, 534.49687pt x 408.77719pt>
 File: Images/LP_Graphical.png Graphic file (type png)
 <use Images/LP_Graphical.png>
 Package pdftex.def Info: Images/LP_Graphical.png  used on input line 203.
@@ -827,44 +827,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 216--217
 
  []
 
-<Images/convexity.png, id=201, 839.38594pt x 220.57407pt>
+<Images/convexity.png, id=216, 839.38594pt x 220.57407pt>
 File: Images/convexity.png Graphic file (type png)
 <use Images/convexity.png>
 Package pdftex.def Info: Images/convexity.png  used on input line 236.
 (pdftex.def)             Requested size: 338.5863pt x 88.97186pt.
-<Images/convexityfn.png, id=202, 810.77907pt x 264.99pt>
+<Images/convexityfn.png, id=217, 810.77907pt x 264.99pt>
 File: Images/convexityfn.png Graphic file (type png)
 <use Images/convexityfn.png>
 Package pdftex.def Info: Images/convexityfn.png  used on input line 253.
 (pdftex.def)             Requested size: 338.5863pt x 110.66426pt.
 [6 <./Images/convexity.png>]
-<Images/convexityfn2.png, id=214, 615.80063pt x 271.76532pt>
+<Images/convexityfn2.png, id=229, 615.80063pt x 271.76532pt>
 File: Images/convexityfn2.png Graphic file (type png)
 <use Images/convexityfn2.png>
 Package pdftex.def Info: Images/convexityfn2.png  used on input line 266.
 (pdftex.def)             Requested size: 290.22105pt x 128.08218pt.
-<Images/convexityfn3.png, id=215, 353.06906pt x 115.18031pt>
+<Images/convexityfn3.png, id=230, 353.06906pt x 115.18031pt>
 File: Images/convexityfn3.png Graphic file (type png)
 <use Images/convexityfn3.png>
-Package pdftex.def Info: Images/convexityfn3.png  used on input line 278.
+Package pdftex.def Info: Images/convexityfn3.png  used on input line 287.
 (pdftex.def)             Requested size: 386.95894pt x 126.23648pt.
  [7 <./Images/convexityfn.png> <./Images/convexityfn2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 293--294
+
+LaTeX Warning: Reference `fig:1-firstoderconvex' on page 8 undefined on input line 302.
+
+<Images/firstoderconvexity.png, id=244, 359.09157pt x 156.585pt>
+File: Images/firstoderconvexity.png Graphic file (type png)
+<use Images/firstoderconvexity.png>
+Package pdftex.def Info: Images/firstoderconvexity.png  used on input line 307.
+(pdftex.def)             Requested size: 290.22105pt x 126.56316pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
 
  []
 
-[8 <./Images/convexityfn3.png>] [9] (./main.aux)
+[8 <./Images/convexityfn3.png> <./Images/firstoderconvexity.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 355--356
+
+ []
+
+[9] [10] [11] (./main.aux)
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 343C1894232D67CD0AC1850AC5B8A6EC;4389.
+(rerunfilecheck)             Checksum: 33F11E8355A452F73A6917705D3873DB;4767.
  ) 
 Here is how much of TeX's memory you used:
- 31019 strings out of 476096
- 640799 string characters out of 5795114
- 1866845 words of memory out of 5000000
- 50820 multiletter control sequences out of 15000+600000
+ 31061 strings out of 476096
+ 641535 string characters out of 5795114
+ 1875845 words of memory out of 5000000
+ 50837 multiletter control sequences out of 15000+600000
  527048 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,10n,118p,642b,901s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 116i,12n,118p,642b,907s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist, replaced by a fixed one
+
 
 pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist, replaced by a fixed one
 
@@ -877,11 +900,11 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
-<c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (9 pages, 596595 bytes).
+<c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (11 pages, 655619 bytes).
 PDF statistics:
- 350 PDF objects out of 1000 (max. 8388607)
- 288 compressed objects within 3 object streams
- 70 named destinations out of 1000 (max. 500000)
- 262 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 422 PDF objects out of 1000 (max. 8388607)
+ 347 compressed objects within 4 object streams
+ 94 named destinations out of 1000 (max. 500000)
+ 291 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -232,15 +232,70 @@ In a sequence of independent Bernoulli trials with success probability $p$, if $
 \begin{theorem}
     If $X \sim \text{NBin}(r,p)$, then the PMF of $X$ is 
 
-    \begin{equation*}
+    \begin{equation}
         P(X=x) = \binom{x-1}{n-1} (1-p)^{x-n}p^{n}, \; \forall \; x\geq n 
-    \end{equation*}
+    \end{equation}
 \end{theorem}
 
 
 
 
 
-\section{}
+\section{Law of Large numbers}
+Assume that we have i.i.d. $X_{1}, X_{2}, \dots$ with finite mean $\mu$ and finite variance $\sigma^{2}$. Let $\bar{X}_n = \frac{1}{n} \sum_{i=1}^{n} X_i$.
+
+\begin{definition}
+    The (Weak) Law of Large Numbers (LLN) says that as $n$ grows, the sample mean $\bar{X}_n$ converges to the true mean $\mu$. Mathematically, 
+    \begin{equation}
+        \forall \epsilon > 0, \; \mathbb{P}(|\bar{X}_n - \mu < \epsilon) = 1, \; \text{as} \; n \to \infty 
+    \end{equation}
+
+    \noindent For any positive margin $\epsilon$, as $n$ gets arbitrarily large, the probability that $\bar{X}_n$ is within $\epsilon$ of $\mu$ approaches 1. 
+\end{definition}
+
+\noindent Note that the LLN does not contradict the fact that a coin is memoryless (in the repeated coin toss experiment). The LLN states that the proportion of Heads converges to $\frac{1}{2}$, but this does not imply that after a long string of Heads, the coin is "due" for a Tails to "\textit{balance things out}". Rather, the convergence takes place through \textit{swamping}: past tosses are swamped by the infinitely many tosses that are yet to come.  
+
+\subsection{Inequalities}
+The inequalities in this section provide bounds on the probability of an r.v. taking on an 'extreme' value in the right or left rail of a distribution. 
+
+\subsubsection{Markov's Inequality}
+\begin{definition}
+    Let $X$ be any random variable that takes only non-negative values, that is, $\mathbb{P}(X < 0) = 0$. Then for any constant $a >0$, we have: 
+    \begin{equation}
+        \mathbb{P}(X \geq a) \leq \frac{\mathbb{E}(X)}{a}
+    \end{equation}
+\end{definition}
+
+\noindent For an intuitive interpretation, let $X$ be the income of a randomly selected individual from a population. Taking $a = \mathbb{E}(X)$, Markov's Inequality says that $\mathbb{P(X \geq 2 \mathbb{E}(X)) \leq \frac{1}{2}}$. i.e., it is impossible for more than half the population to make at least twice the average income. 
+
+\subsubsection{Chebyshev's Inequality}
+Gives general bounds for the probability of being $k$ standard deviations (SD) away from the mean. 
+
+\begin{definition}
+    Let $Y$ be any random variable with mean $\mu < \infty$ and variance $\sigma^{2} > 0$. Then for any constant $k>0$, we have: 
+    \begin{equation}
+        \mathbb{P}(|Y-\mu| \geq k\sigma) \leq \frac{1}{k^{2}}
+    \end{equation} 
+\end{definition}
+
+\section{Central Limit Theorem}
+Let $X_{1}, X_{2}, \dots$ be i.i.d. with mean $\mu$ and variance $\sigma^{2}$. 
+
+\begin{definition}
+    The CLT states that for large $n$, the distribution of $\bar{X}_n$ after standardisation approaches a standard Normal distribution. By standardisation, we mean that we subtract $\mu$, the mean of $\bar{X}_n$, and divide by $\frac{\sigma}{\sqrt{n}}$, the standard deviation of $\bar{X}_n$. 
+    \begin{equation}
+        \lim_{n \to \infty} \mathbb{P}(\frac{\bar{X}_n - \mu}{\frac{\sigma}{\sqrt{n}}} \leq x) = \Phi(x)    
+    \end{equation}
+    \noindent which is the cdf of the standard normal. Informally, when $n$ is large ($\geq 30$), then $\bar{X}_n$ and $\sum_{i=1}^{n} X_i$ can each be approximated by a normal RV with the same mean and variance; the actual distribution of $X_i$ becomes irrelevant:
+    \begin{equation*}
+        \bar{X}_n \approx N(\mu, \frac{\sigma^{2}}{n}), \qquad \sum_{i=1}^{n} X_i \approx N(n\mu, n\sigma^{2})
+    \end{equation*}
+\end{definition}
+
+
+
+
+
+
 
 \end{document}

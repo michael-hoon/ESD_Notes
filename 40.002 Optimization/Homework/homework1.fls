@@ -1,8 +1,8 @@
-PWD c:/LaTeX_Tracker/SUTD_Notes_Homework/Optimisation/TeX Files/Homework
+PWD c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.002 Optimization/Homework
 INPUT c:/TeXLive/2023/texmf.cnf
 INPUT c:/TeXLive/2023/texmf-dist/web2c/texmf.cnf
 INPUT c:/TeXLive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/LaTeX_Tracker/SUTD_Notes_Homework/Optimisation/TeX Files/Homework/homework1.tex
+INPUT c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.002 Optimization/Homework/homework1.tex
 OUTPUT homework1.log
 INPUT c:/TeXLive/2023/texmf-dist/tex/latex/base/article.cls
 INPUT c:/TeXLive/2023/texmf-dist/tex/latex/base/article.cls
@@ -438,6 +438,11 @@ INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
 INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
+INPUT ./Images/convexityfn.png
+INPUT ./Images/convexityfn.png
+INPUT Images/convexityfn.png
+INPUT ./Images/convexityfn.png
+INPUT ./Images/convexityfn.png
 INPUT homework1.aux
 INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
@@ -452,4 +457,5 @@ INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
+INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb

@@ -15,4 +15,8 @@
 \contentsline {subsubsection}{\numberline {3.2.1}Hypergeometric Symmetry}{5}{subsubsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.3}Geometric}{6}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Negative Binomial}{6}{subsection.3.4}%
-\contentsline {section}{\numberline {4}}{6}{section.4}%
+\contentsline {section}{\numberline {4}Law of Large numbers}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Inequalities}{6}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Markov's Inequality}{6}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Chebyshev's Inequality}{7}{subsubsection.4.1.2}%
+\contentsline {section}{\numberline {5}Central Limit Theorem}{7}{section.5}%

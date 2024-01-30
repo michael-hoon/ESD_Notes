@@ -82,7 +82,7 @@ A linear program is a class of optimisation problem in which the objective and a
     & \ni \mathbf{Ax} \leq \mathbf{b}, \; \text{and} \; \mathbf{x} \geq 0
 \end{align}
 
-\noindent where the decision vector is $\mathbf{x}$ (n variables), linear objective function: $f(\mathbf{x}) = \mathbf{c}^{\top} \mathbf{x} = \sum_{i=1}^{n} c_i x_i $, and the linear constraints are $\chi = \{\mathbf{x} \in \mathbb{R}^{n}\mid \mathbf{Ax} \geq \mathbf{b}\}$ (m constraints) \footnote[1]{Note: vector inequalities are interpreted componentwise.}. Note that matrix $\mathbf{A}_{(m\times n)}$ is of $m \times n$ dimension. 
+\noindent where the decision vector is $\mathbf{x}$ (n variables), linear objective function: $f(\mathbf{x}) = \mathbf{c}^{\top} \mathbf{x} = \sum_{i=1}^{n} c_i x_i $, and the linear constraints are $\chi = \{\mathbf{x} \in \mathbb{R}^{n}\mid \mathbf{Ax} \geq \mathbf{b}\}$ (m constraints) \footnote{Note: vector inequalities are interpreted componentwise.}. Note that matrix $\mathbf{A}_{(m\times n)}$ is of $m \times n$ dimension. 
 
 \subsubsection{Inequality Transformations}
 
@@ -215,7 +215,7 @@ Solving the LP via a graphical approach involves drawing the halfspaces defined 
 
 \noindent Recall in linear algebra that if you have $n$ linearly independent equations and $n$ variables, there is only one optimal solution (and if they are not linearly independent - you have infinitely many solutions). So in a system with $m$ constraints and $n$ variables, there are $\binom{m}{n} = O(m^{n})$ vertices. \\ 
 
-\noindent Now, to determine which of the vertices gives the maximum objective value, we can substitute the variables into the objective function and compare the final values \footnote[2]{Note that at each vertex, if the iso-line falls within the polytope, then it is not a maximum.} 
+\noindent Now, to determine which of the vertices gives the maximum objective value, we can substitute the variables into the objective function and compare the final values \footnote{Note that at each vertex, if the iso-line falls within the polytope, then it is not a maximum.} 
 
 \subsubsection{Geometric Intuition}
 The objective function gives the optimisation direction, and the goal is to find the feasible point that is furthest in this direction. 
@@ -271,7 +271,16 @@ We define a function $f:\mathbb{R}^{n} \to \mathbb{R}$ to be \textit{convex} if 
 \noindent That is, for points $\mathbf{x}$ and $\mathbf{y}$, if you take the average of $\mathbf{x}$ and $\mathbf{y}$, and then apply $f$, you'll get a smaller number than if you first apply $f$ to $\mathbf{x}$ and $\mathbf{y}$, and then average the results. Likewise, a function $f$ is \textbf{concave} if $-f$ is convex.
 
 \subsubsection{Why Convexity Helps}
-Consider the case where the feasible region or the objective function is not convex. With a non-convex feasible region, there can be "locally optimal" feasible points that are not globally optimal, even with a linear objective function. The same problem arises with a non-convex objective function, even when the feasible region is just the real line. When both the objective function and feasible region are convex, this cannot happen - \textbf{all local optima are also global optima} (which makes optimisation easier). 
+Consider the case where the feasible region or the objective function is not convex. With a non-convex feasible region, there can be "locally optimal" feasible points that are not globally optimal, even with a linear objective function. The same problem arises with a non-convex objective function, even when the feasible region is just the real line. When both the objective function and feasible region are convex, this cannot happen - \textbf{all local optima are also global optima} (which makes optimisation easier).
+
+\begin{theorem}
+    Let $\chi$ be a convex set and $f(x)$ be a convex function. Then:
+    \begin{align*}
+        \min & \; f(x) \\ 
+        \text{s.t.} & \; \; x \in \chi \subseteq \mathbb{R}^{n}
+    \end{align*}
+    \noindent is a convex optimisation problem. A key property of such a convex optimisation problem that is a \textbf{local minimum is always the global minimum}. 
+\end{theorem}
 
 \begin{figure}[H]
     \centering
@@ -281,22 +290,40 @@ Consider the case where the feasible region or the objective function is not con
 \end{figure} 
 
 \subsubsection{First-Order Characterisation}
+Suppose a function $f: \mathbb{R}^{n} \to \mathbb{R}$ is differentiable \footnote{the gradient $\nabla_x f(x)$ exists at all points $x$ in the domain of $f$. It is defined as $\nabla_x f(x) \in \mathbb{R}^{n}, \; (\nabla_x f(x))_i = \frac{\partial f(x)}{\partial x_i}$}. Then $f$ is convex if and only if $D(f)$ is a convex set and for all $x, y \in D(f)$:
+
+\begin{equation}
+    f(y) \geq f(x) + \nabla_x f(x)^{\top} (y-x)
+\end{equation}
+
+\noindent The function on the right is called the \textbf{first order approximation} to $f$ at the point $x$. 
+
+\begin{theorem}
+    The first order condition for convexity says that $f$ is convex if and only if the tangent line is a global underestimator of the function $f$. i.e. if we draw a tangent line at any point (refer to Figure \ref{fig:1-firstoderconvex}), then every point on this line will lie below the corresponding point on $f$. 
+\end{theorem}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/firstoderconvexity.png}
+    \caption{Illustration of first-order condition for convexity}
+    \label{fig:1-firstorderconvex}
+\end{figure} 
 
 
 \subsubsection{Second-Order Characterisation}
 Suppose that a function $f: \mathbb{R}^{n} \to \mathbb{R}$ is twice differentiable (i.e. the Hessian $\nabla^{n}_x f(x)$ is defined for all $x$ in the domain of $f$). Then $f$ is convex if and only if $D(f)$ is a convex set and its Hessian is positive semidefinite (PSD): i.e. for any $x \in D(f)$, 
 
-\begin{equation*}
+\begin{equation}
     \nabla^{2}_x f(x) \succeq 0 
-\end{equation*}
+\end{equation}
 
 \noindent where $\succeq$ denotes PSD-ness. In one-dimension, this is equivalent to the condition that the second derivative $f''(x)$ always be non-negative. \\ 
 
 \noindent The Hessian is defined as:
 
-\begin{equation*}
+\begin{equation}
     \nabla^{2}_x f(x) \in \mathbb{R}^{n \times n}, \quad (\nabla^{2}_x f(x))_{ij} = \frac{\partial^{2} f(x)}{\partial x_i \partial x_j}
-\end{equation*}
+\end{equation}
 
 
 \begin{theorem}
@@ -304,11 +331,67 @@ Suppose that a function $f: \mathbb{R}^{n} \to \mathbb{R}$ is twice differentiab
 \end{theorem}
 
 
-\subsubsection{Definite Matrix \& Eigenvalues}
+\subsubsection{Solving Convexity-Related Questions}
+
+\section{Some Matrix Calculus}
+
+\subsection{The Gradient}
+
+\begin{definition}
+    
+Suppose that $f: \mathbb{R}^{m\times n}\to \mathbb{R}$ is a function that takes as input a matrix $A$ of size $m\times n$ and returns a real value. Then the \textbf{gradient} of $f$ (with respect to $A\in \mathbb{R}^{m\times n}$) is the matrix of \textbf{partial derivatives}:
+
+\begin{equation}
+    \nabla_A f(A) \in \mathbb{R}^{m\times n} = \begin{bmatrix}
+        \frac{\partial f(A)}{\partial A_{11}} & \frac{\partial f(A)}{\partial A_{12}} & \dots & \frac{\partial f(A)}{\partial A_{1n}} \\ 
+        \frac{\partial f(A)}{\partial A_{21}} & \frac{\partial f(A)}{\partial A_{22}} & \dots & \frac{\partial f(A)}{\partial A_{2n}} \\ 
+        \vdots & \vdots & \ddots & \vdots \\ 
+        \frac{\partial f(A)}{\partial A_{m1}} & \frac{\partial f(A)}{\partial A_{m2}} &  \dots & \frac{\partial f(A)}{\partial A_{mn}}
+    \end{bmatrix}
+\end{equation}
+
+\end{definition}
+
+\noindent Note that the gradient of a function \footnote{Gradients are a natural extension of partial derivatives to functions of multiple variables.} is only defined if the function is real-valued, i.e. if it returns a scalar value. \\
+
+\noindent Some equivalent properties of the gradient from partial derivatives:
+
+\begin{enumerate}
+    \item $\nabla_x (f(x) + g(x)) = \nabla_x f(x) + \nabla_x g(x)$
+    \item For $t \in \mathbb{R}, \; \nabla_x(t f(x)) = t\nabla_x f(x)$
+\end{enumerate}
+
+\subsection{The Hessian}
+
+\begin{definition}
+    
+Suppose that $f: \mathbb{R}^{n}\to \mathbb{R}$ is a function that takes a vector in $\mathbb{R}^{n}$ and returns a real number. Then the \textbf{Hessian} with respect to $x$, written $\nabla^{2}_x f(x)$ is the $n\times n$ matrix of partial derivatives:
+
+
+\begin{equation}
+    \nabla^{2}_x f(x) \in \mathbb{R}^{n\times n} = \begin{bmatrix}
+        \frac{\partial^{2} f(x)}{\partial x^{2}_{1}} & \frac{\partial^{2} f(x)}{\partial x_{1}\partial x_{2}} & \dots & \frac{\partial f(x)}{\partial x_{1} \partial x_n} \\ 
+        \frac{\partial f(x)}{\partial x_{2} \partial x_{1}} & \frac{\partial f(x)}{\partial x^{2}_{2}} & \dots & \frac{\partial f(x)}{\partial x_{2} \partial x_n} \\ 
+        \vdots & \vdots & \ddots & \vdots \\ 
+        \frac{\partial f(x)}{\partial x_{n} \partial x_{1}} & \frac{\partial f(x)}{\partial x_{n} \partial x_{2}} &  \dots & \frac{\partial f(x)}{\partial x^{2}_{n}}
+    \end{bmatrix}
+\end{equation}
+
+\end{definition}
+
+\noindent Note that the Hessian is always symmetric, since 
+
+\begin{equation*}
+    \frac{\partial^{2} f(x)}{\partial x_i \partial x_j} = \frac{\partial^{2}}{\partial x_j \partial x_i}
+\end{equation*}
+
+\noindent The Hessian is defined only when $f(x)$ is real-valued. Note that for functions of a vector, the gradient of the function is a vector, and we cannot take the gradient of a vector.\textbf{ Therefore, it is not the case that the Hessian is the Gradient of the Gradient}. 
+
+\subsection{Definite Matrix \& Eigenvalues}
 
 \begin{definition}
 
-    Let $M$ be an $n \times n$ Hermitian Matrix \footnote[5]{A complex square matrix that is equal to its own conjugate transpose - $A = \overline{A^{\top}.}$}(including Symmetric Matrices \footnote{A square matrix that is equal to its transpose.}). All eigenvalues of $M$ are real, and their sign characterise its definite-ness:
+    Let $M$ be an $n \times n$ Hermitian Matrix \footnote{A complex square matrix that is equal to its own conjugate transpose: $A = \overline{A^{\top}}.$}(including Symmetric Matrices \footnote{A square matrix that is equal to its transpose.}). All eigenvalues of $M$ are real, and their sign characterise its definite-ness:
 
     \begin{enumerate}
         \item $M$ is \textbf{Positive Definite} if and only if all of its eigenvalues are \textbf{positive}.
@@ -319,10 +402,6 @@ Suppose that a function $f: \mathbb{R}^{n} \to \mathbb{R}$ is twice differentiab
     \end{enumerate}
 
 \end{definition}
-
-
-\subsubsection{Solving Convexity-Related Questions}
-
 
 
 \section{Simplex Method}
@@ -351,5 +430,9 @@ Suppose that a function $f: \mathbb{R}^{n} \to \mathbb{R}$ is twice differentiab
 \section{Dynamic Programming}
 
 \section{Travelling Salesman Problem}
+
+\newpage 
+\section*{Appendix \& Acknowledgements}
+These notes are heavily inspired by Stanford's CS229: Machine Learning Notes, as well as Convex Optimisation by Boyd and Vandenberghe. 
 
 \end{document}

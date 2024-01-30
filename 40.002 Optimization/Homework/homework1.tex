@@ -1,6 +1,8 @@
 \documentclass[12pt]{article}
 
+
 \usepackage{Homework}
+% \usepackage{minted}
 
 % Creates the header and footer.
 \pagestyle{fancy}
@@ -41,12 +43,12 @@
 a) Let $D$ and $F$ denote Domestic and Foreign stocks (in millions) respectively. We formulate the Linear Program (LP): 
 
 \begin{align*}
-    \max_{D, F} \; 0.11D &+ 0.17F \\
-    \text{s.t.} \; \; D + F & \leq 12 \\ 
-    0 \leq D & \leq 10 \\
-    0 \leq F & \leq 7 \\ 
-    D & \geq \frac{1}{2}F \\ 
-    F & \geq \frac{1}{2}D 
+    \max_{D, F} \quad & 0.11D + 0.17F \\
+    \text{s.t.} \quad & D + F \leq 12 \\ 
+    & 0 \leq D \leq 10 \\
+    & 0 \leq F \leq 7 \\ 
+    & D \geq \frac{1}{2}F \\ 
+    & F \geq \frac{1}{2}D 
 \end{align*} \\
 
 \noindent b) Graphically, we have Figure \ref{fig:1-feasibleregionlp} with corner points labelled and the feasible region shaded:
@@ -76,7 +78,7 @@ a) Let $D$ and $F$ denote Domestic and Foreign stocks (in millions) respectively
         \fill[gray, opacity=0.3] (0,0) -- (3.5,7) -- (5,7) -- (8,4) -- cycle;
 
         % Corner Points
-        \fill (10,0) circle (3pt) node[above left] {$(10,0)$};
+        \fill (10,0) circle (3pt) node[below] {$10$};
         \fill (8,4) circle (3pt) node[above] {$(8,4)$};
         \fill (5,7) circle (3pt) node[above right] {$(5,7)$};
         \fill (0,7) circle (3pt) node[left] {$7$};
@@ -94,7 +96,24 @@ a) Let $D$ and $F$ denote Domestic and Foreign stocks (in millions) respectively
 
 \begin{equation*}
     \boxed{0.11(5) + 0.17(7) = \$ 1.74 \; \text{million}}
+\end{equation*} \\
+
+\noindent To prove that this is the global maximum, we brute-force attempt to find the returns of the other corner points: \\ 
+
+\noindent For $(3.5, 7)$, we have:
+
+\begin{equation*}
+    0.11(3.5) + 0.17(7) = \$ 1.575 \; \text{million} < \$ 1.74 \; \text{million}
 \end{equation*}
+
+\noindent For $(8, 4)$, we have: 
+
+\begin{equation*}
+    0.11(8) + 0.17(4) = \$ 1.56 \; \text{million} < \$ 1.74 \; \text{million}
+\end{equation*} \\ 
+
+\noindent And thus $\$ 1.74 \; \text{million}$ is indeed the global maximum return for the fund. 
+
 
 \newpage 
 
@@ -132,9 +151,9 @@ a) Given the LP constraints
 \noindent b) For a minimisation problem, we have the complete LP: 
 
 \begin{align*}
-    \min_{x_{1}, x_{2}} \; \alpha x_{1} + x_{2} \\ 
-    \text{s.t.} \; -x_{1}+x_{2} & \geq 1 \\
-    x_{1} & \geq 0
+    \min_{x_{1}, x_{2}} \quad & \alpha x_{1} + x_{2} \\ 
+    \text{s.t.} \quad &-x_{1}+x_{2} \geq 1 \\
+    & x_{1} \geq 0
 \end{align*}
 
 \noindent i) For the optimal solution to be unique, we need $\alpha = 0$ for a minimum at $x_{2} = 1$. \\ 
@@ -149,10 +168,10 @@ a) Given the LP constraints
 a) Since $Z$ is a discrete random variable that takes values in the set $\{1, 2, \dots, 10\}$, and $p_i = \text{Prob}(Z = i) \; \forall i \in \{1, 2, \dots , 10\}$, with sum and non-negative constraints, we can formulate the LP: 
 
 \begin{align*}
-    \max_{p_i} \; \sum_{i=5}^{10} p_i & \\ 
-    \text{s.t.} \; \; \sum_{i=1}^{10} p_i &= 1 \\ 
-    \sum_{i=1}^{10} i \cdot p_i &= 4 \\ 
-    p_i &\geq 0
+    \max_{p_i} \quad & \sum_{i=5}^{10} p_i \\ 
+    \text{s.t.} \quad & \sum_{i=1}^{10} p_i = 1 \\ 
+    & \sum_{i=1}^{10} i \cdot p_i = 4 \\ 
+    & p_i \geq 0
 \end{align*}
 
 \noindent We want to optimise the probability distribution of $Z$ such that the likelihood of $Z$ being 5, 6, 7, 8, 9, or 10 is maximised. \\ 
@@ -189,23 +208,25 @@ a) Since $Z$ is a discrete random variable that takes values in the set $\{1, 2,
 
 \newpage
 
+\newpage
+
 \section*{Question 4}
 For the minimisation problem: 
 
 \begin{align*}
-    \min \; x_{1}-x_{2} \qquad \qquad \qquad & \\ 
-    \text{s.t.} \quad 2 x_{1} + 3 x_{2} - x_{3} + x_{4} & \leq 0 \\ 
-    3 x_{1} + x_{2} + 4 x_{3} - 2 x_{4} & \geq 3 \\ 
-    - x_{1} - x_{2} + 2 x_{3} + x_{4} & = 6 \\ 
-    x_{1} &\leq 0 \\ 
-    x_{2},\; x_{3} & \geq 0 
+    \min \quad & x_{1}-x_{2} \\ 
+    \text{s.t.} \quad & 2 x_{1} + 3 x_{2} - x_{3} + x_{4} \leq 0 \\ 
+    & 3 x_{1} + x_{2} + 4 x_{3} - 2 x_{4} \geq 3 \\ 
+    & - x_{1} - x_{2} + 2 x_{3} + x_{4} = 6 \\ 
+    & x_{1} \leq 0 \\ 
+    & x_{2},\; x_{3} \geq 0 
 \end{align*}
 
 \noindent We can rearrange the LP into the form: 
 
 \begin{align*}
-    \max \; \mathbf{c}^{\top} \mathbf{x} & \\ 
-    \text{s.t.} \quad \mathbf{A} \mathbf{x} & \leq \mathbf{b}
+    \max \quad & \mathbf{c}^{\top} \mathbf{x} \\ 
+    \text{s.t.} \quad & \mathbf{A} \mathbf{x} \leq \mathbf{b}
 \end{align*}
 
 \noindent For the $3^{\text{rd}}$ constraint, we separate into two cases: 
@@ -241,11 +262,88 @@ For the minimisation problem:
     \end{bmatrix}
 \end{equation*}
 
-
+\newpage 
 \section*{Question 5}
+The given optimisation problem is non-linear in nature, due to the piecewise absolute value function $f(z)$ in the objective function. We linearise the problem by introducing additional constraints and auxiliary variables. Let $y_i$ be auxiliary variables for each $i$, and $z_i$ be the absolute value of $\mathbf{a}^{\top}_i \mathbf{x}- b_i$. \\
+
+\noindent Enforcing additional constraints to the problem in place of the piecewise nonlinear $f(x)$ in the objective function, we now formulate an appropriate LP:
+
+\begin{align}
+    \nonumber \min \quad & \sum_{i=1}^{m} y_i \\ 
+    \text{s.t.} \quad & z_i = \mathbf{a}^{\top}_i \mathbf{x} - b_i, \quad i = 1, \dots , m \\ 
+    & y_i \geq z_i - 5,  \quad i = 1, \dots , m \\ 
+    & y_i \geq -(z_i - 5), \quad i = 1, \dots , m \\ 
+    & y_i \geq 0, \quad i = 1, \dots , m  \\
+    & \mathbf{x} \in \mathbb{R}^{n} 
+\end{align}
+
+\noindent Constraint (2) enforces a lower bound on the LP, in view of the first piece of $f(z)$ where it is $0$ when $|z| < 5$. Constraint (3) enforces an upper bound, in view of the second piece of $f(z)$ for $|z| \geq 5$. Lastly, the non-negativity constraint (4) is imposed to ensure the absolute value of $z_i$.  
 
 \section*{Question 6}
+We are given that $f(\mathbf{x})$ is convex, and we need to show that $\forall t \in \mathbb{R}$, the set of $\mathbf{x}$ (denoted by $\chi_t$) that satisfies $f(\mathbf{x}) \leq t$ is a convex set. Geometrically, for any 2 points $\mathbf{x}_1$ and $\mathbf{x}_2$ in $\chi_t$, the line segment containing them must also be in $\chi_t$. i.e., if $\mathbf{x}_1, \mathbf{x}_2 \in \chi_t$, then $\lambda \mathbf{x}_1 + (1-\lambda)\mathbf{x}_2 \in \chi_t, \; \forall \lambda \in [0,1]$. \\ 
+
+\begin{proof}
+    $ $ \newline $\because \mathbf{x}_1, \mathbf{x}_2 \in \chi_t$, then $f(\mathbf{x}_1) \leq t$ and $f(\mathbf{x}_2) \leq t$. Since $f(\mathbf{x})$ is convex, we use the property: \\ 
+    \begin{align*}
+        f(\lambda \mathbf{x}_1 + (1-\lambda) \mathbf{x}_2) & \leq \lambda f(\mathbf{x}_1) + (1-\lambda) f(\mathbf{x}_2) \\ 
+        & \leq \lambda t + (1- \lambda) t \\ 
+        &= \lambda t + t - \lambda t \\ 
+        &= t
+    \end{align*}
+
+    \noindent $\therefore \; \forall \lambda \in [0,1], \; f(\lambda \mathbf{x}_1 + (1-\lambda) \mathbf{x}_2) \leq t$, and thus $\lambda \mathbf{x}_1 + (1-\lambda) \mathbf{x}_2 \in \chi_t$, which is convex.  
+\end{proof}
+
+
+\noindent An appropriate illustration of this is Figure \ref{fig:6-convexfns} below. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Images/convexityfn.png}
+    \caption{Illustration of Convexity}
+    \label{fig:6-convexfns}
+\end{figure} 
 
 \section*{Question 7}
+
+\subsection*{(1)}
+\begin{align*}
+    \max \quad & 5x_{1} x_{2} + 12 x_{3} \\ 
+    \text{s.t.} \quad & x_{3} \leq 2 \\ 
+    & x_{2} \leq 5 \\ 
+    & 3.2 x_{2} + 5.1 x_{1} = 5.1 \\ 
+    & x_{1} + \log x_{2} - x_{3} = 0 \\ 
+    & x_{1}, x_{2}, x_{3} \in \{0,1\}
+\end{align*}
+
+\noindent For this LP, Proportionality, Additivity, and Certainty assumptions hold, while Divisibility does not. The final constraint suggests that $x_{1}, x_{2}, x_{3}$ are constrained to values either 0 or 1 in the set, which are only binary whole numbers, and not fractional values. 
+
+\subsection*{(2)}
+
+\begin{align*}
+    \max \quad & 5x_{1} - x_{2} - 2 x_{3} \\ 
+    \text{s.t.} \quad & x_{3} \leq 2.9 \\ 
+    & x_{2} \geq \theta \\ 
+    & x_{3} + x_{2} - x_{1}^{2} = 0 \\ 
+    & 0.4 \frac{x_{1}}{x_{2}} + x_{3} \leq  0 \\ 
+    & x_{1}, x_{2}, x_{3} \geq 0 \\ 
+    & \theta \in U(0,1)
+\end{align*}
+
+\noindent For this LP, Proportionality, Additivity, hold, while Divisibility and Certainty do not. For Divisibility, the constraint involving the random variable $\theta \in U(0,1)$ does not explicitly imply that the decision variable $x_2$ can be assigned to fractional values. For Certainty, since random variables are stochastic in nature, there is no way to know for sure the value of $x_2$. 
+
+\subsection*{(3)}
+
+
+\begin{align*}
+    \max \quad & x_{1} - 15x_{2} - 10 x_{3} \\ 
+    \text{s.t.} \quad & \frac{x_{3}}{x_{2}} \leq 20 \\ 
+    & x_{2} - 4 x_{1} \leq 0 \\ 
+    & x_{3} + x_{2} - x_{1} = 0 \\ 
+    & x_{1}, x_{2}, x_{3} \geq 0 \\ 
+\end{align*}
+
+\noindent For this LP, all 4 assumptions of Proportionality, Additivity, Divisibility, and Certainty hold. 
+
 
 \end{document}

@@ -1,7 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1706419435 "c:/LaTeX_Tracker/SUTD_Notes_Homework/Optimisation/TeX Files/Homework/homework1.tex" "homework1.pdf" "homework1" 1706419436 0
+["pdflatex"] 1706630228 "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.002 Optimization/Homework/homework1.tex" "homework1.pdf" "homework1" 1706630229 0
   "Homework.sty" 1706419033 920 7d73c5df19c222936dcc325cce852d3c ""
-  "c:/LaTeX_Tracker/SUTD_Notes_Homework/Optimisation/TeX Files/Homework/homework1.tex" 1706419435 7352 4aba8a3064897840b94c0943b234ad40 ""
+  "Images/convexityfn.png" 1706079753 118911 5c5d78b9b30b8edd6491bf827cfd8378 ""
+  "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.002 Optimization/Homework/homework1.tex" 1706630227 12197 d503cb725e98c29e1ccc1d2151665801 ""
   "c:/TeXLive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1684758996 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1684752884 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "c:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1684752884 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -50,6 +51,7 @@
   "c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1684752884 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1684752884 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1684752884 36118 fad905eba93cff5bce1e185fe980a177 ""
+  "c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1684752884 31764 459c573c03a4949a528c2cc7f557e217 ""
   "c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1684752884 34694 870c211f62cb72718a00e353f14f254d ""
   "c:/TeXLive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1684759987 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "c:/TeXLive/2023/texmf-dist/tex/generic/babel-english/english.ldf" 1684753178 7008 9ff5fdcc865b01beca2b0fe4a46231d4 ""
@@ -177,8 +179,8 @@
   "c:/TeXLive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1684761598 4683009 81ac55e6554f9124653631026fb1fc4e ""
   "c:/TeXLive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1684761748 7888862 6089269ac32f199cc2ce135a525d4388 ""
   "c:/TeXLive/2023/texmf.cnf" 1684761580 713 e69b156964470283e0530f5060668171 ""
-  "homework1.aux" 1706419436 517 c2feed2ce1bc56b5a832ec9fb4887d92 "pdflatex"
-  "homework1.tex" 1706419435 7352 4aba8a3064897840b94c0943b234ad40 ""
+  "homework1.aux" 1706630229 687 a53527c20a1819369500e8c21ab07f72 "pdflatex"
+  "homework1.tex" 1706630227 12197 d503cb725e98c29e1ccc1d2151665801 ""
   (generated)
   "homework1.aux"
   "homework1.log"

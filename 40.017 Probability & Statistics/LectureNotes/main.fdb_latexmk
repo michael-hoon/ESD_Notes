@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1706166168 "c:/LaTeX_Tracker/SUTD_Notes_Homework/Prob-Stats/TeX Files/main.tex" "main.pdf" "main" 1706166170 0
+["pdflatex"] 1706599029 "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/LectureNotes/main.tex" "main.pdf" "main" 1706599030 0
   "LectureNotes.sty" 1701880007 2842 85504928edce0a0241bd35b883992101 ""
-  "c:/LaTeX_Tracker/SUTD_Notes_Homework/Prob-Stats/TeX Files/main.tex" 1706166168 10161 b2195b9885e5eba835958e3c7bf25edd ""
+  "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/LectureNotes/main.tex" 1706599024 13598 63d579fc23e1de97900ac477a2d0b79b ""
   "c:/TeXLive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1684758996 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1684752884 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1684752884 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -214,10 +214,10 @@
   "c:/TeXLive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1684761598 4683009 81ac55e6554f9124653631026fb1fc4e ""
   "c:/TeXLive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1684761748 7888862 6089269ac32f199cc2ce135a525d4388 ""
   "c:/TeXLive/2023/texmf.cnf" 1684761580 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1706166169 4132 88c98ef3d1e8379ac85db5bab3d8cb84 "pdflatex"
-  "main.out" 1706166169 2542 723c7935d2fe6187c50b962f6a611725 "pdflatex"
-  "main.tex" 1706166168 10161 b2195b9885e5eba835958e3c7bf25edd ""
-  "main.toc" 1706166169 1459 afd99d1c09c9dc3c1c01cf9d0f25dd8d "pdflatex"
+  "main.aux" 1706599030 5296 eb51157feb1bd60f1cde48218ca7a61d "pdflatex"
+  "main.out" 1706599030 3279 76e185e515d2d0139b491d4452a1e7f6 "pdflatex"
+  "main.tex" 1706599024 13598 63d579fc23e1de97900ac477a2d0b79b ""
+  "main.toc" 1706599030 1827 11bf105f36e510e20bfe04c874b1a9e7 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

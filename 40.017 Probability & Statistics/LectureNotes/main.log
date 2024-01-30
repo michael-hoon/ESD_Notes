@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.22)  25 JAN 2024 15:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.22)  30 JAN 2024 15:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/LaTeX_Tracker/SUTD_Notes_Homework/Prob-Stats/TeX Files/main.tex"
-(c:/LaTeX_Tracker/SUTD_Notes_Homework/Prob-Stats/TeX Files/main.tex
+**"c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/LectureNotes/main.tex"
+(c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/LectureNotes/main.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-05-15> (c:/TeXLive/2023/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
@@ -773,26 +773,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 228--229
 
  []
 
-[5] [6] (./main.aux)
+[5] [6] [7] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 723C7935D2FE6187C50B962F6A611725;2542.
+(rerunfilecheck)             Checksum: 76E185E515D2D0139B491D4452A1E7F6;3279.
  ) 
 Here is how much of TeX's memory you used:
- 28298 strings out of 476096
- 576717 string characters out of 5795114
+ 28326 strings out of 476096
+ 577260 string characters out of 5795114
  1866845 words of memory out of 5000000
- 48160 multiletter control sequences out of 15000+600000
+ 48170 multiletter control sequences out of 15000+600000
  526367 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,8n,118p,601b,1045s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 116i,8n,118p,635b,1045s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
 <c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (6 pages, 209249 bytes).
+Output written on main.pdf (7 pages, 220839 bytes).
 PDF statistics:
- 252 PDF objects out of 1000 (max. 8388607)
- 207 compressed objects within 3 object streams
- 53 named destinations out of 1000 (max. 500000)
- 149 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 294 PDF objects out of 1000 (max. 8388607)
+ 248 compressed objects within 3 object streams
+ 71 named destinations out of 1000 (max. 500000)
+ 181 words of extra memory for PDF output out of 10000 (max. 10000000)
 
