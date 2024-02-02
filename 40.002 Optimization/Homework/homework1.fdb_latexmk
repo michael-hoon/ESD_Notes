@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1706840279 "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.002 Optimization/Homework/homework1.tex" "homework1.pdf" "homework1" 1706840280 0
+["pdflatex"] 1706857601 "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.002 Optimization/Homework/homework1.tex" "homework1.pdf" "homework1" 1706857603 0
   "Homework.sty" 1706840096 1004 bd5c3fc43494c9d9a422fd311a984f0d ""
-  "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.002 Optimization/Homework/homework1.tex" 1706840275 15927 69f18b444a935309dc7debe4ef872033 ""
+  "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.002 Optimization/Homework/homework1.tex" 1706857600 15927 5d16e43e05c5d0dedc3d78ad7c98e546 ""
   "c:/TeXLive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1684758386 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/TeXLive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1684758996 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/TeXLive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1684758751 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -232,8 +232,8 @@
   "c:/TeXLive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1684761598 4683009 81ac55e6554f9124653631026fb1fc4e ""
   "c:/TeXLive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1684761748 7888862 6089269ac32f199cc2ce135a525d4388 ""
   "c:/TeXLive/2023/texmf.cnf" 1684761580 713 e69b156964470283e0530f5060668171 ""
-  "homework1.aux" 1706840280 860 a2775df4d1a64070f67c826856f40632 "pdflatex"
-  "homework1.tex" 1706840275 15927 69f18b444a935309dc7debe4ef872033 ""
+  "homework1.aux" 1706857603 860 a2775df4d1a64070f67c826856f40632 "pdflatex"
+  "homework1.tex" 1706857600 15927 5d16e43e05c5d0dedc3d78ad7c98e546 ""
   (generated)
   "homework1.aux"
   "homework1.log"
