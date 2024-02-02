@@ -18,15 +18,17 @@ model = Model(GLPK.Optimizer)  # or use Cbc.Optimizer for another solver
 @constraint(model, sum(p) == 1)  # Normalization constraint
 @constraint(model, sum(i * p[i] for i in 1:10) == 4)  # Average value constraint
 
-# Solve the linear program
-optimize!(model)
 
-# Check if the optimization was successful
-if termination_status(model) == MOI.OPTIMAL
-    # Retrieve the optimal values of p
-    optimal_probabilities = value.(p)
-    println("Optimal Probability Distribution: ", optimal_probabilities)
-else
-    println("No optimal solution found.")
-end
+print(model)
+# Solve the linear program
+# optimize!(model)
+
+# # Check if the optimization was successful
+# if termination_status(model) == MOI.OPTIMAL
+#     # Retrieve the optimal values of p
+#     optimal_probabilities = value.(p)
+#     println("Optimal Probability Distribution: ", optimal_probabilities)
+# else
+#     println("No optimal solution found.")
+# end
 

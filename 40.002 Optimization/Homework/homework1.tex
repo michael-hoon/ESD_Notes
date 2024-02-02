@@ -1,8 +1,6 @@
 \documentclass[12pt]{article}
 
-
 \usepackage{Homework}
-% \usepackage{minted}
 
 % Creates the header and footer.
 \pagestyle{fancy}
@@ -61,19 +59,19 @@ a) Let $D$ and $F$ denote Domestic and Foreign stocks (in millions) respectively
         \draw[->] (0,-2) -- (0,14) node[left] {$F$};
 
         % Constraint 1: x + y <= 12
-        \draw[thick] (0,12) -- (12,0) node[above right]{\small $D + F \leq 12$};
+        \draw[thick] (0,12) -- (12,0) node[above right]{\small $D + F = 12$};
 
         % Constraint 2: 0 <= x <= 10
-        \draw[dashed] (10,0) -- (10,12) node[right]{\small $D \leq 10$};
+        \draw[dashed] (10,0) -- (10,12) node[right]{\small $D = 10$};
 
         % Constraint 3: 0 <= y <= 7
-        \draw[dashed] (0,7) -- (12,7) node[right]{\small $F \leq 7$};
+        \draw[dashed] (0,7) -- (12,7) node[right]{\small $F = 7$};
 
         % Constraint 4: x >= 1/2 y
-        \draw[thick] (0,0) -- (12,6) node[right]{\small $D \geq \frac{1}{2}F$};
+        \draw[thick] (0,0) -- (12,6) node[right]{\small $D = \frac{1}{2}F$};
 
         % Constraint 5: y >= 1/2 x
-        \draw[thick] (0,0) -- (6,12) node[right]{\small $F \geq \frac{1}{2}D$};
+        \draw[thick] (0,0) -- (6,12) node[right]{\small $F = \frac{1}{2}D$};
 
         \fill[gray, opacity=0.3] (0,0) -- (3.5,7) -- (5,7) -- (8,4) -- cycle;
 
@@ -82,7 +80,7 @@ a) Let $D$ and $F$ denote Domestic and Foreign stocks (in millions) respectively
         \fill (8,4) circle (3pt) node[above] {$(8,4)$};
         \fill (5,7) circle (3pt) node[above right] {$(5,7)$};
         \fill (0,7) circle (3pt) node[left] {$7$};
-        \fill (0,0) circle (3pt) node[below left] {$0$};
+        \fill (0,0) circle (3pt) node[below left] {$(0,0)$};
         \fill (0,12) circle (3pt) node[left] {$12$};
         \fill (12,0) circle (3pt) node[below] {$12$};
         \fill (3.5,7) circle (3pt) node[above left] {$(3.5,7)$};
@@ -112,7 +110,7 @@ a) Let $D$ and $F$ denote Domestic and Foreign stocks (in millions) respectively
     0.11(8) + 0.17(4) = \$ 1.56 \; \text{million} < \$ 1.74 \; \text{million}
 \end{equation*} \\ 
 
-\noindent And thus $\$ 1.74 \; \text{million}$ is indeed the global maximum return for the fund. 
+\noindent And thus $\$ 1.74 \; \text{million}$ is indeed the global maximum return for the fund. The mutual fund manager should divide \$5 million into Domestic stocks and \$7 million into Foreign stocks. 
 
 
 \newpage 
@@ -135,7 +133,7 @@ a) Given the LP constraints
         \draw[->] (0,-2) -- (0,12) node[left]{$x_2$};
 
         % Constraint 1
-        \draw[thick] (-0.5,0.5) -- (10,11) node[right]{\small $-x_1 + x_2 \geq 1$};
+        \draw[thick] (-0.5,0.5) -- (10,11) node[right]{\small $-x_1 + x_2 = 1$};
 
         % Feasible Region
         \filldraw[fill=gray, opacity=0.3] (0,1) -- (0,11) -- (10,11) -- cycle;
@@ -156,11 +154,11 @@ a) Given the LP constraints
     & x_{1} \geq 0
 \end{align*}
 
-\noindent i) For the optimal solution to be unique, we need $\alpha = 0$ for a minimum at $x_{2} = 1$. \\ 
+\noindent i) For the optimal solution to be unique, we need $\alpha > -1$, and the unique optimum is at the point $(0,1)$. For any value of $\alpha$ within this range, the optimum solution will always converge to this minimum point. \\ 
 
-\noindent ii) For there to be multiple optimal solutions with infinite optimal objective values, we need $\alpha \in \mathbb{R} \backslash \{-1,0\}$. \\ 
+\noindent ii) For there to be multiple optimal solutions with finite optimal objective values, we need $\alpha = -1$, and this results in $ \text{slope} = 1$. The line now lies on $-x_1 + x_2 = 1$ on Figure \ref{fig:2-feasiblelp2}, with multiple optimal solutions and optimal objective value of 1. \\ 
 
-\noindent iii) For there to be an unbounded optimal objective value, we need $\alpha = -1$. 
+\noindent iii) For there to be an unbounded optimal objective value, we need $\alpha < -1$, resulting in a $\text{slope} = 1$. 
 
 \newpage 
 
@@ -172,11 +170,11 @@ a) Since $Z$ is a discrete random variable that takes values in the set $\{1, 2,
     \text{s.t.} \quad & \sum_{i=1}^{10} p_i = 1 \\ 
     & \sum_{i=1}^{10} i \cdot p_i = 4 \\ 
     & p_i \geq 0
-\end{align*}
+\end{align*} 
 
-\noindent We want to optimise the probability distribution of $Z$ such that the likelihood of $Z$ being 5, 6, 7, 8, 9, or 10 is maximised. \\ 
+\noindent We want to optimise the probability distribution of $Z$ such that the likelihood of $Z$ being 5, 6, 7, 8, 9, or 10 is maximised. The first and last constraints come from the fact that the probabilities must sum to one and be non-negative. The second constraint arises from the average value (and hence the expectation) $\mathbb{E}(X) = \sum_{i=1}^{10} i \cdot p_i = 4$. \\ 
 
-\noindent Using the following \textit{JuMP} code, we have the final probability distribution of $Z$ being: 
+\noindent Using the following \textit{JuMP} code and GLPK solver, we have the final probability distribution of $Z$ being: 
 
 \begin{equation*}
     \boxed{p = \{0.25, 0, 0, 0, 0.75, 0, 0, 0, 0, 0\}}
@@ -194,12 +192,10 @@ a) Since $Z$ is a discrete random variable that takes values in the set $\{1, 2,
 %     # Objective function
 %     @objective(model, Max, sum(p[5:10]))
     
-%     # Normalization constraint
+%     # Normalization and average value constraints
 %     @constraint(model, sum(p) == 1)  
-%     # Average value constraint
 %     @constraint(model, sum(i * p[i] for i in 1:10) == 4)  
     
-%     # Solving LP
 %     optimize!(model)
 
 %     optimal_probabilities = value.(p)
@@ -213,14 +209,14 @@ a) Since $Z$ is a discrete random variable that takes values in the set $\{1, 2,
 \section*{Question 4}
 For the minimisation problem: 
 
-\begin{align*}
-    \min \quad & x_{1}-x_{2} \\ 
+\begin{align}
+    \nonumber \min \quad & x_{1}-x_{2} \\
     \text{s.t.} \quad & 2 x_{1} + 3 x_{2} - x_{3} + x_{4} \leq 0 \\ 
     & 3 x_{1} + x_{2} + 4 x_{3} - 2 x_{4} \geq 3 \\ 
     & - x_{1} - x_{2} + 2 x_{3} + x_{4} = 6 \\ 
     & x_{1} \leq 0 \\ 
     & x_{2},\; x_{3} \geq 0 
-\end{align*}
+\end{align}
 
 \noindent We can rearrange the LP into the form: 
 
@@ -229,7 +225,13 @@ For the minimisation problem:
     \text{s.t.} \quad & \mathbf{A} \mathbf{x} \leq \mathbf{b}
 \end{align*}
 
-\noindent For the $3^{\text{rd}}$ constraint, we separate into two cases: 
+\noindent Note that to transform the LP from a minimisation to maximisation problem, we multiply the objective function by $-1$:
+
+\begin{equation*}
+    \max_{\mathbf{x}\in \chi} f(x_1, \dots, x_2) = - \min_{\mathbf{x}\in \chi} -f(x_1, \dots, x_n) \Longrightarrow \; \min \; -x_1 + x_2
+\end{equation*}
+
+\noindent For constraint (3), we separate into two cases: 
 
 \begin{align*}
     - x_{1} - x_{2} + 2 x_{3} + x_{4} & \geq 6 \\
@@ -244,7 +246,7 @@ For the minimisation problem:
     \end{bmatrix},
     \quad 
     \mathbf{c} = \begin{bmatrix}
-        1 \\ -1 \\ 0 \\ 0
+        -1 \\ 1 \\ 0 \\ 0
     \end{bmatrix},
     \quad 
     \mathbf{A} = \begin{bmatrix}
@@ -260,24 +262,64 @@ For the minimisation problem:
     \mathbf{b} = \begin{bmatrix}
         0 \\ -3 \\ 6 \\ -6 \\ 0 \\ 0 \\ 0
     \end{bmatrix}
-\end{equation*}
+\end{equation*} \\
+
+\noindent After transformation to the maximisation problem, in both LPs, the optimum solution remains the exact same. However, since we multiply the objective value by $-1$, turning it into a maximisation problem means that the optimal objective value now differs from the minimisation problem by $-1$, i.e. its negative value. 
 
 \newpage 
 \section*{Question 5}
-The given optimisation problem is non-linear in nature, due to the piecewise absolute value function $f(z)$ in the objective function. We linearise the problem by introducing additional constraints and auxiliary variables. Let $y_i$ be auxiliary variables for each $i$, and $z_i$ be the absolute value of $\mathbf{a}^{\top}_i \mathbf{x}- b_i$. \\
+The given optimisation problem is non-linear in nature, due to the absolute value function $f(z)$ in the objective function. We linearise the problem by rewriting $f(x)$ as a piecewise linear function:
 
-\noindent Enforcing additional constraints to the problem in place of the piecewise nonlinear $f(x)$ in the objective function, we now formulate an appropriate LP:
+\begin{align*}
+    \min \quad & \sum_{i=1}^{m} \; \max \; (0, \; \mathbf{a}_i^{\top} \mathbf{x} - b_i - 5, \; -\mathbf{a}_i^{\top} \mathbf{x} - b_i - 5) \\
+    \text{s.t.} \quad & \mathbf{x} \in \mathbb{R}^n
+\end{align*}
 
-\begin{align}
+\noindent We let $y_i$ be auxiliary variables for each $i$, and $z_i$ be the argument of the function. Enforcing additional constraints to the problem, we now formulate an appropriate LP:
+
+\begin{align*}
     \nonumber \min \quad & \sum_{i=1}^{m} y_i \\ 
     \text{s.t.} \quad & z_i = \mathbf{a}^{\top}_i \mathbf{x} - b_i, \quad i = 1, \dots , m \\ 
     & y_i \geq z_i - 5,  \quad i = 1, \dots , m \\ 
-    & y_i \geq -(z_i - 5), \quad i = 1, \dots , m \\ 
+    & y_i \geq -z_i - 5, \quad i = 1, \dots , m \\ 
     & y_i \geq 0, \quad i = 1, \dots , m  \\
     & \mathbf{x} \in \mathbb{R}^{n} 
-\end{align}
+\end{align*}
 
-\noindent Constraint (2) enforces a lower bound on the LP, in view of the first piece of $f(z)$ where it is $0$ when $|z| < 5$. Constraint (3) enforces an upper bound, in view of the second piece of $f(z)$ for $|z| \geq 5$. Lastly, the non-negativity constraint (4) is imposed to ensure the absolute value of $z_i$.  
+\noindent Note that $y_i \in \mathbb{R}^n$ as well. The constraints ensure that we are obtaining the minimum value of all $i$'s as the optimal solution. Graphically, refer to Figure \ref{fig:5-piecewise} below for $f(z) = \max (0, \; z-5, \; -z-5)$: 
+
+\begin{figure}[H]
+    \centering
+        \begin{tikzpicture}[scale=0.4]
+            % Draw axes
+            \draw[->] (-12,0) -- (12,0) node[below] {$z$};
+            \draw[->] (0,-7) -- (0,8) node[left] {$f(z)$};
+    
+            % f(z) = -z - 5
+            \draw[thick] (-5,0) -- (-10,5) node[above left]{\small $-z-5$};
+    
+            % f(z) = z - 5
+            \draw[thick] (5,0) -- (10,5) node[above right]{\small $z-5$};
+
+            \draw[thick] (-5,0) -- (5,0);
+    
+            % f(z) = -z - 5
+            \draw[dashed] (-5,0) -- (0,-5);
+
+            % f(z) = -z - 5
+            \draw[dashed] (5,0) -- (0,-5);
+    
+            % Corner Points
+            \fill (0,0) circle (3pt) node[below left] {$0$};
+            \fill (-5,0) circle (3pt) node[below] {$-5$};
+            \fill (5,0) circle (3pt) node[below] {$5$};
+            \fill (0,-5) circle (3pt) node[below] {$-5$};
+        \end{tikzpicture}
+    \caption{Graph of Piecewise Function}
+    \label{fig:5-piecewise}
+\end{figure}
+
+\newpage 
 
 \section*{Question 6}
 We are given that $f(\mathbf{x})$ is convex, and we need to show that $\forall t \in \mathbb{R}$, the set of $\mathbf{x}$ (denoted by $\chi_t$) that satisfies $f(\mathbf{x}) \leq t$ is a convex set. Geometrically, for any 2 points $\mathbf{x}_1$ and $\mathbf{x}_2$ in $\chi_t$, the line segment containing them must also be in $\chi_t$. i.e., if $\mathbf{x}_1, \mathbf{x}_2 \in \chi_t$, then $\lambda \mathbf{x}_1 + (1-\lambda)\mathbf{x}_2 \in \chi_t, \; \forall \lambda \in [0,1]$. \\ 
@@ -299,7 +341,29 @@ We are given that $f(\mathbf{x})$ is convex, and we need to show that $\forall t
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Images/convexityfn.png}
+        \begin{tikzpicture}[>=stealth]
+            % Draw axes
+            \draw[->] (-1,0) -- (6,0) node[right] {$x$};
+            \draw[->] (0,-1) -- (0,6) node[above] {$f(x)$};
+
+            % Draw line t
+            \draw[dashed, name path=t] (0,4) -- (6,4) node[right] {$t$};
+
+            % Draw quadratic curve
+            \draw[domain=1:5,smooth,variable=\x,black, name path=f] plot ({\x},{(\x - 3)^2 + 1}) node[above right] {$\lambda x + (1-\lambda f(x))$};
+
+            % Fill area under curve and below line t
+            \path[name intersections={of=f and t, by={a,b}}];
+            \fill[gray!50] (a) -- plot[domain=1:5] (\x,{(\x - 3)^2 + 1}) -- (b) -- cycle;
+
+            % Draw line and mark points
+            \coordinate (A) at (2,2);
+            \coordinate (B) at (4.5,3.25);
+            \draw[dashed] (A) -- (B);
+            \fill (A) circle (2pt) node[left] {$ (x_1, f(x_1))$};
+            \fill (B) circle (2pt) node[right] {$ (x_2, f(x_2))$};
+            \fill (0,0) circle (2pt) node[below left] {$0$};
+        \end{tikzpicture}
     \caption{Illustration of Convexity}
     \label{fig:6-convexfns}
 \end{figure} 
@@ -316,7 +380,7 @@ We are given that $f(\mathbf{x})$ is convex, and we need to show that $\forall t
     & x_{1}, x_{2}, x_{3} \in \{0,1\}
 \end{align*}
 
-\noindent For this LP, Proportionality, Additivity, and Certainty assumptions hold, while Divisibility does not. The final constraint suggests that $x_{1}, x_{2}, x_{3}$ are constrained to values either 0 or 1 in the set, which are only binary whole numbers, and not fractional values. 
+\noindent For this LP, only Certainty holds, while Proportionality, Additivity, and Divisibility assumptions do not. The \textbf{logarithmic term in the constraint} does not yield a proportional contribution, so Proportionality does not hold. Similarly, the \textbf{total value of the objective function is not the sum of the contribution of each of the terms}, due to the $x_1 x_2$ term, so Additivity does not hold. Lastly, the final constraint suggests that $x_1, x_2, x_3$ are \textbf{constrained to values either 0 or 1 in the set, which are only binary whole numbers, and not fractional values}. Thus Divisibility does not hold.  
 
 \subsection*{(2)}
 
@@ -330,7 +394,7 @@ We are given that $f(\mathbf{x})$ is convex, and we need to show that $\forall t
     & \theta \in U(0,1)
 \end{align*}
 
-\noindent For this LP, Proportionality, Additivity, hold, while Divisibility and Certainty do not. For Divisibility, the constraint involving the random variable $\theta \in U(0,1)$ does not explicitly imply that the decision variable $x_2$ can be assigned to fractional values. For Certainty, since random variables are stochastic in nature, there is no way to know for sure the value of $x_2$. 
+\noindent For this LP, only Divisility holds, while Proportionality, Additivity, and Certainty do not. Rearranging the terms in constraint (4), we have $0.4 x_1 \leq -x_2 x_3$. Additivity does not hold in this case due to the $-x_2 x_3$ term. Proportionality does not hold due to the $-x_1^2$ term in constraint (3), as it does not yield a proportional change in the contribution to the function. For Certainty, since random variables are stochastic in nature, there is no way to know for sure the value of $x_2$. 
 
 \subsection*{(3)}
 

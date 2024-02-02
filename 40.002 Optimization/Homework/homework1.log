@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.22)  30 JAN 2024 23:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.22)  2 FEB 2024 10:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -520,7 +520,7 @@ File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (c:/TeXLive/2023/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks49
-)) (c:/TeXLive/2023/texmf-dist/tex/latex/enumitem/enumitem.sty
+) (c:/TeXLive/2023/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip70
 \enit@outerparindent=\dimen295
@@ -528,36 +528,82 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@inbox=\box78
 \enit@count@id=\count324
 \enitdp@description=\count325
-) (./homework1.aux)
+) (c:/TeXLive/2023/texmf-dist/tex/latex/pgfplots/pgfplots.sty (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+ (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks51
+\t@pgfplots@tokb=\toks52
+\t@pgfplots@tokc=\toks53
+\pgfplots@tmpa=\dimen296
+\c@pgfplots@coordindex=\count326
+\c@pgfplots@scanlineindex=\count327
+ (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (c:/TeXLive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
+Package pgfplots: loading complementary utilities for your pgf version...
+\t@pgf@toka=\toks54
+\t@pgf@tokb=\toks55
+\t@pgf@tokc=\toks56
+(c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex)) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
+\c@pgfplotsarray@tmp=\count328
+) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
+\c@pgfplotstable@counta=\count329
+\t@pgfplotstable@a=\toks57
+) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count330
+ (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (c:/TeXLive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (c:/TeXLive/2023/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen297
+\pgfdecoratedremainingdistance=\dimen298
+\pgfdecoratedinputsegmentcompleteddistance=\dimen299
+\pgfdecoratedinputsegmentremainingdistance=\dimen300
+\pgf@decorate@distancetomove=\dimen301
+\pgf@decorate@repeatstate=\count331
+\pgfdecorationsegmentamplitude=\dimen302
+\pgfdecorationsegmentlength=\dimen303
+)
+\tikz@lib@dec@box=\box79
+) (c:/TeXLive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (c:/TeXLive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (c:/TeXLive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (c:/TeXLive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
+\pgfplots@numplots=\count332
+\pgfplots@xmin@reg=\dimen304
+\pgfplots@xmax@reg=\dimen305
+\pgfplots@ymin@reg=\dimen306
+\pgfplots@ymax@reg=\dimen307
+\pgfplots@zmin@reg=\dimen308
+\pgfplots@zmax@reg=\dimen309
+) (c:/TeXLive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (c:/TeXLive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.fillbetween.code.tex (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/pgfcontrib/tikzlibraryfillbetween.code.tex (c:/TeXLive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryintersections.code.tex (c:/TeXLive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.tex
+\pgf@intersect@solutions=\count333
+)) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/pgfcontrib/tikzlibrarydecorations.softclip.code.tex (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/pgfcontrib/pgflibraryfillbetween.code.tex))) (c:/TeXLive/2023/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.decorations.softclip.code.tex))) (./homework1.aux)
 \openout1 = `homework1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
  (c:/TeXLive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count326
-\scratchdimen=\dimen296
-\scratchbox=\box79
-\nofMPsegments=\count327
-\nofMParguments=\count328
-\everyMPshowfont=\toks51
-\MPscratchCnt=\count329
-\MPscratchDim=\dimen297
-\MPnumerator=\count330
-\makeMPintoPDFobject=\count331
-\everyMPtoPDFconversion=\toks52
+\scratchcounter=\count334
+\scratchdimen=\dimen310
+\scratchbox=\box80
+\nofMPsegments=\count335
+\nofMParguments=\count336
+\everyMPshowfont=\toks58
+\MPscratchCnt=\count337
+\MPscratchDim=\dimen311
+\MPnumerator=\count338
+\makeMPintoPDFobject=\count339
+\everyMPtoPDFconversion=\toks59
 ) (c:/TeXLive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -601,21 +647,29 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 (c:/TeXLive/2023/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 19.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 17.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
- (c:/TeXLive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
+
+Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.15).
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
+(c:/TeXLive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
  (c:/TeXLive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {c:/TeXLive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  []
 
@@ -624,65 +678,55 @@ Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
-
- []
-
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
 
  []
 
-[3]
+[3{c:/TeXLive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 159--160
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 161--162
-
- []
-
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
 
  []
 
-[5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 267--268
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 265--266
+
+ []
+
+[6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 325--326
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 283--284
+Underfull \hbox (badness 10000) in paragraph at lines 328--329
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 286--287
-
- []
-
-<Images/convexityfn.png, id=38, 810.77907pt x 264.99pt>
-File: Images/convexityfn.png Graphic file (type png)
-<use Images/convexityfn.png>
-Package pdftex.def Info: Images/convexityfn.png  used on input line 302.
-(pdftex.def)             Requested size: 328.82707pt x 107.474pt.
-[7] [8 <./Images/convexityfn.png>] [9] (./homework1.aux) ) 
+[8] [9] [10] (./homework1.aux) ) 
 Here is how much of TeX's memory you used:
- 22015 strings out of 476096
- 473212 string characters out of 5795114
- 1866845 words of memory out of 5000000
- 42037 multiletter control sequences out of 15000+600000
- 529390 words of font info for 94 fonts, out of 8000000 for 9000
+ 32665 strings out of 476096
+ 831387 string characters out of 5795114
+ 1869845 words of memory out of 5000000
+ 52529 multiletter control sequences out of 15000+600000
+ 529727 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,13n,103p,598b,681s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on homework1.pdf (9 pages, 258213 bytes).
+ 99i,13n,373p,809b,1091s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on homework1.pdf (10 pages, 183481 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
+ 126 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -20,3 +20,12 @@
 \contentsline {subsubsection}{\numberline {4.1.1}Markov's Inequality}{6}{subsubsection.4.1.1}%
 \contentsline {subsubsection}{\numberline {4.1.2}Chebyshev's Inequality}{7}{subsubsection.4.1.2}%
 \contentsline {section}{\numberline {5}Central Limit Theorem}{7}{section.5}%
+\contentsline {section}{\numberline {6}Moments}{7}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Interpreting Moments}{7}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Moment Generating Functions}{7}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Formulas \& Theorems}{8}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Examples (Discrete)}{8}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Binomial MGF}{8}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}Poisson MGF}{8}{subsubsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.5}Examples (Continuous)}{9}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}Standard Normal}{9}{subsubsection.6.5.1}%

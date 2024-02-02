@@ -1,8 +1,8 @@
-PWD c:/LaTeX_Tracker/SUTD_Notes_Homework/Prob-Stats/TeX Files/Homework
+PWD c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/Homework
 INPUT c:/TeXLive/2023/texmf.cnf
 INPUT c:/TeXLive/2023/texmf-dist/web2c/texmf.cnf
 INPUT c:/TeXLive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/LaTeX_Tracker/SUTD_Notes_Homework/Prob-Stats/TeX Files/Homework/homework1.tex
+INPUT c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/Homework/homework1.tex
 OUTPUT homework1.log
 INPUT c:/TeXLive/2023/texmf-dist/tex/latex/base/article.cls
 INPUT c:/TeXLive/2023/texmf-dist/tex/latex/base/article.cls
@@ -424,28 +424,13 @@ INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib6.tfm
 INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
 INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
-INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
-INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
-INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
-INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
-INPUT c:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT homework1.aux
 INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
-INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
-INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
-INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
 INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
-INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
 INPUT c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb

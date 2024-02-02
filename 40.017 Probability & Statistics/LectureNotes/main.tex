@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{LectureNotes}
+\usepackage{mathtools}
 
 \setstretch{1.2}
 
@@ -36,7 +37,7 @@
 		\\ [2.0cm]
 		\HRule{1.5pt} \\
 		\LARGE \textbf{\uppercase{40.017 Probability \& Statistics}
-		\HRule{2.0pt} \\ [0.6cm] \LARGE{An Introduction to Probability \& Statistics} \vspace*{10\baselineskip}}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{Lecture Notes} \vspace*{10\baselineskip}}
 		}
 \date{\today}
 \author{\textbf{Michael Hoon}}
@@ -292,10 +293,138 @@ Let $X_{1}, X_{2}, \dots$ be i.i.d. with mean $\mu$ and variance $\sigma^{2}$.
     \end{equation*}
 \end{definition}
 
+\section{Moments}
+
+\subsection{Interpreting Moments}
+\begin{definition}
+    Let $X$ be an r.v. with mean $\mu$ and variance $\sigma^{2}$. For any positive integer $n$, the $n^{\text{th}}$ moment of $X$ is $\mathbb{E}(X^{n})$, the $n^{\text{th}}$ central moment is $\mathbb{E}((X - \mu)^{n})$. 
+\end{definition}
+
+\noindent In particular, the mean is the first moment and the variance is the second central moment. 
+
+\subsection{Moment Generating Functions}
+A moment generating function, as its name suggests, is a generating function that encodes the \textbf{moments} of a distribution. Starting with an infinite sequence ($a_{0}, a_{1}, a_{2}, \dots$), we 'condense' or 'store' it as a single function $g$, the generating function of the sequence:
+
+\begin{equation*}
+    \sum_{n=0}^{\infty} a_n \frac{t^{n}}{n!} \coloneqq g(t) 
+\end{equation*}
+
+\begin{definition}
+    When we take $a_n = \mathbb{E}(X^{n})$, the resulting generating function is known as the \textbf{moment generating function (MGF)} of $X$, and is denoted by $M_X(t)$. \\ 
+
+    \noindent The MGF of $X$ can be computed as an expected value: 
+
+    % \begin{equation}
+    %     M_X (t) = \sum_{n=0}^{\infty} \mathbb{E(X^{n}) \frac{t^{n}}{n!} = \sum_{n=0}^{\infty} \mathbb{E}\left(\frac{t^{n}}{n!}\right) \\
+    %     = \mathbb{E}\left(\sum_{n=1}^{\infty}\frac{(tX)^{n}}{n!}\right) \\
+    %     = \mathbb{E}(e^{tX})
+    % \end{equation}
+\end{definition}
+
+\noindent Note that $M_X (0) = 1$ for any valid MGF. 
+
+\subsection{Formulas \& Theorems}
+Some important formulas for the MGF of $X$:
+
+\begin{equation}
+    \boxed{M_X (t) = \mathbb{E} (e^{tX})} 
+\end{equation}
+
+\noindent where if $X$ is \textbf{discrete} with pmf $f$, then 
+
+\begin{equation}
+    M_X (t) = \sum_{all x_i} e^{t x_i} f(x_i) 
+\end{equation}
+
+\noindent and if $X$ is \textbf{continuous} with pdf $f$, then 
+
+\begin{equation}
+    M_X (t) = \int_{-\infty}^{\infty} e^{tx} f(x) \, \mathrm{d}x
+\end{equation}
+
+\begin{theorem}
+    Given the MGF of $X$, we can get the $n^{\text{th}}$ moment of $X$ by evaluating the $n^{\text{th}}$ derivative of the MGF at 0: 
+
+    \begin{equation}
+        \boxed{\mathbb{E}(X^{n}) = M_X^{(N)} (0)} 
+    \end{equation}
+\end{theorem}
+
+\begin{theorem}
+    If $X$ and $Y$ are independent, then the MGF of $X + Y$ is the product of the individual MGFs:
+    \begin{equation}
+        M_{X+Y} (t) = M_X(t)M_Y(t)
+    \end{equation}
+    \noindent This is true because if $X$ and $Y$ are independent, then $\mathbb{E}(e^{t(X+Y)}) = \mathbb{E}(e^{tX})\mathbb{E}(e^{tY})$ 
+\end{theorem}
+
+\begin{theorem}
+    If two random variables have the same MGF, then they have the same distribution (same cdf, equivalently, same pdf or pmf) \footnote{For this to apply, the MGF needs to exist in an open interval around $t=0$}.
+\end{theorem}
+
+\subsection{Examples (Discrete)}
+
+\subsubsection{Binomial MGF}
+We have $f(x) = \binom{n}{x} p^{x} (1-p)^{n-x}$. The MGF can be found by:
+
+\begin{align}
+    M_{X} (t) &= \sum_{x=0}^{n} \binom{n}{x} (\underbrace{e^{t}p}_{a})^{x} (\underbrace{1-p}_b)^{n-x} \\ \nonumber
+    &= (e^{t}p + 1-p)^{n}
+\end{align}
+
+\noindent by using the fact that 
+
+\begin{equation*}
+    \sum_{x} \binom{n}{x} a^{x} b^{n-x} = (a + b)^{n} 
+\end{equation*}
+
+\noindent and from which we can obtain $\mathbb{E}(X) = M'_X(0) = n \overbrace{(e^{t}p + 1 - p)^{n-1} \cdot e^{t}p \mid_{t=0}}^{p} = np$
+
+\subsubsection{Poisson MGF}
+For a Poisson r.v., where $X \sim \text{Poisson}(\lambda)$ We have $f(x) = e^{-\lambda} \frac{\lambda^{x}}{x!}$. Then,
+
+\begin{align}
+    M_X (t) &= \sum_{x=0}^{\infty} e^{tx} e^{-\lambda} \frac{\lambda^{x}}{x!} \\ \nonumber
+    &= e^{-\lambda} \sum_{x=0}^{\infty} \frac{(e^{t}\lambda)^{x}}{x!} \\ \nonumber
+    &= e^{-\lambda} e^{e^{t}\lambda} \\ \nonumber
+    &= e^{e^{t}\lambda - \lambda} \\ \nonumber
+    &= e^{\lambda(e^{t} - 1)}
+\end{align}
+
+\noindent We can now find:
+
+\begin{equation*}
+    M'_X (t) = e^{\lambda(e^{t} - 1)}(\lambda e^{t})
+\end{equation*}
+
+\noindent and therefore 
+
+\begin{equation*}
+    M'_X (0) = e^{0} (\lambda e^{0}) = \lambda
+\end{equation*}
+
+\subsection{Examples (Continuous)}
+
+\subsubsection{Standard Normal}
+
+If $Z \sim \mathcal{N}(0,1)$ is a standard normal r.v., then $f(x) = \frac{1}{\sqrt{2\pi}} e^{-\frac{x^{2}}{2}}$. For continuous distributions, we need to use the infinite integral:
+
+\begin{align}
+    M_Z(t) &= \mathbb{E}(e^{tZ}) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{tx} e^{-\frac{x^{2}}{2}} \, \mathrm{d}x \\ 
+    &=  
+\end{align}
 
 
 
 
 
+
+\newpage 
+
+\section*{References}
+
+Some references used in these notes: \\ 
+
+Introduction to Probability, Joe Blitzstein \& Jessica Hwang. 
 
 \end{document}
