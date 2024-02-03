@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1706953254 "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/Homework/homework1.tex" "homework1.pdf" "homework1" 1706953255 0
+["pdflatex"] 1706953609 "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/Homework/homework1.tex" "homework1.pdf" "homework1" 1706953610 0
   "Homework.sty" 1706952933 990 8df249a8c28f7903db477d7a2ab69b07 ""
-  "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/Homework/homework1.tex" 1706953252 14358 2e5d15b09bd3bbf6029e9b8cb87d3c2e ""
+  "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/Homework/homework1.tex" 1706953609 14359 81fbe49f581d524e3e0590ba2e323e93 ""
   "c:/TeXLive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1684758996 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1684752884 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1684752884 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -225,8 +225,8 @@
   "c:/TeXLive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1684761598 4683009 81ac55e6554f9124653631026fb1fc4e ""
   "c:/TeXLive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1684761748 7888862 6089269ac32f199cc2ce135a525d4388 ""
   "c:/TeXLive/2023/texmf.cnf" 1684761580 713 e69b156964470283e0530f5060668171 ""
-  "homework1.aux" 1706953255 339 1d22f802f7ed1c78f336dbb1071b311e "pdflatex"
-  "homework1.tex" 1706953252 14358 2e5d15b09bd3bbf6029e9b8cb87d3c2e ""
+  "homework1.aux" 1706953610 339 1d22f802f7ed1c78f336dbb1071b311e "pdflatex"
+  "homework1.tex" 1706953609 14359 81fbe49f581d524e3e0590ba2e323e93 ""
   (generated)
   "homework1.aux"
   "homework1.log"
