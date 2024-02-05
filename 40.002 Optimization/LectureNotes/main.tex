@@ -333,9 +333,9 @@ Suppose that a function $f: \mathbb{R}^{n} \to \mathbb{R}$ is twice differentiab
 
 \subsubsection{Solving Convexity-Related Questions}
 
-\section{Some Matrix Calculus}
+\subsection{Some Matrix Calculus}
 
-\subsection{The Gradient}
+\subsubsection{The Gradient}
 
 \begin{definition}
     
@@ -361,7 +361,7 @@ Suppose that $f: \mathbb{R}^{m\times n}\to \mathbb{R}$ is a function that takes 
     \item For $t \in \mathbb{R}, \; \nabla_x(t f(x)) = t\nabla_x f(x)$
 \end{enumerate}
 
-\subsection{The Hessian}
+\subsubsection{The Hessian}
 
 \begin{definition}
     
@@ -387,7 +387,7 @@ Suppose that $f: \mathbb{R}^{n}\to \mathbb{R}$ is a function that takes a vector
 
 \noindent The Hessian is defined only when $f(x)$ is real-valued. Note that for functions of a vector, the gradient of the function is a vector, and we cannot take the gradient of a vector.\textbf{ Therefore, it is not the case that the Hessian is the Gradient of the Gradient}. 
 
-\subsection{Definite Matrix \& Eigenvalues}
+\subsubsection{Definite Matrix \& Eigenvalues}
 
 \begin{definition}
 
@@ -406,6 +406,95 @@ Suppose that $f: \mathbb{R}^{n}\to \mathbb{R}$ is a function that takes a vector
 
 \section{Simplex Method}
 
+\subsection{The True Standard Form}
+Previously, we know that a linear program can take either a maximisation of minimisation form, depending on the context. The constraints thus can either be inequalities or equalities. Some variables might be unrestricted in sign, while others might be restricted to be non-negative. \\ 
+
+\noindent A linear program is said to be in \textit{standard form} if the following hold: 
+
+\begin{enumerate}
+    \item It is a minimisation program.
+    \item There are only equalities (no inequalities) and 
+    \item All variables are restricted to be non-negative. 
+\end{enumerate}
+
+\noindent In matrix form, we have 
+
+\begin{align}\label{eq:2-standard form}
+    \min \quad & c^{\top}\mathbf{x} \\ \nonumber 
+    \text{s.t.} \quad & \mathbf{Ax} = \mathbf{b} \\ \nonumber 
+    \quad & \mathbf{x} \geq 0 
+\end{align}
+
+\noindent where $n$ is the number of decision variables and $m$ is the number of equality constraints and $\mathbf{0}$ is a vector of zeros. 
+
+\subsubsection{Transformation Tricks}
+We have a few transformation tricks to convert any LP into the true standard form:
+
+\begin{enumerate}
+    \item Eliminate non-positive and free variables (unrestricted in sign): \begin{align*}
+        & x_j \leq 0 \to \text{Let} \; \hat{x}_j = -x_j \; \text{and set } \hat{x}_j \geq 0 \\ 
+        & x_j \text{is free } \to \text{Let } x_j = x_j^+ - x_j^- \text{ and set } x_j^+, x_j^- \geq 0  
+    \end{align*}
+    \item If we have an inequality constraint $a_{i1}x_{1}+ \dots + a_{in}x_n \leq b$, then we can transform it into an equality constraint by adding a \textit{slack} variable $s_i$, restricted to be non-negative: \begin{equation*}
+        a_{i_{1}} x_{1} + \dots + a_{in}x_n + s_i = b_i, \quad s_i \geq 0
+    \end{equation*}
+    \item Similarly, if we have an inequality constraint $a_{i_{1}}x_{1} + \dots + a_{in} x_n \geq b_i$ then we can transform it into an equality constraint by adding a \textit{surplus} variable, $s_i$, restricted to be non-negative: \begin{equation*}
+        a_{i_{1}}x_{1} + \dots + a_{in}x_n - s_i = b_i, \quad s_i \geq 0 
+    \end{equation*}
+\end{enumerate}
+
+\subsection{Active Constraints}
+A constraint is said to be \textbf{active} at a point $\mathbf{x}$ if the constraint is satisfied at equality at that point. \\ 
+
+\noindent A set of linear constraints are linearly independent if their coefficient vectors are linearly independent; else they are linearly dependent. 
+
+\subsection{Some Polyhedron Definitions}
+Let $P \subseteq \mathbb{R}^{n}$ be a non-empty polyhedron. 
+
+\begin{enumerate}
+    \item A vector $\mathbb{x} \in P$ is an \textbf{extreme point} of $P$ if we cannot find two vectors $\mathbf{y}, \mathbf{z} \in P$, both different from $\mathbf{x}$, and a scalar $\lambda \in [0,1]$, such that $\mathbf{x} = \lambda \mathbf{y} + (1- \lambda) \mathbf{z} $ (Geometric Definition). 
+    \item A vector $\mathbf{x} \in P$ is a \textbf{vertex} of $P$ if there exists some $\mathbf{c}$ such that $\mathbf{x}$ is the unique minimizer of the LP $\min \{\mathbf{c}^{\top}\mathbf{y} \mid \mathbf{y} \in P\}$ (Optimisation definition)
+    \item A vector $\mathbf{x} \in P$ is a \textbf{basic feasible solution} (BFS) if there exists $n$ linearly independent constraints that are active at $\mathbf{x}$ (including both inequality and equality constraints) (Algebraic definition). 
+\end{enumerate}
+
+\begin{theorem}
+    Let $P \subseteq \mathbb{R}^{n}$ be a nonempty polyhedron and let $x^{*} \in P$. Then: \begin{equation*}
+        x^{*} \text{ is an extreme point } \Longleftrightarrow x^{*} \text{ is a vertex } \Longleftrightarrow x^{*} \text{ is a BFS.}
+    \end{equation*} Notably, these 3 are the same definitions but in different form.
+\end{theorem}
+
+\subsection{Finding a Basic Feasible Solution}
+We can "eyeball" a BFS by the following steps: \\ 
+
+\noindent Consider an LP where: 
+
+\begin{enumerate}
+    \item LP is of standard form
+    \item The right hand side vector $\mathbf{b}$ is non-negative
+    \item The constraint matrix contains the identity matrix $I$ as a \textbf{submatrix} (or a permutation of the identity matrix). 
+\end{enumerate}
+
+\noindent Then, we can easily identify a BFS:
+
+\begin{enumerate}
+    \item Variables associated with $I$ (or permutations of $I$) are \textbf{basic variables}. THey take the value of the right hand side vector. Other variables are nonbasic variables; they take values of zero. 
+    \item Columns of the constraint matrix corresponding to the basic variables form a \textbf{basis}; we also refer to the set of basic variables sometimes as a basis. 
+\end{enumerate}
+
+\subsection{The Simplex Method}
+To use the Simplex Method on an LP, we shall assume the following:
+
+\begin{enumerate}
+    \item The LP is in standard form
+    \item $b \geq 0$
+    \item There exists a collection $B$ of $m$ variables called a \textit{basis} such that: \begin{enumerate}
+        \item the submatrix $A_B$ of $A$ consisting of the columns of $A$ corresponding to the variables in $B$ is the $m \times m$ identity matrix
+        \item the cost coefficients corresponding to the variables in $B$ are all equal to 0. 
+    \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Phase I}
+In Phase I of the Simplex Method, we need to transform the LP into a standard form in Equation \ref{eq:2-standard form}. 
 
 \section{Duality}
 

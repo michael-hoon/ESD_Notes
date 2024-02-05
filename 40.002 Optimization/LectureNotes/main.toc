@@ -13,20 +13,27 @@
 \contentsline {subsubsection}{\numberline {1.4.4}First-Order Characterisation}{8}{subsubsection.1.4.4}%
 \contentsline {subsubsection}{\numberline {1.4.5}Second-Order Characterisation}{8}{subsubsection.1.4.5}%
 \contentsline {subsubsection}{\numberline {1.4.6}Solving Convexity-Related Questions}{9}{subsubsection.1.4.6}%
-\contentsline {section}{\numberline {2}Some Matrix Calculus}{9}{section.2}%
-\contentsline {subsection}{\numberline {2.1}The Gradient}{9}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}The Hessian}{9}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Definite Matrix \& Eigenvalues}{10}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Simplex Method}{10}{section.3}%
-\contentsline {section}{\numberline {4}Duality}{10}{section.4}%
-\contentsline {section}{\numberline {5}Sensitivity Analysis}{10}{section.5}%
-\contentsline {section}{\numberline {6}Application to Game Theory}{10}{section.6}%
-\contentsline {section}{\numberline {7}Robust Optimization}{10}{section.7}%
-\contentsline {section}{\numberline {8}Maximum Matching}{10}{section.8}%
-\contentsline {section}{\numberline {9}Network Simplex Algorithm}{10}{section.9}%
-\contentsline {section}{\numberline {10}Integer Programming}{10}{section.10}%
-\contentsline {section}{\numberline {11}LP Relaxation}{10}{section.11}%
-\contentsline {section}{\numberline {12}Branch-and-Bound}{10}{section.12}%
-\contentsline {section}{\numberline {13}Cutting Planes}{10}{section.13}%
-\contentsline {section}{\numberline {14}Dynamic Programming}{10}{section.14}%
-\contentsline {section}{\numberline {15}Travelling Salesman Problem}{10}{section.15}%
+\contentsline {subsection}{\numberline {1.5}Some Matrix Calculus}{9}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}The Gradient}{9}{subsubsection.1.5.1}%
+\contentsline {subsubsection}{\numberline {1.5.2}The Hessian}{9}{subsubsection.1.5.2}%
+\contentsline {subsubsection}{\numberline {1.5.3}Definite Matrix \& Eigenvalues}{10}{subsubsection.1.5.3}%
+\contentsline {section}{\numberline {2}Simplex Method}{10}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The True Standard Form}{10}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Transformation Tricks}{10}{subsubsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.2}Active Constraints}{11}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Some Polyhedron Definitions}{11}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Finding a Basic Feasible Solution}{11}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}The Simplex Method}{12}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Phase I}{12}{subsubsection.2.5.1}%
+\contentsline {section}{\numberline {3}Duality}{12}{section.3}%
+\contentsline {section}{\numberline {4}Sensitivity Analysis}{12}{section.4}%
+\contentsline {section}{\numberline {5}Application to Game Theory}{12}{section.5}%
+\contentsline {section}{\numberline {6}Robust Optimization}{12}{section.6}%
+\contentsline {section}{\numberline {7}Maximum Matching}{12}{section.7}%
+\contentsline {section}{\numberline {8}Network Simplex Algorithm}{12}{section.8}%
+\contentsline {section}{\numberline {9}Integer Programming}{12}{section.9}%
+\contentsline {section}{\numberline {10}LP Relaxation}{12}{section.10}%
+\contentsline {section}{\numberline {11}Branch-and-Bound}{12}{section.11}%
+\contentsline {section}{\numberline {12}Cutting Planes}{12}{section.12}%
+\contentsline {section}{\numberline {13}Dynamic Programming}{12}{section.13}%
+\contentsline {section}{\numberline {14}Travelling Salesman Problem}{12}{section.14}%

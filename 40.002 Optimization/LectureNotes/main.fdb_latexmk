@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1706605145 "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.002 Optimization/LectureNotes/main.tex" "main.pdf" "main" 1706605147 0
+["pdflatex"] 1707116623 "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.002 Optimization/LectureNotes/main.tex" "main.pdf" "main" 1707116625 0
   "Images/LP_Graphical.png" 1706077729 98169 ce15dfe1f0043df3af8d95cbe48cbcc7 ""
   "Images/convexity.png" 1706079498 152210 5faa7f66d356583a19dfb2a805cb5526 ""
   "Images/convexityfn.png" 1706079753 118911 5c5d78b9b30b8edd6491bf827cfd8378 ""
@@ -7,7 +7,7 @@
   "Images/convexityfn3.png" 1706111102 38168 56985a5fd63e778e198e9cb9fe88c856 ""
   "Images/firstoderconvexity.png" 1706599906 18486 664a140cfc9c6f16565c416d2b2d3a9f ""
   "LectureNotes.sty" 1705915636 2871 f2e10b3a39a4fe8e8c5fbae550700e31 ""
-  "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.002 Optimization/LectureNotes/main.tex" 1706605144 22553 111ae19e21e1b44ce6830975e55e0dbd ""
+  "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.002 Optimization/LectureNotes/main.tex" 1707116620 27957 7e78c73db3eb5079b0231094e5901451 ""
   "c:/TeXLive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1684758386 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/TeXLive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1684758996 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/TeXLive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1684758751 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -237,10 +237,10 @@
   "c:/TeXLive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1684761598 4683009 81ac55e6554f9124653631026fb1fc4e ""
   "c:/TeXLive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1684761748 7888862 6089269ac32f199cc2ce135a525d4388 ""
   "c:/TeXLive/2023/texmf.cnf" 1684761580 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1706605146 7882 0024ddbc05ecd41662e36688df79ebbc "pdflatex"
-  "main.out" 1706605146 4767 33f11e8355a452f73a6917705d3873db "pdflatex"
-  "main.tex" 1706605144 22553 111ae19e21e1b44ce6830975e55e0dbd ""
-  "main.toc" 1706605146 2638 0eab808ae0621c5fc364943348a34763 "pdflatex"
+  "main.aux" 1707116624 9070 5caf64d3372e3eb0516c0239652240d8 "pdflatex"
+  "main.out" 1707116625 6008 14f1e939ee0e73d5a9fac91384177674 "pdflatex"
+  "main.tex" 1707116620 27957 7e78c73db3eb5079b0231094e5901451 ""
+  "main.toc" 1707116625 3311 aa1edb1d7347b23e86725ffd67575eb1 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
