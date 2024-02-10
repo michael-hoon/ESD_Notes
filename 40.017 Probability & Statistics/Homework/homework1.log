@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.22)  3 FEB 2024 17:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.22)  6 FEB 2024 12:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -667,49 +667,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--115
  []
 
 [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--169
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--171
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 194--195
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 212--213
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
 
  []
 
 [7] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 305--306
+Underfull \hbox (badness 10000) in paragraph at lines 299--300
 
  []
 
 [10] (./homework1.aux) ) 
 Here is how much of TeX's memory you used:
- 31907 strings out of 476096
- 810463 string characters out of 5795114
+ 31895 strings out of 476096
+ 810344 string characters out of 5795114
  1868845 words of memory out of 5000000
- 51792 multiletter control sequences out of 15000+600000
- 529155 words of font info for 95 fonts, out of 8000000 for 9000
+ 51785 multiletter control sequences out of 15000+600000
+ 527426 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,16n,103p,821b,722s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on homework1.pdf (10 pages, 174155 bytes).
+<c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on homework1.pdf (10 pages, 165622 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 72 compressed objects within 1 object stream
+ 110 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

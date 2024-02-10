@@ -444,11 +444,34 @@ We have a few transformation tricks to convert any LP into the true standard for
 \end{enumerate}
 
 \subsection{Active Constraints}
-A constraint is said to be \textbf{active} at a point $\mathbf{x}$ if the constraint is satisfied at equality at that point. \\ 
 
-\noindent A set of linear constraints are linearly independent if their coefficient vectors are linearly independent; else they are linearly dependent. 
+\begin{enumerate}
+    \item A constraint is said to be \textbf{active} at a point $\mathbf{x}$ if the constraint is satisfied at equality at that point. 
+    \item A set of linear constraints are linearly independent if their coefficient vectors are linearly independent; else they are linearly dependent. 
+\end{enumerate}
+
+\subsection{Optimality Test of LP in Inequality Form}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/LPGeometry.png}
+    \caption{Feasible Region with Objective Contours}
+    \label{fig:2-lpgeometry}
+\end{figure} 
+
+Consider an LP with $m$ variables and $n$ linear inequality constraints. \begin{enumerate}
+    \item A \textbf{Corner Point} is an intersection point of the hyperplanes of $m$ linearly-independent inequality constraints. 
+    \item These constraints are called active constraints at the corner solution.
+    \item Two corner solutions are adjacent if they differ by one active constraint.
+\end{enumerate}
+
+\begin{theorem}
+    For an LP in the standard form, a \textbf{Corner Point} is maximal if and only if the objective vector is a conic combination of the normal direction vectors of the $m$ hyperplanes. Refer to Figure \ref{fig:2-lpgeometry}. 
+\end{theorem}
+
 
 \subsection{Some Polyhedron Definitions}
+
 Let $P \subseteq \mathbb{R}^{n}$ be a non-empty polyhedron. 
 
 \begin{enumerate}
@@ -462,6 +485,7 @@ Let $P \subseteq \mathbb{R}^{n}$ be a non-empty polyhedron.
         x^{*} \text{ is an extreme point } \Longleftrightarrow x^{*} \text{ is a vertex } \Longleftrightarrow x^{*} \text{ is a BFS.}
     \end{equation*} Notably, these 3 are the same definitions but in different form.
 \end{theorem}
+
 
 \subsection{Finding a Basic Feasible Solution}
 We can "eyeball" a BFS by the following steps: \\ 
@@ -493,10 +517,257 @@ To use the Simplex Method on an LP, we shall assume the following:
     \end{enumerate}
 \end{enumerate}
 
-\subsubsection{Phase I}
-In Phase I of the Simplex Method, we need to transform the LP into a standard form in Equation \ref{eq:2-standard form}. 
 
-\section{Duality}
+\subsection{Slack Variables and Pivoting}
+
+Simplex method is an iterative procedure which corresponds, geometrically, to moving from one feasible corner to another until optimal feasible point is located. Slack variables are introduced to ensure corner points are \textit{feasible}, not outside solution region. Algebraically, hopping from one feasible corner point to another corresponds to repeatedly identifying \textit{pivot column}, \textit{pivot row}, and consequently, \textit{pivot element}, in a succession of matrix tableaus. Having identified pivot element, a new tableau is created by \textit{pivoting} (Gauss-Jordan method) on this element. 
+
+\subsection{Algorithmic Approach}\label{sec:2-algorithmicapproach}
+The steps of the simplex algorithm can be carried out using a simplex tableau. We have the LP in standard form: \begin{align*}
+    \min \quad & -3 x_{1} -2 x_{2} \\ 
+    \text{s.t.} \quad & x_{1} -x_{2} + x_{3} = 1 \\ 
+    & 2 x_{1} + x_{2} \qquad + x_{4} = 4 \\ 
+    & \qquad x_{2} \qquad \quad \qquad + x_{5} = 2 \\ 
+    & x_{1}, x_{2}, x_{3}, x_{4}, x_{5} \geq 0 
+\end{align*}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c | c c | c c c c c}
+        Row & & & $x_{1}$ & $x_{2}$ & $x_{3}$ & $x_{4}$ & $x_{5}$ \\ \hline 
+        $R_{0}$ & & 0 & -3 & -2 & 1 & 0 & 0 \\ \hline 
+        $R_{1}$ & $x_{3}$ & 1 & 1 & -1 & 0 & 0 & 0 \\ 
+        $R_{2}$ & $x_{4}$ & 4 & 2 & 1 & 0 & 1 & 0 \\ 
+        $R_{3}$ & $x_{5}$ & 2 & 0 & 1 & 0 & 0 & 1
+    \end{tabular}
+    \caption{Simple Tableau}
+    \label{tab: 2-tableau}
+\end{table} 
+
+\noindent In this example, $B = \{x_{4}, x_{5}, x_{6}\}$. The variables in $B$ are called basic variables while the others are \textit{nonbasic}. The set of nonbasic variables is denoted by $N = \{x_{1}, x_{2}, x_{3}\}$. We now have a matrix $A_B = I$, where it is easier to quickly infer the values of the basic variables given the values of the nonbasic variables\footnote{Only if the constraint matrix contains the identity matrix as a submatrix (or a permutation of it). Then, the basic variables take the value of the right hand side vector, while the others (nonbasic) are zero.}. \\ 
+
+
+\subsubsection{Basic Feasible Solutions (BFS)} 
+Furthermore, we don't need to know the values of the basic variables to evaluate the cost of the solution (there is no guarantee however that the solution is feasible). By setting all nonbasic variables to be 0, the values of the basic variables are just given by the right-hand-sides of the constraints. The simplex method is an iterative method that generates a sequence of BFS (corresponding to different bases) and eventually stops when it has found an optimal basic feasible solution. \\ 
+
+\noindent At this point, to move to a better solution, we can use the ratio test: 
+
+\begin{theorem}
+    \textbf{Minimum Ratio Test}: When introducing variable $x_s$ into the basis, identify the row that gives the \textbf{minimum ratio of left-hand side values} in the tableau to the corresponding $x_s$ coefficient in the chosen column. Compute these ratios only for constraints that have positive coefficients for $x_s$. 
+\end{theorem}
+
+\noindent In this case, we have \begin{equation*}
+    t^{*} = \min \left(\frac{1}{1}, \frac{4}{2}\right) = 1
+\end{equation*}
+
+\noindent In particular, $x_{1}$ enters the basis and $x_{3}$ leaves the basis. Do row operations using this identified row (leaving variable) such that for the chosen column, (entering variable), we \textbf{obtain a 1 in the entry where they intersect and 0 otherwise}. Now, after pivoting $(R_{0} \to R_{0}  + 3 R_{1}, \; R_{2} \to  R_{2} - 2 R_{1})$:
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c | c c | c c c c c}
+        Row & & & $x_{1}$ & $x_{2}$ & $x_{3}$ & $x_{4}$ & $x_{5}$ \\ \hline 
+        $R_{0}$ & & 3 & 0 & -5 & 3 & 0 & 0 \\ \hline 
+        $R_{1}$ & $x_{1}$ & 1 & 1 & -1 & 0 & 0 & 0 \\ 
+        $R_{2}$ & $x_{4}$ & 2 & 0 & 3 & -2 & 1 & 0 \\ 
+        $R_{3}$ & $x_{5}$ & 2 & 0 & 1 & 0 & 0 & 1
+    \end{tabular}
+    \caption{Next Pivot}
+    \label{tab: 2-tableaupivoted2}
+\end{table} 
+
+\noindent At this point, we now see: \begin{enumerate}
+    \item BFS is $(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}) = (1,0,0,2,2)$, identified by the variables on the left of the tableau $(x_{1}, x_{4}, x_{5})$. 
+    \item Objective function value is $-3$ (negative of value of top left entry). 
+    \item However, $x_{2}$ has negative cost in the top row, so the solution is still non-optimal.
+    \item Note that the element that we are pivoting on must always end up being 1.
+\end{enumerate}
+
+\noindent We now apply the minimum ratio test again: \begin{equation*}
+    t^{*} = \min \left(\frac{2}{3}, \frac{2}{1}\right) = \frac{2}{3}
+\end{equation*}
+
+\noindent where $x_{4}$ leaves, and $x_{2}$ enters. We now perform the row operations $(R_{2} \to \frac{R_{2}}{3}, \; R_{0} \to  R_{0} + 5 R_{2}, \; R_{1} \to  R_{1} + R_{2}, \; R_{3} \to R_{3}-R_{2})$. We obtain the next tableau:
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c | c c | c c c c c}
+        Row & & & $x_{1}$ & $x_{2}$ & $x_{3}$ & $x_{4}$ & $x_{5}$ \\ \hline 
+        $R_{0}$ & & 19/3 & 0 & 0 & -1/3 & 5/3 & 0 \\ \hline 
+        $R_{1}$ & $x_{1}$ & 5/3  & 1 & 0 & 1/3 & 1/3 & 0 \\ 
+        $R_{2}$ & $x_{4}$ & 2/3 & 0 & 1 & -2/3 & 1/3 & 0 \\ 
+        $R_{3}$ & $x_{5}$ & 4/3 & 0 & 0 & 2/3 & -1/3 & 1
+    \end{tabular}
+    \caption{Simplex Tableau after pivoting again}
+    \label{tab: 2-tableaupivoted3}
+\end{table} 
+
+\noindent Applying the minimum ratio test again, \begin{equation*}
+    t^{*} = \min \left( \frac{5/3}{1/3}, \frac{4/3}{2/3}\right) = 2
+\end{equation*}
+
+\noindent Since we still have negative cost in $x_{3}$, $x_{5}$ leaves the basis, while $x_{3}$ enters. We perform the row operations: $(R_{0} \to R_{0} + \frac{R_{3}}{2}, \; R_{1} \to R_{1}-\frac{R_{3}}{2}, \; R_{2} \to R_{2}+R_{3}, \; R_{3} \to \frac{R_{3}}{2/3})$.
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c | c c | c c c c c}
+        Row & & & $x_{1}$ & $x_{2}$ & $x_{3}$ & $x_{4}$ & $x_{5}$ \\ \hline 
+        $R_{0}$ & & 7 & 0 & 0 & 0 & 3/2 & 1/2 \\ \hline 
+        $R_{1}$ & $x_{1}$ & 1  & 1 & 0 & 0 & 1/2 & -1/2 \\ 
+        $R_{2}$ & $x_{4}$ & 2 & 0 & 1 & 0 & 0 & 1 \\ 
+        $R_{3}$ & $x_{5}$ & 2 & 0 & 0 & 1 & -1/2 & 3/2 
+    \end{tabular}
+    \caption{Final Simplex Tableau }
+    \label{tab: 2-finaltableau}
+\end{table} 
+
+
+\noindent At this point, all entries are nonnegative in $R_{0}$ for columns corresponding to $x_{1}$ to $x_{5}$. \textbf{The simplex algorithm terminates}. The optimal solution is now $x_{1} = 1, x_{2} = 2$, with optimal objective value being $z=-7$. 
+
+\subsection{Simplex Method: Matrix Form}
+
+Consider an LP in standard form, with $n$ variables and $m$ equality constraints, and the rows of $\mathbf{A}$ are linearly independent ($m \leq n$). Index the $m \times n$ matrix $ \mathbf{A}$ using column vectors: \begin{equation*}
+    \mathbf{A} = \begin{pmatrix}
+        | & & | \\ 
+        \mathbf{A}_1 & \dots & \mathbf{A}_n \\ 
+        | & & | 
+    \end{pmatrix}
+\end{equation*}
+
+\noindent We start with a basis matrix $ \mathbf{B}$ where $B_{1}, \dots , B_m$ are the indices of the basic variables and $\mathbf{B} = (\mathbf{A}_{B_{1}}, \dots , \mathbf{A}_{B_m})$. $ \mathbf{B}$ is of size $m \times m $ and invertible, partitioning the matrix as $ \mathbf{A} = \begin{pmatrix}
+    \mathbf{B} & \mathbf{N}
+\end{pmatrix}$ (basic and nonbasic), the vector $\mathbf{x}$ to $\mathbf{x}_B$ and $\mathbf{x}_N$ and the cost vector $\mathbf{c}$ to $\mathbf{c}_B$ and $\mathbf{c}_N$ (the cost vector is the coefficients of the objective function). \\ 
+
+\noindent To find an associated solution, we set $\mathbf{x}_N = \mathbf{0}$, and $\mathbf{x}_B = \mathbf{B}^{-1} \mathbf{b}$. If $\mathbf{B}^{-1} \mathbf{b} \geq 0$, this is a BFS. The objective value at the BFS is $z = \mathbf{c}^{\top}_B \mathbf{B}^{-1}\mathbf{b}$. See that we now have \begin{equation*}
+    \mathbf{A} = \begin{pmatrix}
+        \mathbf{B} & \mathbf{N}
+    \end{pmatrix} 
+\end{equation*}
+
+\begin{equation*}
+    \mathbf{x} = \begin{pmatrix}
+        \mathbf{x}_B \\ 
+        \mathbf{x}_N
+    \end{pmatrix}^{m}_{n-m} \qquad \mathbf{c} = \begin{pmatrix}
+        \mathbf{c}_B \\ 
+        \mathbf{c}_N
+    \end{pmatrix}
+\end{equation*}
+
+\subsubsection{Objective Value \& Solution}
+
+By setting the variables $\mathbf{x}_N$ of $\mathbf{x}$ corresponding to the remaining columns of $\mathbf{A}$ equal to 0, we obtain a solution $\mathbf{x}$ of $\mathbf{A}\mathbf{x} = \mathbf{b}$: \begin{equation*}
+    \begin{pmatrix}
+        \mathbf{B} & \mathbf{N}
+    \end{pmatrix} \begin{pmatrix}
+        \mathbf{x}_B \\ 
+        \mathbf{x}_N
+    \end{pmatrix} = \mathbf{b} \Longleftrightarrow\mathbf{B}\mathbf{x}_B + \mathbf{N}\cancelto{0}{\mathbf{x}_N} = \mathbf{b}
+\end{equation*}
+
+\noindent We now have $\mathbf{x}_B = \mathbf{B}^{-1}\mathbf{b}$. \begin{theorem}
+    When $\mathbf{x}_B = \mathbf{B}^{-1}\mathbf{b} \geq 0$, the solution is a BFS. The objective value at this BFS is: \begin{equation*}
+        \mathbf{c}^{\top} \mathbf{x} = \begin{pmatrix}
+            \mathbf{c}^{\top}_B & \mathbf{c}^{\top}_N
+        \end{pmatrix} \begin{pmatrix}
+            \mathbf{x}_B \\ 
+            \mathbf{x}_N 
+        \end{pmatrix} = \mathbf{b} \implies \mathbf{c}^{\top}_B \mathbf{x}_B + \mathbf{c}^{\top}_N \cancelto{0}{\mathbf{x}_N} = \mathbf{c}^{\top}_B \mathbf{B}^{-1}\mathbf{b}
+    \end{equation*}
+\end{theorem}
+
+\noindent Suppose that we want to move from $\mathbf{x}$ to a new vector $\mathbf{x} + t \mathbf{d}$ by selecting a nonbasic variable $x_j$ (at zero level) and increasing it while keeping all other nonbasic variables at 0. The vector $\mathbf{d}$ is the direction vector. \\ 
+
+\noindent We want to ensure that $\mathbf{x} + t \mathbf{d}$ is feasible for some $t > 0$. Thus, $\mathbf{A}(\mathbf{x} + t \mathbf{d}) = \mathbf{d} \implies \mathbf{Ad} = 0$. \begin{align*}
+    \mathbf{Ad} = \mathbf{0} &\Longleftrightarrow \mathbf{B}\mathbf{d}_B + \mathbf{N}\mathbf{d}_N = \mathbf{0} \\ 
+    & \Longleftrightarrow \mathbf{d}_B = - \mathbf{B}^{-1}\mathbf{N}\mathbf{d}_N
+\end{align*}
+
+\noindent When $\mathbf{d}_N$ has 1 for the $j$th entry and 0 otherwise, this gives us $\mathbf{d}_B = - \mathbf{B}^{-1}\mathbf{A}_j$, which is the direction vector for the basic variables. 
+
+\subsubsection{Minimum Ratio Test}
+We want to ensure that the direction value is in the \textbf{positive (largest) direction} (since we want to move to the optimum point). To set a bound on the value of $t$ in $\mathbf{x} + t \mathbf{d}\geq 0$: \begin{enumerate}
+    \item If $\mathbf{d} \geq 0$, then $\mathbf{x} + t \mathbf{d} \geq 0 \; \forall t \geq 0$, and we can choose $t^{*} = \infty$ (objective is unbounded). 
+    \item If $d_i <0$ for some $i$, then $x_i + td_i \geq \mathbf{0}$ gives $t \leq - \frac{x_1}{d_i}$  
+\end{enumerate}
+
+\begin{definition}
+    We have the Minimum Ratio Test (MRT) \begin{equation*}
+        t^{*} = \min_{\{i | d_i < 0\}} \left\{ -\frac{x_i}{d_i}\right\}
+    \end{equation*} We only need to consider the basic variables while performing the ratio test, as for nonbasic variables we have $\mathbf{x}_N = \mathbf{0}$. 
+\end{definition}
+
+\subsubsection{Reduced Cost}
+
+After moving in the specific direction of the largest change in cost, we want to calculate this rate of change in cost. This is given by: \begin{align*}
+    \frac{\mathbf{c}^{\top}(\mathbf{x} + t \mathbf{d} - \mathbf{c}^{\top} \mathbf{x})}{t} &= \mathbf{c}^{\top}\mathbf{d} \\ 
+    \implies \mathbf{c}^{\top} \mathbf{d} = \mathbf{c}^{\top}_B \mathbf{d}_B + c_j (1) &= c_j - \mathbf{c}^{\top}_B \mathbf{B}^{-1}\mathbf{A}_j
+\end{align*}
+
+\begin{definition}
+    In LP, reduced cost (opportunity cost) is the amount by which an objective function coefficient would have to improve before it would be possible for a corresponding variable to assume a positive value in the optimal solution (for the variables to become non-basic and  enter the solution with a positive value). We define the reduced cost of each variable $x_j$ as: \begin{equation*}
+        \bar{c}_j = c_j - \mathbf{c}^{\top}_B \mathbf{B}^{-1}\mathbf{A}_j
+    \end{equation*}
+    and the vector of reduced costs as: \begin{equation*}
+        \mathbf{\bar{c}}^{\top} = \mathbf{c}^{\top} - \mathbf{c}^{\top}_B \mathbf{B}^{-1}\mathbf{A}
+    \end{equation*}
+\end{definition}
+
+\noindent For $\mathbf{A} = \begin{pmatrix}
+    \mathbf{B} & \mathbf{N}
+\end{pmatrix}$, we can write $\mathbf{c} = \begin{pmatrix}
+    \mathbf{c}_B & \mathbf{c}_N
+\end{pmatrix}$, then we have \begin{equation*}
+    \mathbf{\bar{c}^{\top}} = \mathbf{c}^{\top}_B - \mathbf{c}^{\top}_B \mathbf{B}^{-1}\mathbf{B} = \mathbf{0}
+\end{equation*}
+
+\noindent Geometrically, the reduced cost vector represents the direction along which the objective function \textbf{increases most rapidly} at the current vertex of the feasible region. When the reduced cost is zero, the \textbf{current vertex is the most optimal}, any further movements will only keep the objective value constant or decrease it.
+
+\begin{theorem}
+    Consider a BFS $\mathbf{x}$ associated with a basis $\mathbf{B}$ and reduced cost vector $\mathbf{\bar{c}}$. If $\mathbf{\bar{c}^{\top}} \geq 0$, then $\mathbf{x}$ is optimal.  
+\end{theorem}
+
+\begin{proof}
+    $ $ \\ Consider any feasible solution $\mathbf{y}$. Then $\mathbf{Ay} = \mathbf{b}, \; \mathbf{y} \geq \mathbf{0}$. Consider the direction vector $\mathbf{d} = \mathbf{y}- \mathbf{x}$. The change in cost from $\mathbf{x}$ to $\mathbf{y}$ is given by: \begin{align*}
+        \mathbf{c}^{\top} (\mathbf{y} - \mathbf{x}) &= \mathbf{c}^{\top}\mathbf{d} \\ 
+        &= \mathbf{c}^{\top}_B \mathbf{d}_B + \mathbf{c}^{\top}_N \mathbf{d}_N \\ 
+        &= \mathbf{c}^{\top}_B (-\mathbf{B}^{-1}\mathbf{N}\mathbf{d}_N) + \mathbf{c}^{\top}\mathbf{d}_N \\ 
+        &= \underbrace{(\mathbf{c}^{\top}_N - \mathbf{c}^{\top}_B \mathbf{B}^{-1}\mathbf{N})}_{\text{nonbasic reduced cost vector}} \mathbf{d}_N \\ 
+        &= \sum_{j \in \mathbf{N}} \mathbf{\bar{c}^{\top}}_j\mathbf{d}_j
+    \end{align*}
+
+\noindent For any nonbasic variable, $x_j = 0$ and since $y_j \geq 0$, we have $d_j = y_j - x_j \geq 0$. Since $\bar{c}_i \geq 0$ by assumption, then $\bar{c}_j dJ \geq 0$ for each nonbasic variable. Hence, we have from above, $\sum_{j \in \mathbf{N}}\bar{c}_j d_j \geq 0 \implies \mathbf{c}^{\top}(\mathbf{y} - \mathbf{x}) \geq 0 \Longleftrightarrow \mathbf{c}^{\top}\mathbf{y} \geq \mathbf{c}^{\top}\mathbf{x}$. Since $\mathbf{y}$ was an arbitrary feasible solution, then $\mathbf{x}$ is optimal.  
+\end{proof}
+
+\begin{theorem}
+    A basis matrix $\mathbf{B}$ is optimal if: \begin{enumerate}
+        \item $\mathbf{B}^{-1}\mathbf{b} \geq 0$
+        \item $\mathbf{\bar{c}^{\top}} = \mathbf{c}^{\top} - \mathbf{c}^{\top}_B \mathbf{B}^{-1}\mathbf{A} \geq \mathbf{0}^{\top}$  
+    \end{enumerate}
+\end{theorem}
+
+\noindent The Simplex Tableau at each step is given in Table \ref{tab:2-simplextabmatrix} below. 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c | c}
+        $-\mathbf{c}^{\top}_B \mathbf{B}^{-1}\mathbf{b}$ & $\mathbf{c}^{\top} - \mathbf{c}^{\top}_B \mathbf{B}^{-1}\mathbf{A}$ \\ \hline 
+        $\mathbf{B}^{-1}\mathbf{b}$ & $\mathbf{B}^{-1}\mathbf{A}$
+    \end{tabular}
+    \caption{Simplex Tableau in Matrix Form}
+    \label{tab:2-simplextabmatrix}
+\end{table}
+
+\noindent Similar to Section \ref{sec:2-algorithmicapproach}, we perform the following steps: \begin{enumerate}
+    \item Choose variable with negative reduced cost to enter the basis
+    \item Perform the MRT to choose the leaving variable
+    \item Perform row operations to make the corresponding vector a unit vector and make the reduced cost for the variable to be zero. 
+    \item Repeat until all reduced costs are zero. 
+\end{enumerate}
+
+
 
 \section{Sensitivity Analysis}
 
@@ -514,14 +785,13 @@ In Phase I of the Simplex Method, we need to transform the LP into a standard fo
 
 \section{Branch-and-Bound}
 
-\section{Cutting Planes}
 
 \section{Dynamic Programming}
 
 \section{Travelling Salesman Problem}
 
 \newpage 
+
 \section*{Appendix \& Acknowledgements}
-These notes are heavily inspired by Stanford's CS229: Machine Learning Notes, as well as Convex Optimisation by Boyd and Vandenberghe. 
 
 \end{document}

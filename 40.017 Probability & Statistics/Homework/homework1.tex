@@ -31,7 +31,7 @@
         \LARGE{Homework 1} \vspace*{10\baselineskip}}
 		}
 \date{\today}
-\author{\textbf{Michael Hoon} \\ 1006617}
+\author{\textbf{Michael Hoon} \\ 1006617 \\ Section 2}
 
 \maketitle 
 \newpage
@@ -42,24 +42,24 @@
 Let $A$ be the random variable denoting the number of questions chosen from section A. Since the student 'samples' the question without replacement, $A$ follows a hypergeometric distribution $A \sim \text{hypgeo}(12,9,9)$. The pmf $f(x)$ is given by:
 
 \begin{equation*}
-    f(x) = \mathbb{P}(X = x) = \frac{\binom{j}{x}{\binom{k}{n-x}}}{\binom{j+k}{n}}
+    f(x) = \mathbb{P}(X = x) = \frac{\displaystyle\binom{j}{x}{\displaystyle\binom{k}{n-x}}}{\displaystyle\binom{j+k}{n}}
 \end{equation*} \\ 
 
 \noindent for 6 questions from section A, we have $\mathbb{P}(X=6)$:
 
 \begin{align*}
-    \mathbb{P}(X=6) &= \frac{\binom{9}{6}\binom{9}{6}}{\binom{18}{12}} \\ 
-    &= 0.380090 \\
-    &\boxed{\approx 0.380}
+    \mathbb{P}(X=6) &= \frac{\displaystyle\binom{9}{6}\displaystyle\binom{9}{6}}{\displaystyle\binom{18}{12}} \\ 
+    &= \frac{84}{221} \\
+    &\boxed{\approx 0.38}
 \end{align*}
 
 \subsection*{(b)}
 Now we need to consider two cases, one where 5 questions come from Section A and the other 7 from Section B, and vice versa. i.e. 
 
 \begin{align*}
-    \mathbb{P}(A = 5) + \mathbb{P}(A = 7) &= \frac{\binom{9}{5}\binom{9}{7}}{\binom{18}{12}} + \frac{\binom{9}{7}\binom{9}{5}}{\binom{18}{12}} \\ 
-    &= 0.4886877 \\ 
-    &\boxed{\approx 0.489}
+    \mathbb{P}(A = 5) + \mathbb{P}(A = 7) &= \frac{\displaystyle\binom{9}{5}\displaystyle\binom{9}{7}}{\displaystyle\binom{18}{12}} + \frac{\displaystyle\binom{9}{7}\displaystyle\binom{9}{5}}{\displaystyle\binom{18}{12}} \\ 
+    &= \frac{108}{221} \\ 
+    &\boxed{\approx 0.49}
 \end{align*}
 
 \newpage
@@ -126,11 +126,12 @@ Since $X$ is the number of coin tosses upon completion, we model $X$ as a geomet
 \begin{equation*}
     \boxed{\mathbb{P}(X = x) = \begin{cases}
         \left(\displaystyle\frac{1}{2}\right)^{x}, \qquad x \in \{1, 2, \dots , n-1\} \\ 
-        \left(\displaystyle\frac{1}{2}\right)^{x-1}, \quad x = n
+        \left(\displaystyle\frac{1}{2}\right)^{x-1}, \quad x = n \\ 
+        \; \; \; 0, \qquad \quad \; \, \text{otherwise}
     \end{cases}}
 \end{equation*}
 
-
+\newpage 
 \subsection*{(b)}
 To find $ \mathbb{E}(X)$, we sum over both cases of the p.m.f:
 
@@ -140,7 +141,7 @@ To find $ \mathbb{E}(X)$, we sum over both cases of the p.m.f:
     &= \frac{1}{2 }\sum_{i=1}^{n-1} i \cdot \left(\frac{1}{2}\right)^{i-1} + n \cdot \left(\frac{1}{2}\right)^{n-1} \\ \nonumber
 \end{align}
 
-\noindent Using the hint, we differentiate the finite geometric series from the fact that $\frac{d}{dx} x^{a} = ax^{a-1}$. Letting $r = \frac{1}{2}$: 
+\noindent Using the hint, we differentiate the finite geometric series from the fact that $\frac{\text{d}}{dx} x^{a} = ax^{a-1}$. Letting $r = \frac{1}{2}$: 
 
 \begin{align*}
     \frac{\text{d}}{\text{d}r} \left[\sum_{i=0}^{n-1} r^{i} \right] &= \frac{\text{d}}{\text{d}r} \left[\frac{1 - r^{n}}{1-r} \right]\\ 
@@ -167,7 +168,7 @@ Chebyshev's inequality in the standard form gives the \textbf{upper bound} for t
 
 \noindent Let $X$ be the weekly production of the factory (in tons). We want to find the probability $ \mathbb{P}(41 \leq X \leq 61)$. Since the bounds are not symmetric about $\mu$, we need the tighter bound $ \mathbb{P}(41 \leq X \leq 59)$. Then, the value of $k$ is now $k = \frac{9}{5}$ standard deviations away from the mean. \\ 
 
-\noindent Graphically, we can see that \\
+\noindent From Figure \ref{fig:4-ineq}, we can see that 9 is indeed the "tighter bound": \\
 
 \begin{figure}[H]
     \centering
@@ -259,9 +260,7 @@ To find the MGF of $X$, since $X$ is continuous, we need to integrate over all $
 
 \subsection*{(b)}
 
-Note that $\text{Var}(X) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2}$, so we need to find the first and second moments. For the first moment we need the derivative: 
-
-\begin{align*}
+Note that $\text{Var}(X) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2}$, so we need to find the first and second moments. For the first moment we need the derivative: \begin{align*}
     \mathbb{E}(X) &= M'_X (0) \\ 
     &= \frac{\text{d}}{\text{d}t}\left( \frac{1}{1 - t^{2}}\right) \Biggr|_{t=0} \\ 
     &= -(1-t^{2})^{-2}(-2t) \Bigr|_{t=0} \\ 
@@ -269,9 +268,7 @@ Note that $\text{Var}(X) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2}$, so we need to
     &= 0
 \end{align*}
 
-\noindent For the second moment: 
-
-\begin{align*}
+\noindent For the second moment: \begin{align*}
     \mathbb{E}(X^{2}) &= M''_X (0) \\ 
     &= \frac{\text{d}}{\text{d}t}\left(\frac{2t}{(1-t^{2})^{2}}\right) \Biggr|_{t=0} \\ 
     &= 2t(-2(1-t^{2})^{-3} (-2t)) + (1-t^{2})^{-2}(2) \Bigr|_{t=0} \\ 
@@ -279,9 +276,7 @@ Note that $\text{Var}(X) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2}$, so we need to
     &= 2
 \end{align*}
 
-\noindent Thus, we have
-
-\begin{align*}
+\noindent Thus, we have: \begin{align*}
     \text{Var}(X) &= \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2} \\ 
     &= 2 - 0^{2} \\ 
     &= \boxed{2}
@@ -292,17 +287,16 @@ Note that $\text{Var}(X) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2}$, so we need to
 \section*{Question 7}
 
 \subsection*{(a)}
-Manipulating the right tail probability of a standard normal r.v. $Z$, we have 
-
+Manipulating the right tail probability of a standard normal r.v. $Z$, we have:
 \begin{equation}
     \mathbb{P}(Z \geq t) = \mathbb{P}(tZ \geq t^{2}) = \mathbb{P}(e^{tZ} \geq e^{t^{2}})
 \end{equation}
 
-\noindent Markov's Inequality gives an upper bound on the tail probability, subject to any constant $a > 0$:
+\noindent Markov's Inequality gives an upper bound on the tail probability, subject to any constant $a > 0$: 
 
 \begin{equation}
     \mathbb{P}(X \geq a) \leq \frac{\mathbb{E}(X)}{a}
-\end{equation} \\ 
+\end{equation} \\
 
 % \noindent Visually, refer to Figure 2 below. 
 
@@ -337,7 +331,6 @@ Manipulating the right tail probability of a standard normal r.v. $Z$, we have
 % \end{figure} 
 
 \begin{proof} Applying Equation (6) on Equation (5), we have $a = e^{tZ}$. 
-
 \begin{align*}
     \mathbb{P}(e^{tZ} &\geq e^{t^{2}}) \leq \frac{ \mathbb{E}(e^{tZ})}{e^{t^{2}}} \\ 
     &= \frac{M_Z (t)}{e^{t^{2}}} \\ 
@@ -356,14 +349,11 @@ Manipulating the right tail probability of a standard normal r.v. $Z$, we have
 \end{proof}
 
 \subsection*{(b)}
-From Equation (7), we substitute $t = -7$ to get: 
-
+From Equation (7), we substitute $t = -7$, and the fact that the standard normal $Z$ is symmetric about $\mu = 0$, to get: 
 \begin{align*}
-    \mathbb{P}(Z \leq -7) &= \mathbb{P}(Z \geq 7) \qquad (\text{$Z$ is symmetric about $\mu=0$}) \\ 
-    &\leq  e^{\frac{-7^{2}}{2}} \\ 
-    &\leq  e^{-\frac{49}{2}} \\ 
-    &\leq  \num{22.897348e-12} \\ 
-    &\approx \boxed{\num{22.8e-12}}
+    \mathbb{P}(Z \leq -7) &= \mathbb{P}(Z \geq 7) \\ 
+    &\leq  e^{-\frac{7^{2}}{2}} \\ 
+    &\boxed{\leq  e^{-\frac{49}{2}}} \\ 
 \end{align*}
 
 

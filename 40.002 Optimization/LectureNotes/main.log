@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.22)  5 FEB 2024 15:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.22)  10 FEB 2024 15:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -651,35 +651,48 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@expandcount=\count341
  (c:/TeXLive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (c:/TeXLive/2023/texmf-dist/tex/latex/changepage/changepage.sty
+))) (c:/TeXLive/2023/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2022/03/08 v6.0d a miscellany of footnote facilities
+\FN@temptoken=\toks53
+\footnotemargin=\dimen299
+\@outputbox@depth=\dimen300
+Package footmisc Info: Declaring symbol style bringhurst on input line 695.
+Package footmisc Info: Declaring symbol style chicago on input line 703.
+Package footmisc Info: Declaring symbol style wiley on input line 712.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 723.
+Package footmisc Info: Declaring symbol style lamport* on input line 743.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 764.
+) (c:/TeXLive/2023/texmf-dist/tex/latex/cancel/cancel.sty
+Package: cancel 2013/04/12 v2.2 Cancel math terms
+) (c:/TeXLive/2023/texmf-dist/tex/latex/changepage/changepage.sty
 Package: changepage 2009/10/20 v1.0c check page and change page layout
 \c@cp@cntr=\count342
 \cp@tempcnt=\count343
 ) (c:/TeXLive/2023/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip59
-\fb@frw=\dimen299
-\fb@frh=\dimen300
-\FrameRule=\dimen301
-\FrameSep=\dimen302
+\fb@frw=\dimen301
+\fb@frh=\dimen302
+\FrameRule=\dimen303
+\FrameSep=\dimen304
 )
 Package thmtools Info: Key `name' (with value `Theorem')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmsty' on input line 78.
+(thmtools)             that uses `style=thmsty' on input line 80.
 \c@theorem=\count344
 Package thmtools Info: Key `name' (with value `Proposition')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=prosty' on input line 82.
+(thmtools)             that uses `style=prosty' on input line 84.
 Package thmtools Info: Key `name' (with value `Principle')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=prcpsty' on input line 86.
+(thmtools)             that uses `style=prcpsty' on input line 88.
 Package thmtools Info: Key `name' (with value `Definition')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=defsty' on input line 90.
+(thmtools)             that uses `style=defsty' on input line 92.
 ) (./main.aux)
 \openout1 = `main.aux'.
 
@@ -704,16 +717,16 @@ LaTeX Font Info:    ... okay on input line 29.
  (c:/TeXLive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count345
-\scratchdimen=\dimen303
+\scratchdimen=\dimen305
 \scratchbox=\box86
 \nofMPsegments=\count346
 \nofMParguments=\count347
-\everyMPshowfont=\toks53
+\everyMPshowfont=\toks54
 \MPscratchCnt=\count348
-\MPscratchDim=\dimen304
+\MPscratchDim=\dimen306
 \MPnumerator=\count349
 \makeMPintoPDFobject=\count350
-\everyMPtoPDFconversion=\toks54
+\everyMPtoPDFconversion=\toks55
 ) (c:/TeXLive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -766,8 +779,8 @@ Package translations Info: loading dictionary `translations-basic-dictionary' fo
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: changepage package is loaded.
-\caption@adjustwidth@hsize=\dimen305
-\caption@adjustwidth@linewidth=\dimen306
+\caption@adjustwidth@hsize=\dimen307
+\caption@adjustwidth@linewidth=\dimen308
 Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
@@ -783,14 +796,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [2] [3{c:/TeXLive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+ [2] [3] [4{c:/TeXLive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 110.
 
 Underfull \hbox (badness 10000) in paragraph at lines 145--146
 
  []
 
-[4]
+[5]
 Underfull \hbox (badness 10000) in paragraph at lines 147--148
 
  []
@@ -810,7 +823,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 199--200
 
  []
 
-<Images/LP_Graphical.png, id=242, 534.49687pt x 408.77719pt>
+<Images/LP_Graphical.png, id=271, 534.49687pt x 408.77719pt>
 File: Images/LP_Graphical.png Graphic file (type png)
 <use Images/LP_Graphical.png>
 Package pdftex.def Info: Images/LP_Graphical.png  used on input line 203.
@@ -820,39 +833,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 208--209
 
  []
 
-[5 <./Images/LP_Graphical.png>]
+[6 <./Images/LP_Graphical.png>]
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 213.
 
 Underfull \hbox (badness 10000) in paragraph at lines 216--217
 
  []
 
-<Images/convexity.png, id=251, 839.38594pt x 220.57407pt>
+<Images/convexity.png, id=280, 839.38594pt x 220.57407pt>
 File: Images/convexity.png Graphic file (type png)
 <use Images/convexity.png>
 Package pdftex.def Info: Images/convexity.png  used on input line 236.
 (pdftex.def)             Requested size: 338.5863pt x 88.97186pt.
-<Images/convexityfn.png, id=252, 810.77907pt x 264.99pt>
+<Images/convexityfn.png, id=281, 810.77907pt x 264.99pt>
 File: Images/convexityfn.png Graphic file (type png)
 <use Images/convexityfn.png>
 Package pdftex.def Info: Images/convexityfn.png  used on input line 253.
 (pdftex.def)             Requested size: 338.5863pt x 110.66426pt.
-[6 <./Images/convexity.png>]
-<Images/convexityfn2.png, id=264, 615.80063pt x 271.76532pt>
+[7 <./Images/convexity.png>]
+<Images/convexityfn2.png, id=294, 615.80063pt x 271.76532pt>
 File: Images/convexityfn2.png Graphic file (type png)
 <use Images/convexityfn2.png>
 Package pdftex.def Info: Images/convexityfn2.png  used on input line 266.
 (pdftex.def)             Requested size: 290.22105pt x 128.08218pt.
-<Images/convexityfn3.png, id=265, 353.06906pt x 115.18031pt>
+<Images/convexityfn3.png, id=295, 353.06906pt x 115.18031pt>
 File: Images/convexityfn3.png Graphic file (type png)
 <use Images/convexityfn3.png>
 Package pdftex.def Info: Images/convexityfn3.png  used on input line 287.
 (pdftex.def)             Requested size: 386.95894pt x 126.23648pt.
- [7 <./Images/convexityfn.png> <./Images/convexityfn2.png>]
+ [8 <./Images/convexityfn.png> <./Images/convexityfn2.png>]
 
-LaTeX Warning: Reference `fig:1-firstoderconvex' on page 8 undefined on input line 302.
+LaTeX Warning: Reference `fig:1-firstoderconvex' on page 9 undefined on input line 302.
 
-<Images/firstoderconvexity.png, id=279, 359.09157pt x 156.585pt>
+<Images/firstoderconvexity.png, id=308, 359.09157pt x 156.585pt>
 File: Images/firstoderconvexity.png Graphic file (type png)
 <use Images/firstoderconvexity.png>
 Package pdftex.def Info: Images/firstoderconvexity.png  used on input line 307.
@@ -862,41 +875,65 @@ Underfull \hbox (badness 10000) in paragraph at lines 320--321
 
  []
 
-[8 <./Images/convexityfn3.png> <./Images/firstoderconvexity.png>]
+[9 <./Images/convexityfn3.png> <./Images/firstoderconvexity.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 355--356
 
  []
 
-[9]
+[10]
 Underfull \hbox (badness 10000) in paragraph at lines 410--411
 
  []
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 447--448
+[11]
+<Images/LPGeometry.png, id=368, 694.84593pt x 514.17094pt>
+File: Images/LPGeometry.png Graphic file (type png)
+<use Images/LPGeometry.png>
+Package pdftex.def Info: Images/LPGeometry.png  used on input line 457.
+(pdftex.def)             Requested size: 290.22105pt x 214.74994pt.
+ [12 <./Images/LPGeometry.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 491--492
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 547--548
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 467--468
+Underfull \hbox (badness 10000) in paragraph at lines 551--552
 
  []
 
-[11] [12] [13] (./main.aux)
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 639--642
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 681--682
+
+ []
+
+[16] [17] [18] [19] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 14F1E939EE0E73D5A9FAC91384177674;6008.
+(rerunfilecheck)             Checksum: 082700530A4B9457EF4F147B0E8C6D67;7288.
  ) 
 Here is how much of TeX's memory you used:
- 31106 strings out of 476096
- 642155 string characters out of 5795114
- 1875845 words of memory out of 5000000
- 50851 multiletter control sequences out of 15000+600000
+ 31367 strings out of 476096
+ 646858 string characters out of 5795114
+ 1877845 words of memory out of 5000000
+ 51055 multiletter control sequences out of 15000+600000
  527048 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,12n,118p,642b,1044s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 116i,15n,118p,722b,1004s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{Hfootnote.7} has been referenced but does not exist, replaced by a fixed one
+
 
 pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist, replaced by a fixed one
 
@@ -915,11 +952,11 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
-<c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (13 pages, 666494 bytes).
+<c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/TeXLive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (19 pages, 800891 bytes).
 PDF statistics:
- 496 PDF objects out of 1000 (max. 8388607)
- 418 compressed objects within 5 object streams
- 125 named destinations out of 1000 (max. 500000)
- 347 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 604 PDF objects out of 1000 (max. 8388607)
+ 515 compressed objects within 6 object streams
+ 174 named destinations out of 1000 (max. 500000)
+ 392 words of extra memory for PDF output out of 10000 (max. 10000000)
 

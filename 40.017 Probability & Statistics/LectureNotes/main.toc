@@ -1,31 +1,48 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}Set Theory}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Sample Spaces}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Naive Definition of Probability}{3}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}General Definition of Probability}{3}{subsection.1.3}%
-\contentsline {subsubsection}{\numberline {1.3.1}Properties of Probability}{3}{subsubsection.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.2}Inclusion-Exclusion Principle}{3}{subsubsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.4}Conditional Probability}{4}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Derangement}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Counting Derangements}{4}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Limiting Growth}{4}{subsubsection.2.1.1}%
-\contentsline {section}{\numberline {3}Discrete Random Variables}{5}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Binomial}{5}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Hypergeometric}{5}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Hypergeometric Symmetry}{5}{subsubsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.3}Geometric}{6}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Negative Binomial}{6}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Law of Large numbers}{6}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Inequalities}{6}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Markov's Inequality}{6}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Chebyshev's Inequality}{7}{subsubsection.4.1.2}%
-\contentsline {section}{\numberline {5}Central Limit Theorem}{7}{section.5}%
-\contentsline {section}{\numberline {6}Moments}{7}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Interpreting Moments}{7}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Moment Generating Functions}{7}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Formulas \& Theorems}{8}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Examples (Discrete)}{8}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {6.4.1}Binomial MGF}{8}{subsubsection.6.4.1}%
-\contentsline {subsubsection}{\numberline {6.4.2}Poisson MGF}{8}{subsubsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.5}Examples (Continuous)}{9}{subsection.6.5}%
-\contentsline {subsubsection}{\numberline {6.5.1}Standard Normal}{9}{subsubsection.6.5.1}%
+\contentsline {section}{\numberline {1}Set Theory}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Sample Spaces}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Naive Definition of Probability}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}General Definition of Probability}{4}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Properties of Probability}{4}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Inclusion-Exclusion Principle}{4}{subsubsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.4}Conditional Probability}{5}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Derangement}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Counting Derangements}{5}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Limiting Growth}{5}{subsubsection.2.1.1}%
+\contentsline {section}{\numberline {3}Discrete Random Variables}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Binomial}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Hypergeometric}{6}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Hypergeometric Symmetry}{6}{subsubsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.3}Geometric}{7}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Negative Binomial}{7}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Law of Large numbers}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Inequalities}{7}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Markov's Inequality}{7}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Chebyshev's Inequality}{8}{subsubsection.4.1.2}%
+\contentsline {section}{\numberline {5}Central Limit Theorem}{8}{section.5}%
+\contentsline {section}{\numberline {6}Moments}{8}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Interpreting Moments}{8}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Moment Generating Functions}{8}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Formulas \& Theorems}{9}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Examples (Discrete)}{9}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Binomial MGF}{9}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}Poisson MGF}{9}{subsubsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.5}Examples (Continuous)}{10}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}Standard Normal}{10}{subsubsection.6.5.1}%
+\contentsline {section}{\numberline {7}Gamma Distribution}{10}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Gamma Function}{10}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Gamma Distribution}{11}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}MGF of Gamma Distribution}{11}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Conditionals}{12}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Bayes' Theorem Recap}{12}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Law of Total Probability}{13}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Independence of Events}{13}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Conditional Independence}{14}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Properties of the Conditional}{14}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}Discrete: Conditional P.M.F}{14}{subsection.8.6}%
+\contentsline {subsubsection}{\numberline {8.6.1}Joint CDF}{14}{subsubsection.8.6.1}%
+\contentsline {subsubsection}{\numberline {8.6.2}Joint PMF}{14}{subsubsection.8.6.2}%
+\contentsline {subsubsection}{\numberline {8.6.3}Marginal PMF}{15}{subsubsection.8.6.3}%
+\contentsline {subsubsection}{\numberline {8.6.4}Conditional PMF}{15}{subsubsection.8.6.4}%
+\contentsline {subsection}{\numberline {8.7}Continuous: Conditional P.M.F}{16}{subsection.8.7}%
+\contentsline {subsubsection}{\numberline {8.7.1}Conditional PDF}{16}{subsubsection.8.7.1}%

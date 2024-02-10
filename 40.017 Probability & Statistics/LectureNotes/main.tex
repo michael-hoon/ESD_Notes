@@ -414,12 +414,215 @@ If $Z \sim \mathcal{N}(0,1)$ is a standard normal r.v., then $f(x) = \frac{1}{\s
     &=  
 \end{align}
 
+\section{Gamma Distribution}
+The Gamma distribution is a \textbf{continuous distribution} on the positive real line, and is a generalisation of the Exponential distribution. While an Exponential r.v. represents the waiting time for the first success under conditions of \textbf{memorylessness}, the Gamma r.v. represents the total waiting time for \textit{multiple successes}. 
+
+\subsection{Gamma Function}
+
+\begin{definition}
+    The \textit{gamma function} $\Gamma$ is defined by \begin{equation}
+        \Gamma (a) = \int_{0}^{\infty} x^{a}e^{-x} \, \frac{\mathrm{dx}}{x}
+    \end{equation} for real numbers $a> 0$. It is possible to write the integrand as $x^{a-1}e^{-x}$, but it is left for convenience when we make the transformation $u = cx$, so that we have $\frac{du}{u} = \frac{dx}{x}$. 
+\end{definition}
+
+\noindent Some properties of the gamma function include: \begin{enumerate}
+    \item $\Gamma (a + 1) = a \Gamma (a) \; \forall a > 0$. This follows from integration by parts: \begin{equation*}
+        % \Gamma (a+1) = \int_{0}^{\infty} x^{a}e^{-x} \, \mathrm{d}x = -xe^{-x} \Biggr_0^{\infty} + a \int_{0}^{\infty} x^{a-1}e^{-x} \, \mathrm{d}x = 0 + a \Gamma (a)
+    \end{equation*}
+    \item $\Gamma (n) = (n-1)!$ if $n$ is a positive integer. Can be proved via induction, starting with $n=1$ and using the recursive relation $\Gamma (a+1) = a \Gamma$. 
+\end{enumerate}
+
+\subsection{Gamma Distribution}
+\begin{definition}
+    An r.v. $Y$ is said to have the \textit{Gamma distribution} with parameters $\alpha$ and $\lambda$, where $a>0$ and $\lambda >0 $, if its PDF is: \begin{equation}
+        f(x) = \begin{cases}
+            \displaystyle\frac{\lambda^{\alpha}}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}, & \text{if} \; x\geq 0, \\ 
+            0, & \text{if} \; x< 0.
+        \end{cases}
+    \end{equation} We denote this by $X \sim gamma (\alpha, \lambda)$. We have: \begin{equation*}
+        \mathbb{E}(X) = \frac{\alpha}{\lambda}, \qquad \text{Var}(X) = \frac{\alpha}{\lambda^{2}}
+    \end{equation*}
+\end{definition}
+
+\noindent Taking $\alpha=1$, the $\text{gamma}(1,\lambda)$ PDF is $f(x) = \lambda e^{-\lambda x}$, so $\text{gamma}(1, \lambda)$ and $\text{exp}(\lambda)$ are the same. The extra parameter $a$ allows Gamma PDFs to have a greater variety of shapes, refer to Figure \ref{7-gammadist} below. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/Gammadist.png}
+    \caption{Gamma PDFs for various values of $a$ and $\lambda$.}
+    \label{fig:7-gammadist}
+\end{figure} 
+
+\noindent For small values of $a$, the PDF is skewed, but as $a$ increases, the PDF starts to look more symmetrical and bell-shaped (following the LLN). The mean and variance are increasing in $a$ and decreasing in $\lambda$. 
+
+\subsection{MGF of Gamma Distribution}
+In week 3 lecture 1, we proved the MGF of the Gamma distribution: \begin{align*}
+    M_X (t) &= \mathbb{E}(e^{tX}) \\ 
+    &= \dots \\ 
+    &= \frac{\lambda^{\alpha}(\lambda - t)^{-\alpha})}{\Gamma (a)} \underbrace{\int_{0}^{\infty} y^{\alpha-1}e^{-y} \, \mathrm{d}y}_{\Gamma (\alpha)} \\ 
+    &= \lambda^{\alpha}(\lambda - t)^{-\alpha}
+\end{align*}
+
+\noindent In the special case where $a$ is an integer, we can represent a $\text{gamma}(\alpha, \lambda)$ r.v. as a sum (convolution) of i.i.d. $\text{exp}(\lambda)$ r.v.s. 
+
+\begin{theorem}\label{thm:7-gammaexp}
+    Let $X_{1}, X_{2}, \dots , X_n$ be i.i.d. $\text{exp}(\lambda)$. Then \begin{equation*}
+        X_{1} + X_{2} +\dots + X_n \sim \text{gamma}(,n\lambda)
+    \end{equation*} Since $\alpha = n \in \mathbb{Z}^{+}$, then $\lambda^{\alpha}(\lambda - t)^{-\alpha} = \left(\frac{\lambda}{(\lambda - t)}\right)^{n}$. 
+\end{theorem}
+
+\noindent Theorem \ref{thm:7-gammaexp} also allows us to connect the Gamma distribution to the story of the Poisson process. In Poisson processes of rate $\lambda$, the interarrival times are i.i.d. $\text{exp}(\lambda)$ r.v.s but the total waiting time $T_n$ for the $n \text{th}$ arrival is the sum of the first $n$ interarrival times, as shown in Figure \ref{fig:7-poissonprocess} below. $T_3$ is the sum of the 3 interarrival times $X_{1}, X_{2}, X_{3}$. Therefore by the theorem, $T_n \sim \text{gamma}(n, \lambda)$. The interarrival times in a Poisson process are Exponential r.v.s, while the raw arrival times are Gamma r.v.s. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/arrivaltimes.png}
+    \caption{Poisson process, interarrival times $X_j$ are i.i.d. $\text{exp}(\lambda)$, while raw arrival times $T_j$ are $\text{gamma}(j, \lambda)$.}
+    \label{fig:7-poissonprocess}
+\end{figure} 
+
+\noindent Note that unlike the $X_j$'s, the $T_j$'s are \textbf{not independent}, since they are constrained to be increasing, nor are they i.i.d. Now, we have an interpretation for the parameters of the $\text{gamma}(\alpha, \lambda)$ distribution. In the Poisson process story, $\alpha$ is the \textit{number of successes} we are waiting for, and $\lambda$ is the rate at which successes arrive. $Y \sim \text{gamma}(\alpha, \lambda)$ is the total waiting time for the $a \text{th}$ arrival in a Poisson process of rate $\lambda$.
+
+\section{Conditionals}
+
+\subsection{Bayes' Theorem Recap}
+\begin{theorem}
+    
+    Recall Bayes' Theorem, which provides a link between $ \mathbb{P}(A | B)$ and $ \mathbb{P} (B |A )$: \begin{equation}
+        \mathbb{P}(A|B) = \frac{ \mathbb{P}(B |A ) \mathbb{P}(A)}{\mathbb{P}(B)} 
+    \end{equation} where $ \mathbb{P}(B)$ is often computed from the \textbf{law of total probability}; for instance, when conditioned on $A$ and $A^{c}$: \begin{equation*}
+        \mathbb{P}(B) = \mathbb{P} (B | A) \mathbb{P} (A) + \mathbb{P}(B|A^{c}) \mathbb{P} (A^{c})
+    \end{equation*}
+\end{theorem}
+
+\subsection{Law of Total Probability}
+
+\begin{definition}
+    Let $A_{1}, \dots , A_n$ be a partition of the sample space $S$ (i.e. the $A_i$ are disjoint events and their union is $S$), with $ \mathbb{P}(A_i) > 0, \; \forall i$. Then: \begin{equation}
+        \mathbb{P}(B) = \sum_{i=1}^{n} \mathbb{P}(B|A_i)\mathbb{P}(A_i)
+    \end{equation}
+    The law of total probability tells us that to get the unconditional probability of $B$, we can divide the sample space into disjoint slices $A_i$, find the conditional probability of $B$ within each of the slices, then take a weighted sum of the conditional probabilities, where the weights are probabilities $ \mathbb{P}(A_i)$. 
+\end{definition}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/lawoftotalprobability.png}
+    \caption{The $A_i$ partition the sample space, $ \mathbb{P}(B)$ is equal to $ \sum_{i} \mathbb{P}(B \cap A_i)$}
+    \label{fig:8-lawoftotalprob}
+\end{figure} 
+
+\subsection{Independence of Events}
+
+The situation where events provide no information about each other is called independence. 
+
+\begin{definition}
+    Events $A$ and $B$ are \textit{independent} if \begin{equation*}
+        \mathbb{P}(A \cap B) = \mathbb{P}(A) \mathbb{P}(B)
+    \end{equation*} If $ \mathbb{P}(A) > 0$ and $ \mathbb{P}(B) > 0 $, then this is equivalent to \begin{equation*}
+        \mathbb{P}(A | B) = \mathbb{P}(A), \qquad \mathbb{P}(B | A) = \mathbb{P}(B)
+    \end{equation*}
+\end{definition}
+
+Note that independence \footnote{Independence is completely different from \textit{disjointness}. If $A$ and $B$ are disjoint, then $ \mathbb{P}(A \cap B) = 0$, so disjoint events can be independent only if $ \mathbb{P}(A) = 0$ or $ \mathbb{P}(B) = 0$. KNowing that $A$ occurs tells us that $B$ definitely did not occur, so $A$ clearly conveys information about $B$, meaning the two events are not independent.} is a \textit{symmetric relation}: if $A$ is independent of $B$, then $B$ is independent of $A$.
+
+\subsection{Conditional Independence}
+
+\begin{definition}
+    Events $A$ and $B$ are said to be \textit{conditionally independent} given $E$ if: \begin{equation}
+        \mathbb{P}(A \cap B | E) = \mathbb{P} (A | E) \mathbb{P} (B | E)
+    \end{equation} In particular, \begin{enumerate}
+        \item Two events can be conditionally independent given $E$, but not given $E^{c}$.
+        \item Two events can be conditionally independent given $E$, but not independent. 
+        \item Two events can be independent, but not conditionally independent given $E$. 
+    \end{enumerate}  
+\end{definition} In particular, $ \mathbb{P}(A, B) = \mathbb{P}(A) \mathbb{P}(B)$ \textbf{does not} imply $ \mathbb{P}(A, B | E) = \mathbb{P} (A |E ) \mathbb{P}(B|E)$
+
+\subsection{Properties of the Conditional}
+
+Conditional probability satisfies all the properties of probability. In particular:
+
+\begin{enumerate}
+    \item Conditional probabilities are between 0 and 1
+    \item $ \mathbb{P}(S | E) = 1$, $ \mathbb{P}(\emptyset | E) = 0$
+    \item If $A_{1}, A_{2}, \dots$ are disjoint, then $ \mathbb{P}(\bigcup_{j=1}^{\infty} A_j | E) = \sum_{j=1}^{\infty} \mathbb{P}(A_j | E) $
+    \item $ \mathbb{P}(A^{c}|E) = 1 - \mathbb{P}(A | E)$
+    \item \textbf{Inclusion Exclusion}: $ \mathbb{P}(A \cap B | E) = \mathbb{P}(A | E) + \mathbb{P}(B|E) - \mathbb{P}(A \cup B | E )$.
+\end{enumerate} 
+
+\subsection{Discrete: Conditional P.M.F}
+
+\subsubsection{Joint CDF}
+
+The most general description of the joint distribution of two r.v.s is the joint CDF. 
+
+\begin{definition}
+    The joint CDF of r.v.s $X$ and $Y$ is the function $F_{X, Y}$ given by \begin{equation}
+        F_{X, Y} (x, y) = \mathbb{P}(X\leq x, Y \leq y)
+    \end{equation}
+\end{definition}
+
+\subsubsection{Joint PMF}
+
+\begin{definition}
+    The joint PMF of discrete r.v.s $X$ and $Y$ is the function \begin{equation}
+        p_{X, Y} (x,y) = \mathbb{P}(X = x, Y = y)
+    \end{equation} 
+\end{definition}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/discretejointpmf.png}
+    \caption{Joint PMF of discrete r.v.s $X$ and $Y$}
+    \label{fig:}
+\end{figure} 
+
+\subsubsection{Marginal PMF}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Images/discretemarginalpmf.png}
+    \caption{The marginal PMF $ \mathbb{P}(X = x)$ is obtained by summing over the joint PMF in the $y$-direction.}
+    \label{fig:}
+\end{figure} 
+
+
+\subsubsection{Conditional PMF}
+
+\begin{definition}
+    For discrete r.v.s $X$ and $Y$, if $f_Y(y) > 0$, then the \textbf{conditional pmf} of $X$ given $Y = y$ is \begin{equation}
+        f_{X | Y} (x|y) \coloneq \mathbb{P}((X = x) | (Y = y)) = \frac{f(x, y)}{f_Y (y)}
+    \end{equation} This is viewed as a function of $y$ for fixed $x$. Think of $f_{X | Y}(x|y)$ as a function of $x$, when $Y$ is fixed at $y$. It must be the case that 
+\end{definition}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/discreteconditionalpmf.png}
+    \caption{Conditional pmf of $Y$ given $X = x$. The conditional pmf $ \mathbb{P}(Y = y | X = x)$ is obtained by renormalising the column of the joint pmf that is compatible with the event $X = x$. }
+    \label{fig:}
+\end{figure} 
+
+\noindent Figure illustrates the 
+
+
+\noindent We can also relate the conditional distribution to Bayes' theorem, which takes the form \begin{equation*}
+    f_{X | Y} (x|y) = \frac{f_{Y | X}(y|x)}{f_Y (y)}
+\end{equation*} and if $X$ and $Y$ are independent, then $\forall x, y$ with $f_Y (y) > 0$, we have \begin{equation*}
+    f_{X|Y}(x|y) = \frac{f_X(x)f_Y(y)}{f_Y(y)} = f_X (x)
+\end{equation*}
+
+
+\subsection{Continuous: Conditional P.M.F}
+
+\subsubsection{Conditional PDF}
+
+\begin{definition}
+    
+    For continuous r.v.s $X$ and $Y$, if $f_Y (y) > 0$, then the \textbf{conditional pdf} of $X$ given $Y$ given $Y = y$ is \begin{equation}
+        f_{X | Y}(x|y) \coloneq \frac{f(x,y)}{f_Y(y)}
+    \end{equation} 
+\end{definition}
 
 
 
-
-
-\newpage 
 
 \section*{References}
 
