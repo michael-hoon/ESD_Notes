@@ -622,7 +622,102 @@ The most general description of the joint distribution of two r.v.s is the joint
 \end{definition}
 
 
+\section{Conditional Expectation}
 
+\subsection{Discrete}
+
+The expectation $\mathbb{E}(Y)$ of a discrete r.v. $Y$ is a weighted average of its possible values, where the weights are the PMF values $\mathbb{P}(Y = y)$. After learning that an event $A$ occurred, we want to use weights that have been updated to reflect this new information. 
+
+\begin{definition}
+    For \textit{discrete} r.v.s $X$ and $Y$, the \textbf{conditional expectation} of $X$ given $Y = y$ is \begin{equation}
+        \mathbb{E}(X | Y = y) \coloneq \sum_{\text{all } x} x \mathbb{P}((X = x) | (Y = y)) = \sum_{\text{all }x }f_{X | Y} (x|y)  
+    \end{equation} That is, $\mathbb{E}(X | Y = y)$ is the expectation of $X$ given $Y = y$. 
+\end{definition}
+
+\subsubsection{Law of Total Expectation (Discrete)}
+
+\begin{definition}
+    We have the law of total expectation: \begin{equation}
+        \mathbb{E}(X) = \sum_{\text{all } y} \mathbb{E}(X | Y = y) \mathbb{P}(Y = y) 
+    \end{equation}
+\end{definition}
+
+\subsection{Continuous}
+
+\begin{definition}
+    For \textit{continuous} r.v.s $X$ and $Y$, the \textbf{conditional expectation} of $X$ given $Y = y$: \begin{equation}
+        \mathbb{E}(X | Y = y) \coloneq \int_{-\infty}^{\infty} x f_{X | Y} (x | y) \, \mathrm{d}x = \frac{1}{f_Y (y)} \int_{-\infty}^{\infty} xf(x,y) \, \mathrm{d}x
+    \end{equation}
+\end{definition}
+
+\subsubsection{Law of Total Expectation (Continuous)}
+
+\begin{definition}
+    Similarly, we have the law of total expectation: \begin{equation}
+        \mathbb{E}(X) = \int_{-\infty}^{\infty} \mathbb{E}(X | Y = y) f_Y (y) \, \mathrm{d}y 
+    \end{equation}
+\end{definition}
+
+\subsection{An Alternate Formulation}
+
+Notice that because we sum or integrate over $x$, $\mathbb{E}(X | Y = y)$ is a function of $y$ only. Then, we let this be $g(y)$, so $\mathbb{E}(X | Y = y) = g(y)$. Then, the law of total expectation says: \begin{align}
+    \mathbb{E}(X) &= \sum_{\text{all } y} \textcolor{red}{g(y)} \mathbb{P}(Y = y) = \mathbb{E}(g(Y)) \\ 
+    \mathbb{E}(X) &= \int_{-\infty}^{\infty} \textcolor{red}{g(y)} f_Y (y) \, \mathrm{d} y = \mathbb{E}(g(Y))
+\end{align}
+
+\begin{definition}
+    Let $g(x) = \mathbb{E}(X | Y = y)$. Then the conditional expectation of $X$ given $Y$, denoted $ \mathbb{E}(X | Y)$ is defined to be the random variable $g(Y)$. Then the law of total expectation can be written: \begin{equation}
+        \mathbb{E}(X) = \mathbb{E}(\mathbb{E}(X | Y))
+    \end{equation}
+    \noindent In other words, if after doing the experiment $X$ crystallises into $x$, then $ \mathbb{E}(X | Y)$ crystallises into $g(y)$. 
+\end{definition}
+
+
+\subsection{Conditional Expectation Given An Event}
+
+For any event $A$, we adapt the \textbf{law of total expectation} to compute $\mathbb{P}(A)$. We first define a random variable $X$, where $X = 1$ if $A$ occurs, and $X = 0$ otherwise. Then, $\mathbb{E}(X) = \mathbb{P}(A)$, $\mathbb{E}(X | Y = y) = \mathbb{P}(A | Y = y)$. 
+
+\begin{theorem}
+    We apply the law to $\mathbb{E}(X)$ to obtain: \begin{equation}
+        \mathbb{P}(A) = \int_{-\infty}^{\infty} \mathbb{P}(A | Y = y) f_Y (y) \, \mathrm{d} y
+    \end{equation}
+    \noindent which is sort of like the continuous version of the law of total probability. 
+\end{theorem}
+
+\subsection{Properties of Conditional Expectation}
+
+Conditional expectation has some useful properties:
+
+\begin{itemize}
+    \item If $X$ and $Y$ are \textit{independent}, then $ \mathbb{E(X | Y)} = \mathbb{E}(X)$
+    \item For any function $h$, $ \mathbb{E}(h(Y) X|Y) = h(Y)\mathbb{E}(X|Y)$. 
+    \item Linearity: $ \mathbb{E}(X_{1} + X_{2} | Y) = \mathbb{E}(X_{1} | Y) + \mathbb{E}(X_{2} | Y)$, and $ \mathbb{E}(cX | Y) = c \mathbb{E}(X | Y)$, $\forall c \in \mathbb{R}$. 
+    \item Adam's Law: $ \mathbb{E}(\mathbb{E}(X | Y)) = \mathbb{E}(X)$. 
+    \item Adam's Law with extra conditioning: For any r.v.s $X$, $Y$, $Z$, $\mathbb{E}(\mathbb{E}(X | Y, Z) | Z) = \mathbb{E}(X | Z)$. This is true because conditional probabilities are probabilities, so we are free to use Adam's Law here. 
+\end{itemize}
+
+\subsection{Conditional Variance}
+
+\begin{definition}
+    The \textbf{conditional variance} of $X$ given $Y = y$ is denoted by $\text{Var}(X | Y = y)$, and is just the variance of $X$ given that $Y$ takes the value $y$. A fundamental result about variance (Eve's Law) is: \begin{equation}
+        \text{Var}(X) = \mathbb{E}(\text{Var} (X | Y)) + \text{Var}(\mathbb{E}(X | Y))
+    \end{equation}
+    \noindent which is also known as the \textbf{law of total variance}. 
+\end{definition} 
+
+\begin{proof}
+    Let $g(Y) = \mathbb{E}(X | Y)$. By Adam's law, $ \mathbb{E}(g(Y)) = \mathbb{E}(Y)$. Then \begin{align*}
+        \mathbb{E}(\text{Var}(X|Y)) &= \mathbb{E}(\mathbb{E}(X^{2}|Y) - g(Y)^{2}) = \mathbb{E}(X^{2}) - \textcolor{red}{\mathbb{E}(g(Y^{2}))} \\ 
+        \text{Var}(\mathbb{E}(X | Y)) &= \mathbb{E}(g(Y)^{2}) - (\mathbb{E}(X))^{2} = \textcolor{red}{\mathbb{E}(g(Y)^{2})} - \mathbb{E}(X)^{2} 
+    \end{align*}
+    \noindent Now adding these 2 equations (removing the red terms), we have Eve's Law. 
+\end{proof}
+
+
+
+
+
+\newpage 
 
 \section*{References}
 

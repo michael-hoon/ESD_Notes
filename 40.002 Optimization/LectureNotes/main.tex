@@ -36,7 +36,7 @@
 		\\ [2.0cm]
 		\HRule{1.5pt} \\
 		\LARGE \textbf{\uppercase{40.002 Optimization}
-		\HRule{2.0pt} \\ [0.6cm] \LARGE{An Introduction to Optimization} \vspace*{10\baselineskip}}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{An Introduction to Convex Optimization} \vspace*{10\baselineskip}}
 		}
 \date{\today}
 \author{\textbf{Michael Hoon}}
@@ -535,8 +535,8 @@ The steps of the simplex algorithm can be carried out using a simplex tableau. W
     \centering
     \begin{tabular}{c | c c | c c c c c}
         Row & & & $x_{1}$ & $x_{2}$ & $x_{3}$ & $x_{4}$ & $x_{5}$ \\ \hline 
-        $R_{0}$ & & 0 & -3 & -2 & 1 & 0 & 0 \\ \hline 
-        $R_{1}$ & $x_{3}$ & 1 & 1 & -1 & 0 & 0 & 0 \\ 
+        $R_{0}$ & & 0 & -3 & -2 & 0 & 0 & 0 \\ \hline 
+        $R_{1}$ & $x_{3}$ & 1 & 1 & -1 & 1 & 0 & 0 \\ 
         $R_{2}$ & $x_{4}$ & 4 & 2 & 1 & 0 & 1 & 0 \\ 
         $R_{3}$ & $x_{5}$ & 2 & 0 & 1 & 0 & 0 & 1
     \end{tabular}

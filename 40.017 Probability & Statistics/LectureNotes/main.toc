@@ -46,3 +46,12 @@
 \contentsline {subsubsection}{\numberline {8.6.4}Conditional PMF}{15}{subsubsection.8.6.4}%
 \contentsline {subsection}{\numberline {8.7}Continuous: Conditional P.M.F}{16}{subsection.8.7}%
 \contentsline {subsubsection}{\numberline {8.7.1}Conditional PDF}{16}{subsubsection.8.7.1}%
+\contentsline {section}{\numberline {9}Conditional Expectation}{16}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Discrete}{16}{subsection.9.1}%
+\contentsline {subsubsection}{\numberline {9.1.1}Law of Total Expectation (Discrete)}{17}{subsubsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.2}Continuous}{17}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Law of Total Expectation (Continuous)}{17}{subsubsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.3}An Alternate Formulation}{17}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Conditional Expectation Given An Event}{17}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Properties of Conditional Expectation}{18}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}Conditional Variance}{18}{subsection.9.6}%

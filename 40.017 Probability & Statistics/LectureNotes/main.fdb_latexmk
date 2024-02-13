@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1707370670 "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/LectureNotes/main.tex" "main.pdf" "main" 1707370672 0
+["pdflatex"] 1707803859 "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/LectureNotes/main.tex" "main.pdf" "main" 1707803861 0
   "Images/Gammadist.png" 1707194642 96768 a457d278400b299421a3dae382f02477 ""
   "Images/arrivaltimes.png" 1707197252 20593 2ff3d6060ccda33a3c0f88436275b58f ""
   "Images/discreteconditionalpmf.png" 1707369037 25209 9268fbba9149b81ad878990d34868ebd ""
@@ -7,8 +7,10 @@
   "Images/discretemarginalpmf.png" 1707370348 76651 18f1c5727ab89d1d8041dfdf8663a20b ""
   "Images/lawoftotalprobability.png" 1707366524 59158 2488c9e1aff0c90e23e9b23601c145b5 ""
   "LectureNotes.sty" 1701880007 2842 85504928edce0a0241bd35b883992101 ""
-  "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/LectureNotes/main.tex" 1707370668 30227 00029da0874cfff983535fa5da94fc86 ""
+  "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/LectureNotes/main.tex" 1707803857 35387 da81e05575c998913d1c80c6e797ef9b ""
+  "c:/TeXLive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1684758386 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/TeXLive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1684758996 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "c:/TeXLive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1684758751 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1684752884 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1684752884 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "c:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1684752884 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -70,6 +72,7 @@
   "c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb" 1684752884 35660 fb24af7afbadb71801619f1415838111 ""
   "c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1684752884 34694 870c211f62cb72718a00e353f14f254d ""
   "c:/TeXLive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb" 1684752884 35309 940e81a5b9e04201a07e8b33a3ae6e64 ""
+  "c:/TeXLive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb" 1684758386 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "c:/TeXLive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1684759987 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "c:/TeXLive/2023/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1684753113 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "c:/TeXLive/2023/texmf-dist/tex/generic/babel-english/english.ldf" 1684753178 7008 9ff5fdcc865b01beca2b0fe4a46231d4 ""
@@ -229,10 +232,10 @@
   "c:/TeXLive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1684761598 4683009 81ac55e6554f9124653631026fb1fc4e ""
   "c:/TeXLive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1684761748 7888862 6089269ac32f199cc2ce135a525d4388 ""
   "c:/TeXLive/2023/texmf.cnf" 1684761580 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1707370672 13624 3d2e484d3f739df6ae7b725e84e004bf "pdflatex"
-  "main.out" 1707370672 7313 543f143351c22d6a373b7f1c654bf261 "pdflatex"
-  "main.tex" 1707370668 30227 00029da0874cfff983535fa5da94fc86 ""
-  "main.toc" 1707370672 4086 4c54b6d6076eab2fa0e5fcb706f3bf7d "pdflatex"
+  "main.aux" 1707803861 15939 3134fbccf25d584a7e6ba9ee88b221be "pdflatex"
+  "main.out" 1707803861 9070 d2f3d34e4dab8645e8adc347039b2162 "pdflatex"
+  "main.tex" 1707803857 35387 da81e05575c998913d1c80c6e797ef9b ""
+  "main.toc" 1707803861 4931 45984d7956986673492ef93eefe49ba8 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
