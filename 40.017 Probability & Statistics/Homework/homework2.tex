@@ -1,0 +1,297 @@
+\documentclass[12pt]{article}
+
+\usepackage{Homework}
+
+% Creates the header and footer.
+\pagestyle{fancy}
+\fancyhead[l]{Michael Hoon, $1006617$}
+\fancyhead[c]{40.017 Probability \& Statistics HW2}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt} %Creates a horizontal line underneath the header
+\renewcommand{\footrulewidth}{0.2pt}
+\setlength{\headheight}{15pt} %Sets enough space for the header
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+
+\begin{document}
+
+\title{ \normalsize \textsc{} 
+        \\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{40.017 Probability \& Statistics} 
+        \HRule{2.0pt} \\ [0.6cm]
+        \LARGE{Homework 2} \vspace*{10\baselineskip}}
+		}
+\date{\today}
+\author{\textbf{Michael Hoon} \\ 1006617 \\ Section 2}
+
+\maketitle 
+\newpage
+
+
+\section*{Question 1}
+% $Y$ has the following pmf: \begin{equation*}
+%     \mathbb{P} (Y = -1) = 0.4, \quad \mathbb{P}(Y = 0) = 0.25, \quad \mathbb{P}(Y=1) = 0.35
+% \end{equation*} In order to simulate $Y$, we use a basic conditional structure in Python: 
+
+% \begin{minted}{python}
+%     from random import random
+%     import matplotlib.pyplot as plt
+    
+%     def Y_Sim():
+%         y = random() # y is a uniform random variable (0,1)
+%         if y < 0.4: 
+%             return -1
+%         elif y < 0.65:
+%             return 0
+%         else:
+%             return 1
+    
+%     num_sim = 10000 # running for 10,000 simulations
+%     sim_vals = [Y_Sim() for _ in range(num_sim)]
+    
+%     # bar plot just to see for fun
+%     plt.hist(sim_vals, bins=[-1, 0, 1, 2], edgecolor='black', align='left', 
+%                 density=True)
+%     plt.xlabel('Y')
+%     plt.ylabel('Probability')
+%     plt.title('Histogram of Simulated Y')
+%     plt.xticks([-1, 0, 1])
+%     plt.show()
+% \end{minted}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{simulation.png}
+%     \caption{Simulation Results for $Y$}
+%     \label{fig:y-sim}
+% \end{figure}
+
+\newpage
+
+\section*{Question 2}
+
+We have the individual probabilities $ \mathbb{P}(E_{1}) = \frac{6}{36} = \frac{1}{6}$, $ \mathbb{P}(E_{2}) = \frac{1}{6}$, and $ \mathbb{P}(E_{3}) = \frac{1}{6}$, and we need to show that $E_{1}$ and $E_{2}$ are not conditionally independent given $E_{3}$. Starting with the definition in Week 3 Class 2, we have the result: \begin{equation}\label{2-conditionalprob}
+    \mathbb{P}(B_{2} | B_{1} \cap A) = \mathbb{P}(B_{2} | A)
+\end{equation} In the context of the problem, using Equation \ref{2-conditionalprob}: \begin{align*}
+    \mathbb{P}(E_{2} | E_{1} \cap E_{3}) &= \mathbb{P}(\text{'first dice shows 4'} | \text{'sum of two dice is 7' and 'second dice shows 3'}) \\ 
+    &= 1
+\end{align*} whereas \begin{align*}
+    \mathbb{P}(E_{2} | E_{3}) = \frac{1}{6}
+\end{align*} since they are not independent. As we can see, \begin{equation*}
+    \mathbb{P}(E_{2} | E_{1} \cap E_{3}) \neq \mathbb{P}(E_{2} | E_{3})
+\end{equation*} and thus we conclude that $E_{1}$ and $E_{2}$ are not conditionally independent given $E_{3}$.
+
+\newpage 
+
+\section*{Question 3}
+
+\subsection*{(a)}
+
+Since we have an unloaded dice, the probability of each dice roll $ \mathbb{P}(X = i), \; \forall i \in \{1,2,3,4\}$ is $\frac{1}{4}$. Let $x$ be the result of the first dice roll, and $y$ be the result of the second dice roll. There are three cases for this event, namely when $x > y$, $x \neq y$ and otherwise. In the case where $x > y$, $ \mathbb{P}(\text{max } = x \text{ and min } = x) = \mathbb{P}(\{(x,x)\}) = (1 / 4)^{2}$. However, if $x \neq y$, we have $ \mathbb{P}(\text{max } = x \text{ and min } = x) = \mathbb{P}(\{(x,y)\}, \{(y,x)\}) = 2\times(1 / 4)^{2}$. Otherwise, it is not possible. The piecewise function for the joint pmf is thus: \begin{equation*}
+    f(x,y) = \begin{cases}
+        \frac{1}{16}, \quad & \forall x = y \\ 
+        \frac{1}{8}, \quad & \forall x \neq y \\ 
+        0, \quad & \text{otherwise}
+    \end{cases}
+\end{equation*} We now construct the joint pmf table of $X$ and $Y$ in table \ref{tab: 3-jointpmf} below. 
+
+\begin{table}[H]
+    \centering
+    \def\arraystretch{1.3}
+    \begin{tabular}{| c | c | c | c | c || c |}
+        \hline \diagbox{x}{y} & 1 & 2 & 3 & 4 & $f_X $\\ \hline 
+        1 & $\frac{1}{16}$ & 0 & 0 & 0 & $\frac{1}{16}$ \\ \hline 
+        2 & $\frac{1}{8}$ & $\frac{1}{16}$ & 0 & 0 & $\frac{3}{16}$ \\ \hline 
+        3 & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{16}$ & 0 & $\frac{5}{16}$ \\ \hline 
+        4 & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{16}$ & $\frac{7}{16}$ \\ \hline\hline
+        $f_Y$ & $\frac{7}{16}$ & $\frac{5}{16}$ & $\frac{3}{16}$ & $\frac{1}{16}$ & 1 \\ \hline 
+    \end{tabular}
+    \caption{Joint pmf of $X$ and $Y$}
+    \label{tab: 3-jointpmf}
+\end{table}
+
+\subsection*{(b)}
+
+The conditional pmf of $X$ given that $Y = 2$ is: \begin{align*}
+    f_{X|Y}(x | 2) &= \mathbb{P}((X = x)(Y = 2)) = \frac{f(x,2)}{f_Y(2)} 
+\end{align*} where $f_Y(2) = \frac{5}{16}$ from table \ref{tab: 3-jointpmf}. $f(x,2)$ is given by the 2nd column of table \ref{tab: 3-jointpmf}, thus we have the conditional pmf table: 
+
+\begin{table}[H]
+    \centering
+    \def\arraystretch{1.3}
+    \begin{tabular}{| c | c | c | c | c |}
+        \hline x & 1 & 2 & 3 & 4 \\ \hline 
+        $f_{X|Y} (x | 2)$ & 0 & $\frac{1}{5}$ & $\frac{2}{5}$ & $\frac{2}{5}$ \\ \hline 
+    \end{tabular}
+    \caption{Conditional pmf of $X | Y = 2$}
+    \label{tab: 3-conditionalpmf}
+\end{table}
+
+\newpage
+
+\section*{Question 4}
+
+\subsection*{(a)}
+
+Let $Z \sim \mathcal{N}(0,1)$, and $X = Z^{2}$. From MU Week 8, \begin{align*}
+    F_X (x) &= \mathbb{P}(X \leq x) \\ 
+    &= \mathbb{P}(Z^{2} \leq x) \\ 
+    &= \mathbb{P}(-\sqrt{x} \leq Z \leq \sqrt{x}) \\ 
+    &= \Phi(\sqrt{x}) - \Phi(-\sqrt{x}) \\ 
+    f_X (x) &= \frac{1}{2\sqrt{x}} \phi(\sqrt{x}) + \frac{1}{\sqrt{x}} \phi(-\sqrt{x}) \quad \text{(differentiating both sides)}\\  
+    &= \frac{1}{2\sqrt{x}}\left( \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{x}{2}\right)\right) + \frac{1}{2\sqrt{x}}\left( \frac{1}{2\sqrt{\pi}}\exp \left(-\frac{x}{2}\right) \right) \\ 
+    &= \frac{1}{\sqrt{2\pi x}}\exp \left(-\frac{x}{2}\right)
+\end{align*} Thus the pdf of $X$ is given by \begin{equation}\label{4-pdfx}
+    f_X (x) = \begin{cases}
+        \displaystyle\frac{1}{\sqrt{2\pi x}}\exp \left(-\frac{x}{2}\right), \quad & x \geq 0 \\ 
+        0, \quad & x < 0
+    \end{cases}
+\end{equation} The standard Gamma distribution is given by \begin{equation}\label{4-gamma}
+    f(x) = \begin{cases}
+        \displaystyle \frac{\lambda^{\alpha}}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}, \quad & x \geq 0 \\ 
+        0, \quad & x < 0
+    \end{cases}
+\end{equation} where $X \sim \text{gamma}(\alpha, \lambda)$. To show that $X$ is a gamma random variable, we must transform equation \ref{4-pdfx} into the form in equation \ref{4-gamma}. By inspection, it is immediately obvious that $\lambda = \frac{1}{2}$. From equation \ref{4-pdfx}, \begin{align*}
+    f_X (x) &= \frac{1}{\sqrt{2\pi x}}\exp (-\frac{x}{2}) \\ 
+    &= \frac{\left( \frac{1}{2} \right)^{\frac{1}{2}}}{\sqrt{\pi}} x^{\frac{1}{2}-1} e^{-\frac{1}{2}x} \\ 
+\end{align*} 
+
+\noindent where $\alpha = \frac{1}{2}$ by inspection. To confirm that the value of $\Gamma(\frac{1}{2}) = \sqrt{\pi}$, we can find the integral: \begin{align*}
+    \Gamma\left(\frac{1}{2}\right) &= \int_{0}^{\infty} x^{-\frac{1}{2}}e^{-x} \, \mathrm{d}x \\ 
+    &= \int_{0}^{\infty} \left( \frac{t^{2}}{2} \right)^{-\frac{1}{2}}e^{-\frac{t^{2}}{2}} \frac{\mathrm{d}x}{\mathrm{d}t} \, \mathrm{d}t \\ 
+    &= \int_{0}^{\infty} \frac{\sqrt{2}}{t}e^{-\frac{t^{2}}{2}} t\, \mathrm{d}t \\ 
+    &= 2\sqrt{\pi} \int_{0}^{\infty} \frac{1}{\sqrt{2\pi}}e^{-\frac{t^{2}}{2}} \, \mathrm{d}t \\ 
+    &= \frac{1}{2}(2\sqrt{\pi}) \\ 
+    &= \sqrt{\pi}
+\end{align*} With this, we can conclude that $\boxed{X \sim \text{gamma}\left(\frac{1}{2}, \frac{1}{2}\right)}$. 
+
+\subsection*{(b)}
+
+If we have two independent standard normal r.v.s $Z_{1}$ and $Z_{2}$, the sum of squares is given by $Z_{1}^{2}+ Z_{2}^{2} = X_{1} + X_{2}$. In Week 3 Lecture 1, we proved the MGF of the Gamma distribution: \begin{align*}
+    M_X (t) &= \mathbb{E}(e^{tX}) \\ 
+    &= \dots \\ 
+    &= \frac{\lambda^{\alpha}(\lambda - t)^{-\alpha})}{\Gamma (a)} \underbrace{\int_{0}^{\infty} y^{\alpha-1}e^{-y} \, \mathrm{d}y}_{\Gamma (\alpha)} \\ 
+    &= \lambda^{\alpha}(\lambda - t)^{-\alpha}
+\end{align*} Using the property for the MGF of the sum of two independent random variables (where $X \sim \text{gamma}(1 / 2 , 1 / 2)$), \begin{align*}
+    M_{X_{1} + X_{2}}(t) &= M_{X_{1}}  (t) M_{X_{2}} (t) \\ 
+    &= \left( \frac{1}{2} \right)^{1 / 2} \left( \frac{1}{2} - t \right)^{- 1 / 2} \left( \frac{1}{2} \right)^{1 / 2} \left( \frac{1}{2} - t \right)^{- 1 / 2} \\ 
+    &= \frac{1 / 2}{1 / 2 - t}
+\end{align*} The MGF of an exponential random variable is given by \begin{equation*}
+    M_X (t) = \frac{\lambda}{\lambda - t}
+\end{equation*} By inspection, we can see that this is actually the MGF of an exponential r.v. with $\lambda = \frac{1}{2}$, thus $X_{1} + X_{2} \sim \text{exponential}(\frac{1}{2})$.    
+
+\newpage
+
+\section*{Question 5}
+
+Let $X$ be the number of tosses required to reach our goal of 3 consecutive $\mathtt{H}$'s appearing for the first time. We start from the hint, where there are 4 cases for any sequence to start: $ \mathtt{T}$, $ \mathtt{HT}$, $ \mathtt{HHT}$, $ \mathtt{HHH}$. Let $Y = i$ for each of the 4 cases accordingly, and $ \mathbb{P}(\mathtt{H}) = \frac{1}{2}$ (since we have a fair coin), so that: \begin{align*}
+    \mathbb{P}(Y = 1) &= \mathbb{P}(\mathtt{T}) = \frac{1}{2} \\ 
+    \mathbb{P}(Y = 2) &= \mathbb{P}(\mathtt{HT}) = \left( \frac{1}{2} \right)^{2} \\ 
+    \mathbb{P}(Y = 3) &= \mathbb{P}(\mathtt{HHT}) = \left( \frac{1}{3} \right)^{3} \\ 
+    \mathbb{P}(Y = 4) &= \mathbb{P}(\mathtt{HHH}) = \left( \frac{1}{4} \right)^{4} 
+\end{align*} Applying the law of total expectation, we have: \begin{align*}
+    \mathbb{E}(X) &= \sum_{\text{all } y} \mathbb{E}(X | Y = y) \mathbb{P}(Y = y) \\ 
+    &= \left(\frac{1}{2}\right) \mathbb{E}(X | Y = 1) + \left( \frac{1}{2} \right)^{2} \mathbb{E}(X | Y = 2) + \left( \frac{1}{2} \right)^{3} \mathbb{E}(X | Y = 3) + \left( \frac{1}{2} \right)^{4} \mathbb{E}(X | Y = 4)
+\end{align*} To evaluate the conditional expectations, notice that each case involves recursion, where for $Y = 1$, tossing a $\mathtt{T}$ at first yields no contribution to our goal of 3 consecutive $\mathtt{H}$'s, so we are now back to the beginning with $1 + \mathbb{E}(X)$. For $ \mathbb{E}(X | Y = 2)$ and $ \mathbb{E}(X | Y = 3)$, a similar reasoning holds and we are back to the beginning after $2$ and $3$ 'useless' tosses. For $ \mathbb{E}(X | Y = 4)$ however, we have the case for the least number of tosses required to reach our goal, which is 3 tosses. Thus, the expected number of tosses $ \mathbb{E}(X | Y = 4)$ is trivially 3. We now have: \begin{align*}
+    \mathbb{E}(X) &= \left( \frac{1}{2} \right) \left[ 1 + \mathbb{E}(X) \right] + \left( \frac{1}{2} \right)^{2} \left[ 2 + \mathbb{E}(X) \right] + \left( \frac{1}{2} \right)^{3} \left[ 3 + \mathbb{E}(X) \right] + \left( \frac{1}{2} \right)^{4}(3) \\ 
+    \mathbb{E}(X) &= \frac{25}{16} + \frac{7}{8} \mathbb{E}(X) \\ 
+    \mathbb{E}(X) &= \boxed{\frac{25}{2}}
+\end{align*}
+
+\newpage
+
+\section*{Question 6}
+
+\subsection*{(a)}
+
+Using the hint, let $X$ be the amount paid, while $Y$ be the number of claims filed. Since there can only be at most 1 claim filed, $Y = 1$ or $Y = 0$, and $ \mathbb{P}(Y = 1) = 0.2$, $ \mathbb{P}(Y = 0) = 1-0.2 = 0.8$. If a claim is filed, then the mean amount paid is $\$1000$: $ \mathbb{E}(X | Y = 1) = 1000$, and if no claim is filed, then nothing is paid: $ \mathbb{E}(X | Y = 0) = 0$. Using the alternate formulation of the law of total expectation, \begin{align*}
+    \mathbb{E}(X) &= \mathbb{E}(\mathbb{E}(X | Y)) \\ 
+    &= \sum_{i=0}^{1} \mathbb{E}(X | Y = i) \mathbb{P}(Y = i) \\ 
+    &= \mathbb{E}(X | Y = 0) \mathbb{P}(Y = 0) + \mathbb{E}(X | Y = 1) \mathbb{P}(Y = 1) \\ 
+    &= 0 \times 0.8 + 1000 \times 0.2 \\ 
+    &= \boxed{200}
+\end{align*}
+
+\subsection*{(b)}
+
+Using the hint, we have the pmf tables for $ \mathbb{E}(X | Y)$ and $\text{Var}(X | Y)$ below. Since $X$ is exponentially distributed when $Y = 1$, for an exponential distribution with parameter $\lambda$, the mean is given by $\frac{1}{\lambda}$ and the variance is $ \left(\frac{1}{\lambda}\right)^{2}$. Thus, $\text{Var}(X | Y) = \left[ \mathbb{E}(X | Y) \right]^{2} = 1000^{2}$. 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l | l | l}
+        \hline Y & 0 & 1 \\ \hline 
+        $ \mathbb{E}(X | Y = i)$ & 0 & 1000 \\ \hline 
+        $ \mathbb{P}(Y = i)$ & 0.8 & 0.2 \\ \hline
+    \end{tabular}
+    \caption{pmf table of $ \mathbb{E}(X | Y)$}
+    \label{tab:6-pmfexp}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l | l | l}
+        \hline Y & 0 & 1 \\ \hline 
+        $\text{Var}(X | Y = i)$ & 0 & 1000000 \\ \hline 
+        $ \mathbb{P}(Y = i)$ & 0.8 & 0.2 \\ \hline 
+    \end{tabular}
+    \caption{pmf table of $\text{Var}(X | Y)$}
+    \label{tab:6-pmfvar}
+\end{table}
+
+\noindent Now to find $\text{Var}(X)$, we use the law of total variance: \begin{align*}
+    \text{Var}(X) &= \mathbb{E}(\text{Var}(X|Y)) + \text{Var}(\mathbb{E}(X | Y)) \\ 
+    &= \mathbb{E}(\text{Var}(X|Y)) + \mathbb{E}(\mathbb{E}(X | Y)^{2}) - (\mathbb{E}(X))^{2} \\ 
+    &= \mathbb{E}(\text{Var}(X|Y)) + \mathbb{E}(\text{Var}(X|Y)) - (\mathbb{E}(X))^{2} \\ 
+    &= 2 \cdot \mathbb{E}(\text{Var}(X|Y)) - (\mathbb{E}(X))^{2} \\ 
+    &= 2 \left( 0 \times 0.8 + 1000000 \times 0.2 \right) - 200^{2} \\ 
+    &= \boxed{360000}
+\end{align*}
+
+\newpage
+
+\section*{Question 7}
+
+\subsection*{(a)}
+
+We first compute the $ \mathbb{E}$ and $\text{Var}$ of $2X + 3Y$ (linear combination of $X$ and $Y$): \begin{align*}
+    \mathbb{E}(2X + 3Y) &= 2 \mathbb{E}(X) + 3 \mathbb{E}(Y) \\
+    &= 2\mu_X + 3\mu_Y \\ 
+    &= 2(2) + 3(1) \\ 
+    &= 1
+\end{align*} \begin{align*}
+    \text{Var}(2X+3Y) &= \text{Var}(2X) + \text{Var}(3Y) + 2 \cdot \text{Cov}(2X, 3Y) \\ 
+    &= 4 \cdot \text{Var}(X) + 9 \cdot \text{Var}(Y) + 2 \cdot (6) \cdot \text{Cov} (X,Y) \\ 
+    &= 4 + 36 + 12\left(\rho \sqrt{\sigma_X^{2}\sigma_Y^{2}}\right) \\ 
+    &= 40 + 12(-\frac{1}{2})\left( \sqrt{1(4)} \right) \\ 
+    &= 28
+\end{align*} Thus, we have the normally distributed $2X + 3Y$: $2X + 3Y \sim \mathcal{N}(1,28)$. To obtain $ \mathbb{P}(2X + 3Y \geq 6)$, we use a standard normal $Z$: \begin{align*}
+    \mathbb{P}(2X + 3Y \geq 6) &= \mathbb{P}\left(Z \geq \frac{6-1}{\sqrt{28}}\right) \\ 
+    &= 0.17235 \\ 
+    &\boxed{\approx 0.172}
+\end{align*}
+
+\subsection*{(b)}
+
+We first find the conditional pdf of $X | Y = 2$ using the joint pdf of the bivariate normal: \begin{align*}
+    f_{X|Y}(X | Y = 2) &= \frac{f(X,Y=2)}{f_Y(Y=2)} \\ 
+    &= c_{1} f(X,2) \\ 
+    &= c_{2} \exp \left[ -\frac{1}{2(1-(\frac{1}{2})^{2})}\left( \left( \frac{x-2}{1} \right)^{2} - 2\left(-\frac{1}{2}\right) \frac{x-2}{1} \frac{2-(-1)}{2} + \left( \frac{2-(-1)}{2} \right)^{2} \right) \right] \\ 
+    &= c_{2} \exp \left[ -\frac{2}{3} \left( (x-2)^{2} + \frac{3}{2}(x-2) + \frac{9}{4} \right) \right] \\ 
+    &= c_{2} \exp \left[ -\frac{2}{3}\left(x^{2}-4x+4+\frac{3}{2}x - 3 + \frac{9}{4}\right) \right] \\ 
+    &= c_{2} \exp \left[ -\frac{2}{3}(x^{2} - \frac{5}{2}x + \frac{13}{4}) \right] \\ 
+    &= c_{2} \exp \left[ -\frac{2}{3} \left( \left(x-\frac{5}{4}\right)^{2} + \frac{13}{4} - \left(\frac{5}{4}\right)^{2} \right) \right] \\ 
+    &= c_{3} \exp \left[ -\frac{2}{3}(x-\frac{5}{4})^{2} \right] \qquad \text{(Completing the square)}\\ 
+    &= c_{3} \exp \left[ - \frac{(x-\frac{5}{4})^{2}}{2(\frac{3}{4})} \right] 
+\end{align*} Comparing the result with the pdf of a univariate normal, we can see that \begin{equation*}
+    \mathbb{E}(X | Y = 2) = \frac{5}{4}, \quad \text{Var}(X | Y = 2) = \frac{3}{4}
+\end{equation*} where $c_{3} \in \mathbb{R}$. Thus, to compute $ \mathbb{P}(X < 1 | Y = 2)$, we use a standard normal $Z$: \begin{align*}
+    \mathbb{P}(X < 1 | Y = 2) &= \mathbb{P}\left(Z < \frac{1- 5 / 4}{\sqrt{3 / 4}}\right) \\ 
+    &= 0.386414 \\ 
+    &\boxed{\approx 0.386}
+\end{align*}
+
+
+
+\end{document}

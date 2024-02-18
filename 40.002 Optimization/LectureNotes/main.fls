@@ -636,6 +636,16 @@ INPUT ./Images/LPGeometry.png
 INPUT Images/LPGeometry.png
 INPUT ./Images/LPGeometry.png
 INPUT ./Images/LPGeometry.png
+INPUT ./Images/degeneracy.png
+INPUT ./Images/degeneracy.png
+INPUT Images/degeneracy.png
+INPUT ./Images/degeneracy.png
+INPUT ./Images/degeneracy.png
+INPUT ./Images/unbounded.png
+INPUT ./Images/unbounded.png
+INPUT Images/unbounded.png
+INPUT ./Images/unbounded.png
+INPUT ./Images/unbounded.png
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

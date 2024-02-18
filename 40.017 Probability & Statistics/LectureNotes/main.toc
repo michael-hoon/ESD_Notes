@@ -55,3 +55,7 @@
 \contentsline {subsection}{\numberline {9.4}Conditional Expectation Given An Event}{17}{subsection.9.4}%
 \contentsline {subsection}{\numberline {9.5}Properties of Conditional Expectation}{18}{subsection.9.5}%
 \contentsline {subsection}{\numberline {9.6}Conditional Variance}{18}{subsection.9.6}%
+\contentsline {section}{\numberline {10}Covariance and Correlation}{18}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Properties of Covariance}{19}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Correlation}{20}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Bivariate Normal}{20}{section.11}%

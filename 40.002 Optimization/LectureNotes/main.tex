@@ -767,6 +767,120 @@ After moving in the specific direction of the largest change in cost, we want to
     \item Repeat until all reduced costs are zero. 
 \end{enumerate}
 
+\section{Degeneracy}
+
+At a basic solution, by definition, we must have $n$ linearly independent active constraints. In the case that there are more than $n$ active constraints, we have a \textbf{degenerate} basic solution. 
+
+\begin{definition}
+    A basic solution $\mathbf{x} \in \mathbb{R}^{n}$ is said to be \textbf{degenerate} if more than $n$ of the constraints are active at $\mathbf{x}$. 
+\end{definition}
+
+\noindent Geometrically, in 2 dimensions, a degenerate basic solution is at the intersection of three or more lines, in 3 dimensions, it is the intersection of 4 or more planes, refer to the Figure below. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/degeneracy.png}
+    \caption{Points $A$ and $C$ are \textit{degenerate basic feasible solutions}. Points $B$ and $E$ are \textit{nondegenerate basic feasible solutions}. Point $D$ is a \textit{degenerate basic solution}.}
+    \label{fig:2-degenerate}
+\end{figure} 
+
+\subsection{Degeneracy in Standard Form Polyhedra}
+
+At a basic solution of a polyhedron in standard form, the $m$ equality constraints are always active. Therefore, having more than $n$ active constraints is the same as having more than $n-m$ variables at zero level. 
+
+\begin{definition}
+    Consider the standard form polyhedron $P = \{\mathbf{x} \in \mathbb{R}^{n} | \mathbf{Ax} = \mathbf{b}, \; x \geq \mathbf{0} \}$, and let $\mathbf{x}$ be a basic solution. Let $m$ be the number of rows of $\mathbf{A}$. The vector $\mathbf{x}$ is a \textbf{degenerate} basic solution if more than $n-m$ of the\textit{ components of $\mathbf{x}$ are zero}. 
+\end{definition}
+
+\subsection{Pivot Rules}
+The smallest subscript pivoting rule (Bland's Rule) is as follows: 
+
+\begin{theorem}
+    
+    \begin{enumerate}
+        \item Among variables with negative reduced cost, choose the one with the smallest reduced cost $\bar{c}_j < 0$ (in Row $R_{0}$)
+        \item Among variables with negative reduced cost, choose the one with the largest decrease in cost $t^{*} |\bar{c}_j|$ (Minimum Ratio Test). 
+        \item Among variables with negative reduced cost, choose the one with the smallest index $j$ with reduced cost $\bar{c}_j < 0$ (leftmost column). 
+        \item Among variables eligible to exit basis (tied in MRT), choose the one with the smallest index (topmost row).
+    \end{enumerate}
+    \noindent Under this pivoting rule, it is known that cycling never occurs, and the simplex method is \textbf{guaranteed to terminate} after a finite number of iterataions. 
+\end{theorem}
+
+\subsection{Unbounded-ness}
+Consider an LP in standard tableau form. If there are no coefficients which are positive (i.e. no solution for minimum ratio test), Then we have an unbounded problem. 
+
+\begin{definition}
+    If there exists a nonbasic variable $x_j$ with negative reduced cost such that $x_j$ appears with nonpositive coefficients on all the remaining rows in that column, then the problem is unbounded. i.e., we have the distance travelled (from MRT) being $t^{*} \in \{(-\infty, 0], +\infty\}$. 
+\end{definition}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/unbounded.png}
+    \caption{(a) A bounded polyhedron, (b) An unbounded polyhedron}
+    \label{fig:2-unboundedlp}
+\end{figure} 
+
+\subsubsection{Stopping Criterion and Finite Termination}
+
+Consider the solution of an LP in minimisation form with the simplex method. There are a few cases: \begin{enumerate}
+    \item All variables have nonnegative reduced costs: the \textbf{current BFS is optimal}, and algorithm terminates.
+    \item There exists a variable with negative reduced cost that appears with all nonpositive coefficients in the column (MRT): \textbf{the problem is unbounded}, algorithm terminates.
+    \item All variables with negative reduced costs appear with at least one positive coefficient in the constraints:\textbf{ the current BFS can be improved}, algorithm continues, change basis.
+\end{enumerate}
+
+
+\begin{theorem}
+    Assume that no set of basic variables ever repeats (simplex tableau are different for every BFS visited by the algorithm). Then the simplex algorithm terminates after a finite number of iterations.
+\end{theorem}
+
+\section{Two-Phase Simplex Method}
+In the even that an initial basis is not apparent and it is not immediately clear how to start the simplex algorithm, we employ the two-phase simplex algorithm.
+
+\subsection{Phase I}
+Phase I involves transforming a linear program into the matrix form below, and obtaining an initial basis. Suppose our constraints are of the form $\mathbf{Ax} \leq \mathbf{b}$, where $\mathbf{b} \geq 0$. We add slack variables $\mathbf{s} \geq 0$ and rewrite the constraint as $\mathbf{Ax} + \mathbf{s} = \mathbf{b}$. We set $(\mathbf{x}, \mathbf{s}) = (\mathbf{0}, \mathbf{b})$. \\ 
+
+\noindent Given constraints of the form $\mathbf{Ax} = \mathbf{b}, \; \mathbf{x} \geq 0$, \begin{enumerate}
+    \item Ensure $\mathbf{b} \geq \mathbf{0}$ (multiplying constraints by -1 and ensure $\mathbf{x}_i \geq 0$). 
+    \item Solve the following LP with auxiliary variables $\mathbf{y}$: \begin{align}\label{eqn:4-phase1}
+        \min \quad & \sum_{i=1}^{m} y_i \\ \nonumber
+        \text{s.t.} \quad & \mathbf{Ax} + \mathbf{y} = \mathbf{b} \\ \nonumber
+        \quad & \mathbf{x} \geq \mathbf{0}, \; \mathbf{y} \geq \mathbf{0}
+    \end{align}
+    \item Start with the BFS: $(\mathbf{x}, \mathbf{y}) = (\mathbf{0}, \mathbf{b})$. 
+    \item Apply the simplex method. If optimal cost is strictly positive, then original LP is infeasible. 
+    \item Else cost is 0 and original LP is feasible. If no artificial variable is in the basis, it gives us a BFS for original problem. If there are, we drive them out by introducing original variables into the basis. 
+\end{enumerate}
+
+\subsection{Phase II}
+
+Start with BFS from Phase I and then solve using simplex method. Consider Phase I as the \textit{side quest} before starting on the \textit{main quest} in Phase II. 
+
+Consider a standard form LP in phase 1 from Equation \ref{eqn:4-phase1}. For LP to be feasible, we need the $\mathbf{y}$'s to be $\mathbf{0}$, if not we will have $\mathbf{Ax} \leq \mathbf{b}$, then the original LP will be infeasible. 
+
+
+\section{Multiple Optimal}
+Geometrically, if we have a convex set, there may be a case that there are multiple optimal solutions, i.e. when the solutions lie in a line segment in 2 dimensions. 
+
+\section{Duality Theory}
+
+Duality theory deals with the relation between the primal and the dual problems, and is the most important and useful structural property of linear programs. 
+
+\subsection{Duality in Canonical Form}
+
+Given an LP in canonical form, which we call the Primal ($P$) : \begin{align*}
+    \min \quad & \mathbf{c}^{\top} \mathbf{x} \\ 
+    \text{s.t.} \quad & \mathbf{Ax} = \mathbf{b} \qquad (m)\\ 
+    \quad & \mathbf{x} \geq \mathbf{0} \qquad \quad (n)
+\end{align*}
+
+\noindent Let $\mathbf{x}^{*}$ be an optimal solution. We introduce a \textit{relaxed} problem in which the constraint $\mathbf{Ax} = \mathbf{b}$ is replaced by a penalty $\mathbf{p}^{\top}(\mathbf{b} - \mathbf{Ax})$, where $\mathbf{p}$ is a price vector of the same dimension as $\mathbf{b}$ (penalised for violating equality constraints), and $\mathbf{p} \in \mathbb{R}^{m}$. Let $g(\mathbf{p})$ be the optimal cost for the relaxed problem, as a function of the price vector $\mathbf{p}$. The relaxed problem allows for more options than in $(P)$, and we expect $g(\mathbf{p})$ to be no larger than the optimal primal cost $\mathbf{c}^{\top}\mathbf{x}^{*}$. \begin{align}
+    g(\mathbf{p}) &= \min_{\mathbf{x} \geq \mathbf{0}} \left[\mathbf{c}^{\top}\mathbf{x} + \mathbf{p}^{\top}(\mathbf{b}-\mathbf{Ax})\right] \\ 
+    &\leq \mathbf{c}^{\top}\mathbf{x}^{*} + \mathbf{p}^{\top}(\mathbf{b}-\mathbf{Ax^{*}}) \quad [\text{since }x^{*} \geq \mathbf{0}\text{ and is feasible in the definition of }g(\mathbf{p})] \\ 
+    &= \mathbf{c}^{\top}\mathbf{x}^{*} \quad [\text{since } \mathbf{Ax^{*}} = \mathbf{b}]
+\end{align}
+
+
+
 
 
 \section{Sensitivity Analysis}

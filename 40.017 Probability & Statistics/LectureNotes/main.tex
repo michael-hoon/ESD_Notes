@@ -534,6 +534,9 @@ Note that independence \footnote{Independence is completely different from \text
         \item Two events can be conditionally independent given $E$, but not independent. 
         \item Two events can be independent, but not conditionally independent given $E$. 
     \end{enumerate}  
+    \noindent Equivalently, we have the result \begin{equation}
+        \mathbb{P}(B | A \cap E) = \mathbb{P}(B | E)
+    \end{equation}
 \end{definition} In particular, $ \mathbb{P}(A, B) = \mathbb{P}(A) \mathbb{P}(B)$ \textbf{does not} imply $ \mathbb{P}(A, B | E) = \mathbb{P} (A |E ) \mathbb{P}(B|E)$
 
 \subsection{Properties of the Conditional}
@@ -707,14 +710,135 @@ Conditional expectation has some useful properties:
 
 \begin{proof}
     Let $g(Y) = \mathbb{E}(X | Y)$. By Adam's law, $ \mathbb{E}(g(Y)) = \mathbb{E}(Y)$. Then \begin{align*}
-        \mathbb{E}(\text{Var}(X|Y)) &= \mathbb{E}(\mathbb{E}(X^{2}|Y) - g(Y)^{2}) = \mathbb{E}(X^{2}) - \textcolor{red}{\mathbb{E}(g(Y^{2}))} \\ 
+        \mathbb{E}(\text{Var}(X|Y)) &= \mathbb{E}(\mathbb{E}(X^{2}|Y) - g(Y)^{2}) = \mathbb{E}(X^{2}) - \textcolor{red}{\mathbb{E}(g(Y)^{2})} \\ 
         \text{Var}(\mathbb{E}(X | Y)) &= \mathbb{E}(g(Y)^{2}) - (\mathbb{E}(X))^{2} = \textcolor{red}{\mathbb{E}(g(Y)^{2})} - \mathbb{E}(X)^{2} 
     \end{align*}
     \noindent Now adding these 2 equations (removing the red terms), we have Eve's Law. 
 \end{proof}
 
+\section{Covariance and Correlation}
+
+Covariance is a single-number summary of the Joint Distribution of two r.v.s, just like mean and variance for a single r.v. The covariance between r.v.s $X$ and $Y$ is: \begin{align*}
+    \text{Cov} (X, Y) &= \mathbb{E} ((X - \mu_X)(Y - \mu_Y)) \\ 
+    &= \mathbb{E}(XY) - \mathbb{E}(X)\mathbb{E}(Y)
+\end{align*}
+
+\noindent For general (not necessarily independent) r.v.s $X$ and $Y$, \begin{equation}
+    \text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y) + 2 \text{Cov}(X,Y)
+\end{equation}
+
+\noindent If $X$ and $Y$ are \textit{independent}, then $\text{Cov}(X,Y) = 0$ (however, reverse implication is not true). \\
+
+\noindent Intuitively, if $X$ and $Y$ tend to move in the \textbf{same direction}, then $X - \mu_X$ and $Y - \mu_Y$ will tend to be either both positive or negative, so $(X - \mu_X)(Y - \mu_Y)$ will be positive on average, so covariance is positive. If they move in \textbf{opposite directions}, then they tend to have opposite signs, giving a negative covariance. 
+
+\begin{theorem}
+    If $X$ and $Y$ are independent, then they are uncorrelated. \begin{proof}
+        \begin{align*}
+            \mathbb{E}(XY) &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} xyf_X(x)f_Y(y) \, \mathrm{d}x \, \mathrm{d}y \\ 
+            &= \int_{-\infty}^{\infty} yf_Y(y) \left( \int_{-\infty}^{\infty} xf_X(x) \, \mathrm{d}x\right) \, \mathrm{d}y \\ 
+            &= \int_{-\infty}^{\infty} xf_X(x) \, \mathrm{d}x \int_{-\infty}^{\infty} yf_Y(y) \, \mathrm{d}y \\ 
+            &= \mathbb{E}(X)\mathbb{E}(Y) \qedhere
+        \end{align*}
+    \end{proof}
+\end{theorem}
+
+\subsection{Properties of Covariance}
+
+\begin{enumerate}
+    \item $\text{Cov}(X,X) = \text{Var}(X)$
+    \item $\text{Cov}(X,Y) = \text{Cov}(Y,X)$
+    \item $\text{Cov}(X,c) = 0$ for any constant $c$
+    \item $\text{Cov}(aX, Y) = a \text{Cov}(X,Y)$ for any constant $a$
+    \item $\text{Cov}(X + Y, Z) = \text{Cov} (X,Z) + \text{Cov}(Y,Z)$
+    \item $\text{Cov}(X+Y, Z+W) = \text{Cov}(X,Z) + \text{Cov}(X,W) + \text{Cov}(Y,Z) + \text{Cov}(Y,W)$
+    \item $\text{Var}(X_{1} + X_{2} + \dots + X_n = \displaystyle\sum_{i=1}^{n} \displaystyle\sum_{j=1}^{n} \text{Cov}(X_i,X_j))$
+    \item $\text{Var}(aX + bY) = a^{2}\text{Var}(X) + 2ab \text{Cov}(X,Y) + b^{2}\text{Var}(Y)$
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/covariancegraph.png}
+    \caption{Joint Distribution of $(X,Y)$ under various dependence structures.}
+    \label{fig:10-covariancegraph}
+\end{figure} 
+
+\begin{theorem}
+    For \textbf{independent r.v.s}, the variance of the sum is the sum of the variance: \begin{equation}
+        \text{Var} \left( \sum_{i=1}^{n} X_i\right) = \sum_{i=1}^{n} \text{Var}(X_i)
+    \end{equation}
+\end{theorem}
+
+\begin{theorem}
+    If $X$ and $Y$ are independent, then the properties of covariance gives \begin{equation}
+        \text{Var} (X-Y) = \text{Var}(X) + \text{Var} (Y)
+    \end{equation}
+\end{theorem}
+
+\subsection{Correlation}
+
+\begin{definition}
+    The correlation between r.v.s $X$ and $Y$ is \begin{equation}\label{eq:10-correlation}
+        \text{Corr} (X,Y) = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)}\text{Var}(Y)}
+    \end{equation}
+\end{definition}
+
+\begin{theorem}
+    Note that shifting and scaling $X$ and $Y$ has no effect on their correlation: \begin{equation*}
+        \text{Corr}(cX,y) = \frac{\text{Corr}(cX,Y)}{\sqrt{\text{Var}(cX)}\text{Var}(Y)} = \frac{c \text{Cov}(X,Y)}{\sqrt{c^{2}\text{Var}(X) \text{Var}(Y)}} = \text{Corr}(X,Y)
+    \end{equation*}
+\end{theorem}
+
+\begin{theorem}
+    (Correlation Bounds) For any r.v.s $X$ and $Y$, \begin{equation*}
+        -1 \leq \text{Corr}(X,Y) \leq 1
+    \end{equation*}
+\end{theorem}
+
+\section{Bivariate Normal}
+
+In order to fully specify a Bivariate Normal distribution for $(X,Y)$, we need to know five parameters: \begin{itemize}
+    \item The means $\mathbb{E}(X)$, $\mathbb{E}(Y)$
+    \item The variances $\text{Var}(X)$, $\text{Var}(Y)$
+    \item The correlation $\text{Corr}(X,Y)$
+\end{itemize}
+
+\begin{definition}
+    The r.v.s $X$ and $Y$ are said to have a \textbf{bivariate normal distribution} if their \textit{joint pdf} for all real $x$ and $y$ is given by: \begin{equation}
+        f(x,y) = \frac{1}{2\pi \sigma_X \sigma_Y \sqrt{1-\rho^{2}}}\exp\left[-\frac{1}{2(1-\rho^{2})}Q(x,y)\right]
+    \end{equation}
+    \noindent where $\displaystyle Q(x,y) = \left( \frac{x - \mu_X}{\sigma_X}\right)^{2} - 2\rho \frac{x - \mu_X}{\sigma_X} \frac{y - \mu_Y}{\sigma_Y} + \left( \frac{y - \mu_Y}{\sigma_Y}\right)$
+\end{definition}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/bivariatenormal.png}
+    \caption{Joint PDFs of two Bivariate Normal Distributions. On the left, $X$ and $Y$ are marginally $\mathcal{N}(0,1)$ and have 0 correlation. On the right, they have correlation 0.75.}
+    \label{fig:10-bivariatenormal}
+\end{figure} 
+
+\begin{theorem}
+    If each of $X$ and $Y$ is a linear combination of independent normal r.v.s $U_{1}, U_{2}, \dots, U_n$, then $X$ and $Y$  
+\end{theorem}
+
+\begin{theorem}
+    If $X$ and $Y$ have a bivariate normal distribution, then the \textbf{marginal} pdf's $f_X$ and $f_Y$ are \textbf{also normal}, \begin{equation*}
+        X \sim \mathcal{N}(\mu_X, \sigma_X^{2}), \quad Y \sim \mathcal{N}(\mu_Y, \sigma^{2}_Y), \quad \rho_{X,Y} = \rho
+    \end{equation*} 
+\end{theorem}
 
 
+\begin{theorem}
+    If $X$ and $Y$ have a bivariate normal distribution, then being \textbf{uncorrelated} ($\text{Cov}(X,Y) = \rho_{X,Y} = 0$) is the same as being \textbf{independent} - From equation \ref{eq:10-correlation}. 
+\end{theorem}
+
+\noindent In other words, for bivariate normal $X$ and $Y$, $\text{Cov}(X,Y) = 0$ if and only if $X$ and $Y$ are independent. 
+
+\begin{theorem}
+    (Independence of sum and difference) Let $X, Y \sim^{i.i.d} \mathcal{N}(0,1)$. The joint distribution of $(X + Y, X - Y)$: \begin{equation*}
+        \text{Cov}(X + Y, X-Y) = \text{Var}(X) - \text{Cov}(X,Y) + \text{Cov}(Y,X) - \text{Var}(Y) = 0
+    \end{equation*}
+    \noindent $X + Y$ is independent of $X - Y$. Furthermore, they are i.i.d $\mathcal{N}(0,2)$. 
+\end{theorem}
 
 
 \newpage 

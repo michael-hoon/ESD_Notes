@@ -1,14 +1,16 @@
 # Fdb version 4
-["pdflatex"] 1707786070 "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.002 Optimization/LectureNotes/main.tex" "main.pdf" "main" 1707786074 0
+["pdflatex"] 1707890335 "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.002 Optimization/LectureNotes/main.tex" "main.pdf" "main" 1707890338 0
   "Images/LPGeometry.png" 1707450215 172792 e8c0ac5c1b187c40fed650f6bb404046 ""
   "Images/LP_Graphical.png" 1706077729 98169 ce15dfe1f0043df3af8d95cbe48cbcc7 ""
   "Images/convexity.png" 1706079498 152210 5faa7f66d356583a19dfb2a805cb5526 ""
   "Images/convexityfn.png" 1706079753 118911 5c5d78b9b30b8edd6491bf827cfd8378 ""
   "Images/convexityfn2.png" 1706108523 65918 e8fd5ed6e3f4feae0f04366a732ea7a3 ""
   "Images/convexityfn3.png" 1706111102 38168 56985a5fd63e778e198e9cb9fe88c856 ""
+  "Images/degeneracy.png" 1707874355 57748 8e9d1e08d270a1e33075b12115fdecf7 ""
   "Images/firstoderconvexity.png" 1706599906 18486 664a140cfc9c6f16565c416d2b2d3a9f ""
+  "Images/unbounded.png" 1707878350 91652 687440cc22e876315f84e51b7c21f816 ""
   "LectureNotes.sty" 1707540781 2921 c0efca0355aca19e6e19eb4a92e5e108 ""
-  "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.002 Optimization/LectureNotes/main.tex" 1707786068 44628 550f55e8a6d2ebebf0bea97467d611c5 ""
+  "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.002 Optimization/LectureNotes/main.tex" 1707890335 52768 0eaa61e3cc04b6e23d7d0ce823722c17 ""
   "c:/TeXLive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1684758386 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/TeXLive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1684758996 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/TeXLive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1684758751 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -241,10 +243,10 @@
   "c:/TeXLive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1684761598 4683009 81ac55e6554f9124653631026fb1fc4e ""
   "c:/TeXLive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1684761748 7888862 6089269ac32f199cc2ce135a525d4388 ""
   "c:/TeXLive/2023/texmf.cnf" 1684761580 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1707786074 12450 f33d4939bfe78c23c98ec3f2398f5a6c "pdflatex"
-  "main.out" 1707786074 7288 082700530a4b9457ef4f147b0e8c6d67 "pdflatex"
-  "main.tex" 1707786068 44628 550f55e8a6d2ebebf0bea97467d611c5 ""
-  "main.toc" 1707786074 3870 35ab5f9012b953a9b8633b613408ae79 "pdflatex"
+  "main.aux" 1707890338 15542 ce3055dd03d68e79fa24b78ed2e43cca "pdflatex"
+  "main.out" 1707890338 8973 4033b0dade87cef4960c11537aff46a1 "pdflatex"
+  "main.tex" 1707890335 52768 0eaa61e3cc04b6e23d7d0ce823722c17 ""
+  "main.toc" 1707890338 4792 3a09441ec715d9f512f16ac9f4c858fb "pdflatex"
   (generated)
   "main.aux"
   "main.log"
