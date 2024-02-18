@@ -31,9 +31,9 @@
 
 
 \section*{Question 1}
-% $Y$ has the following pmf: \begin{equation*}
-%     \mathbb{P} (Y = -1) = 0.4, \quad \mathbb{P}(Y = 0) = 0.25, \quad \mathbb{P}(Y=1) = 0.35
-% \end{equation*} In order to simulate $Y$, we use a basic conditional structure in Python: 
+$Y$ has the following pmf: \begin{equation*}
+    \mathbb{P} (Y = -1) = 0.4, \quad \mathbb{P}(Y = 0) = 0.25, \quad \mathbb{P}(Y=1) = 0.35
+\end{equation*} In order to simulate $Y$, we use a basic conditional structure in Python: 
 
 % \begin{minted}{python}
 %     from random import random
@@ -89,10 +89,10 @@ We have the individual probabilities $ \mathbb{P}(E_{1}) = \frac{6}{36} = \frac{
 
 \subsection*{(a)}
 
-Since we have an unloaded dice, the probability of each dice roll $ \mathbb{P}(X = i), \; \forall i \in \{1,2,3,4\}$ is $\frac{1}{4}$. Let $x$ be the result of the first dice roll, and $y$ be the result of the second dice roll. There are three cases for this event, namely when $x > y$, $x \neq y$ and otherwise. In the case where $x > y$, $ \mathbb{P}(\text{max } = x \text{ and min } = x) = \mathbb{P}(\{(x,x)\}) = (1 / 4)^{2}$. However, if $x \neq y$, we have $ \mathbb{P}(\text{max } = x \text{ and min } = x) = \mathbb{P}(\{(x,y)\}, \{(y,x)\}) = 2\times(1 / 4)^{2}$. Otherwise, it is not possible. The piecewise function for the joint pmf is thus: \begin{equation*}
+Since we have an unloaded dice, the probability of each dice roll $ \mathbb{P}(X = i), \; \forall i \in \{1,2,3,4\}$ is $\frac{1}{4}$. Let $x$ be the result of the first dice roll, and $y$ be the result of the second dice roll. There are three cases for this event, namely when $x = y$, $x > y$ and otherwise. In the case where $x = y$, $ \mathbb{P}(\text{max } = x \text{ and min } = x) = \mathbb{P}(\{(x,x)\}) = (1 / 4)^{2}$. However, if $x > y$, we have $ \mathbb{P}(\text{max } = x \text{ and min } = y) = \mathbb{P}(\{(x,y)\}, \{(y,x)\}) = 2\times(1 / 4)^{2}$. Otherwise, it is not possible. The piecewise function for the joint pmf is thus: \begin{equation*}
     f(x,y) = \begin{cases}
         \frac{1}{16}, \quad & \forall x = y \\ 
-        \frac{1}{8}, \quad & \forall x \neq y \\ 
+        \frac{1}{8}, \quad & \forall x > y \\ 
         0, \quad & \text{otherwise}
     \end{cases}
 \end{equation*} We now construct the joint pmf table of $X$ and $Y$ in table \ref{tab: 3-jointpmf} below. 
@@ -145,10 +145,12 @@ Let $Z \sim \mathcal{N}(0,1)$, and $X = Z^{2}$. From MU Week 8, \begin{align*}
     &= \frac{1}{\sqrt{2\pi x}}\exp \left(-\frac{x}{2}\right)
 \end{align*} Thus the pdf of $X$ is given by \begin{equation}\label{4-pdfx}
     f_X (x) = \begin{cases}
-        \displaystyle\frac{1}{\sqrt{2\pi x}}\exp \left(-\frac{x}{2}\right), \quad & x \geq 0 \\ 
-        0, \quad & x < 0
+        \displaystyle\frac{1}{\sqrt{2\pi x}}\exp \left(-\frac{x}{2}\right), \quad & x > 0 \\ 
+        0, \quad & x \leq 0
     \end{cases}
-\end{equation} The standard Gamma distribution is given by \begin{equation}\label{4-gamma}
+\end{equation} which is interestingly also the pdf of a $\chi^{2}$ distribution with 1 degree of freedom (defined as 0 at $x = 0$). \\ 
+
+\noindent The standard Gamma distribution is given by \begin{equation}\label{4-gamma}
     f(x) = \begin{cases}
         \displaystyle \frac{\lambda^{\alpha}}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}, \quad & x \geq 0 \\ 
         0, \quad & x < 0
@@ -189,15 +191,15 @@ If we have two independent standard normal r.v.s $Z_{1}$ and $Z_{2}$, the sum of
 Let $X$ be the number of tosses required to reach our goal of 3 consecutive $\mathtt{H}$'s appearing for the first time. We start from the hint, where there are 4 cases for any sequence to start: $ \mathtt{T}$, $ \mathtt{HT}$, $ \mathtt{HHT}$, $ \mathtt{HHH}$. Let $Y = i$ for each of the 4 cases accordingly, and $ \mathbb{P}(\mathtt{H}) = \frac{1}{2}$ (since we have a fair coin), so that: \begin{align*}
     \mathbb{P}(Y = 1) &= \mathbb{P}(\mathtt{T}) = \frac{1}{2} \\ 
     \mathbb{P}(Y = 2) &= \mathbb{P}(\mathtt{HT}) = \left( \frac{1}{2} \right)^{2} \\ 
-    \mathbb{P}(Y = 3) &= \mathbb{P}(\mathtt{HHT}) = \left( \frac{1}{3} \right)^{3} \\ 
-    \mathbb{P}(Y = 4) &= \mathbb{P}(\mathtt{HHH}) = \left( \frac{1}{4} \right)^{4} 
+    \mathbb{P}(Y = 3) &= \mathbb{P}(\mathtt{HHT}) = \left( \frac{1}{2} \right)^{3} \\ 
+    \mathbb{P}(Y = 4) &= \mathbb{P}(\mathtt{HHH}) = \left( \frac{1}{2} \right)^{3} 
 \end{align*} Applying the law of total expectation, we have: \begin{align*}
     \mathbb{E}(X) &= \sum_{\text{all } y} \mathbb{E}(X | Y = y) \mathbb{P}(Y = y) \\ 
-    &= \left(\frac{1}{2}\right) \mathbb{E}(X | Y = 1) + \left( \frac{1}{2} \right)^{2} \mathbb{E}(X | Y = 2) + \left( \frac{1}{2} \right)^{3} \mathbb{E}(X | Y = 3) + \left( \frac{1}{2} \right)^{4} \mathbb{E}(X | Y = 4)
+    &= \left(\frac{1}{2}\right) \mathbb{E}(X | Y = 1) + \left( \frac{1}{2} \right)^{2} \mathbb{E}(X | Y = 2) + \left( \frac{1}{2} \right)^{3} \mathbb{E}(X | Y = 3) + \left( \frac{1}{2} \right)^{3} \mathbb{E}(X | Y = 4)
 \end{align*} To evaluate the conditional expectations, notice that each case involves recursion, where for $Y = 1$, tossing a $\mathtt{T}$ at first yields no contribution to our goal of 3 consecutive $\mathtt{H}$'s, so we are now back to the beginning with $1 + \mathbb{E}(X)$. For $ \mathbb{E}(X | Y = 2)$ and $ \mathbb{E}(X | Y = 3)$, a similar reasoning holds and we are back to the beginning after $2$ and $3$ 'useless' tosses. For $ \mathbb{E}(X | Y = 4)$ however, we have the case for the least number of tosses required to reach our goal, which is 3 tosses. Thus, the expected number of tosses $ \mathbb{E}(X | Y = 4)$ is trivially 3. We now have: \begin{align*}
-    \mathbb{E}(X) &= \left( \frac{1}{2} \right) \left[ 1 + \mathbb{E}(X) \right] + \left( \frac{1}{2} \right)^{2} \left[ 2 + \mathbb{E}(X) \right] + \left( \frac{1}{2} \right)^{3} \left[ 3 + \mathbb{E}(X) \right] + \left( \frac{1}{2} \right)^{4}(3) \\ 
-    \mathbb{E}(X) &= \frac{25}{16} + \frac{7}{8} \mathbb{E}(X) \\ 
-    \mathbb{E}(X) &= \boxed{\frac{25}{2}}
+    \mathbb{E}(X) &= \left( \frac{1}{2} \right) \left[ 1 + \mathbb{E}(X) \right] + \left( \frac{1}{2} \right)^{2} \left[ 2 + \mathbb{E}(X) \right] + \left( \frac{1}{2} \right)^{3} \left[ 3 + \mathbb{E}(X) \right] + \left( \frac{1}{2} \right)^{3}(3) \\ 
+    \mathbb{E}(X) &= \frac{7}{4} + \frac{7}{8} \mathbb{E}(X) \\ 
+    \mathbb{E}(X) &= \boxed{14}
 \end{align*}
 
 \newpage
@@ -281,8 +283,8 @@ We first find the conditional pdf of $X | Y = 2$ using the joint pdf of the biva
     &= c_{2} \exp \left[ -\frac{2}{3} \left( (x-2)^{2} + \frac{3}{2}(x-2) + \frac{9}{4} \right) \right] \\ 
     &= c_{2} \exp \left[ -\frac{2}{3}\left(x^{2}-4x+4+\frac{3}{2}x - 3 + \frac{9}{4}\right) \right] \\ 
     &= c_{2} \exp \left[ -\frac{2}{3}(x^{2} - \frac{5}{2}x + \frac{13}{4}) \right] \\ 
-    &= c_{2} \exp \left[ -\frac{2}{3} \left( \left(x-\frac{5}{4}\right)^{2} + \frac{13}{4} - \left(\frac{5}{4}\right)^{2} \right) \right] \\ 
-    &= c_{3} \exp \left[ -\frac{2}{3}(x-\frac{5}{4})^{2} \right] \qquad \text{(Completing the square)}\\ 
+    &= c_{2} \exp \left[ -\frac{2}{3} \left( \left(x-\frac{5}{4}\right)^{2} + \frac{13}{4} - \left(\frac{5}{4}\right)^{2} \right) \right] \qquad \text{(Completing the square)}\\ 
+    &= c_{3} \exp \left[ -\frac{2}{3}(x-\frac{5}{4})^{2} \right] \qquad \text{(Constant absorbed to }c_3)\\ 
     &= c_{3} \exp \left[ - \frac{(x-\frac{5}{4})^{2}}{2(\frac{3}{4})} \right] 
 \end{align*} Comparing the result with the pdf of a univariate normal, we can see that \begin{equation*}
     \mathbb{E}(X | Y = 2) = \frac{5}{4}, \quad \text{Var}(X | Y = 2) = \frac{3}{4}
