@@ -879,6 +879,104 @@ Given an LP in canonical form, which we call the Primal ($P$) : \begin{align*}
     &= \mathbf{c}^{\top}\mathbf{x}^{*} \quad [\text{since } \mathbf{Ax^{*}} = \mathbf{b}]
 \end{align}
 
+\begin{theorem}
+    The dual of the dual is the primal.
+\end{theorem}
+
+
+
+
+
+\subsection{Weak Duality}
+Assume that we have a primal LP in standard form: \begin{align*}
+    \min \quad & \mathbf{c}^{\top} \mathbf{x} \\ 
+    \text{s.t.} \quad & \mathbf{Ax} = \mathbf{b} \\ 
+    & \mathbf{x} \geq \mathbf{0}
+\end{align*} and the dual LP: \begin{align*}
+    \max \quad & \mathbf{p}^{\top} \mathbf{b} \\ 
+    \text{s.t.} \quad & \mathbf{p}^{\top}\mathbf{A} \leq \mathbf{c}
+\end{align*}
+\begin{theorem}
+    If $ \mathbf{x}$ is a feasible solution to the primal problem (minimisation) and $ \mathbf{p}$ is a feasible solution to the dual problem (maximisation), then \begin{equation}
+        \mathbf{c}^{\top} \mathbf{x} \geq \mathbf{p}^{\top}\mathbf{b} 
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    $ \mathbf{p}^{\top} \mathbf{b} = \mathbf{p}^{\top}\left( \mathbf{Ax} \right) = \left( \mathbf{p}^{\top}\mathbf{A} \right)\mathbf{x} \leq \mathbf{c}^{\top}\mathbf{x}$
+\end{proof}
+
+\subsubsection{Implications of Weak Duality}
+
+\begin{theorem}
+    \begin{enumerate}
+        \item If the optimal cost in the primal is $-\infty$ (unbounded), then the dual problem must be infeasible. 
+        \item If the optimal cost in the dual is $+\infty$ (unbounded), then the primal problem must be infeasible. 
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Suppose that the optimal cost in the primal problem is $-\infty$, and that the dual has a feasible solution $ \mathbf{p}$. By weak duality, $ \mathbf{p}$ satisfies $ \mathbf{p}^{\top}\mathbf{b} \leq \mathbf{c}^{\top}\mathbf{x}$ for every primal feasible $ \mathbf{x}$. Taking the minimum over all primal feasible $ \mathbf{x}$, then: \begin{equation*}
+        \mathbf{p}^{\top}\mathbf{b} \leq -\infty
+    \end{equation*} This is impossible and shows that the dual cannot have a feasible solution. Similar argument for the dual. 
+\end{proof}
+
+\begin{theorem}
+    Let $ \mathbf{x}^{*}$ and $\mathbf{p}^{*}$ be feasible solutions to the primal and the dual respectively, and suppose that $\mathbf{c}^{\top}\mathbf{x}^{*} = \mathbf{p}^{*\top}\mathbf{b}$. \textbf{Then, $\mathbf{x}^{*}$ and $\mathbf{p}^{*}$ are optimal solutions to the primal and the dual}.  
+\end{theorem}
+\begin{proof}
+    For every primal feasible solution $\mathbf{x}$, the weak duality theorem yields $\mathbf{c}^{\top}\mathbf{x}^{*} = (\mathbf{p}^{\*})^{\top}\mathbf{b} \leq \mathbf{c}^{\top}\mathbf{x}$ which implies $x^{*}$ is optimal. 
+\end{proof}
+
+\subsection{Strong Duality}
+\begin{theorem}
+    If an LP has an optimal solution, so does its dual, and the respective optimal solutions are equal.
+\end{theorem}
+\begin{proof}
+    Consider the standard form problem: \begin{align*}
+        \min \quad & \mathbf{c}^{\top}\mathbf{x} \\ 
+        \text{s.t.} \quad & \mathbf{Ax} = \mathbf{b} \\ 
+        & \mathbf{x} \geq \mathbf{0}
+    \end{align*} 
+\end{proof}
+
+\subsubsection{Implications of Strong Duality}
+
+\begin{enumerate}
+    \item An optimal solution of the dual linear program can be obtained as a byproduct of using the simplex method to solve the primal linear program. 
+    \item In linear programming, exactly one of the following three possibilities will occur: \begin{itemize}
+        \item There is an optimal solution 
+        \item The problem is 'unbounded'; that is, the optimal cost is $-\infty$ (for minimisation) or $+\infty$ (for maximisation). 
+        \item The problem is infeasible.
+    \end{itemize}
+\end{enumerate}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| c || c | c | c |}
+        & \textbf{Finite Optimum} & \textbf{Unbounded} & \textbf{Infeasible} \\ \hline \hline 
+        \textbf{Finite Optimum} & Possible & Impossible & Impossible \\ \hline 
+        \textbf{Unbounded} & Impossible & Impossible & Possible \\ \hline 
+        \textbf{Infeasible} & Impossible & Possible & Possible \\ \hline 
+    \end{tabular}
+    \caption{The different possibilities for the primal and dual.}
+    \label{tab:6-strongdualitypossibility}
+\end{table}
+
+
+\begin{theorem}
+    Consider the primal $(\mathbb{P})$ and its dual $(\mathbb{D})$. THen exactly one of the following statements is true: \begin{itemize}
+        \item Both $\mathbb{P}$ and $\mathbb{D}$ posses optimal solutions and their objective function values are equal. 
+        \item $ \mathbb{P}$ is unbounded and $ \mathbb{D}$ is infeasible. 
+        \item $ \mathbb{D}$ is unbounded and $ \mathbb{P}$ is infeasible 
+        \item Both problems are infeasible. 
+    \end{itemize}
+\end{theorem}
+
+\subsection{Complementary Slackness}
+
+
+
 
 
 

@@ -43,13 +43,16 @@
 \contentsline {section}{\numberline {5}Multiple Optimal}{20}{section.5}%
 \contentsline {section}{\numberline {6}Duality Theory}{20}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Duality in Canonical Form}{21}{subsection.6.1}%
-\contentsline {section}{\numberline {7}Sensitivity Analysis}{21}{section.7}%
-\contentsline {section}{\numberline {8}Application to Game Theory}{21}{section.8}%
-\contentsline {section}{\numberline {9}Robust Optimization}{21}{section.9}%
-\contentsline {section}{\numberline {10}Maximum Matching}{21}{section.10}%
-\contentsline {section}{\numberline {11}Network Simplex Algorithm}{21}{section.11}%
-\contentsline {section}{\numberline {12}Integer Programming}{21}{section.12}%
-\contentsline {section}{\numberline {13}LP Relaxation}{21}{section.13}%
-\contentsline {section}{\numberline {14}Branch-and-Bound}{21}{section.14}%
-\contentsline {section}{\numberline {15}Dynamic Programming}{21}{section.15}%
-\contentsline {section}{\numberline {16}Travelling Salesman Problem}{21}{section.16}%
+\contentsline {subsection}{\numberline {6.2}Weak Duality}{21}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Implications of Weak Duality}{21}{subsubsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.3}Strong Duality}{22}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Sensitivity Analysis}{22}{section.7}%
+\contentsline {section}{\numberline {8}Application to Game Theory}{22}{section.8}%
+\contentsline {section}{\numberline {9}Robust Optimization}{22}{section.9}%
+\contentsline {section}{\numberline {10}Maximum Matching}{22}{section.10}%
+\contentsline {section}{\numberline {11}Network Simplex Algorithm}{22}{section.11}%
+\contentsline {section}{\numberline {12}Integer Programming}{22}{section.12}%
+\contentsline {section}{\numberline {13}LP Relaxation}{22}{section.13}%
+\contentsline {section}{\numberline {14}Branch-and-Bound}{22}{section.14}%
+\contentsline {section}{\numberline {15}Dynamic Programming}{22}{section.15}%
+\contentsline {section}{\numberline {16}Travelling Salesman Problem}{22}{section.16}%
