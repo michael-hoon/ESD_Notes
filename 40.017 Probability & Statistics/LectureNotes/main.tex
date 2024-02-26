@@ -840,6 +840,56 @@ In order to fully specify a Bivariate Normal distribution for $(X,Y)$, we need t
     \noindent $X + Y$ is independent of $X - Y$. Furthermore, they are i.i.d $\mathcal{N}(0,2)$. 
 \end{theorem}
 
+\begin{theorem}
+    If $X$ an $Y$ have a bivariate normal distribution, then the conditional pdf of $X$ given $Y = y$ is also \textbf{normal} (vice versa). 
+\end{theorem} The conditional pdf's can be visualised as cross-sections of the joint pdf. 
+
+\begin{theorem}
+    If $X$ and $Y$ have a bivariate normal distribution, then any \textit{linear combination} of $X$ and $Y$ is also \textbf{normal}. That is, for constants $a$ and $b$, if $W \sim aX + bY$, with $ \mathbb{E}(W) = \mu$ and $\text{Var}(W) = \sigma^{2}$, then $W \sim \mathcal{N}(\mu, \sigma^{2})$. 
+\end{theorem}
+
+\section{Poisson Processes}
+
+\begin{definition}
+    (1D Poisson Process) A sequence of arrivals in continuous time is a \textit{Poisson Process} with rate $\lambda$ if the following conditions hold: \begin{enumerate}
+        \item The (average) number of arrivals in an interval of length $t$ is distributed with $\text{Poi}(\lambda t)$ (The rate is scalable with time, and the expected number of occurrences in any interval of length is $\lambda t$). 
+        \item The numbers of arrivals in \textit{disjoint} time intervals are \textbf{independent}.  
+    \end{enumerate}
+\end{definition} A Poisson process describes the 'most random' way to distribute events in time. 
+
+\begin{definition}
+    Consider a Poisson process on $(0, \infty)$. Let $N(t)$ be the number of arrivals in $(0,t]$. It can be shown that $N(t) \sim \text{Poisson}(\lambda, t)$: \begin{equation}
+        \mathbb{P}(N(t) = k) = e^{-\lambda t} \frac{(\lambda t)^{k}}{k!}
+    \end{equation} Note that $N(t)$ only depends on the \textbf{length of the interval} (and not when the interval starts or ends). 
+\end{definition}
+
+\subsection{Interarrival Time}
+
+\begin{definition}
+    In a Poisson process, let $T_{1}$ be the time of the 1st arrival, $T_{2}$ be the time between the 1st and 2nd arrivals etc. The $T_i$'s are called interarrival times. \\ 
+    \noindent In a Poisson process with rate $\lambda$, the interarrival times $T_i$'s are i.i.d. $\text{exponential}(\lambda)$ random variables. 
+\end{definition} So the waiting time between successive events is $\text{exponential}(\lambda)$, while the \textit{arrival time} of the $n$th event is $\text{gamma}(n, \lambda)$. 
+
+\subsection{Merging}
+\begin{definition}
+    Given 2 \textit{independent} Poisson processes, where 1 process has rate $\lambda_1$ and process 2 has rate $\lambda_2$, their \textbf{merge} is another Poisson process, with rate $(\lambda_1 + \lambda_2)$. 
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage 
 

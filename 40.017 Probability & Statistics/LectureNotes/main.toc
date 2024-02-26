@@ -59,3 +59,6 @@
 \contentsline {subsection}{\numberline {10.1}Properties of Covariance}{19}{subsection.10.1}%
 \contentsline {subsection}{\numberline {10.2}Correlation}{20}{subsection.10.2}%
 \contentsline {section}{\numberline {11}Bivariate Normal}{20}{section.11}%
+\contentsline {section}{\numberline {12}Poisson Processes}{22}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Interarrival Time}{22}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Merging}{22}{subsection.12.2}%
