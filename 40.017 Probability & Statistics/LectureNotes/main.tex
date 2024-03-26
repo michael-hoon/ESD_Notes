@@ -876,18 +876,159 @@ In order to fully specify a Bivariate Normal distribution for $(X,Y)$, we need t
 \end{definition}
 
 
+\section{Point Estimators}
+
+A parameter $\theta$ is a constant but unknown value regarding a population. A \textbf{point estimate} $\hat{\theta}$ is a statistic computed from a sample and serves as a reasonable 'guess' for $\theta$. 
+
+\subsection{Estimators as Random Variables}
+
+\begin{definition} An estimator $\hat{\theta}$ is also a random variable. \begin{enumerate}
+        \item The \textbf{bias} of an estimator $\hat{\theta}$ is defined to be $ \mathbb{E}(\hat{\theta}) - \theta$. If the bias is identically 0, then $\hat{\theta}$ is \textbf{unbiased} (i.e. if $ \mathbb{E}(\hat{\theta}) = \theta$) 
+        \item The \textbf{variance} of an estimator $\hat{\theta}$ is $ \text{Var} (\hat{\theta}) = \mathbb{E} (\hat{\theta}^{2}) - \mathbb{E}(\hat{\theta})^{2}$. 
+        \item The \textbf{mean square error} of an estimator $\hat{\theta}$ is defined to be $ \mathbb{E}((\hat{\theta} - \theta^{2}))$ (as small as possible). 
+    \end{enumerate}
+\end{definition}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/biasvariancetradeoff.png}
+    \caption{Bias Variance Tradeoff Visualisation}
+    \label{fig:13-biasvariancetradeoff}
+\end{figure} 
+
+\noindent It can also be shown that \begin{equation*}
+    \text{MSE}(\hat{\theta}) = \text{Var}(\hat{\theta}) + \text{bias}(\hat{\theta})^{2}
+\end{equation*} hence, it would make sense to find the estimator that minimises MSE (but it is too difficult.) 
+
+\noindent A common approach is to insist that we use \textit{unbiased estimators}, and if there are \textit{multiple unbiased estimators}, we pick the one with the \textbf{minimum variance} (MVUE). 
+
+\subsection{Maximum Likelihood Estimation}
+
+MLE does not always produce unbiased estimators, but it has the following properties: \begin{itemize}
+    \item As $n \to \infty$, MLE converges to $\theta$, becomes asymptotically unbiased, and also asymptotically minimises the variance. 
+    \item Given a function $g$, if the MLE for $\theta$ is $\hat{\theta}$, then the MLE for $g(\theta)$ is just $g(\hat{\theta})$. 
+\end{itemize}
 
 
+\subsection{Method of Moments}
 
+If sample size $n$ is large, then the sample mean and the sample variance should be close to the true mean and the true variance respectively. The steps are: \begin{enumerate}
+    \item If a distribution has one parameter to estimate, we equare the sample mean with the tru mean of the distribution (solve the equation thereafter). 
+    \item If a distribution has \textbf{two parameters}, then we equate the sample mean with the true mean, and sample variance with true variance (solve two simultaneous equations). 
+    \item The solutions are known as the moment estimators.
+\end{enumerate}
 
+\section{Introductory Bayesian Statistics}
 
+\textit{Frequentists} interpret a probability as the limiting frequency of an event, as the event gets repeated multiple times. \begin{equation*}
+    \mathbb{P}(E) = \lim_{n \to \times} \frac{n_E}{n}
+\end{equation*} However, many real life events cannot be repeated, and they require \textit{Bayesian} methods to be analysed. \\
 
+\noindent Bayesian definitions of probability $ \mathbb{P}(E)$ reflects our prior beliefs, so $ \mathbb{P}(E)$ can be any probability distribution, provided that it is consistent with all our beliefs. 
 
+\subsection{Prior}
+Let $\theta$ denote a parameter to be estimated. In the Bayesian approach, $\theta$ is considered to be \textbf{random} and the goal is to identify $\theta$ as data becomes available (typically we have some prior belief about $\theta$ from past data). This information can be incorporated into a probability distribution for $\theta$, known as the \textbf{prior distribution} $g(\theta)$. 
 
+\subsection{Posterior}
+Bayes' theorem says that $ \mathbb{P}(\theta | \text{data})= \mathbb{P}(\text{data} | \theta) \mathbb{P}(\theta) / \mathbb{P}(\text{data})$, i.e. \begin{equation}\label{eq: 14-posterior}
+    \color{red} h(\theta | x_{1}, \dots , x_n) = \color{Aquamarine} \frac{f(x_{1}, \dots, x_n | \theta)\color{LimeGreen}g(\theta)}{\color{Apricot} f(x_{1}, \dots, x_n)}
+\end{equation}
 
+\begin{enumerate}
+    \item $h(\theta | x_{1}, \dots , x_n)$ is known as the \textbf{posterior distribution} of $\theta$. All inference about $\theta$ is based on $h$. 
+    \item Denominator obtained from the law of total probability (which is just a normalising constant, in practice it is rarely computed). 
+\end{enumerate}
 
+\begin{definition}
+    \textcolor{red}{posterior} = \textcolor{Apricot}{constant} $\times$ likelihood function $\times$ prior
+\end{definition}
 
+\subsection{Beta Distribution}
 
+\begin{definition}
+    A continuous random variable $X$ is said to follow a \textbf{beta distribution} with parameters $a > 0$ and $b > 0$, if its pdf is given by \begin{equation*}
+        f(x) = \begin{cases}
+            \frac{\Gamma (a + b)}{\Gamma (a) \Gamma (b)} x^{a-1} (1-x)^{b-1}, \quad & \text{if } 0 \leq x \leq 1 \\ 
+            0, \quad & \text{otherwise}
+        \end{cases}
+    \end{equation*} and this is denoted by $X \sim \text{beta} (a,b)$. 
+\end{definition}
+
+\noindent If $X \sim \text{beta}(a,b)$, then $ \mathbb{E}(X) = \frac{a}{a+b}$. The \textbf{posterior mean} is an example of a \textbf{Bayes estimator} for $\theta$. \\ 
+
+\noindent Observe that the \textit{uniform prior} is a special case of a beta distribution with $a = 1, \; b = 1$. 
+
+\subsection{General Result: Binomial}
+
+\begin{theorem}
+    In general, if we use a beta($a$, $b$) prior distribution for $\theta = \mathbb{P}(\mathcal{T})$, and observe $k$ $\mathcal{T}$'s out of $n$ tosses, then the posterior distribution of $\theta$ is beta($k+a$, $n-k+b$), and the posterior mean is \begin{equation*}
+        \hat{\theta} = \frac{k + a }{n + a + b}
+    \end{equation*}
+\end{theorem}
+
+\noindent Note that the posterior mean always lies \textit{between} the prior mean $\frac{a}{a+b}$, and the sample mean $\frac{k}{n}$ from the data. 
+
+\subsection{Conjugate Prior}
+When the data is Binomial (or Bernoulli), then a beta prior leads to a beta posterior. 
+
+\subsubsection{Normal Distribution}
+
+We will find the posterior when the data and the prior are both normal. Using the normal pdf and equation \ref{eq: 14-posterior}, we get \begin{align*}
+    h(\theta | x_{1}, \dots , x_n) &= C f(X_{1}, \dots, x_n | \theta)g(\theta) \\ 
+    &= C_{1} \exp \left[ - \frac{(x_{1}-\theta)^{2}}{2\sigma^{2}} - \dots - \frac{(x_n - \theta)^{2}}{2\sigma^{2}} - \frac{(\theta - \mu_0)^{2}}{2\sigma_0^{2}} \right]
+\end{align*}
+
+\noindent We 
+
+\section{Prediction Interval}
+
+In statistical inference, specifically predictive inference, a prediction interval is an estimate of an interval in which a future observation will fall, with a certain probability, given what has already been observed. Prediction intervals are often used in regression analysis. \\ 
+
+\noindent We model a random sample as i.i.d random variables $X_{1}, X_{2}, \dots , X_n$, where each $X_i \sim \mathcal{N}(\mu, \sigma^{2})$. Since any linear combination of independent normals is also normal, we see that $\bar{X} \sim \mathcal{N}(\mu, \sigma^{2})$. We consider a future observation $X_{n+1}$, where $X_{n+1} \sim \mathcal{N}(\mu, \sigma^{2})$, then $N_{n+1} - \bar{X}$ is also normal, and we have \begin{equation*}
+    X_{n+1} - \bar{X} \sim \mathcal{N}(0, \sigma^{2}(1 + 1 / n))
+\end{equation*} where we have relied on the \textbf{normality assumption} and not $n$ being large. Then, we have the prediction random variable: \begin{equation*}
+    T_{n-1} \sim \frac{X_{n+1} - \bar{X}}{S \sqrt{1+ 1 / n}}
+\end{equation*} We convert this into an interval: \begin{theorem}
+    A $100(1-\alpha)\%$ \textbf{prediction interval} for a future observation drawn from a normal distribution is given by \begin{equation*}
+        \left[ \bar{x} - t_{n-1, \alpha / 2}s_x \sqrt{1 + 1 / n}, \; \bar{x} + t_{n-1, \alpha / 2}s_x \sqrt{1 + 1 / n}  \right]
+    \end{equation*}
+\end{theorem} In general, a prediction interval is much wider than a confidence interval, as we are not only uncertain about the values of $\mu$ and $\sigma^{2}$, we are also trying to predict the value pf a random variable. In particular, the width does not go to $0$ as $n \to  \infty$. 
+
+\section{Hypothesis Testing}
+The first step of hypothesis testing is defining the parameters of interest (e.g. $\mu$). We then set up two hypotheses to represent two claims: a null hypothesis $H_{0}$, and an alternative hypothesis $H_{1}$. \begin{enumerate}
+    \item $H_{0}$ is a conservative stance: no difference or change. We write this as $\theta = \theta_0$.
+    \item $H_{1}$ is a radical stance that \textbf{contradicts} $H_{0}$: there is a change to be made. We write this as $\theta \neq \theta_0$. 
+\end{enumerate} The logic involving testing hypotheses is the same as proof by contradiction: assume $H_{0}$ to be true, then perform calculations to determine whether the data contradicts this assumption. \begin{enumerate}
+    \item If Yes, we reject $H_{0}$ in favour of $H_{1}$. 
+    \item If No, we do not reject $H_{0}$ (data does not provide enough evidence for us to believe in $H_{1}$). 
+\end{enumerate}
+
+\subsection{Error Types}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | c |}
+        \hline & & & True State of Nature \\ \hline
+        & & $H_{0}$ is true & $H_{1}$ is true \\ \hline  
+        Our decision based on data & Reject $H_{0}$ & Type I Error (FP) & Correct Decision \\ \hline 
+        & Not Reject $H_{0}$ & Correct Decision & Type II Error (FN) \\ \hline 
+    \end{tabular}
+    \caption{Types of Errors}
+    \label{16-typeoferror}
+\end{table}
+
+\subsection{Testing for Variance}
+\begin{enumerate}
+    \item For $H_{0}$: $\sigma^{2} = \sigma^{2}_0$ vs $H_{1}$: $\sigma^{2} \neq \sigma^{2}_0$, reject $H_{0}$ if $\sigma^{2}$ is outside the CI \begin{equation*}
+        \left[ \frac{(n-1)s^{2}_x}{\chi^{2}_{n-1, \; \alpha / 2}}, \;  \frac{(n-1)s^{2}_x}{\chi^{2}_{n-1, \; 1-\alpha / 2}}\right]
+    \end{equation*}
+    \item For $H_{0}$: $\sigma^{2} > \sigma^{2}_0$ vs $H_{1}$: $\sigma^{2} \neq \sigma^{2}_0$, reject $H_{0}$ if $\sigma^{2}$ is outside the CI \begin{equation*}
+        \left[ \frac{(n-1)s^{2}_x}{\chi^{2}_{n-1, \; \alpha / 2}}, \;  \infty\right)
+    \end{equation*}
+    \item For $H_{0}$: $\sigma^{2} < \sigma^{2}_0$ vs $H_{1}$: $\sigma^{2} \neq \sigma^{2}_0$, reject $H_{0}$ if $\sigma^{2}$ is outside the CI \begin{equation*}
+        \left( 0, \;  \frac{(n-1)s^{2}_x}{\chi^{2}_{n-1, \; 1-\alpha / 2}}\right]
+    \end{equation*}
+\end{enumerate}
 
 
 

@@ -973,19 +973,61 @@ Assume that we have a primal LP in standard form: \begin{align*}
     \end{itemize}
 \end{theorem}
 
-\subsection{Complementary Slackness}
+\section{Integer Programming}
 
+\subsection{Knapsack Problem}
 
+A classic problem in computer science or combinatorial optimization. It involves selecting a subset of items from a set, each with a weight and value, to maximise the total value while keeping the total weight within a certain limit. 
 
+\begin{definition}
+    We formulate the knapsack problem as follows: 
+    \begin{enumerate}
+        \item Set of items with weight $w_i$ and value $v_i$. 
+        \item A knapsack with a maximum weight of $W$. 
+        \item Goal is to select a combination of items to maximise the total value while ensuring the total weight does not exceed the knapsack's capacity. 
+    \end{enumerate}
+    To formulate the problem: \begin{enumerate}
+        \item Let $n$ be the number of items. 
+        \item Let $x_i$ be a binary variable representing whether item $i$ is selected (1) or not (0). 
+        \item The objective function is given by: \begin{equation*}
+            \max \sum_{i=1}^{n} v_i \cdot x_i 
+        \end{equation*}
+        \item The constraint is that the total weight cannot exceed the knapsack capacity: \begin{equation*}
+            \sum_{i=1}^{n} w_i \cdot x_i \leq W
+        \end{equation*}
+        \item Integer constraint: $x_i \in \{0, 1\}$, $\forall i = 1, \dots , n$
+    \end{enumerate}
+\end{definition}
 
+\subsection{Facility Location Problem}
 
+Involves determining the optimal locations for facilities to serve a set of demand points, while considering factors such as facility costs, transportation costs, and demand requirements. We first introduce Boolean decision variables $y_f$ expressing if facility $f$ is open: \begin{equation*}
+    y_f = \begin{cases}
+        1, \quad \text{facility } f \text{is open} \\ 
+        0, \quad \text{otherwise}
+    \end{cases}
+\end{equation*}
 
+\noindent Next, we introduce scalar decision variables $x_{if}$ capturing the demand of client $i$ that is serviced by facility $f$. \\
 
-\section{Sensitivity Analysis}
+\noindent We need constraints on the decision variable: \begin{enumerate}
+    \item For each client $i$, their demand $d_i$ should be met. We express this algebraically by the constraints \begin{equation*}
+        \sum_{f=1}^{\text{facilities}} x_{if}  = d_i, \quad \text{for each client } i
+    \end{equation*}
+    \item Facility Capacity Constraint: Ensure that the total demand served by each facility does not exceed its capacity $u_f$: \begin{equation*}
+        \sum_{i=1}^{\text{clients}} x_{if} \leq u_f y_f
+    \end{equation*}
+    \item Binary variables constraint: Ensure that if a facility is used to serve any demand, it must be opened: \begin{equation*}
+        x_{if} \leq d_i y_f \forall i, \; f
+    \end{equation*}
 
-\section{Application to Game Theory}
+\end{enumerate}
 
-\section{Robust Optimization}
+\noindent Now, we formulate the objective function: to minimise the total cost, which comprises facility costs and transportation costs. Recall that we pay $c_f$ if we choose to open facility $f$. Thus, the opening cost for the facilities we choose to open is \begin{equation*}
+    \sum_{f=1}^{\text{facilities}} c_f y_f 
+\end{equation*} We also pay $c_{if}$ for each product unit we transfer from facility $f$ to customer $i$. Thus, the transportation cost is given by \begin{equation*}
+    \sum_{i=1}^{\text{clients}} \sum_{f=1}^{\text{facilities}} f_{if} x_{if} 
+\end{equation*}
 
 \section{Maximum Matching}
 
@@ -996,6 +1038,10 @@ Assume that we have a primal LP in standard form: \begin{align*}
 \section{LP Relaxation}
 
 \section{Branch-and-Bound}
+
+Hello there \begin{equation}
+    \int_{-\infty}^{\infty} x \, \mathrm{d}x
+\end{equation}
 
 
 \section{Dynamic Programming}

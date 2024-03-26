@@ -1,0 +1,223 @@
+
+\documentclass[12pt]{article}
+
+\usepackage{Homework}
+
+% Creates the header and footer.
+\pagestyle{fancy}
+\fancyhead[l]{Michael Hoon, $1006617$}
+\fancyhead[c]{40.017 Probability \& Statistics HW3}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt} %Creates a horizontal line underneath the header
+\renewcommand{\footrulewidth}{0.2pt}
+\setlength{\headheight}{15pt} %Sets enough space for the header
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+
+\begin{document}
+
+\title{ \normalsize \textsc{} 
+        \\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{40.017 Probability \& Statistics} 
+        \HRule{2.0pt} \\ [0.6cm]
+        \LARGE{Homework 3} \vspace*{10\baselineskip}}
+		}
+\date{\today}
+\author{\textbf{Michael Hoon} \\ 1006617 \\ Section 2}
+
+\maketitle 
+\newpage
+
+
+\section*{Question 1}
+Consider two disjoint timelines shown in Figure \ref{fig:1-timeline} below.
+
+\begin{figure}[H]
+    \centering
+        \begin{tikzpicture}[scale=0.5]
+            % Draw number line
+            \draw[->] (40,0) -- (62,0);
+            
+            % Draw points
+            \foreach \x/\label in {41/0, 48/$s$, 61/$t$}
+            \filldraw (\x,0) circle (2pt) node[above=4pt] {\label};
+            
+            % Draw underbraces
+            \draw[decorate,decoration={brace,amplitude=5pt,mirror}] (41,-0.5) -- (48,-0.5) node[midway,below=4pt] {1};
+            \draw[decorate,decoration={brace,amplitude=5pt,mirror}] (48,-0.5) -- (61,-0.5) node[midway,below=4pt] {0};
+        \end{tikzpicture}
+    \caption{Disjoint Intervals from 0 to $t$}
+    \label{fig:1-timeline}
+\end{figure}
+
+Using the definition of conditional probability, we have: \begin{align*}
+    \mathbb{P}(1 \text{ arrival in } [0,s] | 1 \text{ arrival in } [0, t]) &= \frac{\mathbb{P}(1 \text{ arrival in } [0,s] \cap 1 \text{ arrival in } [0,t])}{\mathbb{P}(1 \text{ arrival in } [0, t])} \\ 
+    &= \frac{\mathbb{P}(1 \text{ arrival in } [0,s] \cap 0 \text{ arrival in } [s,t])}{\mathbb{P}(1 \text{ arrival in } [0, t])} \\ 
+    &= \frac{ \mathbb{P}(N(s) = 1) \times \mathbb{P}(N(t-s) = 0)}{\mathbb{P}(N(t) = 1)} \\ 
+    &= \frac{e^{-\lambda s} \frac{(\lambda s)^{1}}{1!}\times e^{\lambda (t-s)} \frac{[\lambda(t-s)]^{0}}{0!}}{e^{-\lambda t} \frac{(\lambda t)^{1}}{1!}} \\ 
+    &= \frac{s}{t} e^{-\lambda s} \times e^{-\lambda t} \times e^{\lambda s} \times e^{\lambda t} \\ 
+    &= \boxed{\frac{s}{t}}
+\end{align*}
+
+\newpage
+
+\section*{Question 2}
+
+\subsection*{(a)}
+The arrival time of a Poisson process is exponentially distributed, with parameter $\lambda$ for a time period $t$. If we have a merged Poisson process, the resulting distribution is $\text{Poi}(\lambda_1 + \lambda_2)$. The arrival time $X$ of a Poisson process follows an exponential distribution, so we have \begin{equation*}
+    X \sim \exp (\lambda_1 + \lambda_2)
+\end{equation*} and they are i.i.d. for both processes. To get the distribution of the 2nd event in the merged process, we add the two arrival times $X_{1}$, $X_{2}$ which then follows a Gamma distribution (sum of exponentials): \begin{equation*}
+    X_{1} + X_{2} \sim \text{Gamma}(2, \lambda_1 + \lambda_2)
+\end{equation*}
+
+\subsection*{(b)}
+
+It is not necessarily true: The arrival time of the second event in the merged process will follow a gamma distribution from part (a). Consider also the memoryless-ness property, where the second arrival will occur $X_{2}$ time after, which is not necessarily $\max (Y_{1}, Y_{2})$.
+
+\newpage 
+
+\section*{Question 3}
+
+Since the enemy tanks are numbered from $0$ to $N$, then we have a total of $N+1$ tanks. From the hint, we first compute $ \mathbb{E}(X_i)$: \begin{align*}
+    \mathbb{E}(X_i) &= \sum_{i=0}^{N} x_i \mathbb{P}(X = x_i) \\ 
+    &= 0 \times \frac{1}{N+1} + 1 \times \frac{1}{N+1} + \dots + N \times \frac{1}{N+1} \\ 
+    &= \frac{1}{N+1} (0 + 1 + \dots + N) \\ 
+    &= \frac{1}{N+1}\left( \frac{N+1}{2}(N) \right) \\ 
+    &= \frac{N(N+1)}{2(N+1)} \\ 
+    &= \boxed{\frac{N}{2}}
+\end{align*} For a total of $n$ observations with replacement, we have: \begin{align*}
+    \mathbb{E}(\bar{X}_n) &= \mathbb{E}(\frac{1}{n} \sum_{i=1}^{n} X_i) \\ 
+    &= \frac{1}{n}\left[ \mathbb{E}(X_{1}) + \mathbb{E}(X_{2}) + \dots + \mathbb{E}(X_n) \right] \\ 
+    &= \frac{1}{n} \left[ n \mathbb{E}(X_i) \right] \\ 
+    &= \frac{1}{n} \left[ n \left( \frac{N}{2} \right) \right] \\ 
+    &= \boxed{\frac{N}{2}}
+\end{align*}
+
+\noindent To find an unbiased estimator of the total number of tanks, we need by definition $ \mathbb{E}(\hat{N}) = (N+1)$. We note that the total number is $N+1$, and thus: \begin{align*}
+    \mathbb{E}(\bar{X}_n) &= \frac{N}{2} \\ 
+    2 \mathbb{E}(\bar{X}_n) &= N \\ 
+    (N+1) &= 2 \mathbb{E}(\bar{X}_n) + 1 \\ 
+    (N+1) &= \boxed{\mathbb{E}(2 \bar{X}_n + 1)} \quad (\text{linearity of expectation})
+\end{align*} Thus, we conclude that an unbiased estimator for the total number of tanks is $\hat{N} = 2 \bar{X}_n + 1$. 
+
+\newpage
+
+\section*{Question 4}
+
+\subsection*{(a)}
+We are given that $X_{1}, X_{2}, \dots, X_n$ are i.i.d uniformly distributed with parameter $\theta$. From the hint, we note that if the maximum of $X_i$'s is $<x$, then each of the $X_i$'s is $<x$, we use the property of independence here: \begin{align*}
+    \mathbb{P}(X_{\text{max}}<x) &= \mathbb{P}(\max (X_{1}, X_{2}, \dots, X_n) < x) \\ 
+    &= \mathbb{P}(X_{1} < x) \cap \mathbb{P}(X_{2} < x) \cap \dots \cap \mathbb{P}(X_n < x) \\ 
+    &= \prod_i^{n} \mathbb{P}(X_i <x) \\ 
+    &= \boxed{\left( \frac{x}{\theta} \right)^{n}} \quad (\text{using cdf of uniform distribution})
+\end{align*} where $x$ is between 0 and $\theta$.
+
+\subsection*{(b)}
+From the hint, we differentiate part (a) to get the pdf of $X_\text{max}$: \begin{equation*}
+    \frac{d}{dx}\left[ \left( \frac{x}{\theta} \right)^{n} \right] = n \frac{x^{n-1}}{\theta^{n}}
+\end{equation*} Now to find $ \mathbb{E}(X_\text{max})$: \begin{align*}
+    \mathbb{E}(X_\text{max}) &= \int_{-\infty}^{\infty} xf(x) \, \mathrm{d}x \\ 
+    &= \int_{0}^{\infty} x \left( n \cdot \frac{x^{n-1}}{n} \right) \, \mathrm{d}x \\ 
+    &= \frac{n}{\theta^{n}} \int_{0}^{\infty} x^{n} \, \mathrm{d}x \\ 
+    &= \frac{n}{\theta^{n}} \cdot \frac{x^{n+1}}{n+1} \Biggr |_0^{\theta} \\ 
+    &= \frac{n(\theta^{n+1})}{\theta^{n}(n+1)} \\ 
+    &= \boxed{\frac{n}{n+1} \cdot \theta}
+\end{align*}
+
+\subsection*{(c)}
+
+To find an unbiased estimator for $\theta$, we need to show that $ \mathbb{E}(\hat{\theta}) - \theta = 0$, i.e. \begin{align*}
+    \mathbb{E}(X_\text{max}) &= \frac{n}{n+1} \cdot \theta \\ 
+    \frac{n+1}{n} \cdot \mathbb{E}(X_\text{max}) &= \theta \\ 
+    \mathbb{E}\left( \frac{n+1}{n} \cdot X_\text{max}\right) &= \theta \quad (\text{by linearity of expectation}) \\ 
+    \Rightarrow \hat{\theta} &= \boxed{\frac{n+1}{n} \cdot X_\text{max}}
+\end{align*}
+
+Thus $ \displaystyle\frac{n+1}{n} \cdot X_\text{max}$ is an unbiased estimator for $\theta$. 
+
+\newpage
+
+\section*{Question 5}
+
+Let $X \sim \text{uniform}(\theta_1, \theta_2)$. Using the method of moments, \begin{equation*}
+    \mathbb{E}(X) = \bar{x} = \frac{\theta_{1}+\theta_2}{2}, \quad \text{Var}(X) = s_x^{2} = \frac{(\theta_2 - \theta_1)^{2}}{12}
+\end{equation*}
+
+Combining the two equations, where $\theta_1 = 2 \bar{x} - \theta_2$, we start with $s_x^{2}$: \begin{align*}
+    s_x^{2} &= \frac{(\theta_2 - 2\bar{x}+\theta_2)^{2}}{12} \\ 
+    &= \frac{(2\theta_2 - 2\bar{x})^{2}}{12} \\ 
+    &= \frac{4(\theta_2 - \bar{x})^{2}}{12} \\ 
+    3 s_x^{2} &= (\theta_2 - \bar{x})^{2} \\ 
+    \sqrt{3}s_x &= \theta_2 - \bar{x} \\ 
+    \theta_2 &= \sqrt{3}s_x + \bar{x} \\ 
+    \Rightarrow \theta_1 &= 2 \bar{x} - \sqrt{3}s_x + \bar{x} \\ 
+    &= \bar{x} - \sqrt{3}s_x
+\end{align*}
+
+\noindent Thus we have the estimators for $\theta_1$ and $\theta_2$: \begin{equation*}
+    \boxed{\hat{\theta_1} = \bar{x}- \sqrt{3}s_x, \quad \hat{\theta_2} = \bar{x} + \sqrt{3}s_x}
+\end{equation*}
+
+\newpage
+
+\section*{Question 6}
+
+\subsection*{(a)}
+
+From Week 6 Class 1 page 11, the Likelihood function of an exponential distribution is given by: \begin{align*}
+    L(\theta) &= f(x_{1}|\theta)f(x_{2}|\theta)\dots f(x_n|\theta) \\ 
+    &= \theta^{n} \exp \left( -\theta \sum_{i=1}^{n} x_i \right) \\ 
+    &= \theta^{4} \exp \left( -\theta (1.3 + 0.6 + 0.3 + 0.8) \right) \\ 
+    &= \theta^{4} \exp \left( -3 \theta  \right)
+\end{align*}
+
+\noindent where the $x_i$'s are i.i.d, and there are 4 observations of $x$. 
+
+\subsection*{(b)}
+
+The prior for $\theta$ has a $\text{gamma}(5,2)$ distribution, given by: \begin{align*}
+    f(\theta) &= C_{0} \theta^{5-1}e^{-2\theta} \\ 
+    &= C_{0} \theta^{4}e^{-2\theta}
+\end{align*}
+
+\noindent Using the formula in Week 6 Class 2, posterior = constant $\times$ likelihood function $\times$ prior, we have: \begin{align*}
+    \text{posterior} &= \text{constant} \times \text{likelihood function} \times \text{prior} \\ 
+    &= C_{1} \times \theta^{4}e^{-3\theta} \times C_{0} \theta^{4}e^{-2\theta} \\ 
+    &= C_{2} \theta^{4+4}e^{-3\theta - 2\theta} \\ 
+    &= \boxed{C_{2} \theta^{8}e^{-5\theta}}
+\end{align*}
+
+\subsection*{(c)}
+
+The standard gamma function with parameters $\alpha, \lambda$ is given by: \begin{equation*}
+    f(\theta) = C \theta^{\alpha-1}e^{-\lambda \theta}
+\end{equation*}
+
+\noindent for any real constant $C$. From (b), we see that the posterior is also clearly gamma distributed, where: \begin{equation*}
+    \text{posterior} = C_{2} \theta^{9-1} e^{-5\theta}
+\end{equation*}
+
+\noindent and with parameters $\alpha = 9$, $\lambda = 5$. From Week 3 Class 1, the mean of a $\theta \sim \text{Gamma}(\alpha, \lambda)$ distribution is given by: \begin{align*}
+    \mathbb{E}(\theta) &= \frac{\alpha}{\lambda} \\ 
+    &= \boxed{\frac{9}{5}}
+\end{align*}
+
+\newpage
+
+\section*{Question 7}
+
+We start with the general definition of expectation: \begin{align*}
+    \mathbb{E}(X) &= \int_{-\infty}^{\infty} x \cdot f(x) \, \mathrm{d}x \\ 
+    &= \int_{0}^{1} x \cdot \frac{\Gamma(a+b)}{\Gamma(a) \Gamma(b)}x^{a-1}(1-x)^{b-1} \, \mathrm{d}x \\ 
+    &= \int_{0}^{1} \frac{\Gamma(a+b)}{\Gamma(a) \Gamma(b)}\cdot x^{(a+1)-1}(1-x)^{b-1} \, \mathrm{d}x \\ 
+    &= \int_{0}^{1} \frac{\Gamma(a+b)}{\Gamma(a)} \times \frac{\Gamma(a+1)}{\Gamma((a+1)+b)}\times \frac{\Gamma((a+1)+b)}{\Gamma(a+1)\Gamma(b)} x^{(a+1)-1}(1-x)^{b-1} \, \mathrm{d}x \\ 
+    &= \int_{0}^{1} \frac{\Gamma(a+b)}{\cancel{\Gamma(a)}} \times \frac{a\cancel{\Gamma(a)}}{\Gamma((a+1)+b)}\times \frac{\Gamma((a+1)+b)}{\Gamma(a+1)\Gamma(b)} x^{(a+1)-1}(1-x)^{b-1} \, \mathrm{d}x \quad (\because \Gamma(\alpha+1) = \alpha\Gamma(\alpha)) \\ 
+    &= \int_{0}^{1} \frac{a\cancel{\Gamma(a+b)}}{(a+b)\cancel{\Gamma(a+b)}} \times \frac{\Gamma((a+1)+b)}{\Gamma(a+1)\Gamma(b)} x^{(a+1)-1}(1-x)^{b-1} \, \mathrm{d}x \\ 
+    &= \frac{a}{a+b} \int_{0}^{1} \frac{\Gamma((a+1)+b)}{\Gamma(a+1)\Gamma(b)} x^{(a+1)-1}(1-x)^{b-1} \, \mathrm{d}x \\ 
+    &= \boxed{\frac{a}{a+b}} \quad (\text{total area under beta(a + 1, b) r.v. is 1})
+\end{align*}
+
+
+\end{document}

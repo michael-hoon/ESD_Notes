@@ -1,7 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1708578981 "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/LectureNotes/main.tex" "main.pdf" "main" 1708578984 0
+["pdflatex"] 1710391633 "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/LectureNotes/main.tex" "main.pdf" "main" 1710391636 0
   "Images/Gammadist.png" 1707194642 96768 a457d278400b299421a3dae382f02477 ""
   "Images/arrivaltimes.png" 1707197252 20593 2ff3d6060ccda33a3c0f88436275b58f ""
+  "Images/biasvariancetradeoff.png" 1709007420 1267148 a52299db18095e4c979e8e7cd4392d18 ""
   "Images/bivariatenormal.png" 1707973426 271638 544da916d924d8ae1fb4621342452977 ""
   "Images/covariancegraph.png" 1707970766 93279 fdcf3707bde4f31052730463a6ef15f6 ""
   "Images/discreteconditionalpmf.png" 1707369037 25209 9268fbba9149b81ad878990d34868ebd ""
@@ -9,7 +10,7 @@
   "Images/discretemarginalpmf.png" 1707370348 76651 18f1c5727ab89d1d8041dfdf8663a20b ""
   "Images/lawoftotalprobability.png" 1707366524 59158 2488c9e1aff0c90e23e9b23601c145b5 ""
   "LectureNotes.sty" 1701880007 2842 85504928edce0a0241bd35b883992101 ""
-  "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/LectureNotes/main.tex" 1708578976 44364 9f5779b77103e24da3773bdc16dd8e06 ""
+  "c:/LaTeX_Tracker/SUTD_Notes_Homework/ESD Notes/40.017 Probability & Statistics/LectureNotes/main.tex" 1710391632 54979 23a7bf346ed08f45b8cdd46f18406ec8 ""
   "c:/TeXLive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1684758386 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/TeXLive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1684758996 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/TeXLive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1684758751 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -234,10 +235,10 @@
   "c:/TeXLive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1684761598 4683009 81ac55e6554f9124653631026fb1fc4e ""
   "c:/TeXLive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1684761748 7888862 6089269ac32f199cc2ce135a525d4388 ""
   "c:/TeXLive/2023/texmf.cnf" 1684761580 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1708578983 20359 d09e07aae0d98a3e632f7395e982d54c "pdflatex"
-  "main.out" 1708578983 10056 6c1a0e4cbdf03a3880261e49dfe85ef8 "pdflatex"
-  "main.tex" 1708578976 44364 9f5779b77103e24da3773bdc16dd8e06 ""
-  "main.toc" 1708578983 5502 303082a6d0a198cdac014120ae18ba08 "pdflatex"
+  "main.aux" 1710391635 23611 61a3dfbe87e9d64136f27759ab2fd37c "pdflatex"
+  "main.out" 1710391635 12371 8bdc13b276c4cf79de2b7b03656000b6 "pdflatex"
+  "main.tex" 1710391632 54979 23a7bf346ed08f45b8cdd46f18406ec8 ""
+  "main.toc" 1710391635 6788 0bfc9704889c1bdc597a9e0f22dfc269 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

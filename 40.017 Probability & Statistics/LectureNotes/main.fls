@@ -609,6 +609,11 @@ INPUT ./Images/bivariatenormal.png
 INPUT Images/bivariatenormal.png
 INPUT ./Images/bivariatenormal.png
 INPUT ./Images/bivariatenormal.png
+INPUT ./Images/biasvariancetradeoff.png
+INPUT ./Images/biasvariancetradeoff.png
+INPUT Images/biasvariancetradeoff.png
+INPUT ./Images/biasvariancetradeoff.png
+INPUT ./Images/biasvariancetradeoff.png
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
