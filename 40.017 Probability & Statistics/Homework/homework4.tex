@@ -1,0 +1,225 @@
+\documentclass[12pt]{article}
+\usepackage{Homework}
+
+% Creates the header and footer.
+\pagestyle{fancy}
+\fancyhead[l]{Michael Hoon, $1006617$}
+\fancyhead[c]{40.017 Probability \& Statistics HW4}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt} %Creates a horizontal line underneath the header
+\renewcommand{\footrulewidth}{0.2pt}
+\setlength{\headheight}{15pt} %Sets enough space for the header
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+
+\begin{document}
+
+\title{ \normalsize \textsc{} 
+        \\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{40.017 Probability \& Statistics} 
+        \HRule{2.0pt} \\ [0.6cm]
+        \LARGE{Homework 4} \vspace*{10\baselineskip}}
+		}
+\date{\today}
+\author{\textbf{Michael Hoon} \\ 1006617 \\ Section 2}
+
+\maketitle 
+\newpage
+
+
+\section*{Question 1}
+
+Let $X$ represent the fabric durability. $\sigma = 3500$, $n = 25$, $s_x = 4270$. Given that $X$ is normally distributed, we conduct a $90\%$ Confidence Interval (CI) for $X$. Since we are comparing variances, we use the $\chi^{2}$ distribution. We set up the hypothesis: \begin{align*}
+    H_{0} : \sigma &= 3500 \\ 
+    H_{1} : \sigma &> 3500
+\end{align*} We construct a one-sided CI for $\sigma^{2}$: \begin{align*}
+    \left[ \frac{(n-1) s_x^{2}}{\chi^{2}_{n-1, ; \alpha}} , \infty \right)  
+    &= \left[ \frac{24(4270)^{2}}{\chi^{2}_{24, 0.1}}, \infty \right) \\ 
+    &= \left[ \frac{24(4270)^{2}}{\chi^{2}_{24, 0.1}}, \infty \right) \\ 
+    &= \left[ \frac{24(4270)^{2}}{33.19629} , \infty \right) \\ 
+    &= \left[ 13181882.674, \infty \right)  
+\end{align*}
+
+\noindent Then the CI for $\sigma$ is given by the square root of the previous CI: \begin{equation*}
+    \left[ 3630.68, \infty \right)
+\end{equation*} $\because \sigma$ is not in the CI, we have sufficient evidence to reject $H_{0}$ at the $10\%$ significance level and conclude that $\sigma$ is greater than 3500. 
+
+\newpage
+
+\section*{Question 2}
+
+\subsection*{(a)}
+
+We have a sample of $n = 26$. Let $X$ be the seeded clouds and $Y$ be the unseeded clouds. We construct the hypothesis: \begin{align*}
+    H_{0} : \mu_X - \mu_Y &= 0 \\ 
+    H_{1} : \mu_X - \mu_Y &> 0 
+\end{align*}
+
+\noindent This is an \textbf{independent samples design} as the clouds were not matched in any particular fixed method. 
+
+\subsection*{(b)}
+
+Now, let $A, B$ be the natural logarithm of the rainfall of seeded and unseeded clouds respectively. We conduct a hypothesis test for the \textit{transformed} data: \begin{align*}
+    H_{0} : \mu_A - \mu_B &= 0 \\ 
+    H_{1} : \mu_A - \mu_B &> 0
+\end{align*} $\because A, B$ are approximately normal, then we use the 2-sample t-test, and calculate the t-statistic: \begin{align*}
+    t &= \frac{\bar{A} - \bar{B} - 0}{\sqrt{(s_{\bar{A}}^{2} + s_{\bar{B}}^{2}) / n}} \\ 
+    &= \frac{5.134187 - 3.990406 - 0}{\sqrt{(1.599514^{2} + 1.641847^{2}) / 26}} \\
+    &= 2.544369 \\ 
+\end{align*} We now calculate the p-value: \begin{align*}
+    \mathbb{P}(T_{2n-2} \geq 2.544369) &= 0.0070413 \\ 
+    &\approx \boxed{0.00704}
+\end{align*} Since the p-value $< \alpha = 0.05$, we have significant evidence at the 5\% level to reject $H_{0}$, thus $A$ has a higher true mean rainfall than $B$. A screenshot of the excel calculations is in Figure below. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/Q2.png}
+    \caption{Excel Calculations for Q2}
+    \label{fig:2-excel}
+\end{figure} 
+
+\newpage 
+
+\section*{Question 3}
+We have the sample size $n = 30$. The aim of the treatment is to gain weight, and we let $\mu$ be the true mean weight gain: \begin{align*}
+    H_{0}: \mu &= 0 \\ 
+    H_{1} : \mu &> 0
+\end{align*} We can conduct a signed rank test, and let $W_+$ represent the positive ranks. Since $n$ is large, $W_+$ is approximately normal, with \begin{align*}
+    \mathbb{E}(W_+) &= \frac{n(n+1)}{4} \\ 
+    &= \frac{30 \times 31}{4} \\ 
+    &= 232.5
+\end{align*} and \begin{align*}
+    \text{Var}(W_+) &= \frac{n(n+1)(2n+1)}{24} \\ 
+    &= 2363.75
+\end{align*} Thus, we have: \begin{align*}
+    W_+ \sim \mathcal{N}(232.5, 2363.75) 
+\end{align*} To calculate the p-value, we use the sum of positive ranks, calculated in excel as $w_+ = 347.5$: \begin{align*}
+    \mathbb{P}(W_+ \geq 347.5) &= \Phi \left(- \frac{347.5 - 0.5 - 232.5}{\sqrt{2363.75}} \right)\\ 
+    &= \Phi \left( - 2.35507 \right) \\ 
+    &\approx \boxed{0.00925}
+\end{align*} $\because$ p-value $=0.00925 < \alpha = 0.01$, we have sufficient evidence to  reject $H_0$ at the 1\% significance level, and conclude that the \textbf{true mean weight gain is indeed more than 0}. A screenshot of the excel calculations is in Figure \ref{fig:3-excel} below. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/Q3.png}
+    \caption{Excel calculations for Q3}
+    \label{fig:3-excel}
+\end{figure} 
+
+\newpage
+
+\section*{Question 4}
+If we want to be within 0.1 percentage points of the true proportion with 95\% confidence, the margin of error is $E = 0.001$, and $\alpha = 0.05$. We are also given that at most 1\% of people will sign up, so we have $\hat{p} = 0.01$. To determine the number of mail offers that the company should send out, we use the formula from Week 10 Class 1: \begin{align*}
+    n &= \left( \frac{z_{\alpha / 2}}{E} \right)^{2} \cdot \hat{p} \cdot (1-\hat{p}) \\ 
+    &= \left( \frac{1.95996}{(0.001)}\right)^{2} \cdot (0.01) \cdot (0.99) \\ 
+    &= 38030.28769 \\ 
+    &\approx \boxed{38031} \qquad \text{(nearest integer)}
+\end{align*} Thus they should send out a total of 38031 mail offers.
+
+\newpage
+
+\section*{Question 5}
+
+\subsection*{(a)}
+
+Let $p$ be the true proportion of bashes. We construct the hypothesis: \begin{align*}
+    H_{0}: p &= 0.17 \\ 
+    H_{1}: p &\neq 0.17
+\end{align*} for $\alpha = 0.05$. Calculations of $n$, $\hat{p}$ are done in excel in Figure \ref{fig:5-excel} below. Since $n$ is large, $p$ is approximately normal with \begin{align*}
+    \mathbb{E}(\hat{p}) = p = 0.17
+\end{align*} and \begin{align*}
+    \text{Var}(\hat{p}) = \frac{p(1-p)}{n} = \frac{0.17 \times (1-0.17)}{690 + 130} = 0.00017207
+\end{align*} $\therefore \hat{p} \sim \mathcal{N}(0.17, 0.00017207)$. We calculate the 2-sided p-value: \begin{align*}
+    2 \times \mathbb{P}(\hat{p} \leq 0.1585366) &= 2 \times \mathbb{P}\left(\frac{\hat{p} - p'}{\sqrt{p'(1-p') / n}}\right) \\ 
+    &= 2 \times \mathbb{P}\left( \frac{0.1585366 - 0.17}{\sqrt{0.17(1-0.17) / (690+130)}} \right) \\ 
+    &\approx \boxed{0.382}
+\end{align*} Since the p-value $ = 0.382 > \alpha = 0.05$, we do not have sufficient evidence to reject $H_{0}$ at the $95\%$ significance level, and conclude that the true proportion of bashes is indeed $p = 0.17$. 
+
+\subsection*{(b)}
+
+From the excel attached in Figure \ref{fig:5-excel} below, we have calculated there are $n = 690$ normal attacks, and $m=130$ bashes, with total number of runs 231. Since $m$ and $n$ are large, then the distribution is approximately normal with: \begin{align*}
+    \mu &= \frac{2mn}{m+n} + 1 \\ 
+    &= \frac{2(130)(690)}{130 + 690} + 1 \\ 
+    &= 219.780
+\end{align*} and \begin{align*}
+    \sigma^{2} &= \frac{(\mu - 1)(\mu - 2)}{m+n -1} \\ 
+    &= \frac{(219.780-1)(219.780-2)}{130 + 690 - 1} \\ 
+    &= 58.17597
+\end{align*} and $\therefore X \sim \mathcal{N}(219.780, 58.17597)$. We use a continuity correction for a 2-sided test and calculate the p-value: \begin{align*}
+    2 \times \mathbb{P}\left(Z > \frac{232-0.5 -219.78049}{\sqrt{58.175972}}\right) = 0.124411 \approx \boxed{0.124}
+\end{align*} $\because$ p-value $= 0.124 > \alpha = 0.05$, we do not have sufficient evidence to reject $H_{0}$ at the 95\% significance level, and conclude that the bashes do occur randomly. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/Q5.png}
+    \caption{Excel calculations for Q5}
+    \label{fig:5-excel}
+\end{figure} 
+
+\newpage
+
+\section*{Question 6}
+
+We construct a table: 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | c | c |}
+        \hline $i$ & \textbf{O} & \textbf{A} & \textbf{B} & \textbf{AB} \\ \hline 
+        $n_i$ & 18 & 10 & 5 & 2 \\ \hline 
+        $p_i$ & 0.3 & 0.4 & 0.2 & 0.1 \\ \hline 
+        $e_i$ & $0.3 \times 0.35 = 10.5$ & $0.4\times 0.35 = 14$ & $0.2 \times 35 = 7$ & $0.1 \times 35 = 3.5$ \\ \hline 
+    \end{tabular}
+    \caption{Table of values for each Blood Type}
+    \label{6-table}
+\end{table}
+
+\noindent From Table \ref{6-table}, we find that the sample size is $35$. We first construct the hypothesis: \begin{align*}
+    H_{0}: & \; (p_{\text{O}} = 0.3) \cap (p_{\text{A}} = 0.4) \cap (p_{\text{B}} = 0.2) \cap (p_{\text{AB}} = 0.1) \\  
+    H_{1}: & \; (p_{\text{O}} \neq 0.3) \cup (p_{\text{A}} \neq 0.4) \cup (p_{\text{B}} \neq 0.2) \cup (p_{\text{AB}} \neq 0.1) \qquad (\text{otherwise})
+\end{align*} We now conduct a $\chi^{2}$ test with $\alpha = 0.05$. To find the test statistic for 4 categories: \begin{align*}
+    \chi^{2} &= \sum_{i=1}^{4} \frac{(n_i - e_i)^{2}}{e_i} \\ 
+    &= \frac{(18-10.5)^{2}}{10.5} + \frac{(10-14)^{2}}{14} + \frac{(5-7)^{2}}{7} + \frac{(2-3.5)^{2}}{3.5} \\ 
+    &= \boxed{7.714285}
+\end{align*} Since we have 4 Blood Types (categories), $m = 4$, and $m-1 = 3$. With $\alpha = 0.05$, the critical value is \begin{equation*}
+    \chi^2_{3, \; 0.05} = 7.81445
+\end{equation*} $\because \chi^{2} = 7.714285 < 7.81445$, we do not have sufficient evidence to reject $H_{0}$ at the $5\%$ significance level, and we thus conclude that the prime ministers' blood types are \textbf{not} significantly different from what one would expect from the probability proportions.
+
+\newpage
+
+\section*{Question 7}
+
+
+\subsection*{(a)}
+
+The missing entries are given in Figure \ref{fig:7-excel} below. The values are calculated via excel with the inverse normal distribution, with the probability that a value falls into each bin is $\frac{1}{8}$.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/Q7.png}
+    \caption{Missing Entries}
+    \label{fig:7-excel}
+\end{figure} 
+
+\newpage
+
+\subsection*{(b)}
+
+Since we are estimating both $\mu$ and $\sigma$, we lose \textbf{two extra degrees of freedom}. Since each $e_i \geq 5$, we also do not combine any of the tables. Thus, the degrees of freedom is now $8-3 = 5$. We set up the hypothesis: \begin{align*}
+    H_{0}: & \; p_{0} = f(0 | \mu, \sigma^{2}) \; \cap p_{1} = f(1 | \mu, \sigma^{2}) \cap \dots \qquad (\text{where } p_i \text{ represents the } i^{\text{th}} \text{ bin})\\ 
+    H_{1}: & \; p_{0} \neq f(0 | \mu, \sigma^{2}) \; \cup p_{1} \neq  f(1 | \mu, \sigma^{2}) \cup \dots \qquad (\text{otherwise})
+\end{align*} $\forall i \in \{1, 2, \dots , 8\}$. We now calculate the $\chi^{2}$ test statistic: \begin{align*}
+    \chi^{2} &= \sum_{i=1}^{8} \frac{(n_i - e_i)^{2}}{e_i} \\ 
+    &= \frac{(114-100)^{2}}{100} + \frac{(99-100)^{2}}{100} + \frac{(89 - 100)^{2}}{100} + \frac{(95-100)^{2}}{100} + \frac{(94 - 100)^{2}}{100} + \frac{(84 - 100)^{2}}{100} \\ 
+    &+ \frac{(129-100)^{2}}{100} + \frac{(96 - 100)^{2}}{100} \\ 
+    &= 14.92
+\end{align*} With 5 degrees of freedom at $\alpha = 0.05$, we have the critical value: \begin{align*}
+    \chi^{2}_{5, 0.05} = 11.07031
+\end{align*} Since the test statistic $\chi^{2} = 14.92 > 11.07031$, we have sufficient evidence to reject the null hypothesis and conclude that \textbf{a normal distribution does not fit the data well.} 
+
+
+
+\end{document}

@@ -1,0 +1,191 @@
+\documentclass[12pt]{article}
+\usepackage{Homework}
+
+% Creates the header and footer.
+\pagestyle{fancy}
+\fancyhead[l]{Michael Hoon, $1006617$}
+\fancyhead[c]{40.017 Probability \& Statistics HW5}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt} %Creates a horizontal line underneath the header
+\renewcommand{\footrulewidth}{0.2pt}
+\setlength{\headheight}{15pt} %Sets enough space for the header
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+
+\begin{document}
+
+\title{ \normalsize \textsc{} 
+        \\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{40.017 Probability \& Statistics} 
+        \HRule{2.0pt} \\ [0.6cm]
+        \LARGE{Homework 5} \vspace*{10\baselineskip}}
+		}
+\date{\today}
+\author{\textbf{Michael Hoon} \\ 1006617 \\ Section 2}
+
+\maketitle 
+\newpage
+
+
+\section*{Question 1}
+
+\subsection*{(a)}
+Since we have 4 brands of spark plugs, with 5 plugs of each brands being tested, we have $N = 4 \times 5 = 20$, and $k = 4$ for each brand. The degrees of freedom are given by: $N - k = 20 - 4 = 16$, $k - 1 = 3$, and $N - 1 = 19$. Figure \ref{fig:1-excel} below shows the Excel screenshot of the missing entries. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/Q1Anova.png}
+    \caption{Excel missing entries}
+    \label{fig:1-excel}
+\end{figure} 
+
+\noindent The MSE is calculated using the relation $\text{MSE} = \frac{\text{SSE}}{N-k}$, and the SSA is calculated with the ANOVA Identity $\text{SST} = \text{SSA} + \text{SSE}$. Lastly, MSA is obtained with the relation $\text{MSA} = \frac{\text{SSA}}{k-1}$. The answers are given to 3 decimal places. 
+
+\subsection*{(b)}
+
+Let $\mu_i$ denote the mean performance of the $i$th brand of spark plugs, $\forall i \in {1, 2, 3, 4}$. We define the hypothesis: \begin{align*}
+    H_0 &: \mu_1 = \mu_2 = \mu_3 = \mu_4 \\ 
+    H_1 &: \text{at least 1 pair of the } \mu_{i} \text{'s are different}
+\end{align*}
+
+\subsection*{(c)}
+
+From Figure \ref{fig:1-excel}, since the p-value $= 0.206927 > \alpha = 0.05$, we do not have sufficient evidence to reject $H_0$ at the 95\% significance level, and hence we conclude that the mean performance of the 4 brands of spark plugs are equal. 
+
+\newpage
+
+\section*{Question 2}
+
+\subsection*{(a)}
+
+Using the Bonferroni Method, we have $m = \displaystyle \binom{k}{2}$ pairs involved in testing. Since we have 4 sites in total, then we have $m = \displaystyle\binom{4}{2} = 6$ pairs. 
+
+\subsection*{(b)}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/Q2water.png}
+    \caption{Excel values}
+    \label{fig:2-excel}
+\end{figure} 
+
+\noindent The formula for SSA is given by \begin{align} \nonumber
+    \text{SSA} &= \sum_{i} (\bar{y}_i - \bar{\bar{y}})^{2} \\ \label{eq:2-ssa}
+    &= \sum_{i=1}^{4} n_i (\bar{y}_i - \bar{\bar{y}})^{2}
+\end{align} From the table, we find that $\text{SSA} = 40.46382259$. From Equation \ref{eq:2-ssa}, we use the calculated $\bar{y}_i$'s as well as the grand mean to form a quadratic in $x$. We have the relation: \begin{align*}
+    40.46382259 = 12 \left( \frac{408.91 + x }{12} - \bar{\bar{y}} \right)^{2} + 8\left( 40.10375 - \bar{\bar{y}} \right)^{2} + 10\left( 38.892 - \bar{\bar{y}} \right)^{2} + 9\left( 39.065556 - \bar{\bar{y}} \right)^{2}
+\end{align*} where $\bar{\bar{y}} = (1470.25 + x) / 39$. Restructuring the equation, we have \begin{align} \nonumber
+    12 \left( \frac{408.91 + x }{12} - \bar{\bar{y}} \right)^{2} + 8\left( 40.10375 - \bar{\bar{y}} \right)^{2} + 10\left( 38.892 - \bar{\bar{y}} \right)^{2}  \\ \label{eq:2-x}
+    + 9\left( 39.065556 - \bar{\bar{y}} \right)^{2} - 40.46382259 = 0 
+\end{align} We can now solve for $x$ in Equation \ref{eq:2-x} by using an online solver. First, plotting the equation in desmos we get the following graph: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/Q2Desmos.png}
+    \caption{Desmos Graph}
+    \label{fig:2-desmos}
+\end{figure} From here, we can see that the two values of $x$ are 38.83 and 86.763. To determine which of the two is the correct solution, we plug these values into the Excel file and run the ANOVA test again: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/Q2firstx.png}
+    \caption{ANOVA for $x = 38.83$}
+    \label{fig:2-firstx}
+\end{figure} 
+
+\noindent We see that for $x = 38.83$, we obtain an ANOVA table with values which correspond to the original ANOVA table, and we can conclude that the correct solution for $x$ is indeed 38.83.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/Q2secondx.png}
+    \caption{ANOVA for $x = 86.763$}
+    \label{fig:2-secondx}
+\end{figure} 
+
+\noindent On the other hand, the ANOVA table for $x = 86.763$ does not match the values given in the original ANOVA table, hence we \textbf{reject this solution}. 
+
+\newpage
+
+\section*{Question 3}
+
+The 90\% Prediction Interval for the winning distance corresponding to the year 1940 is given by: \begin{align*}
+    \left( \hat{y}^{*}_{1940} - t_{n-2, \; \alpha / 2} \cdot s \sqrt{1 + \frac{1}{n} + \frac{(x^{*}_{1940} - \bar{x})^{2}}{(n-1)s_x^{2}}}, \; \hat{y}^{*}_{1940} + t_{n-2, \; \alpha / 2} \cdot s \sqrt{1 + \frac{1}{n} + \frac{(x^{*}_{1940} - \bar{x})^{2}}{(n-1)s_x^{2}}}\right)
+\end{align*} where $s$ represents the Mean Squared Error (MSE) and we have $n = 29$ observations, with $\alpha = 0.10$. The values for each variable used is calculated in Excel in Figure \ref{fig:3-excel}. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/Q3Regression.png}
+    \caption{Excel Calculations for variables}
+    \label{fig:3-excel}
+\end{figure}
+
+\noindent With this, we obtain the 90\% Confidence Interval in 3 decimal places: \begin{align*}
+    \left( 15.120, 16.462 \right)
+\end{align*}
+
+\newpage
+
+\section*{Question 4}
+
+\subsection*{(a)}
+
+The formula for SSE for Regression is given by: \begin{align*}
+    \text{SSE} = \sum_{i=1}^{n} (y_i - \hat{y}_i)^{2} 
+\end{align*} Let $n$ be the number of rows of data, and $k$ be the total number of predictors. AIC is defined as follows: \begin{align*}
+    \text{AIC} = n \ln \left( \frac{\text{SSE}}{n} \right) + 2 (m+1)
+\end{align*} with $m$ representing the subset of number of predictors in the model. The Excel calculated values are given in Figure below. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/Q4SSE.png}
+    \caption{SSE and AIC Values}
+    \label{fig:4-sseaic}
+\end{figure} 
+
+\noindent The SSE and AIC values for each model is given in Table below (3 decimal places). 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | c |} \hline
+        \textbf{Model} & $Y$ vs $x_1$ & $Y$ vs $x_2$ & $Y$ vs $x_1, \; x_2$ \\ \hline 
+        \textbf{SSE} & 32.620 & 52.343 & 32.570 \\ \hline 
+        \textbf{AIC} & 8.276 & 21.517 & 10.233 \\ \hline
+    \end{tabular}
+    \caption{Table of SSE and AIC Values}
+    \label{5-sseaic}
+\end{table}
+
+\noindent The AIC values are computed as follows (3 decimal places): \begin{align*}
+    \text{AIC}_{x_1} &= 28 \ln \left( \frac{32.61954}{28} \right) + 2 (1+1) \approx 8.276 \\
+    \text{AIC}_{x_2} &= 28 \ln \left( \frac{52.34314}{28} \right) + 2 (1+1) \approx 21.517\\ 
+    \text{AIC}_{x_1, \; x_2} &= 28 \ln \left( \frac{32.57028307}{28} \right) + 2 (2+1) \approx 10.233
+\end{align*} 
+
+\subsection*{(b)}
+
+The best model corresponds to the one with the lowest AIC, which is given by \begin{align*}
+    \min \left\{ 8.276, 21.517, 10.233 \right\} = 8.276
+\end{align*} This value corresponds to model (1), which is $Y \text{ vs } x_1$. 
+
+\newpage
+
+\section*{Question 5}
+
+The Python code is modified to conduct the bootstrap resampling $10^{4}$ times, and the distribution is obtained from the means of each resampling process. Then, the values are sorted in ascending order into a Python list (using list comprehension), and a Histogram of the distribution is plotted, with the corresponding 'L' and 'U' markers to denote the Lower and Upper bounds of the bootstrap Confidence Interval for the true mean. \\ 
+
+\noindent Since we are finding the 99\% Confidence Interval, only the lowest $ \frac{0.01 \times 10^{4}}{2} = 50 $ and highest 50 values were excluded from the interval. Figure \ref{fig:5-bootstrap} below shows the Python Code used.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/Q5Bootstrap.png}
+    \caption{Python Code for Bootstrap}
+    \label{fig:5-bootstrap}
+\end{figure} 
+
+\noindent From the Python code, we obtain a 99\% Confidence Interval (3 decimal places) of \begin{align*}
+    \left[ 22.182, 28.879 \right]
+\end{align*}
+
+\end{document}
