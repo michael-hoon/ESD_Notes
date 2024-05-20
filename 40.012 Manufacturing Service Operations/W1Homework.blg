@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: W1Homework.aux
+The style file: plain.bst
+Database file #1: refs1.bib
+Too many commas in name 1 of "Addison Howard, inversion, Spyros Makridakis, vangelis" for entry m5-forecasting-accuracy
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Addison Howard, inversion, Spyros Makridakis, vangelis" for entry m5-forecasting-accuracy
+while executing---line 1090 of file plain.bst
+You've used 14 entries,
+            2118 wiz_defined-function locations,
+            573 strings with 6733 characters,
+and the built_in function-call counts, 3939 in all, are:
+= -- 332
+> -- 261
+< -- 0
++ -- 106
+- -- 90
+* -- 240
+:= -- 682
+add.period$ -- 37
+call.type$ -- 14
+change.case$ -- 87
+chr.to.int$ -- 0
+cite$ -- 14
+duplicate$ -- 112
+empty$ -- 310
+format.name$ -- 90
+if$ -- 799
+int.to.chr$ -- 0
+int.to.str$ -- 14
+missing$ -- 3
+newline$ -- 68
+num.names$ -- 28
+pop$ -- 146
+preamble$ -- 1
+purify$ -- 73
+quote$ -- 0
+skip$ -- 103
+stack$ -- 0
+substring$ -- 81
+swap$ -- 15
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 56
+warning$ -- 0
+while$ -- 29
+width$ -- 16
+write$ -- 132
+(There were 2 error messages)

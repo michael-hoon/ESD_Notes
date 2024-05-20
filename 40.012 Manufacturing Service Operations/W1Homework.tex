@@ -1,0 +1,598 @@
+\documentclass[12pt]{article}
+
+\usepackage{Homework}
+
+% Creates the header and footer.
+\pagestyle{fancy}
+\fancyhead[l]{Michael Hoon, $1006617$}
+\fancyhead[c]{40.012 MSO Assignment 1}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt} %Creates a horizontal line underneath the header
+\renewcommand{\footrulewidth}{0.2pt}
+\setlength{\headheight}{15pt} %Sets enough space for the header
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\newcolumntype{L}{>{\centering\arraybackslash}m{4cm}}
+
+
+\begin{document}
+
+% \title{Another fancyhdr demo}
+% \author{\texttt{tex.stackexchange} \textit{et al}}
+% \maketitle
+% \newpage
+
+
+\title{ \normalsize \textsc{} 
+        \\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{40.012 Manufacturing and Service Operations} 
+        \HRule{2.0pt} \\ [0.6cm]
+        \LARGE{Assignment 1} \vspace*{10\baselineskip}}
+		}
+\date{\today}
+\author{\textbf{Michael Hoon} \\ 1006617}
+
+
+\maketitle 
+\newpage
+
+\section*{Question 1}
+
+% What are the four elements of production and operations strategy? Describe each in a brief paragraph. 
+
+The four elements of production and operations strategy is as follows: \begin{itemize}
+    \item Time Horizon
+    \item Focus
+    \item Evaluation
+    \item Consistency
+\end{itemize}
+
+\subsection*{Time Horizon}
+
+In a typical manufacturing process, the time horizon in production and operations strategy is categorized into short, medium, and long-term decision horizons. \begin{itemize}
+    \item \textbf{Short-Term}: Spans a period of hours or days, and focuses on immediate operational decisions such as workforce scheduling, inventory management (purchasing), and meeting current customer demands. For example, a car manufacturer like General Motors might plan a short-term strategy to ramp up production for a new model's launch.
+    \item \textbf{Medium-Term}: Spans weeks or months, and includes tactical decisions like capacity distribution planning, manpower development, and medium-term forecasting strategies. An electronics manufacturer might plan for the introduction of new technologies and the scaling up of production lines in response to expected market trends (based on forecasts).
+    \item \textbf{Long-Term}: Project spans one year (or longer) and involves strategic decisions such as investment in new facilities, long-term partnerships and sales channels, and research and development. A pharmaceutical company, for instance, might invest in a new research facility to develop innovative drugs expected to be needed in the next decade, as well as marketing strategies to sell their product.
+\end{itemize}
+
+\subsection*{Focus}
+
+The focus element determines areas where the company aims to excel: \begin{itemize}
+    \item \textbf{Process Technologies}: Investing in advanced manufacturing technologies to improve efficiency and reduce costs. 
+    \item \textbf{Market Demands}: Tailoring operations to meet changing customer preferences and market trends. 
+    \item \textbf{Production Volume}: Deciding whether to produce in large volumes for economies of scale or in smaller batches for customization. 
+    \item \textbf{Quality Level}: Prioritizing high quality to differentiate products in the market, and obtain a larger share of consumers. 
+    \item \textbf{Manufacturing Tasks}: Aligning operations with specific tasks such as just-in-time production or lean manufacturing practices.
+\end{itemize}
+
+
+\subsection*{Evaluation}
+
+Evaluation involves assessing performance through various metrics, such as: \begin{itemize}
+    \item \textbf{Cost}: Analyzing production costs to identify areas for improvement and cost reduction. For example, a food processing plant might evaluate the cost per unit of production to find ways to minimize waste and improve efficiency.
+    \item \textbf{Quality}: Measuring product quality to ensure it meets the required standards and customer expectations.
+    \item \textbf{Profitability}: Assessing the financial performance to ensure the company remains profitable. 
+    \item \textbf{Customer Satisfaction}: Gathering feedback to understand customer satisfaction levels and identify areas for improvement.
+\end{itemize}
+
+\subsection*{Consistency}
+
+Consistency ensures alignment across various aspects of production and operations, such as: \begin{itemize}
+    \item \textbf{Professionalism}: Maintaining high standards of professionalism in all operations. 
+    \item \textbf{Product Proliferation}: Managing a diverse product range effectively without compromising operational efficiency. 
+    \item \textbf{Manufacturing Tasks}: Making manufacturing tasks explicit and ensuring they are aligned with overall strategy.
+\end{itemize}
+
+\newpage 
+
+\section*{Question 2}
+
+%  Product-Process Matrix  
+
+%      Describe the product-process matrix 
+
+%      Provide an example (different from the one in notes) 
+
+%     Why should companies operate on the diagonal? And, discuss the disadvantages of operating off-diagonal. 
+
+\subsection*{(a)}
+
+The Product Process Matrix (PPM) is used to analyze the relationship between the type of product being produced and the type of process being used to produce it. It helps us understand the implications of business choices regarding product design and process selection. The PPM comprises of the Product Life Cycle (stages a product goes through from start-up to decline), and the Process Life Cycle (different methods or approaches used to transform inputs into outputs - job shop, assembly, flow etc.). We describe this in Figure \ref{tab:2-ppm} as a (grid) matrix with the product types listed on one axis and process types on the other. Each cell describes a combination of a product type and a process type, with elements in the main diagonal representing efficient processes. 
+
+\subsection*{(b)}
+
+To give an example, consider the Product-Process Matrix shown below: 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l | L  L  L |}
+        & low & med & large \\ \hline 
+        job-shop & Customised Artisanal Furniture & & \\ 
+        flow/batch & & Consumer Electronics & Mass-Produced Toys (Lego) \\
+        assembly & & Automated Food Production Line & \\
+        continuous flow & & & Automated Pharmaceutical Manufacturing \\ \hline
+    \end{tabular}
+    \caption{Product Process Matrix Example}
+    \label{tab:2-ppm}
+\end{table}
+
+\subsection*{(c)}
+
+The main diagonal represents the alignment between the type of product and the type of process. Each cell on the diagonal indicates that the product and process types are well-suited to each other. The matrix helps companies understand the trade-offs between product variety and process flexibility. Operating on the \textbf{main diagonal is advantageous} as it is the most optimal and efficient utilisation of resources in a company, to match the requirements of its products, which reduces any inefficiencies in the production process. Furthermore, by using processes that align with the characteristics of their products, companies can ensure higher quality outcomes. For example, standardized processes are better suited for producing standardized products, resulting in consistent quality. \\ 
+
+\noindent Operating \textbf{off-diagonal is disadvantageous} as there is a misalignment between the resources available and the requirements of the products being produced. For example, using a high-volume, standardized process to produce highly customized products can lead to inefficiencies and higher costs. Furthermore, mismatched processes can result in lower product quality due to difficulties in meeting the specific requirements of the products. For instance, using a batch process to produce standardized products may lead to variations in quality between batches.
+
+\newpage
+
+\section*{Question 3}
+
+% Describe the 5 types of industrial revolutions and the key enablers that made them happen.   
+
+% Bonus points: Is Artificial Intelligence (AI) likely to bring a new version and what might it look like? 
+
+An Industrial Revolution is defined as the process of change from an agrarian and handicraft economy to one dominated by industry and machine manufacturing. These technological changes introduced novel ways of working and living and fundamentally transformed society \cite{Britannica_2024}. There are currently only a total of 4 Industrial Revolutions known to man. 
+
+\subsection*{First Industrial Revolution}
+
+Occurred from 1760 to 1840, this phase is characterised by the mechanization of textile production, the development of steam power, and the growth of iron and coal industries. It brought about significant changes in agriculture, transportation, and communication.
+
+
+\subsection*{Second Industrial Revolution}
+
+Occurred from 1870 to 1914, this period is characterized by advancements in steel production, electricity, and chemical industries. It led to the widespread adoption of mass production techniques, the rise of big businesses, and the development of transportation infrastructure such as railroads.
+
+
+\subsection*{Third Industrial Revolution}
+
+This period occurred from the late $20^{\text{th}}$ Century to the present. This phase is also known as the Digital Revolution or Information Age, and is marked by the proliferation of computers, telecommunications, and the internet. It has transformed economies and societies through automation, digitization, and the rise of information technology.
+
+\subsection*{Fourth Industrial Revolution}
+
+The Fourth Industrial Revolution is a recent term describing rapid technological advancement in the $21^{\text{st}}$ Century. A large part of this phase of industrial change is the joining of technologies such as Artificial Intelligence, Genetic Editing, and Advanced Robotics that blur the lines between the physical, digital, and biological worlds. Also known as "Industry 4.0", fundamental shifts are taking place in how the global production and supply network operates through ongoing automation of traditional manufacturing and industrial practices, largely fuelled by "Artificial Intelligence (AI)" and "Internet of Things (IoT)". 
+
+
+\subsection*{Fifth Industrial Revolution}
+
+In fact, AI is a key component of the Fourth (and potentially the Fifth) Industrial Revolution, and its integration into various sectors is driving significant changes in how industries operate, transforming both manufacturing and service operations. AI is mainly characterised by \textbf{Automation and Robotics} (in Manufacturing processes, enabling smarter robots that can work alongside humans), \textbf{Data Analysis and Predictive Maintenance} (Algorithms can analyse vast amounts of data from industrial processes), and \textbf{Enhanced Production Processes} (optimising production lines, managing supply chains, and improving Quality Control). As for service operations, AI can analyze customer behavior and predict future trends, enabling businesses to tailor their services, improve customer satisfaction, and increase operational efficiency. On a more personal angle, I am currently working with applications of Large Language Models (LLMs) in industries, and there have been major advancements recently in deploying such models for database integrations in Supply Chain industries. This will introduce a pipeline allowing for Natural Language user queries over a database (instead of SQL), allowing users to seamlessly ask questions about their comprehensive databases. \\ 
+
+\noindent A summary of the Industrial Revolutions is given in the figure below \cite{article}: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg}
+    \caption{Industial Revolutions}
+    \label{fig:3-industrialrevolutions}
+\end{figure} 
+
+\newpage
+
+\section*{Question 4}
+
+% Determine the time involved in producing the 100th unit and the 1000th unit when the first unit took a worker 5 minutes. Let us assume a 75% learning curve.
+
+Given a 75\% learning curve, as the cumulative production doubles, the time required to produce a unit decreases to 75\% of the time it took to produce the previous batch. Let $Y(u)$ be the number of labour minutes required for the $u^{\text{th}}$ unit. Since the first unit takes 5 minutes, we have: \begin{equation*}
+    Y(u) = 5 u^{-b}
+\end{equation*} We also have that the time for the $2u^{\text{th}}$ unit is 75\% of the $u^{\text{th}}$ unit, thus: \begin{align*}
+    \frac{Y(2u)}{Y(u)} &= 0.75 \\ 
+    \frac{5(2u)^{-b}}{5(u)^{-b}} &= 0.75 \\ 
+    -b \ln 2 &= \ln (0.75) \\ 
+    \therefore b &= - \frac{\ln (0.75)}{\ln 2} \\ 
+    &= 0.415037
+\end{align*} The time required to produce the $100^{\text{th}}$ and $1000^{\text{th}}$ unit is thus: \begin{align*}
+    Y(100) &= 5 \times (100)^{-0.415037}  & Y(1000) &= 5 \times (1000)^{-0.415037} \\ 
+    &= 0.739426 & &= 0.284352 \\ 
+    &\approx \boxed{0.739 \text{ minutes}} & &\approx \boxed{0.284 \text{ minutes}} \\ 
+    &\approx 44.4 \text{ seconds} & &\approx 17.1 \text{ seconds}
+\end{align*} 
+
+\newpage 
+
+\section*{Question 5}
+
+% Manufacturing and Service Economies: Survey 
+% 
+% Take the last 2 digits of your ID and convert it into a letter (00=A,.. 25=Z; 26=A,.. etc.) Select a country with that letter. Select 2 other countries (preferably in different continents and that reflect major global economies by taking a letter that corresponds to +/-5 of your country letter (e.g., if your letter was A, the other two countries will start with F and V). Singapore will be your 4th country.  
+% 
+%  
+% 
+% Study the GDP of the 4 nations and define their compositions in quantitative and qualitative terms. (For example, they produce cars and manufacturing is 20% of GDP.) 
+% 
+%  
+% 
+% Consider among other, websites like: 
+% 
+% https://www.edb.gov.sg/en/our-industries/advanced-manufacturing.html 
+% 
+% https://www.oecd-ilibrary.org/ 
+
+The last two digits of my student ID is 17, and is correspondingly the letter "Q". Unfortunately, the only country in the entire world that starts with the letter "Q" is \textbf{Qatar} (in Asia). The 12th and 22nd letter of the alphabet is "L" and "V" respectively, and will be assigned "Luxembourg" (Europe) and "Venezuela" (South America). The 4th country is assigned as "Singapore". As much as possible, I have tried to select countries which adhere to "preferably in different continents" and "major global economies". We will study the GDP compositions of these 4 countries qualitatively and quantitatively. 
+
+\subsection*{Qualitative Analysis}
+
+\subsubsection*{Qatar}
+
+The state of Qatar is a country in West Asia, and its economy is one of the highest in the world based on GDP per capita, driven by its vast natural gas reserves. They primarily export to Japan, South Korea, India, and China. Recently, the country has strategically diversified its economy away from oil by investing heavily in liquefied natural gas (LNG) production and exportation. \\ 
+
+\noindent During a press conference held on Sunday, February 25 2024, at QatarEnergy's headquarters in Doha, the company's CEO and Qatar's Minister of State for Energy Affairs disclosed the firm's plans to proceed with a new LNG expansion project, called the North Field West (NFW), to further raise the country's LNG production capacity by almost 85\% from current production levels before the end of this decade \cite{Cavcic_2024}. By expanding into LNG, Qatar reduces its dependence on oil revenues, thereby diversifying its economy. This diversification helps mitigate the risks associated with fluctuations in oil prices, providing a more stable economic foundation.
+
+\subsubsection*{Luxembourg}
+
+Luxembourg has a highly developed and diverse economy, characterized by a strong focus on financial services, steel production, and technology. It is known for its favorable business environment, political stability, and strategic location within the European Union. \href{https://www.luxembourgforfinance.com/en/financial-centre/banking/}{Banking is the largest sector in the Luxembourg economy.} \\ 
+
+\noindent Having played an instrumental role in the creation of the Eurodollar markets in the 1960s, Luxembourg's banks have long-standing expertise in serving corporate clients, notably in the provision of international loans (bilateral and syndicated) and treasury services \cite{Luxembourg_2023}.
+
+\subsubsection*{Venezuela}
+
+Venezuela is the 25th largest producer of oil in the world and the 8th largest member of the Organization of the Petroleum Exporting Countries (OPEC). Venezuela also manufactures and exports heavy industry products such as steel, aluminum, and cement. Venezuela's oil revenues accounted for a significant portion of government revenue and GDP. However, the country has experienced severe economic instability and contraction due to political issues \cite{Cheatham_Roy}. \\ 
+
+\noindent In recent years, Venezuela has suffered economic collapse, with output shrinking significantly and rampant hyperinflation contributing to a scarcity of basic goods, such as food and medicine. It has now been classified as a "Petrostate", where the government is highly dependent on fossil fuel income, power is concentrated, and corruption is widespread \cite{Cheatham_Roy}. 
+
+\subsubsection*{Singapore}
+
+Singapore boasts a highly developed and diversified economy, characterized by a strong focus on trade, finance, and manufacturing. The country has positioned itself as a global hub for trade and finance, leveraging its strategic location, efficient infrastructure, and business-friendly policies.Singapore's economy is driven by exports, particularly electronics, chemicals, and biomedical products, which contribute significantly to GDP and employment \cite{Singaporeworldbank}. \\ 
+
+\noindent In the decades after independence, Singapore rapidly developed from a low-income country to a high-income country. GDP growth in the city-state has been among the world’s highest, at an average of about 7\% since independence and topping 9.2\% in the first 25 years \cite{Singaporeworldbank}. With rapid industrialization in the 1960s catapulting the island nation's development trajectory, \href{https://www.worldbank.org/en/country/singapore/overview}{manufacturing became the main driver of growth.} \\ 
+
+\noindent In 2023, the main drivers of GDP growth were Information and Communications, Transportation and Storage, and Other Service Industries (\href{https://www.mti.gov.sg/-/media/MTI/Resources/Economic-Survey-of-Singapore/2023/Economic-Survey-of-Singapore-2023/Ch1_AES2023.pdf}{from 2023 study by Ministry of Trade and Industry, Singapore}). 
+
+\subsection*{Quantitative Analysis}
+
+\subsubsection*{Qatar}
+
+Qatar's GDP values are given in the Table below: 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l l} \hline
+        Population, million & 2.9 \\ 
+        GDP, current US\$ billion & 156.8 \\ 
+        GDP per capita, current US\$ & 54069.0 \\ \hline 
+    \end{tabular}
+    \caption{Qatar GDP values (2023)}
+    \label{5-qatargdp}
+\end{table}
+
+\noindent Qatar's real GDP growth is given in the figure below. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/qatargdpgrowth.png}
+    \caption{Qatar Real GDP Growth over years}
+    \label{fig:5-qatargdp}
+\end{figure} 
+
+\subsubsection*{Luxembourg}
+
+Luxembourg's GDP values are given in the table below: 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l l} \hline
+        Population, million & 0.653 \\ 
+        GDP, current US\$ billion & 81.64 \\ 
+        GDP per capita, current US\$ & 125,006 \\ \hline 
+    \end{tabular}
+    \caption{Luxembourg GDP values (as of 2022)}
+    \label{5-luxgdp}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/luxembourggdp.png}
+    \caption{Luxembourg real GDP growth rate from Statista}
+    \label{fig:5-luxgdp}
+\end{figure} 
+
+
+\subsubsection*{Venezuela}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l l} \hline
+        Population, million & 29.4 \\ 
+        GDP, current US\$ billion & 105.88 \\ 
+        GDP per capita, current US\$ & 3867.44 \\ \hline 
+    \end{tabular}
+    \caption{Venezuela's GDP values (as of 2024, from Statista)}
+    \label{5-vengdp}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/venezuelagdp.png}
+    \caption{Venezuela GDP in current prices (from Statista)}
+    \label{fig:5-vengdp}
+\end{figure} 
+
+\subsubsection*{Singapore}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l l} \hline
+        Population, million & 6.01 \\ 
+        GDP, current US\$ billion & 673 \\ 
+        GDP per capita, current US\$ & 113,779 \\ \hline 
+    \end{tabular}
+    \caption{Singapore's GDP values (as of 2023, from MTI Singapore)}
+    \label{5-sggdp}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/singaporegdp.png}
+    \caption{Singpore GDP Breakdown, from SingStat}
+    \label{fig:5-sggdp}
+\end{figure} 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/singaporegdp2.png}
+    \caption{Singpore GDP, from SingStat}
+    \label{fig:5-sggdp2}
+\end{figure} 
+
+\newpage 
+
+\section*{Question 6}
+
+% Forecasting: Study the data and competition M-Competition 
+
+% https://forecasters.org/resources/time-series-data/  
+
+% Develop a forecasting scheme that beats non-seasonal series in the MC111 dataset. 
+
+% Note: I am interested in your effort in trying out AI/ML methods. You can use python codes available on the internet provided you understand what they are doing.  
+
+\subsection*{Some Background}
+
+The M-Competition is a series of competitions aimed at comparing the accuracy of different forecasting methods, and is named after the founder of the International Institute of Forecasters (IIT), Spyros Makridakis. The M1 competition was held in 1982, evaluating the performance of 24 forecasting methods on 1001 time series. Over the years, the competitions became increasingly more complex, featuring larger sets of time series with the M4 in 2018 expanding to 100,000 time series. It is only at this point where \href{https://www.unic.ac.cy/iff/research/forecasting/m-competitions/m5/}{contemporary Machine Learning (ML) methods were introduced and tested}, as these methods (especially Deep Learning (DL)) require larger datasets to achieve optimal performance. \\ 
+
+\noindent These models have many parameters that need to be trained, and large datasets help to \textbf{avoid overfitting and improve generalisation}. With the M1 dataset that only has 1001 time series and around 100 observations each, it is simply \textbf{insufficient} and \textbf{inefficient} to run large ML models. Classic statistical methods such as ARIMA, Exponential Smoothing, and Linear Regression techniques work exceptionally well here to capture the patterns and trends in data with relatively few observations. This is further proven by a paper titled "Monash Time Series Forecasting Archive" by a team at Monash University \cite{godahewa2021monash}, which experimented with different models for each of the M competition datasets: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/monashtimeseries.png}
+    \caption{Time Series Evaluations by Monash University}
+    \label{fig:6-monash}
+\end{figure} 
+
+\noindent Evidently from Figure \ref{fig:6-monash}, we see that for the \textbf{M1-M3 datasets} \cite{godahewa2021monash}, traditional statistical models such as TBATS (Trigonometric seasonality, Box-Cox transformation, ARMA errors, Trend and Seasonal components.), ETS (Exponential Smoothing), and Theta seem to dominate the performance metrics (lower is better - using sMAPE, symmetric Mean Absolute Percentage Error). Conversely, we see that contemporary Deep Learning methods such as Transformers, CatBoost (Categorical Gradient Boosting Trees) and Prophet (A DL-based time series forecasting method introduced by Meta) tend to \textbf{perform significantly better} than traditional methods.
+
+\subsection*{M5-Competition Details}
+
+If we are keen to experiment with DL-based time series forecasting methods, we will need to perform analysis on the M4 and beyond datasets. \textbf{I will be choosing to use the M5 dataset}, as in addition to the large amount of time series data available to train the model on (M4), M5 further involves hierarchical data, requiring models to predict sales at various levels of aggregation. For this competition, hierarchical sales data from Walmart is provided, and we are required to forecast sales for the next 28 days. The data covers stores in three US States (California, Texas, and Wisconsin) and includes item level, department, product categories, and store details. In addition, it has explanatory variables such as price, promotions, day of the week, and special events \cite{m5-forecasting-accuracy}. \\ 
+
+\noindent The M5 Competition uses a Weighted Root Mean Squared Scaled Error (RMSSE) metric for evaluation of the performance of models, designed to be scale invariant and symmetric: \begin{equation}
+    RMSSE = \sqrt{ \frac{\frac{1}{h} \sum_{t=n+1}^{n+h} (y_{t}-\hat{y}_t)^{2}}{\frac{1}{n-1} \sum_{t=2}^{n}(y_{t}-y_{t-1})^{2}}}
+\end{equation}
+
+\subsection*{Exploratory Data Analysis}
+
+As with every project on forecasting and data analytics, we need to first conduct Exploratory Data Analysis (EDA) on our dataset to have an initial idea of the type of data we are working with, before selection of an appropriate model. 
+
+\subsubsection*{Data Loading}
+
+We start first by loading the data. As shown below, we are provided the following 3 datasets, \verb|sales_train.csv|, \verb|sell_prices.csv| and \verb|calendar.csv| respectively: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/trainingsalesdata.png}
+    \caption{Training Sales Dataframe}
+    \label{fig:6-trainingsales}
+\end{figure} 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/salesdata.png}
+    \caption{Sales Prices Dataframe}
+    \label{fig:6-salesdata}
+\end{figure} 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/calendar.png}
+    \caption{Calendar Data}
+    \label{fig:6-calendardata}
+\end{figure} 
+
+\noindent The data comprises 3049 individual products from 3 categories and 7 departments, sold in 10 stores in 3 states. The hierachical aggregation captures the combinations of these factors. We note that there are also no missing values as well, although there are a significant number of zeroes, indicating days where there are no sales at all. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/timeseriessales.png}
+    \caption{Aggregate Sales of all items across all years}
+    \label{fig:aggregatesales}
+\end{figure} 
+
+\noindent Plotting the aggregate time series over all items, stores, categories, departments and sales, we see that there is strong weekly seasonality and a general upward trend in sales over the years. 
+
+\subsubsection*{Seasonality Analysis}
+
+Using a smoothed LOESS (local regression) technique, we can model the upward trend of the data as shown in Figure \ref{fig:6-loessgraph} below: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/loessfit.png}
+    \caption{Total Sales with LOESS Smoothing}
+    \label{fig:6-loessgraph}
+\end{figure} 
+
+Additionally, to visualise the daily seasonal trend in sales, we can use a heatmap to plot the Days of the week against the Month of the year for all data points: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/seasonalityday.png}
+    \caption{Seasonality Heatmap}
+    \label{fig:6-seasonalityplot}
+\end{figure} 
+
+\noindent Notably, there are weekend spikes in the data and a significant dip in sales during November and December. We can further analyse on a deeper level by considering state-level and category-level seasonalities:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/stateseasonality.png}
+    \caption{State-Level Seasonality Trends}
+    \label{fig:6-stateseasonality}
+\end{figure} 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/categoryseasonality.png}
+    \caption{Category-Level Seasonality Trends}
+    \label{fig:6-categoryseasonality}
+\end{figure} 
+
+\noindent We can see that there is no consistent trends between seasonality of the different categories, as expected. Here, the individual time series is scaled by its global mean to allow for better comparison between the 3 states. \href{https://www.kaggle.com/code/headsortails/back-to-predict-the-future-interactive-m5-eda/report}{More information about seasonality and the EDA process can be found in this hyperlink.}
+
+\subsubsection*{Explanatory Variables}
+
+Next, we proceed to analyse the two explanatory variables given: item prices and calendar events. We first cover item prices over the years, as we have information for each item ID, including the \verb|category|, \verb|department|, and \verb|store| IDs. The figure below shows a facet grid with overlapping Kernel Density Estimate (KDE) plots for price distributions for each of the years.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itempricesfacet.png}
+    \caption{Item Prices by Category and Department}
+    \label{fig:6-itemprices}
+\end{figure} 
+
+\noindent From Figure \ref{fig:6-itemprices}, we see that the item prices generally remain stable over the years (excluding inflation), with Hobbies exhibiting a \textbf{bimodal graph}, with increasing average price. Similarly, if we plot for each of the IDs (note the logarithmic scale on the $x$-axis):
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itempricescategory.png}
+    \caption{Item Prices vary by Category and Department}
+    \label{fig:6-itempricescategory}
+\end{figure} 
+
+\noindent We can see that the distributions are mostly identical between states, and Food on average seems to be cheaper than Household items. 
+
+\subsection*{Deep Learning Methods}
+
+With the EDA process complete, we can now begin to build an appropriate model for forecasting. There are a multitude of models available to choose from with vastly different architectures, including the Recurrent Neural Network (RNNs), Transformer Models (Temporal Fusion Transformer / Informer), Neural Basis Expansion Analysis Time Series (N-BEATS), and Sequence to Sequence (Seq2Seq) models. \href{https://www.kaggle.com/c/m5-forecasting-accuracy/leaderboard}{A quick search on the Kaggle leaderboard} shows that the top 10 submissions \textbf{do not in fact use contemporary DL methods such as RNNs (LSTM) or Transformer models}. Unsurprisingly, most of the better submissions use a combination of techniques that include traditional statistical methods, in conjuction with "older" Machine Learning models such as \textbf{Gradient Boosting frameworks} (specifically the LightGBM variant). 
+
+\subsubsection*{Gradient Boosting Frameworks}
+
+Gradient Boosting methods such as LightGBM perform exceptionally well on forecasting tasks as they are particularly well-suited for structured (tabular) data, and is not prone to overfitting even with multiple feature engineering techniques (creating rolling means, lagged values etc). They are also robust to both categorical and numerical data, which the M5 dataset includes such as the IDs and sale prices. An important distinction between other forecasting datasets is that the M5 is specifically designed to have hierarchical features (products within stores) as mentioned previously, and LightGBM is able to forecast at multiple levels, giving a significant edge over other models such as Transformers. We can see that successful models tend to incorporate a mix of Cross-Validation, Hierarchical Modelling, and Feature Engineering techniques, which LightGBM is able to capture via ensembling methods. \\
+
+\noindent Although it is not a "contemporary AI/DL" technique per se, ensembling methods evidently perform better than other methods here. A typical structure of the ensemble technique used by Gradient Boosting models is shown in Figure \ref{fig:6-gradboost} here \cite{ensemble}: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/ensemblemethods.png}
+    \caption{Gradient Boosting Algorithm}
+    \label{fig:6-gradboost}
+\end{figure} 
+
+\noindent LightGBM is a particular variant of these models which is optimised for speed and efficiency, handling large datasets effectively. This technique trains models sequentially, to correct the errors of the combined ensemble using gradient descent-like methods to optimise a loss function. 
+
+\subsection*{Actual Forecasting}
+
+Referencing techniques used by various sources online on building LightGBM models, the steps are detailed below. 
+
+\subsubsection*{Core of the Model}
+
+We start with a LightGBM model with features based on past transactions up to the previous week. This means that to predict the 28 days ahead, the algorithm predicts week by week for 4 weeks, and uses the predictions from the previous week to generate the new features to predict the following week. However, as we have to forecast for 28 days, 4 weeks, the first week will use the true value from the previous week. The second week uses the true values for the features that are with a lag $> 7$, but has to use the predicted values for the features with a lag $< 7$, increasing the uncertainty, and leading to less accurate forecast for the following weeks. \\ 
+
+\noindent To lower the impact, all the features based on the previous week are rolling features using at least a window of 7 days, to smooth the predictions. Thus, the predictions are not used directly as a lag value, which would give it too much importance when training the algorithm and being too inaccurate to predict, but they are used to construct rolling features over a period of 7, 14, 28 days. \href{https://www.christophenicault.com/post/m5_forecasting_accuracy}{This technique is further explained in the hyperlink here.}
+
+\subsubsection*{Feature Engineering}
+
+Additional features were created based on the following: \begin{itemize}
+    \item Lag values for lag $> 28$ days, and rolling function with different window size
+    \item Rolling mean and rolling standard deviation for the lag values $< 28$ days with different window size
+    \item Features based on calendar such as day of the week, weekend, holidays, month, special event 
+    \item Release date of the item
+    \item Price features, min, max, mean, sd, normalized, difference in price with previous day, number of shop with that price
+    \item Mean encoding
+    \item Various statistics
+\end{itemize}
+
+\subsubsection*{Hyperparameter Tuning}
+
+In many of the winning solutions of the Kaggle competition, it is noted that the distribution of actual sales resembles that of a Tweedie distribution with variance power $p =1.5$, thus an appropriate loss function to choose for the LightGBM model for hyperparameter tuning is the Tweedie loss function. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/tweediedist.png}
+    \caption{Distribution of plot of sales for first 15 items, resembling a Tweedie Distribution}
+    \label{fig:6-tweedie}
+\end{figure} 
+
+\noindent LightGBM computes the Tweedie Loss Function as follows: \begin{equation}
+    L(\hat{y}) = -y \cdot \frac{\hat{y}^{1-p}}{1-p} + \frac{\hat{y}^{2-p}}{2-p}
+\end{equation}
+
+\subsubsection*{Cross Validation}
+
+Although Cross-Validation (CV) is a widely-known technique to improve and generalise ML models (specifically the k-fold CV), it requires a significant amount of training time to perform (This method does not include CV techniques due to performance constraints). \href{https://www.kaggle.com/c/m5-forecasting-accuracy/discussion/166814}{It is still important to acknowledge the importance of this as it provides significant improvements to models}. The CV technique works by partitioning the dataset into subsets, training the model on a training set, and evaluating it on the validation set. This process is then repeated multiple times to ensure that the model performs well on different portions of the data and not just on a specific subset. The k-fold variant in particular divides the dataset into $k$ equally-sized folds, trained $k$ times ($k-1$ folds for training and 1 for validation), and evaluated over $k$ iterations. 
+
+\newpage
+
+\subsubsection*{Results}
+
+After running the model, we obtain the following forecasts, for the State, Category, and Item-levels accordingly:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/calforecast.png}
+    \caption{Forecast for all Stores in California}
+    \label{fig:6-calforecast}
+\end{figure} 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/foodsforecast.png}
+    \caption{Forecast for Food category in store CA\_2}
+    \label{fig:6-foodforecast}
+\end{figure} 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itemforecast.png}
+    \caption{Forecast for specific item FOODS\_3\_065 in all stores in California}
+    \label{fig:6-itemforecast}
+\end{figure} 
+
+\noindent From the figures, we see that the forecast for all stores in California and a specific category seemed to perform relatively well, but the individual item forecast performed rather poorly (as expected, due to high variations). As for performance measures, this particular model obtained a \textbf{WMRSSE score of 0.48734}, which is vastly superior to that of traditional statistical methods such as ARIMA or ETS shown in Figure \ref{fig:6-monash}. \\ 
+
+\noindent Further improvements to this model could be achieved via techniques such as CV as mentioned previously (with appropriate computing resources), and an automated hyperparameter tuning process (either via Grid Search or Bayesian Optimisation). \href{https://www.kaggle.com/c/m5-forecasting-accuracy/discussion/166814}{A detailed discussion about time series methods post-competition can also be found in this link.}
+
+\subsection*{Other Forecasting Techniques}
+
+Some other interesting winning solutions provided on Kaggle include the \href{https://www.kaggle.com/code/omershect/learning-pytorch-lstm-deep-learning-with-m5-data}{LSTM model (using a multi-layered approach)}, \href{https://www.kaggle.com/code/omershect/learning-pytorch-seq2seq-with-m5-data-set}{and Seq2Seq models}. This is especially interesting as LSTMs and Seq2Seq models were not originally designed for time series forecasting (initially developed for Natural Language Processing (NLP) and Machine Translation), but they have now been specifically adapted due to their ability to handle sequential data and capture temporal dependencies in time series data \cite{Olah_2015}. \\ 
+
+\noindent An even more interesting result is that Generative Pre-Trained Transformers (GPTs) have also recently been developed and fine tuned for time series analysis \cite{garza2023timegpt1} \cite{liao2024timegpt} (more information on \href{https://docs.nixtla.io/}{Nixtla.io}) \\
+
+\noindent Furthermore, there have also been recent (a few weeks ago actually) advancements in a new form of neural network: the Kolmogorov-Arnold Network (KAN) \cite{liu2024kan}. These networks have also been adapted to experiment with time series forecasting, in the paper titled "Kolmogorov-Arnold Networks (KANs) for Time Series Analysis" \cite{vacarubio2024kolmogorovarnold}. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/kantimeseries.png}
+    \caption{KAN Network Architecture for forecasting. Learnable activations are represented inside a square box.}
+    \label{fig:6-kannetwork}
+\end{figure} 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/kantimeseries2.png}
+    \caption{Example Time Series Data Prediction via KANs}
+    \label{fig:6-kanstimeseries}
+\end{figure} 
+
+\newpage
+
+\section*{Code References}
+
+The code used for Question 6 was ran on a GPU instance in a Kaggle kernel. \\
+
+\noindent \href{https://www.kaggle.com/code/michaelhoon/eda-for-m5}{Code for the EDA Process can be found in this hyperlink.} \\ 
+
+\noindent \href{https://github.com/cnicault/m5-forecasting-accuracy}{Code for the LightGBM Model can be found in this hyperlink.}
+
+
+\bibliographystyle{plain}
+\bibliography{refs1}
+
+
+\end{document}

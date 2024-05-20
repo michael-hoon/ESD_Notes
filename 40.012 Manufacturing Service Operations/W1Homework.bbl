@@ -1,0 +1,85 @@
+\begin{thebibliography}{10}
+
+\bibitem{m5-forecasting-accuracy}
+Spyros Makridakis~vangelis Addison~Howard, inversion.
+\newblock M5 forecasting - accuracy, 2020.
+\newblock Accessed from
+  \url{https://kaggle.com/competitions/m5-forecasting-accuracy} on 2024-04-01.
+
+\bibitem{Britannica_2024}
+Editors of Encyclopaedia~The Britannica.
+\newblock Industrial revolution, Apr 2024.
+\newblock Accessed from
+  \url{https://www.britannica.com/event/Industrial-Revolution} on 2024-04-01.
+
+\bibitem{Cheatham_Roy}
+Amelia Cheatham and Diana Roy.
+\newblock Venezuela: The rise and fall of a petrostate.
+\newblock Accessed from \url{https://www.cfr.org/backgrounder/venezuela-crisis}
+  on 2024-04-01.
+
+\bibitem{article}
+Xiao Chen, Martin Eder, Asm Shihavuddin, and Dan Zheng.
+\newblock A human-cyber-physical system toward intelligent wind turbine
+  operation and maintenance.
+\newblock {\em Sustainability}, 13:561, 01 2021.
+
+\bibitem{garza2023timegpt1}
+Azul Garza and Max Mergenthaler-Canseco.
+\newblock Timegpt-1, 2023.
+
+\bibitem{godahewa2021monash}
+Rakshitha Godahewa, Christoph Bergmeir, Geoffrey~I. Webb, Rob~J. Hyndman, and
+  Pablo Montero-Manso.
+\newblock Monash time series forecasting archive.
+\newblock In {\em Neural Information Processing Systems Track on Datasets and
+  Benchmarks}, 2021.
+
+\bibitem{liao2024timegpt}
+Wenlong Liao, Fernando Porte-Agel, Jiannong Fang, Christian Rehtanz, Shouxiang
+  Wang, Dechang Yang, and Zhe Yang.
+\newblock Timegpt in load forecasting: A large time series model perspective,
+  2024.
+
+\bibitem{liu2024kan}
+Ziming Liu, Yixuan Wang, Sachin Vaidya, Fabian Ruehle, James Halverson, Marin
+  Soljačić, Thomas~Y. Hou, and Max Tegmark.
+\newblock Kan: Kolmogorov-arnold networks, 2024.
+
+\bibitem{Luxembourg_2023}
+For~Finance Luxembourg.
+\newblock Banking - luxembourg financial centre, Aug 2023.
+\newblock Accessed from
+  \url{https://www.luxembourgforfinance.com/en/financial-centre/banking/} on
+  2024-04-01.
+
+\bibitem{Olah_2015}
+Christopher Olah.
+\newblock Understanding lstm networks, Aug 2015.
+
+\bibitem{vacarubio2024kolmogorovarnold}
+Cristian~J. Vaca-Rubio, Luis Blanco, Roberto Pereira, and Màrius Caus.
+\newblock Kolmogorov-arnold networks (kans) for time series analysis, 2024.
+
+\bibitem{Singaporeworldbank}
+Group World~Bank.
+\newblock The world bank in singapore.
+\newblock Accessed from
+  \url{https://www.worldbank.org/en/country/singapore/overview} on 2024-04-01.
+
+\bibitem{ensemble}
+Tao Zhang, Wuyin Lin, Andrew Vogelmann, Minghua Zhang, Shaocheng Xie, Yi~Qin,
+  and Jean‐Christophe Golaz.
+\newblock Improving convection trigger functions in deep convective
+  parameterization schemes using machine learning.
+\newblock {\em Journal of Advances in Modeling Earth Systems}, 13, 05 2021.
+
+\bibitem{Cavcic_2024}
+Melisa Čavčić.
+\newblock New gas expansion project to magnify qatar's lng production by nearly
+  85%, Feb 2024.
+\newblock Accessed from
+  \url{https://www.offshore-energy.biz/new-gas-expansion-project-to-magnify-qatars-lng-production-by-nearly-85/}
+  on 2024-04-01.
+
+\end{thebibliography}
