@@ -1215,127 +1215,127 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/qatargdpgrowth.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/qatargdpgrowth.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/qatargdpgrowth.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/qatargdpgrowth.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/qatargdpgrowth.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/luxembourggdp.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/luxembourggdp.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/luxembourggdp.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/luxembourggdp.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/luxembourggdp.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/venezuelagdp.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/venezuelagdp.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/venezuelagdp.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/venezuelagdp.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/venezuelagdp.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp2.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp2.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp2.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp2.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp2.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/monashtimeseries.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/monashtimeseries.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/monashtimeseries.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/monashtimeseries.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/monashtimeseries.png
+INPUT ./Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg
+INPUT ./Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg
+INPUT Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg
+INPUT ./Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg
+INPUT ./Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg
+INPUT ./Images/qatargdpgrowth.png
+INPUT ./Images/qatargdpgrowth.png
+INPUT Images/qatargdpgrowth.png
+INPUT ./Images/qatargdpgrowth.png
+INPUT ./Images/qatargdpgrowth.png
+INPUT ./Images/luxembourggdp.png
+INPUT ./Images/luxembourggdp.png
+INPUT Images/luxembourggdp.png
+INPUT ./Images/luxembourggdp.png
+INPUT ./Images/luxembourggdp.png
+INPUT ./Images/venezuelagdp.png
+INPUT ./Images/venezuelagdp.png
+INPUT Images/venezuelagdp.png
+INPUT ./Images/venezuelagdp.png
+INPUT ./Images/venezuelagdp.png
+INPUT ./Images/singaporegdp.png
+INPUT ./Images/singaporegdp.png
+INPUT Images/singaporegdp.png
+INPUT ./Images/singaporegdp.png
+INPUT ./Images/singaporegdp.png
+INPUT ./Images/singaporegdp2.png
+INPUT ./Images/singaporegdp2.png
+INPUT Images/singaporegdp2.png
+INPUT ./Images/singaporegdp2.png
+INPUT ./Images/singaporegdp2.png
+INPUT ./Images/monashtimeseries.png
+INPUT ./Images/monashtimeseries.png
+INPUT Images/monashtimeseries.png
+INPUT ./Images/monashtimeseries.png
+INPUT ./Images/monashtimeseries.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/trainingsalesdata.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/trainingsalesdata.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/trainingsalesdata.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/trainingsalesdata.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/trainingsalesdata.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/salesdata.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/salesdata.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/salesdata.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/salesdata.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/salesdata.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calendar.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calendar.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calendar.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calendar.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calendar.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/timeseriessales.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/timeseriessales.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/timeseriessales.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/timeseriessales.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/timeseriessales.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/loessfit.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/loessfit.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/loessfit.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/loessfit.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/loessfit.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/seasonalityday.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/seasonalityday.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/seasonalityday.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/seasonalityday.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/seasonalityday.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/stateseasonality.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/stateseasonality.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/stateseasonality.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/stateseasonality.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/stateseasonality.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/categoryseasonality.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/categoryseasonality.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/categoryseasonality.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/categoryseasonality.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/categoryseasonality.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricesfacet.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricesfacet.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricesfacet.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricesfacet.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricesfacet.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricescategory.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricescategory.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricescategory.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricescategory.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricescategory.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/ensemblemethods.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/ensemblemethods.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/ensemblemethods.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/ensemblemethods.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/ensemblemethods.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/tweediedist.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/tweediedist.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/tweediedist.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/tweediedist.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/tweediedist.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calforecast.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calforecast.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calforecast.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calforecast.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calforecast.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/foodsforecast.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/foodsforecast.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/foodsforecast.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/foodsforecast.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/foodsforecast.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itemforecast.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itemforecast.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itemforecast.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itemforecast.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itemforecast.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries2.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries2.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries2.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries2.png
-INPUT /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries2.png
+INPUT ./Images/trainingsalesdata.png
+INPUT ./Images/trainingsalesdata.png
+INPUT Images/trainingsalesdata.png
+INPUT ./Images/trainingsalesdata.png
+INPUT ./Images/trainingsalesdata.png
+INPUT ./Images/salesdata.png
+INPUT ./Images/salesdata.png
+INPUT Images/salesdata.png
+INPUT ./Images/salesdata.png
+INPUT ./Images/salesdata.png
+INPUT ./Images/calendar.png
+INPUT ./Images/calendar.png
+INPUT Images/calendar.png
+INPUT ./Images/calendar.png
+INPUT ./Images/calendar.png
+INPUT ./Images/timeseriessales.png
+INPUT ./Images/timeseriessales.png
+INPUT Images/timeseriessales.png
+INPUT ./Images/timeseriessales.png
+INPUT ./Images/timeseriessales.png
+INPUT ./Images/loessfit.png
+INPUT ./Images/loessfit.png
+INPUT Images/loessfit.png
+INPUT ./Images/loessfit.png
+INPUT ./Images/loessfit.png
+INPUT ./Images/seasonalityday.png
+INPUT ./Images/seasonalityday.png
+INPUT Images/seasonalityday.png
+INPUT ./Images/seasonalityday.png
+INPUT ./Images/seasonalityday.png
+INPUT ./Images/stateseasonality.png
+INPUT ./Images/stateseasonality.png
+INPUT Images/stateseasonality.png
+INPUT ./Images/stateseasonality.png
+INPUT ./Images/stateseasonality.png
+INPUT ./Images/categoryseasonality.png
+INPUT ./Images/categoryseasonality.png
+INPUT Images/categoryseasonality.png
+INPUT ./Images/categoryseasonality.png
+INPUT ./Images/categoryseasonality.png
+INPUT ./Images/itempricesfacet.png
+INPUT ./Images/itempricesfacet.png
+INPUT Images/itempricesfacet.png
+INPUT ./Images/itempricesfacet.png
+INPUT ./Images/itempricesfacet.png
+INPUT ./Images/itempricescategory.png
+INPUT ./Images/itempricescategory.png
+INPUT Images/itempricescategory.png
+INPUT ./Images/itempricescategory.png
+INPUT ./Images/itempricescategory.png
+INPUT ./Images/ensemblemethods.png
+INPUT ./Images/ensemblemethods.png
+INPUT Images/ensemblemethods.png
+INPUT ./Images/ensemblemethods.png
+INPUT ./Images/ensemblemethods.png
+INPUT ./Images/tweediedist.png
+INPUT ./Images/tweediedist.png
+INPUT Images/tweediedist.png
+INPUT ./Images/tweediedist.png
+INPUT ./Images/tweediedist.png
+INPUT ./Images/calforecast.png
+INPUT ./Images/calforecast.png
+INPUT Images/calforecast.png
+INPUT ./Images/calforecast.png
+INPUT ./Images/calforecast.png
+INPUT ./Images/foodsforecast.png
+INPUT ./Images/foodsforecast.png
+INPUT Images/foodsforecast.png
+INPUT ./Images/foodsforecast.png
+INPUT ./Images/foodsforecast.png
+INPUT ./Images/itemforecast.png
+INPUT ./Images/itemforecast.png
+INPUT Images/itemforecast.png
+INPUT ./Images/itemforecast.png
+INPUT ./Images/itemforecast.png
+INPUT ./Images/kantimeseries.png
+INPUT ./Images/kantimeseries.png
+INPUT Images/kantimeseries.png
+INPUT ./Images/kantimeseries.png
+INPUT ./Images/kantimeseries.png
+INPUT ./Images/kantimeseries2.png
+INPUT ./Images/kantimeseries2.png
+INPUT Images/kantimeseries2.png
+INPUT ./Images/kantimeseries2.png
+INPUT ./Images/kantimeseries2.png
 INPUT ./W1Homework.bbl
 INPUT W1Homework.bbl
 INPUT ./W1Homework.bbl
