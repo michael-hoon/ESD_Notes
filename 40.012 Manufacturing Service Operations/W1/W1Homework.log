@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.29)  20 MAY 2024 16:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.29)  21 MAY 2024 14:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1Homework.tex"
-(/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1Homework.tex
+**"/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/W1Homework.tex"
+(/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/W1Homework.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -768,12 +768,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 157--158
  []
 
 [6]
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg, id=56, 409.53pt x 214.401pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg Graphic file (type jpg)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg  used on input line 163.
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg, id=56, 409.53pt x 214.401pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg Graphic file (type jpg)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg  used on input line 163.
 (pdftex.def)             Requested size: 469.75502pt x 245.94745pt.
- [7 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg>] [8]
+ [7 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/Industrial-revolutions-in-human-history-The-first-industrial-revolution-used-water-and.jpg>] [8]
 Underfull \hbox (badness 10000) in paragraph at lines 215--216
 
  []
@@ -798,143 +798,143 @@ Underfull \hbox (badness 10000) in paragraph at lines 235--236
 
  []
 
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/qatargdpgrowth.png, id=95, 857.2025pt x 642.4pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/qatargdpgrowth.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/qatargdpgrowth.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/qatargdpgrowth.png  used on input line 260.
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/qatargdpgrowth.png, id=95, 857.2025pt x 642.4pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/qatargdpgrowth.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/qatargdpgrowth.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/qatargdpgrowth.png  used on input line 260.
 (pdftex.def)             Requested size: 328.82707pt x 246.42786pt.
 [10]
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/luxembourggdp.png, id=107, 1336.995pt x 835.12pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/luxembourggdp.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/luxembourggdp.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/luxembourggdp.png  used on input line 282.
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/luxembourggdp.png, id=107, 1336.995pt x 835.12pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/luxembourggdp.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/luxembourggdp.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/luxembourggdp.png  used on input line 282.
 (pdftex.def)             Requested size: 375.80544pt x 234.73674pt.
- [11 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/qatargdpgrowth.png>]
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/venezuelagdp.png, id=115, 1300.86pt x 817.0525pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/venezuelagdp.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/venezuelagdp.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/venezuelagdp.png  used on input line 303.
+ [11 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/qatargdpgrowth.png>]
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/venezuelagdp.png, id=115, 1300.86pt x 817.0525pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/venezuelagdp.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/venezuelagdp.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/venezuelagdp.png  used on input line 303.
 (pdftex.def)             Requested size: 328.82707pt x 206.53165pt.
- [12 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/luxembourggdp.png> </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/venezuelagdp.png>]
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/singaporegdp.png, id=124, 2388.925pt x 1124.2pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/singaporegdp.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/singaporegdp.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/singaporegdp.png  used on input line 323.
+ [12 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/luxembourggdp.png> </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/venezuelagdp.png>]
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp.png, id=124, 2388.925pt x 1124.2pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp.png  used on input line 323.
 (pdftex.def)             Requested size: 469.75502pt x 221.06216pt.
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/singaporegdp2.png, id=125, 2651.9075pt x 1228.59pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/singaporegdp2.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/singaporegdp2.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/singaporegdp2.png  used on input line 330.
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp2.png, id=125, 2651.9075pt x 1228.59pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp2.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp2.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp2.png  used on input line 330.
 (pdftex.def)             Requested size: 469.75502pt x 217.63101pt.
- [13 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/singaporegdp.png> </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/singaporegdp2.png>]
+ [13 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp.png> </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/singaporegdp2.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 349--350
 
  []
 
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/monashtimeseries.png, id=137, 2017.5375pt x 963.6pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/monashtimeseries.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/monashtimeseries.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/monashtimeseries.png  used on input line 355.
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/monashtimeseries.png, id=137, 2017.5375pt x 963.6pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/monashtimeseries.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/monashtimeseries.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/monashtimeseries.png  used on input line 355.
 (pdftex.def)             Requested size: 469.75502pt x 224.35815pt.
-[14 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/monashtimeseries.png>]
+[14 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/monashtimeseries.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 364--365
 
  []
 
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/trainingsalesdata.png, id=151, 1345.025pt x 666.49pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/trainingsalesdata.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/trainingsalesdata.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/trainingsalesdata.png  used on input line 380.
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/trainingsalesdata.png, id=151, 1345.025pt x 666.49pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/trainingsalesdata.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/trainingsalesdata.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/trainingsalesdata.png  used on input line 380.
 (pdftex.def)             Requested size: 469.75502pt x 232.77667pt.
 [15]
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/salesdata.png, id=163, 574.145pt x 672.5125pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/salesdata.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/salesdata.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/salesdata.png  used on input line 387.
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/salesdata.png, id=163, 574.145pt x 672.5125pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/salesdata.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/salesdata.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/salesdata.png  used on input line 387.
 (pdftex.def)             Requested size: 281.85587pt x 330.1497pt.
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/calendar.png, id=164, 1608.0075pt x 550.055pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/calendar.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/calendar.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/calendar.png  used on input line 394.
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calendar.png, id=164, 1608.0075pt x 550.055pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calendar.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calendar.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calendar.png  used on input line 394.
 (pdftex.def)             Requested size: 469.75502pt x 160.6869pt.
- [16 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/trainingsalesdata.png> </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/salesdata.png>]
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/timeseriessales.png, id=171, 1658.195pt x 764.8575pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/timeseriessales.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/timeseriessales.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/timeseriessales.png  used on input line 403.
+ [16 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/trainingsalesdata.png> </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/salesdata.png>]
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/timeseriessales.png, id=171, 1658.195pt x 764.8575pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/timeseriessales.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/timeseriessales.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/timeseriessales.png  used on input line 403.
 (pdftex.def)             Requested size: 469.75502pt x 216.66785pt.
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/loessfit.png, id=173, 866.23625pt x 320.19624pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/loessfit.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/loessfit.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/loessfit.png  used on input line 416.
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/loessfit.png, id=173, 866.23625pt x 320.19624pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/loessfit.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/loessfit.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/loessfit.png  used on input line 416.
 (pdftex.def)             Requested size: 469.75502pt x 173.64114pt.
- [17 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/calendar.png> </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/timeseriessales.png>]
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/seasonalityday.png, id=182, 879.285pt x 422.57875pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/seasonalityday.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/seasonalityday.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/seasonalityday.png  used on input line 425.
+ [17 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calendar.png> </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/timeseriessales.png>]
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/seasonalityday.png, id=182, 879.285pt x 422.57875pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/seasonalityday.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/seasonalityday.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/seasonalityday.png  used on input line 425.
 (pdftex.def)             Requested size: 469.75502pt x 225.75821pt.
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/stateseasonality.png, id=183, 881.2925pt x 659.46375pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/stateseasonality.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/stateseasonality.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/stateseasonality.png  used on input line 434.
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/stateseasonality.png, id=183, 881.2925pt x 659.46375pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/stateseasonality.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/stateseasonality.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/stateseasonality.png  used on input line 434.
 (pdftex.def)             Requested size: 469.75502pt x 351.51657pt.
- [18 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/loessfit.png> </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/seasonalityday.png>]
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/categoryseasonality.png, id=189, 870.25125pt x 663.47874pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/categoryseasonality.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/categoryseasonality.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/categoryseasonality.png  used on input line 441.
+ [18 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/loessfit.png> </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/seasonalityday.png>]
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/categoryseasonality.png, id=189, 870.25125pt x 663.47874pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/categoryseasonality.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/categoryseasonality.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/categoryseasonality.png  used on input line 441.
 (pdftex.def)             Requested size: 469.75502pt x 358.15169pt.
- [19 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/stateseasonality.png>]
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itempricesfacet.png, id=197, 878.28125pt x 625.33624pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itempricesfacet.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itempricesfacet.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itempricesfacet.png  used on input line 454.
+ [19 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/stateseasonality.png>]
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricesfacet.png, id=197, 878.28125pt x 625.33624pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricesfacet.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricesfacet.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricesfacet.png  used on input line 454.
 (pdftex.def)             Requested size: 469.75502pt x 334.47047pt.
- [20 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/categoryseasonality.png>]
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itempricescategory.png, id=206, 868.24374pt x 622.325pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itempricescategory.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itempricescategory.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itempricescategory.png  used on input line 463.
+ [20 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/categoryseasonality.png>]
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricescategory.png, id=206, 868.24374pt x 622.325pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricescategory.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricescategory.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricescategory.png  used on input line 463.
 (pdftex.def)             Requested size: 469.75502pt x 336.7057pt.
- [21 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itempricesfacet.png>]
+ [21 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricesfacet.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 476--477
 
  []
 
-[22 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itempricescategory.png>]
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/ensemblemethods.png, id=221, 102.3825pt x 67.2111pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/ensemblemethods.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/ensemblemethods.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/ensemblemethods.png  used on input line 482.
+[22 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itempricescategory.png>]
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/ensemblemethods.png, id=221, 102.3825pt x 67.2111pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/ensemblemethods.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/ensemblemethods.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/ensemblemethods.png  used on input line 482.
 (pdftex.def)             Requested size: 469.75502pt x 308.40155pt.
- [23 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/ensemblemethods.png>]
+ [23 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/ensemblemethods.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 495--496
 
  []
 
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/tweediedist.png, id=232, 849.1725pt x 367.3725pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/tweediedist.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/tweediedist.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/tweediedist.png  used on input line 517.
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/tweediedist.png, id=232, 849.1725pt x 367.3725pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/tweediedist.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/tweediedist.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/tweediedist.png  used on input line 517.
 (pdftex.def)             Requested size: 469.75502pt x 203.22707pt.
-[24] [25 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/tweediedist.png>]
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/calforecast.png, id=252, 1635.10875pt x 661.47125pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/calforecast.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/calforecast.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/calforecast.png  used on input line 538.
+[24] [25 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/tweediedist.png>]
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calforecast.png, id=252, 1635.10875pt x 661.47125pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calforecast.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calforecast.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calforecast.png  used on input line 538.
 (pdftex.def)             Requested size: 469.75502pt x 190.03525pt.
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/foodsforecast.png, id=253, 1634.105pt x 648.4225pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/foodsforecast.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/foodsforecast.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/foodsforecast.png  used on input line 545.
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/foodsforecast.png, id=253, 1634.105pt x 648.4225pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/foodsforecast.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/foodsforecast.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/foodsforecast.png  used on input line 545.
 (pdftex.def)             Requested size: 469.75502pt x 186.39528pt.
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itemforecast.png, id=254, 1633.10126pt x 633.36626pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itemforecast.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itemforecast.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itemforecast.png  used on input line 552.
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itemforecast.png, id=254, 1633.10126pt x 633.36626pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itemforecast.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itemforecast.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itemforecast.png  used on input line 552.
 (pdftex.def)             Requested size: 469.75502pt x 182.1832pt.
- [26 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/calforecast.png> </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/foodsforecast.png>]
+ [26 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/calforecast.png> </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/foodsforecast.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 557--558
 
  []
@@ -949,18 +949,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 565--566
 
  []
 
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/kantimeseries.png, id=272, 1667.22874pt x 873.2625pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/kantimeseries.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/kantimeseries.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/kantimeseries.png  used on input line 571.
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries.png, id=272, 1667.22874pt x 873.2625pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries.png  used on input line 571.
 (pdftex.def)             Requested size: 469.75502pt x 246.04419pt.
-[27 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/itemforecast.png>]
-</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/kantimeseries2.png, id=286, 1666.225pt x 916.42375pt>
-File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/kantimeseries2.png Graphic file (type png)
-<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/kantimeseries2.png>
-Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/kantimeseries2.png  used on input line 578.
+[27 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/itemforecast.png>]
+</home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries2.png, id=286, 1666.225pt x 916.42375pt>
+File: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries2.png Graphic file (type png)
+<use /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries2.png>
+Package pdftex.def Info: /home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries2.png  used on input line 578.
 (pdftex.def)             Requested size: 469.75502pt x 258.35883pt.
- [28 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/kantimeseries.png> </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/Images/kantimeseries2.png>]
+ [28 </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries.png> </home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/Images/kantimeseries2.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 587--588
 
  []
@@ -991,14 +991,14 @@ Package rerunfilecheck Info: File `W1Homework.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  38608 strings out of 478287
- 927741 string characters out of 5849289
+ 928185 string characters out of 5849289
  1348802 words of memory out of 5000000
  56049 multiletter control sequences out of 15000+600000
  484399 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,103p,1393b,901s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 99i,14n,103p,1396b,901s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on W1Homework.pdf (30 pages, 3654865 bytes).
+Output written on W1Homework.pdf (30 pages, 3654864 bytes).
 PDF statistics:
  397 PDF objects out of 1000 (max. 8388607)
  310 compressed objects within 4 object streams

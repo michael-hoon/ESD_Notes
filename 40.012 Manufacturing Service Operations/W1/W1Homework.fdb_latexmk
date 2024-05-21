@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex W1Homework"] 1716192406 "W1Homework.aux" "W1Homework.bbl" "W1Homework" 1716193463
+["bibtex W1Homework"] 1716272928 "W1Homework.aux" "W1Homework.bbl" "W1Homework" 1716272934
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "W1Homework.aux" 1716193463 9672 015c5579c326826111de25e7a535c723 "pdflatex"
+  "W1Homework.aux" 1716272934 9672 015c5579c326826111de25e7a535c723 "pdflatex"
   "refs1.bib" 1716192355 5070 3de435b9a46a50ea4433e76cd2b24289 ""
   (generated)
   "W1Homework.bbl"
   "W1Homework.blg"
-["pdflatex"] 1716193460 "/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1Homework.tex" "W1Homework.pdf" "W1Homework" 1716193463
+["pdflatex"] 1716272931 "/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/W1Homework.tex" "W1Homework.pdf" "W1Homework" 1716272934
   "/etc/texmf/web2c/texmf.cnf" 1707270275 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1Homework.tex" 1716193459 41883 c49033f811ef8133231ee12c113da66c ""
+  "/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W1/W1Homework.tex" 1716272931 41955 852f233b6f65f9f71e99e3983970015c ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -282,10 +282,10 @@
   "Images/trainingsalesdata.png" 1716124781 92663 1d61fcf4170e7bf56fb1f9419e1880b1 ""
   "Images/tweediedist.png" 1716140951 18880 be26b0b17ff5c98a0150ae8d8bb7857d ""
   "Images/venezuelagdp.png" 1715961609 120166 d8d51c6c887424dcf59d3ea8c478b15d ""
-  "W1Homework.aux" 1716193463 9672 015c5579c326826111de25e7a535c723 "pdflatex"
-  "W1Homework.bbl" 1716192406 3040 01dd852edf15df78e89e4128ed3257c2 "bibtex W1Homework"
-  "W1Homework.out" 1716193460 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "W1Homework.tex" 1716193459 41883 c49033f811ef8133231ee12c113da66c ""
+  "W1Homework.aux" 1716272934 9672 015c5579c326826111de25e7a535c723 "pdflatex"
+  "W1Homework.bbl" 1716272928 3040 01dd852edf15df78e89e4128ed3257c2 "bibtex W1Homework"
+  "W1Homework.out" 1716272931 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "W1Homework.tex" 1716272931 41955 852f233b6f65f9f71e99e3983970015c ""
   (generated)
   "W1Homework.aux"
   "W1Homework.log"
