@@ -1,0 +1,457 @@
+\documentclass[12pt]{article}
+
+\usepackage{Homework}
+
+% Creates the header and footer.
+\pagestyle{fancy}
+\fancyhead[l]{Michael Hoon, $1006617$}
+\fancyhead[c]{40.012 MSO Assignment 2}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt} %Creates a horizontal line underneath the header
+\renewcommand{\footrulewidth}{0.2pt}
+\setlength{\headheight}{15pt} %Sets enough space for the header
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\newcolumntype{L}{>{\centering\arraybackslash}m{4cm}}
+
+
+\begin{document}
+
+% \title{Another fancyhdr demo}
+% \author{\texttt{tex.stackexchange} \textit{et al}}
+% \maketitle
+% \newpage
+
+
+\title{ \normalsize \textsc{} 
+        \\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{40.012 Manufacturing and Service Operations} 
+        \HRule{2.0pt} \\ [0.6cm]
+        \LARGE{Assignment 2} \vspace*{10\baselineskip}}
+		}
+\date{\today}
+\author{\textbf{Michael Hoon} \\ 1006617}
+
+
+\maketitle 
+\newpage
+
+\section*{Question 1}
+
+% Question 1 (20pts): Provide the basic definitions of the following terms and describe how you would find them if you were a production manager in a company producing hobby electric aircraft. 
+%     1. Holding costs
+%     2. Smoothing costs
+%     3. Backordering costs
+%     4. Planning horizon
+%     5. Planning period
+
+\subsection*{Holding Costs}
+
+Holding costs are the expenses associated with storing unsold goods (having capital tied up in inventory), and they include storage fees, insurance, spoilage, obsolescence, and \textbf{capital costs}. To find holding costs, we need to calculate the \textbf{storage fees} (cost of renting warehouse space or the depreciation cost of owned storage facilities), \textbf{insurance costs} (insurance premiums paid to cover inventory), \textbf{spoilage and obsolescence fees} (depreciation of parts that is expected to become obsolete over time), and the \textbf{capital cost} (opportunity cost of capital tied up in unsold inventory, which could be invested elsewhere). Then to find the overall holding cost, we can sum the values obtained. \\ 
+
+\noindent For a production manager in a company producing hobby electric aircrafts, this can include the costs for storing components such as \textbf{motors, batteries, and aircraft kits} (and the warehousing, insurance, capital costs tied up in inventory).
+
+\subsection*{Smoothing Costs}
+Smoothing costs accrue as a result of changing the production levels from one period to the next. They are incurred when adjusting production rates to match demand fluctuations, avoiding large swings in production levels. Examples include costs related to overtime, hiring and training temporary staff (that work on and pack the aircraft kits or designing the aircrafts), and adjusting production schedules. To find smoothing costs, we need to keep track of the \textbf{overtime payments} (extra wages paid to workers for working overtime), \textbf{temporary staff costs} (hiring and training expenditure), \textbf{Schedule Adjustment Costs} (changing production schedules such as machine downtime and setup, used to produce aircraft kits). Furthermore, Firms that hire and fire frequently develop a poor public image. This could adversely affect sales and discourage potential employees from joining the company. Figure below shows the cost of changing the size of the workforce: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Images/costofhiring.png}
+    \caption{Cost of changing the size of the workforce}
+    \label{fig:1-smoothingcost}
+\end{figure} 
+
+\subsection*{Backordering Costs}
+
+Backordering costs are expenses incurred when fulfilling orders that \textbf{cannot be immediately satisfied from current inventory} (including admin expenses, expedited shipping, and penalties for late deliveries). In the context of the company, this can be measured via additional costs of managing backorders, rush shipping for delayed orders, and any penalties for late deliveries (of raw materials or delivering to customers). 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Images/backordercost.png}
+    \caption{Holding and Backorder Costs}
+    \label{fig:1-backordercost}
+\end{figure} 
+
+\subsection*{Planning Horizon}
+
+The planning horizon is the future time period over which inventory control and production planning are conducted. It determines the timeframe for which forecasts and plans are made. To determine the planning horizon, we can analyse the \textbf{typical demand cycles} for the electric aircrafts (identifying seasonal peak periods), \textbf{production lead time} (time required to manufacture the components and assemble the aircraft kits), and align the planning horizon with the company's long term strategic objectives, which can usually span up to a year (Annual KPIs etc.). 
+
+\subsection*{Planning Period}
+
+The planning period is the specific interval within the planning horizon at which plans and forecasts are reviewed and updated (daily, weekly, monthly, etc.) To determine the planning period, we can identify the \textbf{review cycle} (how often demand forecasts and inventory levels need reassessment, influenced by demand variability and lead times.), \textbf{production cadence} (Coordinate with production schedules to ensure synchronization between planning updates and manufacturing cycles.), and assess based on the \textbf{data availability} (data on sales, inventory, and production is available - can include customer data as well). 
+
+\newpage 
+
+\section*{Question 2}
+
+% 2a. (10pts): Develop a constant workforce plan for the given Demand (Forecast) and number of workdays per month assuming backlogging (backordering) is not permitted. That is, what is the minimum number of workers required at the start of the first month that would meet the demand without backordering. Compute the inventory costs in this situation and total cost of this plan. CI = $0.10 per unit per month; CH = $100; CF = $200. Assume one worker can produce 0.308 units per day and the company has 200 units of inventory at the start of month 1 in their warehouse.
+
+\subsection*{(a)}   
+
+Since the company has 200 units of inventory at the start of month 1, the net predicted demand for that month is given by $1050 - 200 = 850$. Here, there is no minimum ending inventory constraint. We have defined the following costs for this company: \begin{enumerate}
+    \item $C_I = \$0.1$ per unit per month (Inventory holding cost)
+    \item $C_H = \$ 100$ (Hiring cost for one worker)
+    \item $C_F = \$200$ (Firing cost for one worker)
+\end{enumerate} and we have that the number of aggregate units produced by one worker in one day $K = 0.308$. Since we want to have a constant workforce plan, we need to implement a level strategy: \textbf{capacity is kept constant} during the planning period, and instead inventory is kept between periods; \textbf{capacity is set to the minimum possible} to ensure \textbf{no shortages} in any period. Table \ref{tab1:constwork} below shows the overall constant workforce production plan, computed using Excel. 
+
+\begin{table}[H]
+    \centering
+    \begin{adjustbox}{width=\textwidth}
+    \begin{tabular}{|l||l|l|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{2.2cm}|p{2cm}|p{1.9cm}|}
+    \hline 
+    \multicolumn{1}{|c||}{\textbf{A}} & \multicolumn{1}{c}{\textbf{B}}& \multicolumn{1}{|c}{\textbf{C}}& \multicolumn{1}{|c}{\textbf{D}}& \multicolumn{1}{|c}{\textbf{E}}& \multicolumn{1}{|c}{\textbf{F}}& \multicolumn{1}{|c}{\textbf{G}}& \multicolumn{1}{|c}{\textbf{H}}& \multicolumn{1}{|c}{\textbf{I}}& \multicolumn{1}{|c|}{\textbf{J}}
+        \\ \hline \hline 
+        \textbf{Month} & \textbf{Workdays} & \textbf{Demand} & \textbf{Cum Demand} & \textbf{Units / Worker $(K \times B)$} & \textbf{Cum Units / Worker} & \textbf{Workers $(\ceil{D / F})$} & \textbf{Production} $(E \times 156)$ & \textbf{Cum Production} & \textbf{Inventory $(I-D)$} \\ \hline \hline 
+        1 & 26 & 850 & 850 & 8.008 & 8.008 & 107 & 1249.248 & 1249.248 & 399.248 \\ \hline
+        2 & 24 & 1260 & 2110 & 7.392 & 15.4 & 138 & 1153.152 & 2402.4 & 292.4 \\ \hline
+        3 & 20 & 510 & 2620 & 6.16 & 21.56 & 122 & 960.96 & 3363.36 & 743.36 \\ \hline
+        4 & 18 & 980 & 3600 & 5.544 & 27.104 & 133 & 864.864 & 4228.224 & 628.224 \\ \hline
+        5 & 22 & 770 & 4370 & 6.776 & 33.88 & 129 & 1057.056 & 5285.28 & 915.28 \\ \hline
+        6 & 23 & 850 & 5220 & 7.084 & 40.964 & 128 & 1105.104 & 6390.384 & 1170.384 \\ \hline
+        7 & 14 & 1050 & 6270 & 4.312 & 45.276 & 139 & 672.672 & 7063.056 & 793.056 \\ \hline
+        8 & 21 & 1550 & 7820 & 6.468 & 51.744 & 152 & 1009.008 & 8072.064 & 252.064 \\ \hline
+        9 & 23 & 1350 & 9170 & 7.084 & 58.828 & \textbf{156} & 1105.104 & 9177.168 & 7.168 \\ \hline
+        10 & 24 & 1000 & 10170 & 7.392 & 66.22 & 154 & 1153.152 & 10330.32 & 160.32 \\ \hline
+        11 & 21 & 970 & 11140 & 6.468 & 72.688 & 154 & 1009.008 & 11339.328 & 199.328 \\ \hline
+        12 & 13 & 680 & 11820 & 4.004 & 76.692 & 155 & 624.624 & 11963.952 & 143.952 \\ \hline
+        \multicolumn{9}{|c|}{\textbf{Total Inventory:}} & \textbf{5704.7840} \\ \hline 
+    \end{tabular}
+    \end{adjustbox}
+    \caption{Constant Workforce Production Plan}
+    \label{tab1:constwork}
+\end{table} 
+
+\noindent We can see that the minimum number of workers needed in this plan without backlogging is $156$ (bolded), the values are obtained after rounding with the \textit{ceiling function}. We can then obtain the Production units per month (H) by multiplying the number of units produced per worker (E) by 156. The total inventory is given by the sum of the last column, which is 5704.7840 units. The inventory cost of this plan is given by the number of inventory units multiplied by the holding cost: \begin{align*}
+    \text{Inventory Cost} &= C_I \times 5704.780 \\ 
+    &= \$ 0.1 \times 5704.7840 \\ 
+    &= \boxed{\$ 570.47480}
+\end{align*} Thus, the total cost is the sum of the hiring costs and the holding costs, calculated as: \begin{align*}
+    \text{Total Cost} &= C_I \times 5704.480 + C_H \times 156 \\ 
+    &= \$ 1.1 \times 5704.480 + \$ 100 \times 156 \\ 
+    &= \$ 16170.4784 \\ 
+    &\approx \boxed{\$ 16170.48}
+\end{align*}
+
+\subsection*{(b)}   
+
+For a zero inventory plan, we need to develop a chase strategy. Under this plan, the workforce is changed each month in order to produce enough units to most closely match the demand pattern. Capacity is adjusted up and down to achieve this matching, with minimal inventory buildup. Similarly, there is no required ending inventory constraint here. Table \ref{tab1:zeroinventory} below shows the chase strategy for a zero inventory plan, indicating a workforce with 107 initial workers in the first month:
+
+\begin{table}[H]
+    \centering
+    \begin{adjustbox}{width=\textwidth}
+    \begin{tabular}{|l||l|l|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{2cm}|}
+    \hline
+    \multicolumn{1}{|c||}{\textbf{A}} & \multicolumn{1}{c}{\textbf{B}}& \multicolumn{1}{|c}{\textbf{C}}& \multicolumn{1}{|c}{\textbf{D}}& \multicolumn{1}{|c}{\textbf{E}}& \multicolumn{1}{|c}{\textbf{F}}& \multicolumn{1}{|c}{\textbf{G}}& \multicolumn{1}{|c}{\textbf{H}}& \multicolumn{1}{|c}{\textbf{I}}&\multicolumn{1}{|c|}{\textbf{J}} \\ \hline \hline 
+        \textbf{Month} & \textbf{Workdays} & \textbf{Demand} & \textbf{Adj. Demand $(C - J)$} & \textbf{Units / Worker $(B \times K)$} & \textbf{Worker Level $(\ceil{D / E})$} & \textbf{Fire} & \textbf{Hire} & \textbf{Production} $(E\times F)$ & \textbf{Inventory $(I - D)$} \\ \hline
+        1 & 26 & 850 & 850 & 8.008 & 107 & ~ & 107 & 856.856 & 6.856 \\ \hline
+        2 & 24 & 1260 & 1253.144 & 7.392 & 170 & ~ & 63 & 1256.64 & 3.496 \\ \hline
+        3 & 20 & 510 & 506.504 & 6.16 & 83 & 87 & ~ & 511.28 & 4.776 \\ \hline
+        4 & 18 & 980 & 975.224 & 5.544 & 176 & ~ & 93 & 975.744 & 0.52 \\ \hline
+        5 & 22 & 770 & 769.48 & 6.776 & 114 & 62 & ~ & 772.464 & 2.984 \\ \hline
+        6 & 23 & 850 & 847.016 & 7.084 & 120 & ~ & 6 & 850.08 & 3.064 \\ \hline
+        7 & 14 & 1050 & 1046.936 & 4.312 & 243 & ~ & 123 & 1047.816 & 0.88 \\ \hline
+        8 & 21 & 1550 & 1549.12 & 6.468 & 240 & 3 & ~ & 1552.32 & 3.2 \\ \hline
+        9 & 23 & 1350 & 1346.8 & 7.084 & 191 & 49 & ~ & 1353.044 & 6.244 \\ \hline
+        10 & 24 & 1000 & 993.756 & 7.392 & 135 & 56 & ~ & 997.92 & 4.164 \\ \hline
+        11 & 21 & 970 & 965.836 & 6.468 & 150 & ~ & 15 & 970.2 & 4.364 \\ \hline
+        12 & 13 & 680 & 675.636 & 4.004 & 169 & ~ & 19 & 676.676 & 1.04 \\ \hline \hline 
+        \multicolumn{6}{|c|}{\textbf{Total Hire / Fire:}} & \textbf{257} & \textbf{426} & \multicolumn{1}{||p{2.3cm}|}{\textbf{Total:}} & \textbf{41.588} \\ \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption{Zero Inventory Production Plan}
+    \label{tab1:zeroinventory}
+\end{table}
+
+\noindent We see that there is residual inventory build up every month (J), which we can use as leverage for the next month's demand. Thus, we introduce a new column (D) that accounts for this residual inventory build-up, by subtracting current demand with the previous inventory. To calculate the total cost of this plan, we need to calculate the cost of hiring and firing, as well as the residual inventory cost: \begin{align*}
+    \text{Hiring Cost} &= C_H \times 426 & \text{Firing Cost} &= C_F \times 257 & \text{Inventory Cost} &= C_I \times 200 \\ 
+    &= \$ 100 \times 426 & &=\$ 200 \times 257 & &= \$ 0.1 \times 41.588 \\ 
+    &= \$ 42600 & &=\$ 51400 & &=\$ 4.1588
+\end{align*} The total cost is then the sum of the three, which gives us: \begin{align*}
+    \text{Total Cost} &= 42600 + 51400 + 4.1588 \\ 
+    &= \$ 94004.1588 \\ 
+    &\approx \boxed{\$ 94004.16}
+\end{align*}
+
+\subsection*{(c)}   
+
+\subsubsection*{Linear Program for $ \mathbb{R}$ Variables}
+
+To develop a Linear Program (LP) to model this problem (variables treated as real numbers $ \mathbb{R}$), we first need to define appropriate decision variables, constraints, and the objective function. We will define the following decision variables: \begin{enumerate}
+    \item $W_t$: Number of workers employed in month $t$.
+    \item $H_t$: Number of workers hired at the beginning of month $t$. 
+    \item $F_t$: Number of workers fired at the beginning of month $t$. 
+    \item $I_t$: Inventory level at the end of month $t$. 
+    \item $P_t$: Production Quantity in month $t$. 
+\end{enumerate} and the following constants and parameters: \begin{enumerate}
+    \item $D_t$: Demand in month $t$
+    \item $c_I = \$0.10$: Holding cost per unit per month
+    \item $c_H = \$100$: Hiring cost per worker
+    \item $c_F = \$200$: Firing cost per worker
+    \item $K = 0.308$: Production rate per worker per day
+    \item $n_t$: Number of workdays in month $t$
+    \item $I_{0} = 200$: Initial inventory level
+\end{enumerate} Since our objective is to minimise total costs, we first define the objective function as: \begin{equation}
+    \min \sum_{t=1}^{12} \left( c_I \cdot I_t + c_H \cdot H_t + c_F \cdot F_t \right)
+\end{equation} subject to the following constraints: \begin{align}\label{eq:2-worker}
+    \text{s.t. } W_t &= W_{t-1} + H_t - F_t, \qquad &\forall \; 1 \leq t \leq 12 \\ \label{eq:2-inventory}
+    I_t &= I_{t-1} + P_t - D_t, \qquad &\forall \; 1\leq t\leq 12 \\ \label{eq:2-production}
+    P_t &= K\cdot n_{t}\cdot W_t, \qquad &\forall \; 1\leq t\leq 12 \\ \nonumber
+    W_{0} &= 0 \\ \nonumber
+    I_{0} &= 200 \\ \label{eq:2-nonnegativity}
+    W_t, &\;  H_t, \; F_t, \; I_t \geq 0 \qquad &\forall \; 1 \leq t \leq 12
+\end{align} for a total of $T = 12$ months. Equation \ref{eq:2-worker} represents the workforce conservation constraint, Equation \ref{eq:2-inventory} represents the Inventory Balance constraint, Equation \ref{eq:2-production} represents the Production Quantity constraint, and Equation \ref{eq:2-nonnegativity} represents the non-negativity constraint. \\ 
+
+\noindent To solve this LP with the given data, the GLPK open-sourced solver was used to evaluate the results (code is attached in the Appendix). The result of the optimizer is shown in the table below:
+
+\begin{table}[H]
+    \centering
+    \begin{adjustbox}{width=\textwidth}
+    \begin{tabular}{|l||l|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{2.2cm}|p{1.8cm}|p{2.2cm}|}
+    \hline
+    \multicolumn{1}{|c||}{\textbf{A}} & \multicolumn{1}{c}{\textbf{B}}& \multicolumn{1}{|c}{\textbf{C}}& \multicolumn{1}{|c}{\textbf{D}}& \multicolumn{1}{|c}{\textbf{E}}& \multicolumn{1}{|c}{\textbf{F}}& \multicolumn{1}{|c}{\textbf{G}}& \multicolumn{1}{|c}{\textbf{H}}&\multicolumn{1}{|c|}{\textbf{I}} \\ \hline \hline 
+        \textbf{Month} & \textbf{Workdays} & \textbf{Demand} & \textbf{Units / Worker $(B \times K)$} & \textbf{Optimal Workers} & \textbf{Optimal Fires} & \textbf{Optimal Hires} & \textbf{Production $(E\times F)$} & \textbf{Optimal Inventory} \\ \hline
+        1 & 26 & 850 & 8.008 & 155.87815 & ~ & 155.87815 & 1248.272 & 398.272 \\ \hline
+        2 & 24 & 1260& 7.392 & 155.87815 & ~ & ~ & 1152.251 & 290.524 \\ \hline
+        3 & 20 & 510 & 6.16 & 155.87815 & ~ & ~ & 960.209 & 740.733 \\ \hline
+        4 & 18 & 980 & 5.544 & 155.87815 & ~ & ~ & 864.188 & 624.921 \\ \hline
+        5 & 22 & 770 & 6.776 & 155.87815 & ~ & ~ & 1056.230 & 911.152 \\ \hline
+        6 & 23 & 850 & 6.776 & 155.87815 & ~ & ~ & 1104.240 & 1165.392 \\ \hline
+        7 & 22 & 1050 & 6.776 & 155.87815 & ~ & ~ & 672.147 & 787.539 \\ \hline
+        8 & 21 & 1550 & 6.468 & 155.87815 & ~ & ~ & 1008.220 & 245.759 \\ \hline
+        9 & 23 & 1350 & 7.084 & 155.87815 & ~ & ~ & 1104.241 & 0.000 \\ \hline
+        10 & 24 & 1000 & 7.392 & 155.87815 & ~ & ~ & 1152.251 & 152.251 \\ \hline
+        11 & 21 & 970 & 6.468 & 155.87815 & ~ & ~ & 1008.220 & 190.471 \\ \hline
+        12 & 13 & 680& 4.004 & 155.87815 & ~ & ~ & 624.136 & 134.607 \\ \hline \hline 
+        \multicolumn{5}{|c|}{\textbf{Total Fire / Hire:}} & \textbf{0} & \textbf{155.87815} & \multicolumn{1}{||p{2.3cm}|}{\textbf{Total:}} & \textbf{5641.62} \\ \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption{Optimal Solution obtained from Linear Program}
+    \label{tab:1c-lp}
+\end{table} 
+
+\noindent From this, we obtain a minimum total cost value of $\boxed{\$ 16151.98}$. \\ 
+
+\noindent The runtime of this code is $\boxed{5.168838}$ seconds (using an online Julia compiler, tends to be slower compared to running locally - 99.97\% on compilation time with Replit).
+
+\subsubsection*{Integer Program for $ \mathbb{Z}$ Variables}
+
+Now, we require the worker level variables to be integer values. Since there is no change to the objective function, modifying some additional integrality constraints (10), we have: \begin{align}
+    \text{s.t. } W_t &= W_{t-1} + H_t - F_t, \qquad &\forall \; 1 \leq t \leq 12 \\ 
+    I_t &= I_{t-1} + P_t - D_t, \qquad &\forall \; 1\leq t\leq 12 \\ 
+    P_t &= K\cdot n_{t}\cdot W_t, \qquad &\forall \; 1\leq t\leq 12 \\ \nonumber
+    W_{0} &= 0 \\ \nonumber
+    I_{0} &= 200 \\ 
+    W_t, &\;  H_t, \; F_t, \; I_t \geq 0 \qquad &\forall \; 1 \leq t \leq 12 \\ 
+    W_t, &\;  H_t, \; F_t, \; I_t \in \mathbb{Z}
+\end{align} Similarly, solving this in Julia with GLPK gives us the following values:
+
+\begin{table}[H]
+    \centering
+    \begin{adjustbox}{width=\textwidth}
+    \begin{tabular}{|l||l|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{2.2cm}|p{1.8cm}|p{2.2cm}|}
+    \hline
+    \multicolumn{1}{|c||}{\textbf{A}} & \multicolumn{1}{c}{\textbf{B}}& \multicolumn{1}{|c}{\textbf{C}}& \multicolumn{1}{|c}{\textbf{D}}& \multicolumn{1}{|c}{\textbf{E}}& \multicolumn{1}{|c}{\textbf{F}}& \multicolumn{1}{|c}{\textbf{G}}& \multicolumn{1}{|c}{\textbf{H}}&\multicolumn{1}{|c|}{\textbf{I}} \\ \hline \hline 
+        \textbf{Month} & \textbf{Workdays} & \textbf{Demand} & \textbf{Units / Worker $(B \times K)$} & \textbf{Optimal Workers} & \textbf{Optimal Fires} & \textbf{Optimal Hires} & \textbf{Production $(E\times F)$} & \textbf{Optimal Inventory} \\ \hline
+        1 & 26 & 850 & 8.008 & 156 & ~ & 156 & 1248.272 & 399.248 \\ \hline
+        2 & 24 & 1260& 7.392 & 156 & ~ & ~ & 1152.251 & 292.400 \\ \hline
+        3 & 20 & 510 & 6.16 & 156 & ~ & ~ & 960.209 & 743.360 \\ \hline
+        4 & 18 & 980 & 5.544 & 156 & ~ & ~ & 864.188 & 628.223 \\ \hline
+        5 & 22 & 770 & 6.776 & 156 & ~ & ~ & 1056.230 & 915.280 \\ \hline
+        6 & 23 & 850 & 6.776 & 156 & ~ & ~ & 1104.240 & 1170.384 \\ \hline
+        7 & 22 & 1050 & 6.776 & 156 & ~ & ~ & 672.147 & 793.056 \\ \hline
+        8 & 21 & 1550 & 6.468 & 156 & ~ & ~ & 1008.220 & 252.064 \\ \hline
+        9 & 23 & 1350 & 7.084 & 156 & ~ & ~ & 1104.241 & 7.168 \\ \hline
+        10 & 24 & 1000 & 7.392 & 156 & ~ & ~ & 1152.251 & 160.320\\ \hline
+        11 & 21 & 970 & 6.468 & 156 & ~ & ~ & 1008.220 & 199.328 \\ \hline
+        12 & 13 & 680& 4.004 & 156 & ~ & ~ & 624.136 & 143.952 \\ \hline \hline 
+        \multicolumn{5}{|c|}{\textbf{Total Fire / Hire:}} & \textbf{0} & \textbf{156} & \multicolumn{1}{||p{2.3cm}|}{\textbf{Total:}} & \textbf{5704.784} \\ \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption{Optimal Solution obtained from Linear Program}
+    \label{tab:1c-ip}
+\end{table} 
+
+\noindent From this, we obtain a minimum total cost value of $\boxed{\$ 16170.48}$. \\ 
+
+\noindent The runtime of this code is $\boxed{9.001999}$ seconds (using an online Julia compiler, tends to be slower compared to running locally - 99.95\% on compilation time with Replit).
+
+\newpage
+
+\section*{Question 3}
+
+% “Chewy” cereals sell 280 kgs of muesli on an annual basis. They mix the muesli from ingredients secured from suppliers for $2.40 per kg. The mixing hardly takes any time in their automatic blender. The estimate of placing an order to their suppliers is $45, which includes Chewy’s employees performing paperwork, etc.  Assume holding costs are assessed at 20% interest rate.
+
+%     a. Determine the optimal order quantity of muesli ingredients.
+%     b. What is the time between order placements?
+%     c. What is the annual holding and set-up cost for Chewy?
+%     d. If the order replenishment leadtime is 3 weeks, at what on-hand inventory level should Chewy’s employees place the order?
+
+\subsection*{(a)}   
+
+In the context of "Chewy" cereals, we shall assume that the demand for the product is a known constant of $\lambda = 280 \text{ kg}/\text{year}$. The ordering setup cost is $K = \$ 45$, and the purchase price is $c = \$ 2.40 / \text{kg}$. Since the holding costs are assessed at a 20\% interest rate, the annual holding cost per unit is calculated as \begin{align*}
+    h &= \$ 2.40 \times 0.2 \\ 
+    &= \$ 0.48
+\end{align*} Using the Economic Order Quantity (EOQ) model to find the optimal order quantity (defined as Q), we have that: \begin{align*}
+    \text{Ordering Cost per unit time} &= \frac{K + cQ}{T} & \text{Average Inventory Holding Cost} &= \frac{hQ}{2}
+\end{align*} We thus want to minimise the overall cost function $G(Q)$: \begin{align*}
+    G(Q) &= \frac{K + cQ}{T} + \frac{hQ}{2} \\ 
+    &= \frac{K + cQ}{Q / \lambda} + \frac{hQ}{2} \\ 
+    &= \frac{K\lambda}{2} + \lambda c + \frac{hQ}{2}
+\end{align*} Since this is a convex function, it is trivial to obtain the minimum value $Q^{*}$ by setting the first derivative to be 0, and the expression is given by: \begin{align*}
+    Q^{*} &= \sqrt{\frac{2K\lambda}{h}} \\ 
+    &= \sqrt{ \frac{2 \times 45 \times 280}{0.48}} \\ 
+    &= 50\sqrt{21} \\ 
+    &\approx \boxed{230 \text{ kg}}
+\end{align*} This is also the minimum as proven in class due to the second derivative being positive. Thus, the optimal order quantity of muesli ingredients is approximately 230 kgs. 
+
+\subsection*{(b)}   
+
+The time $T$ between order placements can be obtained by: \begin{align*}
+    T &= \frac{Q}{\lambda} \\ 
+    &= \frac{50\sqrt{21}}{280} \\ 
+    &\approx \boxed{0.818 \text{ years}}
+\end{align*}
+
+\subsection*{(c)}   
+
+The total annual setup cost can be calculated by: \begin{align*}
+    \text{Annual setup cost} &= \frac{K}{T} \\ 
+    &= \frac{45}{0.818} \\ 
+    &= 54.9909 \\ 
+    &\approx \boxed{\$ 54.99 / \text{year}}
+\end{align*} The holding cost per cycle is given by: \begin{align*}
+    \text{Inventory Holding Cost} = \frac{hQ}{2}
+\end{align*} Thus, the annual holding cost can be obtained by: \begin{align*}
+    \text{Annual Holding Cost} &= \frac{hQ}{2T} \\ 
+    &= \frac{0.48 \times 50\sqrt{21}}{2 \times 0.818} \\ 
+    &= \boxed{\$ 67.20 / \text{year}}
+\end{align*}
+
+\subsection*{(d)}   
+
+Since there are 52 weeks in a year, the 3 week order replenishment lead time is equivalent to $\tau = \frac{3}{52} = 0.0577 \text{ years}< T = 0.818 \text{ years}$. We can find the reorder point $R$ by: \begin{align*}
+    R &= \lambda \tau \\ 
+    &= 280 \times \frac{3\times 7 \text{ days}}{365 \text{ days}} \\ 
+    &= \frac{1176}{73} \\ 
+    &\approx \boxed{16.1 \text{ kg}}
+\end{align*} Thus, Chewy's employees should place the replenishment order when the inventory level falls at or below 16.1 kg. 
+
+\newpage
+
+\section*{Question 4}
+
+% In Question 3, assume Chewy’s blender broke down, and they must resort to manual mixing. Now the manual mixing rate is 1,120 kgs per year. 
+
+%     a. Recompute the optimal order quantity of muesli ingredients.
+%     b. What is the time between order placements?
+%     c. What is the maximum inventory level achieved by Chewy so that they can make appropriate storage decisions?
+
+\subsection*{(a)}   
+
+Now we have a finite production rate $P = 1120 \text{ kg / year}$, with all other variables the same as before. We note that $P > \lambda = 280$ for feasibility. \textbf{Assuming that there are no shortages}, the costs will also remain the same as before. To account for a finite production rate, we must now use the Production Order Quantity (POQ) model, accounting for the fact that production and consumption occur simultaneously. We define $H$ to be the maximal inventory level, where $H \neq Q$. We have that: \begin{equation}
+    \frac{H}{T_{1}} = P - \lambda \qquad (\text{Surplus Produced})
+\end{equation} and per cycle, \begin{equation}
+    T_{1} = \frac{Q}{P}
+\end{equation} From the above equations, we obtain an expression for $H$: \begin{equation}\label{eq:4-maxinven}
+    H = Q\left( 1- \frac{\lambda}{P} \right)
+\end{equation} Now, our annual cost function must be modified: \begin{align*}
+    G(Q) &= \frac{K}{T} + \frac{hH}{2} \\ 
+    &= K\frac{\lambda}{Q} + \frac{hQ}{2}\left( 1- \frac{\lambda}{P} \right) 
+\end{align*} With this, to find the optimal $Q^{*}$ that must be ordered, we take the first derivative and set to 0 to obtain: \begin{align*}
+    G'(Q) &= - \frac{K\lambda}{Q^{2}} + \frac{h}{2}\left( 1- \frac{\lambda}{P} \right) \\ 
+    \frac{K\lambda}{Q^{2}} &= \frac{h}{2}\left( 1- \frac{\lambda}{P} \right) 
+\end{align*} \begin{equation}\label{eq:4-qstar}
+    \Longrightarrow Q^{*} = \sqrt{ \frac{2K\lambda}{h\left(  1- \frac{\lambda}{P} \right)}} 
+\end{equation} Using equation \ref{eq:4-qstar}, we get the optimal order quantity to be: \begin{align*}
+    Q^{*} &= \sqrt{ \frac{2 \times 45 \times 280}{0.48\times \left( 1- \frac{280}{1120} \right)}} \\ 
+    &= 100\sqrt{7} \\ 
+    &\approx \boxed{264.58 \text{ kg}}
+\end{align*} This is also a minimum point as proved in class with the second derivative being positive.
+
+\subsection*{(b)}   
+
+The cycle length is given by $T$, where $Q = \lambda T$. The time between order placements can be obtained with: \begin{align*}
+    T &= \frac{Q}{\lambda} \\ 
+    &= \frac{100\sqrt{7}}{280} \\ 
+    &\approx \boxed{0.945 \text{ years}}
+\end{align*}
+
+\subsection*{(c)}   
+
+The maximal inventory level is defined in equation \ref{eq:4-maxinven}: \begin{align*}
+    H &= Q\left( 1- \frac{\lambda}{P} \right) \\ 
+    &= 100\sqrt{7} \left( 1 - \frac{280}{1120} \right) \\ 
+    &\approx \boxed{198.4 \text{ kg}}
+\end{align*}
+
+\newpage 
+
+\section*{Question 5}
+
+% Axis systems sells microcontrollers for hobbyists. Their supplier charges $350 per microcontroller for the first 25 units ordered; for units between 26 and 50 they reduce the price to $315 per unit; and provide a deeper discount for units above 50 at the rate of $285. Axis expects to sell 140 microcontrollers per year and remain in business for a very long time. Their order setup costs are $30 and inventory holding costs are assessed at 18% annual interest rate. Compute the most economic order size.
+
+We are given that the demand is $\lambda = 140 \text{ units}/ \text{year}$, the setup costs $K = \$ 30$, and the inventory holding costs have an annual interest rate of $h = 18\%$. Since this is an \textbf{incremental quantity discount schedule}, we first define the ordering cost $C(Q)$: \begin{equation*}
+    C(Q) = \begin{cases}
+        350Q, \quad & 0\leq Q < 26 \\ 
+        350(25) + 315(Q-25), \quad & 26\leq Q < 51 \\ 
+        350(25) + 315(25) + 285(Q-50), \quad & 51 \leq Q 
+    \end{cases}
+\end{equation*} and thus the ordering cost per unit is \begin{equation}\label{eq:5-ineq}
+    \frac{C(Q)}{Q}  = \begin{cases}
+        350, \quad & 0\leq Q < 26 \\ 
+        315 + \frac{875}{Q}, \quad & 26\leq Q < 51 \\ 
+        285 + \frac{2375}{Q}, \quad & 51 \leq Q 
+    \end{cases}
+\end{equation} Now, the average annual cost function is given by: \begin{equation}
+    G(Q) = \frac{\lambda C(Q)}{Q} + \frac{K\lambda}{Q} + I\left[ \frac{C(Q)}{Q} \right] \frac{Q}{2}
+\end{equation} which we will solve for the optimal $Q^{*}$ that minimises $G(Q)$ for each of the functions of $ \frac{C(Q)}{Q}$. Here, we have 3 different representations of $G(Q)$ depending on which interval $Q$ falls into. Since $C(Q)$ is continuous, $G(Q)$ must also be continuous. The optimal solution will occur at one of the minimum of the 3 average annual cost curves $G(Q)$, which we define as $G_0(Q)$, $G_1(Q)$, and $G_2(Q)$: \begin{align*}
+    G_0(Q) &= 140 \times 350 + \frac{30 \times 140}{Q} + 0.18\left[ \frac{350Q}{2} \right] \\ 
+    G'_0(Q) &= - \frac{4200}{Q^{2}} + 31.5Q 
+\end{align*} which is minimised at \begin{align*}
+    0 &= - \frac{4200}{Q^{2}} + 31.5Q \\
+    \frac{4200}{Q^{2}} &= 31.5 \\ 
+    Q^{(0)} &= \sqrt{\frac{4200}{31.5}} \\ 
+    &= \ceil{11.547} \\ 
+    &= \boxed{12}
+\end{align*} to prove that it is indeed a minimum, consider \begin{align*}
+    G''_0(Q) &= \frac{8400}{Q^{3}} > 0, \quad \forall \; Q>0
+\end{align*} Similarly, we have \begin{align*}
+    G_1(Q) &= \lambda\left( 315 + \frac{875}{Q} \right) + \frac{K\lambda}{Q} + 0.18\left( 315 + \frac{875}{Q} \right)\times \frac{Q}{2} \\ 
+    G'_1(Q) &= - \frac{875\lambda + K\lambda}{Q^{2}} + \frac{0.18\times 315}{2} 
+\end{align*} which is minimised at \begin{align*}
+    0 &= - \frac{875\lambda + K\lambda}{Q^{2}} + \frac{0.18\times 315}{2} \\ 
+    \frac{875\lambda + K\lambda}{Q^{2}} &= \frac{0.18\times 315}{2} \\
+    Q^{(1)} &= \sqrt{ \frac{875\times 140+ 30\times 140}{(0.18 \times 315 )/ 2}} \\ 
+    &= \ceil{66.8515} \\ 
+    &= \boxed{67}
+\end{align*} to prove that it is indeed a minimum, consider: \begin{align*}
+    G''_1(Q) &= \frac{2(875\lambda +K\lambda)}{Q^{3}} > 0, \quad \forall \; Q, \; \lambda, \; K >0
+\end{align*} Lastly, we have \begin{align*}
+    G_2(Q) &= \lambda\left( 285 + \frac{2375}{Q} \right) + \frac{K\lambda}{Q} + 0.18\left( 285 + \frac{2375}{Q} \right)\times \frac{Q}{2} \\ 
+    G'_2(Q) &= - \frac{2375\lambda + K\lambda}{Q^{2}} + \frac{0.18\times 285}{2} 
+\end{align*} which is minimised at \begin{align*}
+    0 &= - \frac{2375\lambda + K\lambda}{Q^{2}} + \frac{0.18\times 285}{2} \\ 
+    \frac{2375\lambda + K\lambda}{Q^{2}} &= \frac{0.18\times 285}{2} \\
+    Q^{(2)} &= \sqrt{ \frac{2375\times 140+ 30\times 140}{(0.18 \times 285)/ 2}} \\ 
+    &= \ceil{114.5718} \\ 
+    &= \boxed{115}
+\end{align*} to prove that it is indeed a minimum, consider: \begin{align*}
+    G''_2(Q) &= \frac{2(2375\lambda +K\lambda)}{Q^{3}} > 0, \quad \forall \; Q, \; \lambda, \; K >0
+\end{align*} With this, we have 3 possible values for the minimum, namely \begin{align*}
+    Q^{(0)} &= 12 \\ 
+    Q^{(1)} &= 67 \\ 
+    Q^{(2)} &= 115 
+\end{align*} These values were rounded up via the ceiling function, to account for the fact that microcontroller units are discrete in nature. From the given range of values of $Q$ in Equation \ref{eq:5-ineq}, we note that $Q^{(1)}$ is out of the range $26 \leq Q< 51$, thus it is not realizable. The optimal solution is then obtained by comparing $G_0(Q^{(0)})$ and $G_2(Q^{(2)})$. The two values are given by \begin{align*}
+    G_0\left(Q^{(0)}\right) &= 140\times 350 + \frac{30 \times 140}{12} + 0.18\left( \frac{350\times 12}{2}  \right) \\ 
+    &= \boxed{\$ 49728} \\ 
+    G_2\left(Q^{(2)}\right) &= 140\left( 285+ \frac{2375}{115} \right) + \frac{30\times 140}{115} + 0.18 \left( 285 + \frac{2375}{Q} \right) \times \frac{115}{2} \\ 
+    &= \boxed{\$ 45991.326}
+\end{align*} Clearly, the value of $G_2(Q^{(2)})$ is smaller, hence the most economic order size for Axis systems is 115 units of microcontrollers. 
+
+\newpage
+
+\section*{Appendix}
+
+
+\end{document}
