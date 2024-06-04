@@ -257,10 +257,13 @@ To determine a more accurate formulation for the optimal lot size, we start from
     1-F(R_{0}) &= \frac{Q_{0} h}{p\lambda} \\
     &= \frac{100\sqrt{3}\times 2}{25 \times 600} \\ 
     &= \frac{\sqrt{3}}{75}
-\end{align*} To find $R_{0}$, we use the CDF: \begin{align*}
-    R_{0} &= 60 \times \left( 1- \frac{\sqrt{3}}{75} \right) + 270 \\ 
-    &= 328.614359
-\end{align*} With this, we can also use Equation \ref{eq:4-qeq} to obtain $Q_{1}$: \begin{align*}
+\end{align*} To find $R_{0}$, we use the Equation \ref{eq:2-nr}: \begin{align*}
+    n(R_{0}) &= \int_{R_{0}}^{\infty} \frac{x-R_{0}}{60} \, \mathrm{d}x \\ 
+    1.5\sqrt{3} &= \frac{1}{60} \Big| \frac{x^{2}}{2} - R_{0}x \Big|^{330}_{R_{0}} \\ 
+    90\sqrt{3} &= \frac{330^{2}}{2} - 330 R_{0} - \frac{R_{0}^{2}}{2} + R_{0}^{2} 
+\end{align*} Solving quadratically, we obtain the result \begin{align*}
+    R_{0} &= \mathbf{312.34301} & R_{0} &= 347.65698 
+\end{align*} The value 347.65 is \textbf{rejected} as it is greater than the demand 330. We can also use Equation \ref{eq:4-qeq} to obtain $Q_{1}$: \begin{align*}
     Q_{1} &= \frac{1.5\sqrt{3}}{\sqrt{3} / 75} + \sqrt{ \frac{2 \times 50 \times 600}{2} + \left( \frac{1.5\sqrt{3}}{\sqrt{3} / 75} \right)^{2}} \\ 
     &= 319.033895
 \end{align*} Since this significantly differs from $Q_{0}$, we continue the algorithm. To find $n(R_{1})$, we have \begin{equation*}
@@ -269,24 +272,31 @@ To determine a more accurate formulation for the optimal lot size, we start from
     1-F(R_{1}) &= \frac{Q_{1} h}{p\lambda} \\
     &= \frac{319.033895 \times 2}{25 \times 600} \\ 
     &= 0.04253785
-\end{align*} To find $R_{1}$, we use the CDF \begin{align*}
-    R_{1} &= 60 \times \left( 1- 0.04253785 \right) + 270 \\ 
-    &= 327.447729
-\end{align*} With this, we can use Equation \ref{eq:4-qeq} to obtain $Q_{2}$: \begin{align*}
+\end{align*} To find $R_{1}$, we use use Equation \ref{eq:2-nr} \begin{align*}
+    n(R_{1}) &= \int_{R_{1}}^{330} \frac{x-R_{1}}{60} \, \mathrm{d}x \\ 
+    0.015(319.033895) &= \frac{1}{60} \Big| \frac{x^{2}}{2} - R_{1}x \Big|^{330}_{R_{0}} \\ 
+    60\times 0.015(319.033895) &= \frac{330^{2}}{2} - 330 R_{1} - \frac{R_{1}^{2}}{2} + R_{1}^{2} 
+\end{align*} Solving quadratically, we get the values \begin{align*}
+    R_{1} &= \mathbf{306.036256} & R_{1} &= 353.963743
+\end{align*} Similarly, we reject the value 353.963743. We can use Equation \ref{eq:4-qeq} to obtain $Q_{2}$: \begin{align*}
     Q_{2} &= \frac{0.015(319.033895)}{0.04253785} + \sqrt{ \frac{2 \times 50 \times 600}{2} + \left( \frac{0.015(319.033895)}{0.04253785} \right)^{2}} \\ 
     &= 319.033906
 \end{align*} To find $R_{2}$, we similarly have \begin{align*}
-    1 - F(R_{2}) &= \frac{Q_{2}h}{p\lambda} \\ 
-    &= \frac{319.033906 \times 2}{25 \times 600} \\ 
-    &= 0.04253785
-\end{align*} Using the CDF, we have \begin{align*}
-    R_{2} &= 60 \times \left( 1 - 0.04253785 \right) + 270 \\ 
-    &= 327.447728
-\end{align*} Lastly, comparing the different values obtained, we have \begin{align*}
-    Q_{0} &= 173.20508 & R_{0} &= 328.614359 \\ 
-    Q_{1} &= 319.033895 & R_{1} &= 327.447729 \\ 
-    Q_{2} &= 319.033906 & R_{2} &= 327.447728
-\end{align*} we see that the values for $Q_{1}, Q_{2}$ and $R_{1}, R_{2}$ are relatively close, and we can conclude that the algorithm has converged, so we terminate here. Thus, the optimal order quantity and reorder point for the case where we want to achieve 98.5\% fill rate with the accurate formulation is $(Q^{*}, R^{*}) = (Q_{2}, R_{2}) \approx (319, 327)$ (rounded to nearest integer). 
+    n(R_{2}) &= \int_{R_{2}}^{330} \frac{x-R_{2}}{60} \, \mathrm{d}x \\ 
+    0.015(319.033906) &= \frac{1}{60} \Big| \frac{x^{2}}{2} - R_{2}x \Big|^{330}_{R_{0}} \\ 
+    60\times 0.015(319.033906) &= \frac{330^{2}}{2} - 330 R_{1} - \frac{R_{2}^{2}}{2} + R_{2}^{2} 
+\end{align*} Solving quadratically, we obtain the values \begin{align*}
+    R_{2} &= \mathbf{306.036255} & R_{2} &= 353.963744
+\end{align*} Similarly, the value 353.963744 is rejected. Lastly, comparing the different values obtained, we have \begin{align*}
+    Q_{0} &= 173.20508 & R_{0} &= 312.34301 \\ 
+    Q_{1} &= 319.033895 & R_{1} &= 306.036256 \\ 
+    Q_{2} &= 319.033906 & R_{2} &= 306.036255
+\end{align*} we see that the values for $Q_{1}, Q_{2}$ and $R_{1}, R_{2}$ are relatively close, and we can conclude that the algorithm has converged, so we terminate here. Thus, the optimal order quantity and reorder point for the case where we want to achieve 98.5\% fill rate with the accurate formulation is $(Q^{*}, R^{*}) = (Q_{2}, R_{2}) \approx (319, 306)$ (rounded to nearest integer). For a sanity check, we calculate the fill rate $\beta$: \begin{align*}
+    \beta &= 1- \frac{n(R)}{Q} \\ 
+    &= 1- \frac{ \int_{306}^{330} \left( \frac{x-306}{60} \right) \, \mathrm{d}x}{319} \\ 
+    &= 0.9849529 \\ 
+    &\approx 0.985
+\end{align*} which indeed corresponds to a 98.5\% fill rate. 
 
 \newpage 
 
