@@ -96,19 +96,17 @@ Since we are now working with a normally-distributed demand with mean 60 and var
 
 % On Sundays, they find that the demand distribution is different. It is equally likely that they get orders between 30 and 90 units. For Sundays, what is the optimal number of Piney drinks?
 
-If it is equally likely that they get orders between 30 and 90 units on Sundays, we are working with a Uniformly Distributed Demand, with $D \sim U(30,90)$. The probability $p$ of each discrete unit being sold is the same, where $p = \frac{1}{7}$: \begin{table}[H]
-    \centering
-    \def\arraystretch{1.5}
-    \begin{tabular}{|c|c|c|c|c|c|c|c|} \hline 
-        Piney Drinks & 30 & 40 & 50 & 60 & \textbf{70} & 80 & 90 \\ \hline 
-        PDF & $\frac{1}{7}$ & $\frac{1}{7}$ & $\frac{1}{7}$ & $\frac{1}{7}$ & $\frac{1}{7}$ & $\frac{1}{7}$ & $\frac{1}{7}$ \\ \hline \hline 
-        CDF & $\frac{1}{7}$ & $\frac{2}{7}$ & $\frac{3}{7}$ & $\frac{4}{7}$ & $\frac{5}{7}$ & $\frac{6}{7}$ & 1 \\ \hline 
-    \end{tabular}
-    \caption{Uniform Probability Distribution for Sunday}
-    \label{tab:2-cumprobuniform}
-\end{table} 
-
-\noindent From the table, the smallest order quantity where the CDF exceeds the critical ratio $F(Q^{*}) = 0.625$ is $\frac{5}{7} = 0.714$, which corresponds to 70 drinks. Thus, Piney Pineapple Drinks should plan on taking \textbf{70 drinks to the beach each day.}
+If it is equally likely that they get orders between 30 and 90 units on Sundays, we are working with a Uniformly Distributed Demand, with $D \sim U(30,90)$. Using the formula for the CDF of a Uniform Distribution, \begin{equation*}
+    F(x) = \begin{cases}
+        0, \qquad & x < 30 \\ 
+        \displaystyle\frac{x - 30}{90-30}, \qquad & 30 \leq x \leq 90 \\ 
+        1, \qquad & x \geq 90
+    \end{cases}
+\end{equation*} To find the smallest order quantity where $F(x)$ exceeds the critical ratio $F(Q^{*}) = 0.625$, we solve accordingly: \begin{align*}
+    0.625 &= \frac{Q^{*} - 30}{90-30} \\ 
+    Q^{*} &= 67.5 \\ 
+    &\approx \boxed{68}
+\end{align*} after rounding to the next upper nearest integer, we find that the \textbf{optimal number of Piney drinks to bring to the beach every day is 68}.
 
 \newpage 
 
@@ -127,11 +125,11 @@ Considering the usual assumptions of the lot-size reorder point system, we defin
     \item Setup Cost $K = \$50$ per order
     \item Holding Cost $h = Ic =  0.20 \times \$10  = \$2$ per unit
     \item Stock-out Cost $p = \$25$ per unit 
-\end{enumerate} The demand is uniformly distributed from 270 to 330, so we have that $D \sim U(270, 330)$ for 6 months. We assume that the mean rate of demand is thus $\lambda = 50 \times 12 = 600$ units per year. Defining $G(Q,R)$ as the expected average annual cost of holding, setup, and shortages, we have: \begin{equation}
+\end{enumerate} The demand is uniformly distributed from 270 to 330, so we have that $D \sim U(270, 330)$ for 6 months. We assume that the mean rate of demand is thus $\lambda = 300 \times 2 = 600$ units per year. Defining $G(Q,R)$ as the expected average annual cost of holding, setup, and shortages, we have: \begin{equation}
     G(Q,R) = h\left( \frac{Q}{2} + R - \lambda \tau \right) + \frac{K\lambda}{Q} + p\left( \frac{\lambda n(R)}{Q} \right)
-\end{equation} Where $n(R)$ is the expected nunmber of stock-outs in the newsvendor model: \begin{equation}
+\end{equation} Where $n(R)$ is the expected number of stock-outs: \begin{equation}\label{eq:2-nr}
     n(R) = \mathbb{E}(\max (D-R, 0)) = \int_{R}^{\infty} (x - R)f(x) \, \mathrm{d}x
-\end{equation} Since we have a uniformly distributed demand $D$, the PDF of the annual demand $f(x)$ is given by: \begin{equation*}\label{eq:2-nr}
+\end{equation} Since we have a uniformly distributed demand $D$, the PDF of the annual demand $f(x)$ is given by: \begin{equation*}
     f(x) = \begin{cases}
         \displaystyle\frac{1}{330 - 270} = \frac{1}{60}, \qquad & 270 \leq x \leq 330 \\ 
         0 \qquad & \text{otherwise}
@@ -145,7 +143,7 @@ Considering the usual assumptions of the lot-size reorder point system, we defin
 \end{equation*}
 
 \noindent The objective now is to find the optimal order quantity $Q^{*}$ and $R^{*}$ that minimises $G(Q,R)$. Employing the iterative algorithm, we have that \begin{align*}
-    Q_{0} = EOQ &= \sqrt{ \frac{2K\lambda}{h}} \\ 
+    Q_{0} = \text{EOQ} &= \sqrt{ \frac{2K\lambda}{h}} \\ 
     &= \sqrt{ \frac{2\times 50 \times 600}{2}} \\ 
     &= 100\sqrt{3} \\ 
     &= 173.20508
@@ -204,12 +202,91 @@ We now consider a Type II service, where the proportion of demand that is met fr
 
 % In Question 2, assume that the unmet demand is lost. Recompute the optimal order quantity and reorder point.
 
+If the unmet demand is lost, we need to consider the extension to a \textit{lost sales} model. Excess demand cannot be back-ordered here, so we have the following updated equations: \begin{align}
+    T &= \frac{ \left(Q + \mathbb{E}[(D-R)^{+}] \right)}{\lambda} \\ 
+    s &= R - \lambda \tau + n(R)
+\end{align} The cost function is given as \begin{equation}
+    G(Q,R) = h\left(R-\lambda \tau + n(R) + \frac{Q}{2}\right) + \frac{K\lambda}{Q} + c \lambda + \frac{pn(R)\lambda}{Q}
+\end{equation} taking the derivative, we have \begin{align}\nonumber
+    \frac{\partial G(Q,R)}{\partial R} &= h + \left( h + \frac{p\lambda}{Q} \right) \frac{dn}{dR} = 0 \\ \label{eq:3-eq2}
+    1-F(R) &= \frac{Qh}{Qh+p\lambda}
+\end{align} With Equation \ref{eq:3-eq2} and $Q_{0} = \text{EOQ} = 100\sqrt{3}$ , we can now iteratively compute the optimal order quantity and reorder point: \begin{align*}
+    1-F(R) &= \frac{100\sqrt{3} \times 2}{100\sqrt{3} \times 2 + 25 \times 600} \\ 
+    R_{0} &= 60\times \left( 1 - \frac{100\sqrt{3} \times 2}{100\sqrt{3} \times 2 + 25 \times 600} \right) + 270 \\ 
+    &= 328.645637
+\end{align*} To find $n(R_{0})$, we use Equation \ref{eq:2-nr}: \begin{align*}
+    n(R_{0}) &= \int_{R_{0}}^{\infty} (x-R_{0})f(x) \, \mathrm{d}x \\ 
+    &= \int_{R_{0}}^{330} \frac{x-R_{0}}{60} \, \mathrm{d}x \\ 
+    &= 0.0152858
+\end{align*} with this, we can find $Q_{1}$ with Equation \ref{eq:2-qeq}: \begin{align*}
+    Q_{1} &= \sqrt{ \frac{2\lambda[K + pn(R)]}{h}} \\ 
+    &= \sqrt{ \frac{2 \times 600 [50 + 25 \times 0.0152858]}{2}} \\ 
+    &= 173.86571
+\end{align*} for $R_{1}$, we repeat with Equation \ref{eq:3-eq2} \begin{align*}
+    1 - F(R_{1}) &= \frac{Q_1h}{Q_1h+p\lambda} \\ 
+    R_{1} &= 60\times \left( 1 - \frac{173.86571 \times 2}{173.86571 \times 2 + 25 \times 600} \right) + 270 \\ 
+    &= 328.640588
+\end{align*} With this, we can compare the following values: \begin{align*}
+    Q_{0} &= 173.20508 & R_{0} &= 328.645637 \\ 
+    Q_{1} &= 173.86571 & R_{1} &= 328.640588
+\end{align*} we see that the values are relatively close, and we can conclude that the algorithm has converged and we terminate here. Thus, the optimal order quantity and reorder point for the case where unmet demand is lost is $(Q^{*}, R^{*})  = (Q_{1}, R_{1}) \approx (174, 329)$ (rounded to nearest integer). 
+
 
 \newpage
 
 \section*{Question 4}
 
 % In Question 2, let’s say that Plushy Toys would like to achieve 98.5% fill rate. Use the accurate formulation of type 2 service and determine the Service level Order Quantity (SOQ) and reorder point. 
+
+To determine a more accurate formulation for the optimal lot size, we start from Equation \ref{eq:2-req}, where \begin{align}\nonumber
+    1- F(R) &= \frac{Qh}{p\lambda} \\ \label{eq:4-peq}
+    p &= \frac{Qh}{\lambda(1-F(R))}
+\end{align} where $p$ here is also known as the imputed shortage cost. We substitute Equation \ref{eq:4-peq} into Equation \ref{eq:2-qeq} to get: \begin{equation*}
+    Q = \sqrt{ \frac{2\lambda \{K + Qhn(R) / [\lambda(1-F(R))]\}}{h}}
+\end{equation*} which is a quadratic equation in $Q$. Solving for the positive root, we get \begin{equation}\label{eq:4-qeq}
+    Q = \frac{n(R)}{1 - F(R)} + \sqrt{ \frac{2 K\lambda }{h} + \left( \frac{n(R)}{1-F(R)} \right)^{2}}
+\end{equation} which is known as the Service Level Order Quantity (SOQ Formula). We use Equation \ref{eq:4-qeq} with the following equation \begin{equation}\label{eq:4-nreq}
+    n(R) = (1-\beta)Q 
+\end{equation} and solve simultaneously to obtain the optimal values of $(Q,R)$, satisfying a type II service constraint. Since we would like to achieve a 98.5\% fill rate, $\beta = 0.985$, from Equation \ref{eq:2-fillrate} we have the relation \begin{align*}
+    n(R) &= (1-0.985)Q \\ 
+    &= 0.015Q
+\end{align*} Using this, we now solve for $n(R_{0})$ by first setting $Q_{0} = \text{EOQ} = 100\sqrt{3}$: \begin{align*}
+    n(R_{0}) &= 0.015 \times 100\sqrt{3} \\ 
+    &= 1.5\sqrt{3}
+\end{align*} Similarly, \begin{align*}
+    1-F(R_{0}) &= \frac{Q_{0} h}{p\lambda} \\
+    &= \frac{100\sqrt{3}\times 2}{25 \times 600} \\ 
+    &= \frac{\sqrt{3}}{75}
+\end{align*} To find $R_{0}$, we use the CDF: \begin{align*}
+    R_{0} &= 60 \times \left( 1- \frac{\sqrt{3}}{75} \right) + 270 \\ 
+    &= 328.614359
+\end{align*} With this, we can also use Equation \ref{eq:4-qeq} to obtain $Q_{1}$: \begin{align*}
+    Q_{1} &= \frac{1.5\sqrt{3}}{\sqrt{3} / 75} + \sqrt{ \frac{2 \times 50 \times 600}{2} + \left( \frac{1.5\sqrt{3}}{\sqrt{3} / 75} \right)^{2}} \\ 
+    &= 319.033895
+\end{align*} Since this significantly differs from $Q_{0}$, we continue the algorithm. To find $n(R_{1})$, we have \begin{equation*}
+    n(R_{1}) = 0.015 Q_{1} 
+\end{equation*} Similarly, \begin{align*}
+    1-F(R_{1}) &= \frac{Q_{1} h}{p\lambda} \\
+    &= \frac{319.033895 \times 2}{25 \times 600} \\ 
+    &= 0.04253785
+\end{align*} To find $R_{1}$, we use the CDF \begin{align*}
+    R_{1} &= 60 \times \left( 1- 0.04253785 \right) + 270 \\ 
+    &= 327.447729
+\end{align*} With this, we can use Equation \ref{eq:4-qeq} to obtain $Q_{2}$: \begin{align*}
+    Q_{2} &= \frac{0.015(319.033895)}{0.04253785} + \sqrt{ \frac{2 \times 50 \times 600}{2} + \left( \frac{0.015(319.033895)}{0.04253785} \right)^{2}} \\ 
+    &= 319.033906
+\end{align*} To find $R_{2}$, we similarly have \begin{align*}
+    1 - F(R_{2}) &= \frac{Q_{2}h}{p\lambda} \\ 
+    &= \frac{319.033906 \times 2}{25 \times 600} \\ 
+    &= 0.04253785
+\end{align*} Using the CDF, we have \begin{align*}
+    R_{2} &= 60 \times \left( 1 - 0.04253785 \right) + 270 \\ 
+    &= 327.447728
+\end{align*} Lastly, comparing the different values obtained, we have \begin{align*}
+    Q_{0} &= 173.20508 & R_{0} &= 328.614359 \\ 
+    Q_{1} &= 319.033895 & R_{1} &= 327.447729 \\ 
+    Q_{2} &= 319.033906 & R_{2} &= 327.447728
+\end{align*} we see that the values for $Q_{1}, Q_{2}$ and $R_{1}, R_{2}$ are relatively close, and we can conclude that the algorithm has converged, so we terminate here. Thus, the optimal order quantity and reorder point for the case where we want to achieve 98.5\% fill rate with the accurate formulation is $(Q^{*}, R^{*}) = (Q_{2}, R_{2}) \approx (319, 327)$ (rounded to nearest integer). 
 
 \newpage 
 
@@ -219,13 +296,17 @@ We now consider a Type II service, where the proportion of demand that is met fr
 
 Multi-Echelon Inventory Management (MEIM) systems are crucial in optimising inventory levels (across multiple stages) of a supply chain to minimise overall costs while meeting customer demand efficiently. Instead of studying a classic paper on MEIM, we will conduct a short literature review on \textbf{more recent transformative and novel research} being done in this domain. \\
 
-\noindent The paper titled "Multi-echelon inventory optimization using deep reinforcement learning" \cite{Geevers2023} published in the Central European Journal of Operations Research, studies the applicability of a \textbf{Deep Reinforcement Learning (DRL)} approach to different multi-echelon inventory systems, with the objective of \textbf{minimizing the holding and backorder costs}. Recent advancements in IT and data exchange have also allowed for more sophisticated, multi-echelon inventory optimization (MEIO) techniques. However, these optimisation models can quickly become very complex, and rely heavily on assumptions and simplifications. \\ 
+\noindent The paper titled "Multi-echelon inventory optimization using deep reinforcement learning" \cite{Geevers2023} published in the Central European Journal of Operations Research, studies the applicability of a \textbf{Deep Reinforcement Learning (DRL)} approach to different MEIM systems, with the objective of \textbf{minimizing the holding and backorder costs}. Recent advancements in IT and data exchange have also allowed for more sophisticated multi-echelon inventory optimization techniques. However, these optimisation models can \textbf{quickly become very complex}, and rely heavily on assumptions and simplifications. \\ 
 
-\noindent A more promising method introduced by the authors involves using Reinforcement Learning (RL), which was originally developed to solve sequential decision making problems in dynamic environments (including Robotics). Due to recent advances in Deep Learning, RL is often combined with neural networks to form DRLs. The authors review existing literature on MEIM and the application of RL here, noting that quite some research has already been done. They highlight the complexities involved in coordinating inventory policies across multiple locations and how DRL, particularly \textbf{Proximal Policy Optimization (PPO)}, can address these challenges. \\ 
+\noindent A more promising method introduced by the authors involves using Reinforcement Learning (RL), which was originally developed to solve sequential decision making problems in dynamic environments (including Robotics). Due to recent advances in Deep Learning, RL is often combined with neural networks to form DRLs. The authors \textbf{review existing literature} on MEIM and the application of RL here, noting that quite some research has already been done. They highlight the \textbf{complexities involved} in coordinating inventory policies across multiple locations and how DRL, particularly \textbf{Proximal Policy Optimization (PPO)}, can address these challenges. \\ 
 
-\noindent The study focuses on three specific network structures: linear, divergent, and general (based on real-life manufacturer). The problem is modelled via a \textbf{Markov Decision Process (MDP)} where all decisions are made centrally by a single decision maker. The PPO algorithm is implemented to solve the MDPs in an approximate manner, and handle the continuous action space inherent in inventory management problems. The steps include state space transformation, action space transformation, and reward function transformation to tailor the PPO for inventory management tasks. The state space includes variables like inventory levels and demand rates, while the action space pertains to order quantities. The reward function is designed to penalize holding and backorder costs, driving the optimization process towards cost-effective inventory management (via hyperparameter tuning through computing a loss function). The results are as follows: with a \textbf{Linear Network}, the PPO algorithm achieved an average improvement of 16.4\% over benchmark solutions, the \textbf{Divergent Network} with an 11.3\% improvement, and \textbf{General Network} with a 6.6\% improvement. This demonstrates the effectiveness of the PPO algorithm in \textbf{reducing costs} and improving efficiency across different network structures, and how DRL can \textbf{adapt to various complexities and dynamics in a MEIM system}. \\ 
+\noindent The study focuses on three specific network structures: linear, divergent, and general (based on real-life manufacturer). The problem is modelled via a \textbf{Markov Decision Process (MDP)} where all decisions are made centrally by a single decision maker. The PPO algorithm is implemented to solve the MDPs in an \textbf{approximate manner}, and handle the continuous action space inherent in inventory management problems. The steps include state space transformation, action space transformation, and reward function transformation to tailor the PPO for inventory management tasks. The state space includes variables like inventory levels and demand rates, while the action space pertains to order quantities. The reward function is designed to \textbf{penalize holding and backorder costs}, driving the optimization process towards cost-effective inventory management (via hyperparameter tuning through computing a loss function). The results are as follows: with a \textbf{Linear Network}, the PPO algorithm achieved an average improvement of \textbf{16.4\%} over benchmark solutions, the \textbf{Divergent Network} with an \textbf{11.3\%} improvement, and \textbf{General Network} with a \textbf{6.6\%} improvement. This demonstrates the effectiveness of the PPO algorithm in \textbf{reducing costs} and improving efficiency across different network structures, and how DRL can \textbf{adapt to various complexities and dynamics in a MEIM system}. \\ 
 
 \noindent The author's contribution to this research was threefold. A DRL method was applied to a continuous action space (not yet widely used) to a MEIM system, creating \textbf{better scalability} to larger problems. Second, they investigated a general inventory system, which has received less attention in literature due to its complexity and intractability, and showed that the PPO algorithm can \textbf{improve inventory policies}. Lastly, they demonstrated the flexibility of the PPO algorithm by applying it to a variety of cases \textbf{without major modifications} and \textbf{without any parameter tuning}. They also noted that more research should be done on the \textbf{explainability of the method} and DRL in general, as it is a key component of implementing such methods in practice. 
+
+\newpage
+
+\subsection*{Some Accompanying Images for Reference}
 
 \begin{figure}[H]
     \centering

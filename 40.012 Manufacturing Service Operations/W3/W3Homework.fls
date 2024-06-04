@@ -1342,6 +1342,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT ./Images/threenetworks.png
 INPUT ./Images/threenetworks.png
 INPUT Images/threenetworks.png
@@ -1366,7 +1367,6 @@ INPUT ./W3Homework.bbl
 INPUT W3Homework.bbl
 INPUT ./W3Homework.bbl
 INPUT W3Homework.bbl
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT W3Homework.aux
 INPUT ./W3Homework.out
 INPUT ./W3Homework.out
