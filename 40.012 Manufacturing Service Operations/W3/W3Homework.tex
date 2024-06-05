@@ -293,7 +293,7 @@ To determine a more accurate formulation for the optimal lot size, we start from
     Q_{2} &= 319.033906 & R_{2} &= 306.036255
 \end{align*} we see that the values for $Q_{1}, Q_{2}$ and $R_{1}, R_{2}$ are relatively close, and we can conclude that the algorithm has converged, so we terminate here. Thus, the optimal order quantity and reorder point for the case where we want to achieve 98.5\% fill rate with the accurate formulation is $(Q^{*}, R^{*}) = (Q_{2}, R_{2}) \approx (319, 306)$ (rounded to nearest integer). For a sanity check, we calculate the fill rate $\beta$: \begin{align*}
     \beta &= 1- \frac{n(R)}{Q} \\ 
-    &= 1- \frac{ \int_{306}^{330} \left( \frac{x-306}{60} \right) \, \mathrm{d}x}{319} \\ 
+    &= 1- \frac{ \displaystyle\int_{306}^{330} \left( \frac{x-306}{60} \right) \, \mathrm{d}x}{319} \\ 
     &= 0.9849529 \\ 
     &\approx 0.985
 \end{align*} which indeed corresponds to a 98.5\% fill rate. 

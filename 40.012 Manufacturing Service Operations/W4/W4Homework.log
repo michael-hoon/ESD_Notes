@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.29)  4 JUN 2024 16:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.29)  5 JUN 2024 10:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W3/W3Homework.tex"
-(/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W3/W3Homework.tex
+**"/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W4/W4Homework.tex"
+(/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W4/W4Homework.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -717,8 +717,8 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
 )
 \Hy@SectionHShift=\skip75
-) (./W3Homework.aux)
-\openout1 = `W3Homework.aux'.
+) (./W4Homework.aux)
+\openout1 = `W4Homework.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
@@ -815,9 +815,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 18.
 LaTeX Info: Redefining \pageref on input line 18.
 LaTeX Info: Redefining \nameref on input line 18.
- (./W3Homework.out) (./W3Homework.out)
+ (./W4Homework.out) (./W4Homework.out)
 \@outlinefile=\write4
-\openout4 = `W3Homework.out'.
+\openout4 = `W4Homework.out'.
 
 LaTeX Font Info:    Trying to load font information for U+msa on input line 38.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -828,69 +828,25 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 38.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 65--66
-
- []
-
-[2] [3] [4] [5] [6] [7] [8] [9] [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 307--308
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 309--310
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 311--312
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 313--314
-
- []
-
-[12]
-<Images/threenetworks.png, id=116, 1293.83376pt x 696.6025pt>
-File: Images/threenetworks.png Graphic file (type png)
-<use Images/threenetworks.png>
-Package pdftex.def Info: Images/threenetworks.png  used on input line 323.
-(pdftex.def)             Requested size: 300.29344pt x 161.67142pt.
-<Images/linearnetwork.png, id=117, 1128.215pt x 622.325pt>
-File: Images/linearnetwork.png Graphic file (type png)
-<use Images/linearnetwork.png>
-Package pdftex.def Info: Images/linearnetwork.png  used on input line 330.
-(pdftex.def)             Requested size: 300.29344pt x 165.63702pt.
-<Images/divergentnetwork.png, id=118, 1112.155pt x 581.17125pt>
-File: Images/divergentnetwork.png Graphic file (type png)
-<use Images/divergentnetwork.png>
-Package pdftex.def Info: Images/divergentnetwork.png  used on input line 337.
-(pdftex.def)             Requested size: 300.29344pt x 156.91833pt.
-<Images/generalnetwork.png, id=119, 1131.22626pt x 618.31pt>
-File: Images/generalnetwork.png Graphic file (type png)
-<use Images/generalnetwork.png>
-Package pdftex.def Info: Images/generalnetwork.png  used on input line 344.
-(pdftex.def)             Requested size: 300.29344pt x 164.1344pt.
- [13 <./Images/threenetworks.png> <./Images/linearnetwork.png> <./Images/divergentnetwork.png>] [14 <./Images/generalnetwork.png>] (./W3Homework.bbl) [15] (./W3Homework.aux)
-Package rerunfilecheck Info: File `W3Homework.out' has not changed.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
+No file W4Homework.bbl.
+(./W4Homework.aux)
+Package rerunfilecheck Info: File `W4Homework.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 40090 strings out of 478287
- 944877 string characters out of 5849289
- 1384511 words of memory out of 5000000
- 57578 multiletter control sequences out of 15000+600000
- 483893 words of font info for 81 fonts, out of 8000000 for 9000
+ 39991 strings out of 478287
+ 943198 string characters out of 5849289
+ 1368568 words of memory out of 5000000
+ 57523 multiletter control sequences out of 15000+600000
+ 483546 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,13n,103p,1579b,788s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on W3Homework.pdf (15 pages, 392282 bytes).
+ 99i,12n,103p,799b,770s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on W4Homework.pdf (5 pages, 45271 bytes).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
- 155 compressed objects within 2 object streams
- 52 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
+ 17 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
