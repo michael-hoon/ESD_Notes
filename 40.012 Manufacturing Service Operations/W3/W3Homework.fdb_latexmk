@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex W3Homework"] 1717472202 "W3Homework.aux" "W3Homework.bbl" "W3Homework" 1717489396
+["bibtex W3Homework"] 1717472202 "W3Homework.aux" "W3Homework.bbl" "W3Homework" 1717747116
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "W3Homework.aux" 1717489395 3371 096609086a15a8bca095899fe6a41e79 "pdflatex"
+  "W3Homework.aux" 1717747115 3371 096609086a15a8bca095899fe6a41e79 "pdflatex"
   "refs3.bib" 1717329639 454 9a6f66cda37b473415f8c21beb12b4bf ""
   (generated)
   "W3Homework.bbl"
   "W3Homework.blg"
-["pdflatex"] 1717489394 "/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W3/W3Homework.tex" "W3Homework.pdf" "W3Homework" 1717489396
+["pdflatex"] 1717747114 "/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W3/W3Homework.tex" "W3Homework.pdf" "W3Homework" 1717747116
   "/etc/texmf/web2c/texmf.cnf" 1707270275 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W3/W3Homework.tex" 1717489394 23746 1e41a5b1b6846d719d467f17dd5eb0b1 ""
+  "/home/micha/ESD_Notes/40.012 Manufacturing Service Operations/W3/W3Homework.tex" 1717747114 23734 f59b60b166adefdbacd7fed3d30e4545 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1246382020 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -271,10 +271,10 @@
   "Images/generalnetwork.png" 1717336062 62875 f873c8ddde73fa0e4069675cb7ddf7f9 ""
   "Images/linearnetwork.png" 1717335969 67970 a4f81fce72bfd7ce6d88b55686524c71 ""
   "Images/threenetworks.png" 1717335999 104417 099581cc3f548bfea4d56ba2c91545d1 ""
-  "W3Homework.aux" 1717489395 3371 096609086a15a8bca095899fe6a41e79 "pdflatex"
+  "W3Homework.aux" 1717747115 3371 096609086a15a8bca095899fe6a41e79 "pdflatex"
   "W3Homework.bbl" 1717472202 291 bb42dfa3498460132bfbe423c8d2d2c3 "bibtex W3Homework"
-  "W3Homework.out" 1717489395 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "W3Homework.tex" 1717489394 23746 1e41a5b1b6846d719d467f17dd5eb0b1 ""
+  "W3Homework.out" 1717747115 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "W3Homework.tex" 1717747114 23734 f59b60b166adefdbacd7fed3d30e4545 ""
   (generated)
   "W3Homework.aux"
   "W3Homework.log"
