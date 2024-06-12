@@ -4,7 +4,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{color}
-\usepackage[margin=2cm]{geometry}% Sets 1in margins. 
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage[margin=1in]{geometry}% Sets 1in margins. 
 \usepackage{fancyhdr}			% Creates headers and footers
 \usepackage{titling}
 
@@ -36,4 +38,70 @@
 \definecolor{LightGray}{gray}{0.9}
 
 \usepackage{hyperref}
+
+\usepackage{xurl}
+\usepackage{doi} % hyperlink URLs
+\usepackage{thmtools}
+\usepackage[title,titletoc]{appendix} % appendix environment in TOC 
+\usepackage[bottom]{footmisc}
+\usepackage{cancel}
 % --------------------------------------------------------------------------------------
+
+% ------------------------ Macro Definitions ---------------------------
+
+% Callout Quote 
+% for adjustwidth environment
+\usepackage[strict]{changepage}
+
+% for formal definitions
+\usepackage{framed}
+
+% environment derived from framed.sty: see leftbar environment definition
+\definecolor{formalshade}{rgb}{0.95,0.95,1}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\definecolor{darkred}{rgb}{0.5,0,0}
+
+\newenvironment{formal}{%
+  \def\FrameCommand{%
+    \hspace{1pt}%
+    {\color{darkblue}\vrule width 2pt}%
+    {\color{formalshade}\vrule width 4pt}%
+    \colorbox{formalshade}%
+  }%
+  \MakeFramed{\advance\hsize-\width\FrameRestore}%
+  \noindent\hspace{-4.55pt}% disable indenting first paragraph
+  \begin{adjustwidth}{}{7pt}%
+  \vspace{2pt}\vspace{2pt}%
+}
+{%
+  \vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\mean}{mean} 
+\DeclareMathOperator*{\stddev}{std-dev} 
+
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightBlue}{Blue!25}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+\colorlet{LightRed}{Red!15}
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightBlue}
+
+\declaretheoremstyle[name=Principle,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{principle}
+\tcolorboxenvironment{principle}{colback=LightGreen}
+
+\declaretheoremstyle[name=Definition,]{defsty}
+\declaretheorem[style=defsty,numberlike=theorem]{definition}
+\tcolorboxenvironment{definition}{colback=LightRed}

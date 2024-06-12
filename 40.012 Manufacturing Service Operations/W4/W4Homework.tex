@@ -40,40 +40,572 @@
 \section*{Question 1}
 
 
-\subsection*{(a)}   
+\subsection*{(a) Silver-Meal Heuristic}
 
-\subsection*{(b)}   
+We first define the given parameters, namely: \begin{itemize}
+    \item Holding cost $h = \$ 1$ per unit per month
+    \item Setup cost $K = \$ 40$ per order 
+    \item Initial Inventory $= 4$, Ending Inventory $ = 8$
+\end{itemize}
 
-\subsection*{(c)}   
+The 12-month anticipated demand is given as \begin{table}[H]
+    \centering
+    \begin{tabular}{ l  r r  r  r  r  r  r  r  r  r  r  r  r  r }\toprule
+        \textbf{Month} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\ \midrule
+        \textbf{Demand} & 6 & 12 & 4 & 8 & 15 & 25 & 20 & 5 & 10 & 20 & 5 & 12 \\ 
+        \textbf{Adjusted Demand} & 2 & 12 & 4 & 8 & 15 & 25 & 20 & 5 & 10 & 20 & 5 & 20 \\ \bottomrule
+    \end{tabular}
+    \caption{Anticipated Demand over 12 Months}
+    \label{tab:1-demand}
+\end{table} 
 
+\noindent We now define $C(T)$ as the average holding and setup cost per period if the current order spans the next $T$ periods. The general formula for $j$ periods is given by \begin{equation}
+    C(j) = (K + hr_2 + 2hr_3 + \dots + (j-1)hr_j) / j 
+\end{equation} We start the iterative algorithm first with month 1, considering that we have a current inventory of 4: \begin{align*}
+    C_1(1) &= 40 \\ 
+    C_1(2) &= \left[ 40 + 1(12)\right] / 2 = 26 \\ 
+    C_1(3) &= \left[ 40 + 1(12) + 2(1)(4) \right] / 3 = 20 \\ 
+    C_1(4) &= \left[ 40 + 1(12) + 2(1)(4) + 3(1)(8) \right] / 4 = 21 
+\end{align*} We terminate here as $C(4) > C(3)$, and set $y_{1} = r_{1} + r_{2} + r_{3} = 2 + 12 + 4 = 18$, adding this into our optimal order policy $\mathbf{y} = \begin{pmatrix}
+    18
+\end{pmatrix}$. We note that there is a way to streamline the calculations using a recursive formula instead: \begin{equation}\label{eq:1-recursive}
+    C(j+1) =\left[ \frac{j}{j+1} \right]\left[ C(j) + hr_{j+1} \right]
+\end{equation} We continue the iterations by setting month 4 as the starting point: \begin{align*}
+    C_{4}(1) &= 40 \\ 
+    C_{4}(2) &= \left[ 40 + 1(15) \right] / 2 = 27.5 \\ 
+    C_{4}(3) &= \left[ 27.5(2) + 1(2)(25)\right] / 3 = 35
+\end{align*} Similarly, we stop here as the value increased, corresponding to the $6^{\text{th}}$ month. We set $y_{4} = r_{4} + r_{5} = 23$, adding into our optimal policy $\mathbf{y} = \begin{pmatrix}
+    18 & 23 
+\end{pmatrix}$. Since there are way too many manual calculations involved in this Silver-Meal heuristic, we can come up with a recursive algorithm in Python using equation \ref{eq:1-recursive} to iteratively obtain the values for us (refer to Appendix). From the code, we obtain the following values: \begin{align*}
+    C_{6}(1) &= 40 \\ 
+    C_{6}(2) &= 30 \\ 
+    C_{6}(3) &= 23.33 \\ 
+    C_{6}(4) &= 25 
+\end{align*} We stop here as $C_{6}(4) > C_{6}(3)$ corresponding to month 9, adding into our policy $y_{6} = r_{6} + r_{7} + r_{8} = 25 + 20 + 5 = 50$, so $\mathbf{y} = \begin{pmatrix}
+    18 & 23 & 50
+\end{pmatrix}$. Continuing from month 9, we have \begin{align*}
+    C_{9}(1) &= 40 \\ 
+    C_{9}(2) &= 30 \\ 
+    C_{9}(3) &= 23.33 \\ 
+    C_{9}(4) &= 26.50 
+\end{align*} We stop here as $C_{9}(4) > C_{9}(3)$ corresponding to month 12, adding into our policy $y_{9} = r_{9} + r_{10} + r_{11} = 10 + 20 + 5 = 35$, so $\mathbf{y} = \begin{pmatrix}
+    18 & 23 & 50 & 35
+\end{pmatrix}$. As period 12 is the final period in the horizon, we only need to consider the setup cost for that month, where \begin{equation*}
+    C_{12}(1) = 40
+\end{equation*} We set $y_{12} = r_{12} = 20$, to meet the ending inventory of 8 units. Thus, the optimal order policy for this item based on the Silver-Meal heuristic is $\mathbf{y} = \begin{pmatrix}
+    18 & 23 & 50 & 35 & 20 
+\end{pmatrix}$, where the order from month 1 to 3 is 18 units, month 4 to 5 is 23 units, 6 to 8 is 50 units, 9 to 11 is 35 units, and the final month is 20 units. We also consider the holding cost of the ending inventory of 8 units. This will correspond to a total cost of \begin{align*}
+    C_{\text{total}} &= C_{1}(3)\times 3 + C_{4}(2) \times 2+ C_{6}(3) \times 3+ C_{9}(3) \times 3 + C_{12}(1) \times 1 + 8 \times 1 \\ 
+    &= 20\times 3 + 27.5\times 2 + 23.33\times 3 + 23.33\times 3 + 40 \times 1 + 8 \\ 
+    &= \boxed{\$303}
+\end{align*} 
+
+\subsection*{(b) Least Unit Cost}
+
+Now, we will use the Least Unit Cost heuristic to evaluate the optimal policy for TMEs. Similar to the Silver-Meal heuristic as before, we modify the iterative algorithm such that instead of dividing the cost over $j$ periods by the same number of periods $j$, we divide it by the total number of units demanded through period $j$, $r_{1} + r_{2} + \dots + r_j$. We choose the order horizon that \textbf{minimises the cost per unit of demand} rather than the cost per period. The general formula here for $j$ periods is \begin{equation}
+    C(j) = \left[ K + h r_{2} + h r_{3} + \dots + (j-1) h r_j \right] / (r_{1} + r_{2} + \dots + r_j)
+\end{equation} The costs for the first iteration using a similar algorithm in Python gives: \begin{align*}
+    C_{1}(1) &= 40 / 2 = 20 \\ 
+    C_{1}(2) &= (40 + (1)(12)) / (2 + 12) = 3.71 \\ 
+    C_{1}(3) &= 3.33 \\ 
+    C_{1}(4) &= 3.23 \\ 
+    C_{1}(5) &= 3.51  
+\end{align*} Terminate here as $C_{1}(5) > C_{1}(4)$, where $y_{1} = r_{1} + \dots r_{4} = 26$, corresponding to month 5. Continuing the algorithm, \begin{align*}
+    C_{5}(1) &= 2.67 \\ 
+    C_{5}(2) &= 1.62 \\ 
+    C_{5}(3) &= 1.75 
+\end{align*} Terminate here as $C_{5}(3) > C_{5}(2)$, where $y_{5} = r_{5} + r_{6} = 40$, corresponding to month 7. Continuing the algorithm, \begin{align*}
+    C_{7}(1) &= 2 \\ 
+    C_{7}(2) &= 1.8 \\ 
+    C_{7}(3) &= 1.86
+\end{align*} Terminate here as $C_{7}(3) > C_{7}(2)$, where $y_{7} = r_{7} + r_{8} = 25$, corresponding to month 9. Continuing the algorithm, \begin{align*}
+    C_{9}(1) &= 4 \\ 
+    C_{9}(2) &= 2 \\ 
+    C_{9}(3) &= 2 \\ 
+    C_{9}(4) &= 2.255
+\end{align*} Terminate here as $C_{9}(4) > C_{9}(3)$, where $y_{9} = r_{9} + r_{10} + r_{11}= 35$, corresponding to month 12. We finally terminate at the end of the planning horizon, with a final order at month 12: \begin{equation*}
+    C_{12}(1) = \frac{40}{20} = 2
+\end{equation*} where $y_{12} = r_{12} = 20$. Thus, the optimal order policy is given as $\mathbf{y} = \begin{pmatrix}
+    26 & 40 & 25 & 35 & 20
+\end{pmatrix}$ with order points at months 1, 5, 7, 9, and 12. Similarly, we also consider the holding cost of the 8 units of ending inventory. The total cost is calculated with \begin{align*}
+    C_{\text{total}} &= C_{1}(4) \times 26 + C_{5}(2) \times 40 + C_{7}(2) \times 25 + C_{9}(3) \times 35 + C_{12}(1) \times 20 + 8 \times 1 \\ 
+    &= \boxed{\$312}
+\end{align*}
+
+\subsection*{(c) Part Period Balancing}
+
+Now, we consider the part period balancing heuristic. Here, we set the order horizon equal to the number of periods that most closely matches the total holding cost with the setup cost $K = \$ 40$ over that period. We start the algorithm with month 1, where the total holding cost is $0 + h r_{2} + 2 h r_{3} + \dots + (j-1) hr_j$:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ l  r r  r  r  r  r  r  r  r  r  r  r  r  r }\toprule
+        \textbf{Month} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\ \midrule
+        \textbf{Demand} & 6 & 12 & 4 & 8 & 15 & 25 & 20 & 5 & 10 & 20 & 5 & 12 \\ 
+        \textbf{Adjusted Demand} & 2 & 12 & 4 & 8 & 15 & 25 & 20 & 5 & 10 & 20 & 5 & 20 \\ \bottomrule
+    \end{tabular}
+    \caption{Anticipated Demand over 12 Months}
+    \label{tab:1-demand2}
+\end{table} 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ l  r r  r  r  r  r  r  r  r  r  r  r  r  r }\toprule
+        \textbf{Order Horizon} & 1 & 2 & 3 & 4 \\ \midrule
+        \textbf{Total Holding Cost} & 0 & 12 & 20 & 44 \\ \bottomrule
+    \end{tabular}
+    \caption{Total Holding Costs over Order Horizon}
+    \label{tab:1-partperiod}
+\end{table} 
+
+\noindent Since $44 > K = 40$, we terminate the algorithm. As 44 is closer to 40 than 20, the first order horizon is 4 periods, $y_{1} = r_{1} + r_{2} + r_{3} + r_{4}= \mathbf{26}$. We now start the next iteration with the $5^{\text{th}}$ month: 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ l  r r  r  r  r  r  r  r  r  r  r  r  r  r }\toprule
+        \textbf{Order Horizon} & 1 & 2 & 3  \\ \midrule
+        \textbf{Total Holding Cost} & 0 & 25 & 65 \\ \bottomrule
+    \end{tabular}
+    \caption{Total Holding Costs over Order Horizon}
+    \label{tab:1-partperiod2}
+\end{table} 
+
+\noindent Since $65 > K = 40$, we terminate the algorithm. As 25 is closer to 40 than 65, the second order horizon is 2 periods, $y_{2} = r_{5} + r_{6} = \mathbf{40}$. We now start the next iteration with the $7^{\text{th}}$ month: 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ l  r r  r  r  r  r  r  r  r  r  r  r  r  r }\toprule
+        \textbf{Order Horizon} & 1 & 2 & 3 & 4 \\ \midrule
+        \textbf{Total Holding Cost} & 0 & 5 & 25 & 85 \\ \bottomrule
+    \end{tabular}
+    \caption{Total Holding Costs over Order Horizon}
+    \label{tab:1-partperiod3}
+\end{table} 
+
+\noindent Since $85 > K = 40$, we terminate the algorithm. As 25 is closer to 40 than 85, the third order horizon is 3 periods, $y_{3} = r_{7} + r_{8} + r_{9} = \mathbf{35}$. We now start the next iteration with the $10^{\text{th}}$ month: 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ l  r r  r  r  r  r  r  r  r  r  r  r  r  r }\toprule
+        \textbf{Order Horizon} & 1 & 2 & 3 \\ \midrule
+        \textbf{Total Holding Cost} & 0 & 5 & 45 \\ \bottomrule
+    \end{tabular}
+    \caption{Total Holding Costs over Order Horizon}
+    \label{tab:1-partperiod3}
+\end{table} 
+
+\noindent Since $45 > K = 40$, we terminate the algorithm. As 45 is closer to 40 than 5, the fourth order horizon is 3 periods, $y_{10} = r_{10} + r_{11} + r_{12} = \mathbf{45}$. Since we have covered the entire order horizon of 12 months, we terminate the algorithm and conclude that the optimal order policy is $\mathbf{y} = \begin{pmatrix}
+    26 & 40 & 35 & 45
+\end{pmatrix}$ with the order months 1, 5, 7, and 9. The cost associated with this heuristic is given by the sum of the holding costs from the tables above, and the setup cost for 4 orders. We also account for the holding cost of the \textbf{8 units of ending inventory}, so we have \begin{align*}
+    C_{\text{total}} &= 44 + 25 + 25 + 45 + 4(40) + 8(1) \\ 
+    &= \boxed{\$307}
+\end{align*}
+
+\subsection*{(d) Lowest Cost}
+
+From the total costs of each heuristic, we see that \begin{align*}
+    C_{\text{S-M}} &= \mathbf{\$303} & C_{\text{LUC}} &= \$312 & C_{\text{PPB}} &= \$307 
+\end{align*} where the Silver-Meal Heuristic corresponds to the lowest cost for the 12 periods. 
 
 \newpage 
 
 \section*{Question 2}
 
+\subsection*{(a)}
 
+If the retailer is not happy with the outcomes of the approaches above, we will need to use a more exact method, which gives us the true optimal lot sizes. Optimal in this context means that the policy that minimises the total holding and setup cost over the planning horizon. This can be determined by casting the problem as a shortest-path problem, using Dynamic Programming (DP). An exhaustive search over all the feasible policies is impossible here, as we have $2^{12-1}$ policies for 12 planning periods. To solve this problem, we can use the Wagner-Whitin algorithm from the textbook, and solve it using a backwards DP approach. \\
 
-\subsection*{(a)}   
+\noindent DP is based on the principle of optimality, where if a problem consists of exactly $n$ stages and there are $r < n$ stages remaining, the optimal policy for the remaining stages is independent of the policy adopted in the previous stages. \\
 
+\noindent Here, we can formulate the problem as a one-way network with the number of nodes equal to exactly one more than the number of periods, i.e. 13 nodes. Every path through the network corresponds to a specific exact requirements policy. For any pair $(i,j)$ with $i < j$, if the arc $(i,j)$ is on the path, then ordering takes place in period $i$ and the order size is equal to the sum of the requirements in periods $i, i +1, \dots , j-1$. Period $j$ is the next period of ordering. All paths will end at period $n+1 = 13$. \\ 
+
+\noindent We now assign a value to each arc in the network, $c_{(i,j)}$ for path $(i,j)$. It is defined as the setup and holding cost of ordering in period $i$ to meet requirements through period $j-1$. Finally, we would like to determine the minimum-cost production schedule, i.e. the shortest path through the network via DP. Define $f_k$ as the minimum cost starting at node $k$, assuming that an order is placed in period $k$. The principle of optimality for this problem results in the following system of equations \begin{equation}
+    f_k = \min_{j>k} (c_{kj} + f_j) \qquad \text{for } k = 1, \dots, n
+\end{equation} with initial condition $f_{n+1} = f_{13} = 0$. In the backwards approach, we will define $C(t)$ as the minimum cost from period $t$ to the end.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{Images/dpcode.png}
+    \caption{Python Approach to solving Dynamic Programming for optimal solution}
+    \label{fig:2-dpcode}
+\end{figure} 
+
+\noindent From here, we see that we obtain the best possible order quantities to be \begin{equation*}
+    \mathbf{y} = \left( 18 , 0 , 0 , 23 , 0 , 50 , 0 , 0 , 35 , 0 , 0 , 20 \right)
+\end{equation*} corresponding to the order period of months $(1, 4, 6, 9, 12)$. The optimal cost calculated here is is the \textbf{minimum cost $C(t) = 295$}, which when added with the ending inventory cost of 8 units, we get $\$303$, which is the same as the Silver-Meal heuristic, and is the optimum lowest possible cost. 
 
 \subsection*{(b)}   
 
+Since the shipping has a limitation in sending more than 40 TMEs per month, we now have a lot sizing problem with capacity constraints, a variant of the original problem. In each period, we also need to consider the production capacities $(c_{1}, \dots , c_n)$, which will be 40 units for every month. Hence, we wish to find the optimal production quantities $(y_{1}, \dots, y_n)$ subjected to the constraints $y_i \leq c_i$, for $1 \leq i \leq n$. Since we have a large solution space here for a total of 12 periods, instead of using the manual process similar to the examples in the textbook, we will augment the previous DP algorithm approach with an additional capacity constraint to solve and find the solution by a more efficient manner. The code is shown in Figure \ref{fig:2-capacityconstraint} below. 
 
-\subsection*{(c)}   
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/capacityconstraint.png}
+    \caption{Incorporation of capacity constraint to DP}
+    \label{fig:2-capacityconstraint}
+\end{figure} 
 
+\noindent In this code, we introduce an additional variable \texttt{capacity} initiatied as 40 units, to act as the maximum number of TMEs that can be shipped. We see that the additional constraint posed to the original DP algorithm is the conditional statement which checks whether the current \texttt{cumulative demand} exceeds the \texttt{capacity} of 40 units. If it does, the code breaks out of the loop and continues for other iterations, ensuring no order quantity surpasses the limit. With this, we obtain a new optimal order quantity to be \begin{equation*}
+    \mathbf{y} = (26, 0, 0, 0, 40, 0, 35, 0, 0, 25, 0, 20)
+\end{equation*} corresponding to the order months of $(1, 5, 7, 10, 12)$, and an optimal cost of $\$299$. Considering the final inventory of 8 units, we have a total final cost for the capacity constraint subproblem to be $\$299 + \$8 = \$307$, which is the same as the Part Period Balancing Heuristic. 
+
+\newpage
 
 \section*{Question 3}
 
+We are given the following information: \begin{table}[H]
+    \centering
+    \begin{tabular}{l r r r r r r r }\toprule 
+        \textbf{Job} & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \midrule 
+        \textbf{Processing Time} & 3 & 6 & 8 & 4 & 2 & 1 & 7 \\ 
+        \textbf{Due Date} & 4 & 8 & 12 & 15 & 11 & 25 & 21 \\ \bottomrule
+    \end{tabular}
+    \caption{Sequencing for Jobs}
+    \label{tab:3-seq}
+\end{table}
+
+\subsection*{Mean Flow Time}
+
+The Mean Flow Time is given by \begin{equation}
+    F' = \frac{1}{n} \sum_{i=1}^{n} F_i
+\end{equation} In order to minimise the Mean Flow Time, we use the theorem: \\ 
+
+\begin{theorem}
+    The scheduling rule that minimises the mean flow time $F$' is the Shortest Processing Time (SPT). The SPT rule prioritises jobs with shorter processing times, which generally leads to a lower mean flow time. 
+\end{theorem}
+
+\noindent We now order the jobs in Table \ref{tab:3-seq} by the SPT rule:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l r r r r r r r | c }\toprule 
+        \textbf{Job} & 6 & 5 & 1 & 4 & 2 & 7 & 3 & \textbf{Total}\\ \midrule 
+        \textbf{Processing Time} & 1 & 2 & 3 & 4 & 6 & 7 & 8 \\ 
+        \textbf{Completion Time} & 1 & 3 & 6 & 10 & 16 & 23 & 31 & \textbf{90} \\ 
+        \textbf{Due Date} & 25 & 11 & 4 & 15 & 8 & 21 & 12 \\ 
+        \textbf{Tardiness} & 0 & 0 & 2 & 0 & 8 & 2 & 19 & 31 \\ \bottomrule
+    \end{tabular}
+    \caption{Sequencing for Jobs}
+    \label{tab:3-mft}
+\end{table}
+
+\noindent Here we have a mean flow time of $90 / 7 = \mathbf{12.857}$, with the sequence of jobs being 6, 5, 1, 4, 2, 7, 3 respectively. 
+
+\subsection*{Number of Tardy Jobs}
+
+To minimise the number of Tardy Jobs, we need to use Moore's algorithm. We first sequence the job via Earliest Due Date scheduling:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l r r r r r r r | c }\toprule 
+        \textbf{Job} & 1 & 2 & 5 & 3 & 4 & 7 & 6 & \textbf{Total}\\ \midrule 
+        \textbf{Processing Time} & 3 & 6 & 2 & 8 & 4 & 7 & 1 \\ 
+        \textbf{Completion Time} & 3 & 9 & 11 & 19 & 23 & 30 & 31 & \textbf{125} \\ 
+        \textbf{Due Date} & 4 & 8 & 11 & 12 & 15 & 21 & 25 \\ 
+        \textbf{Tardiness} & 0 & 1 & 0 & 7 & 8 & 9 & 6 & \\ \bottomrule
+    \end{tabular}
+    \caption{Earliest Due Date Scheduling}
+    \label{tab:3-tardy1}
+\end{table}
+
+\noindent We see that the first tardy job here is job 2, and there are 5 tardy jobs in total. We now consider jobs 1 and 2, and reject the job with the longest processing time, which is job 2. Now, the new sequence is 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l r r r r r r | c }\toprule 
+        \textbf{Job} & 1 & 5 & 3 & 4 & 7 & 6 & \textbf{Total}\\ \midrule 
+        \textbf{Processing Time} & 3 & 2 & 8 & 4 & 7 & 1 \\ 
+        \textbf{Completion Time} & 3 & 5 & 13 & 17 & 24 & 25 & 87 \\ 
+        \textbf{Due Date} & 4 &  11 & 12 & 15 & 21 & 25 \\ 
+        \textbf{Tardiness} & 0 &  0 & 1 & 2 & 3 & 0 & \\ \bottomrule
+    \end{tabular}
+    \caption{Minimise Tardy Jobs, Iteration 1}
+    \label{tab:3-tardy2}
+\end{table}
+
+\noindent At this point, the first tardy job is job 3, also with the longest processing time, so we reject it. The new sequence is now
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l r r r r r | c }\toprule 
+        \textbf{Job} & 1 & 5 &  4 & 7 & 6 & \textbf{Total}\\ \midrule 
+        \textbf{Processing Time} & 3 & 2 & 4 & 7 & 1 \\ 
+        \textbf{Completion Time} & 3 & 5 & 9 & 16 & 17 & 50 \\ 
+        \textbf{Due Date} & 4 &  11 & 15 & 21 & 25 \\ 
+        \textbf{Tardiness} & 0 &  0 & 0 & 0 & 0 & \\ \bottomrule
+    \end{tabular}
+    \caption{Minimise Tardy Jobs, Iteration 2}
+    \label{tab:3-tardy3}
+\end{table}
+
+\noindent Now, there are clearly no more tardy jobs, so we terminate the algorithm. We see that the optimal sequence of jobs to minimise the number of tardy jobs is (1, 5, 4, 7, 6, 2, 3) respectively.
+
+\subsection*{Maximum Lateness}
+
+To minimise maximum lateness, the jobs should be sequenced according to their due dates. That is, $d_{1} \leq d_{2} \leq \dots \leq d_n$. As such, we reference Table \ref{tab:3-tardy1} for Earliest Due Date (EDD) scheduling: 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l r r r r r r r | c }\toprule 
+        \textbf{Job} & 1 & 2 & 5 & 3 & 4 & 7 & 6 & \textbf{Total}\\ \midrule 
+        \textbf{Processing Time} & 3 & 6 & 2 & 8 & 4 & 7 & 1 \\ 
+        \textbf{Completion Time} & 3 & 9 & 11 & 19 & 23 & 30 & 31 & \textbf{125} \\ 
+        \textbf{Due Date} & 4 & 8 & 11 & 12 & 15 & 21 & 25 \\ 
+        \textbf{Tardiness} & 0 & 1 & 0 & 7 & 8 & 9 & 6 & \\ \bottomrule
+    \end{tabular}
+    \caption{Sequencing for Maximum Lateness with EDD scheduling}
+    \label{tab:3-maxlate}
+\end{table}
+
+\noindent From the table, we see that the optimal sequence of jobs to minimise Maximum Lateness is \textbf{(1, 2, 5, 3, 4, 7, 6)} respectively. 
+
+\subsection*{Makespan}
+
+The makespan is the flow time of the job that is completed last, and thus it is also the time required to complete all 7 jobs. In this example, there is no possible way to minimise the makespan since we are only considering one single machine here, and thus the makespan is just the sum of the processing time of all jobs in Table \ref{tab:3-seq}.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l r r r r r r r | c }\toprule 
+        \textbf{Job} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & \textbf{Total} \\ \midrule 
+        \textbf{Processing Time} & 3 & 6 & 8 & 4 & 2 & 1 & 7 & \textbf{31} \\ 
+        \textbf{Due Date} & 4 & 8 & 12 & 15 & 11 & 25 & 21 \\ \bottomrule
+    \end{tabular}
+    \caption{Minimising Makespan}
+    \label{tab:3-makespan}
+\end{table}
+
+\noindent From the table, we have the makespan to be \begin{equation*}
+    \text{Makespan} = 3 + 6 + 8 + 4 + 2 + 1 + 7 = 31
+\end{equation*} Thus, the makespan is 31 units of time, and will be the same irrespective of the job sequence for a one-machine scenario, and every job needs to be processed sequentially. We can just sequence it by index for example, namely (1, 2, 3, 4, 5, 6, 7).
 
 \newpage
 
 \section*{Question 4}
 
+\subsection*{First-Come-First-Served}
+
+We are given the following information in Table form. For a First-Come-First-Served (FCFS) schedule, we have the sequence $A-B-C-D$ as follows, starting from 1:00pm: 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{1.8cm} p{3cm} p{1.8cm} p{3cm} p{1.8cm} c} \toprule
+        \textbf{Delivery Vehicle} & \textbf{Unloading Time} & \textbf{Due Time} & \textbf{Completion Time} & \textbf{Flow Time} & \textbf{Tardiness} \\ \midrule 
+        A & 20 & 1:25pm & 1:20pm & 20 & 0 \\ 
+        B & 14 & 1:45pm & 1:34pm & 34 & 0 \\ 
+        C & 35 & 1:50pm & 2:09pm & 69 & \textbf{19} \\ 
+        D & 10 & 1:30pm & 2:19pm & 79 & \textbf{49} \\ \midrule
+        \textbf{Total} & & & & 202 & 68 \\ \bottomrule
+    \end{tabular}
+    \caption{First Come First Served Schedule}
+    \label{tab:4-fcfs}
+\end{table}
+
+\noindent From the table, we can compute the mean flow time as \begin{align*}
+    F' &= \frac{1}{4} \sum_{i=1}^{4} F_i \\ 
+    &= \frac{1}{4} \left( 20 + 34 + 69 + 79 \right) \\ 
+    &= 50.5
+\end{align*} Thus the mean flow time is \textbf{50.5 minutes}. The average tardiness can be found via \begin{align*}
+    \text{Average Tardiness} &= \frac{0 + 0 + 19 + 49}{4} \\ 
+    &= 17 \; \text{minutes}
+\end{align*} and clearly the number of tardy jobs here is \textbf{2.} 
+
+\subsection*{Shortest Processing Time}
+
+Here, we sequence the schedules based on increasing order of processing (unloading) times, specifically $D-B-A-C$. Similarly, if we start from 1:00pm:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{1.8cm} p{3cm} p{1.8cm} p{3cm} p{1.8cm} c} \toprule
+        \textbf{Delivery Vehicle} & \textbf{Unloading Time} & \textbf{Due Time} & \textbf{Completion Time} & \textbf{Flow Time} & \textbf{Tardiness} \\ \midrule 
+        D & 10 & 1:30pm & 1:10pm & 10 & 0 \\ 
+        B & 14 & 1:45pm & 1:24pm & 24 & 0 \\ 
+        A & 20 & 1:25pm & 1:44pm & 44 & \textbf{19} \\ 
+        C & 35 & 1:50pm & 2:19pm & 79 & \textbf{29} \\ \midrule
+        \textbf{Total} & & & & 157 & 68 \\ \bottomrule
+    \end{tabular}
+    \caption{Shortest Processing Time Schedule}
+    \label{tab:4-SPT}
+\end{table}
+
+\noindent From the table, we can compute the mean flow time as \begin{align*}
+    F' &= \frac{1}{4} \sum_{i=1}^{4} F_i \\ 
+    &= \frac{1}{4} \left( 10 + 24 + 45 + 79 \right) \\ 
+    &= 39.25
+\end{align*} Thus the mean flow time is \textbf{39.25 minutes}. The average tardiness can be found via \begin{align*}
+    \text{Average Tardiness} &= \frac{0 + 0 + 19 + 29}{4} \\ 
+    &= 12\; \text{minutes}
+\end{align*} and clearly the number of tardy jobs here is also \textbf{2.} 
+
+\subsection*{Earliest Due Date}
+
+Here, we sequence the schedules based on the increasing order of the due times, specifically $A-D-B-C$. Similarly, if we start from 1:00pm:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{1.8cm} p{3cm} p{1.8cm} p{3cm} p{1.8cm} c} \toprule
+        \textbf{Delivery Vehicle} & \textbf{Unloading Time} & \textbf{Due Time} & \textbf{Completion Time} & \textbf{Flow Time} & \textbf{Tardiness} \\ \midrule 
+        A & 20 & 1:25pm & 1:20pm & 20 & 0 \\ 
+        D & 10 & 1:30pm & 1:30pm & 30 & 0 \\ 
+        B & 14 & 1:45pm & 1:44pm & 44 & 0 \\ 
+        C & 35 & 1:50pm & 2:19pm & 79 & \textbf{29} \\ \midrule
+        \textbf{Total} & & & & 173 & 29 \\ \bottomrule
+    \end{tabular}
+    \caption{Earliest Due Date Schedule}
+    \label{tab:4-EDD}
+\end{table}
+
+\noindent From the table, we can compute the mean flow time as \begin{align*}
+    F' &= \frac{1}{4} \sum_{i=1}^{4} F_i \\ 
+    &= \frac{1}{4} \left( 20 + 30 + 44 + 79 \right) \\ 
+    &= 43.25
+\end{align*} Thus the mean flow time is \textbf{43.25 minutes}. The average tardiness can be found via \begin{align*}
+    \text{Average Tardiness} &= \frac{0 + 0 + 0 + 29}{4} \\ 
+    &= 7.25 \; \text{minutes}
+\end{align*} and clearly the number of tardy jobs here is now only \textbf{1.} 
+
+\subsection*{Critical Ratio}
+
+After a job has been processed, we sequence the schedules based on a critical ratio, namely \begin{equation}
+    \text{Critical Ratio (CR)} = \frac{\text{Processing Time}}{\text{Due Time} - \text{Current Time}}
+\end{equation} We schedule the next job in order to minimise the value of the critical ratio, and the idea behind this is to provide a balance between the SPT (only considers processing time), and EDD (only considers due dates). The ratio will grow larger as the current time approaches the due date, and more priority will be given to those jobs with longer processing times. Treating start time 1:00pm as $t = 0$, we have \begin{align*}
+     \text{CR}_A &= \frac{20}{25 - 0} & \text{CR}_B &= \frac{14}{45 - 0} & \text{CR}_C &= \frac{35}{50 - 0} & \text{CR}_D &= \frac{10}{30 - 0} \\ 
+     &= 0.80  & &= 0.311 & &= 0.7 & &= 0.333
+\end{align*}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{1.8cm} p{3cm} p{1.8cm} p{1.8cm} p{1.8cm}} \toprule
+        \textbf{Delivery Vehicle} & \textbf{Unloading Time} & \textbf{Due Time} & \textbf{Critical Ratio} \\ \midrule 
+        A & 20 & 25 & \textbf{0.8} \\ 
+        B & 14 & 45 & 0.311 \\ 
+        C & 35 & 50 & 0.7 \\ 
+        D & 10 & 30 & 0.333 \\ \bottomrule
+    \end{tabular}
+    \caption{Critical Ratio Schedule, $t = 0$}
+    \label{tab:4-CR1}
+\end{table}
+
+\noindent From here, we see that the vehicle with the largest ratio is A, so it is performed first. As it requires 20 minutes to process, we must update all the critical ratios in order to determine the next job to process, by setting $t=20$ now and recomputing the critical ratios: \begin{align*}
+    \text{CR}_B &= \frac{14}{45 - 20} & \text{CR}_C &= \frac{35}{50 - 20} & \text{CR}_D &= \frac{10}{30 - 20} \\ 
+    &= 0.56 & &= 1.167 & &= 1.0
+\end{align*}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{1.8cm} p{3cm} p{1.8cm} p{1.8cm} p{1.8cm}} \toprule
+        \textbf{Delivery Vehicle} & \textbf{Unloading Time} & \textbf{Due Time} & \textbf{Critical Ratio} \\ \midrule 
+        B & 14 & 45 & 0.56 \\ 
+        C & 35 & 50 & \textbf{1.167} \\ 
+        D & 10 & 30 & 1.0 \\ \bottomrule
+    \end{tabular}
+    \caption{Critical Ratio Schedule, $t = 20$}
+    \label{tab:4-CR2}
+\end{table}
+
+\noindent From here, we see that C has the highest ratio, so it is next in line of the sequence. Since C has a processing time of 35 minutes, we update the time $t = 55$ and recompute the critical ratios: \begin{align*}
+    \text{CR}_B &= \frac{35}{50 - 55} & \text{CR}_D &= \frac{10}{30 - 55} \\ 
+    &= -7 & &= -0.4
+\end{align*}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{1.8cm} p{3cm} p{1.8cm} p{1.8cm} p{1.8cm}} \toprule
+        \textbf{Delivery Vehicle} & \textbf{Unloading Time} & \textbf{Due Time} & \textbf{Critical Ratio} \\ \midrule 
+        B & 14 & 45 & -7 \\ 
+        D & 10 & 30 & -0.4 \\ \bottomrule
+    \end{tabular}
+    \caption{Critical Ratio Schedule, $t = 55$}
+    \label{tab:4-CR3}
+\end{table}
+
+\noindent From here, we see that both critical values are negative, indicating that both B and C are now late. Late values here are scheduled in SPT order, so they are done in the sequence D and then B. Thus, the sequence here is $A-C-D-B$. 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{1.8cm} p{3cm} p{1.8cm} p{3cm} p{1.8cm} c} \toprule
+        \textbf{Delivery Vehicle} & \textbf{Unloading Time} & \textbf{Due Time} & \textbf{Completion Time} & \textbf{Flow Time} & \textbf{Tardiness} \\ \midrule 
+        A & 20 & 1:25pm & 1:20pm & 20 & 0 \\ 
+        C & 35 & 1:50pm & 1:55pm & 55 & \textbf{5} \\ 
+        D & 10 & 1:30pm & 2:05pm & 65 & \textbf{35} \\ 
+        B & 14 & 1:45pm & 2:19pm & 79 & \textbf{34} \\ \midrule
+        \textbf{Total} & & & & 219 & 29 \\ \bottomrule
+    \end{tabular}
+    \caption{Earliest Due Date Schedule}
+    \label{tab:4-CR4}
+\end{table}
+
+
+\noindent From the table, we can compute the mean flow time as \begin{align*}
+    F' &= \frac{1}{4} \sum_{i=1}^{4} F_i \\ 
+    &= \frac{1}{4} \left( 20 + 55 + 65 + 79 \right) \\ 
+    &= 54.75
+\end{align*} Thus the mean flow time is \textbf{54.75 minutes}. The average tardiness can be found via \begin{align*}
+    \text{Average Tardiness} &= \frac{0 + 5 + 35 + 34}{4} \\ 
+    &= 18.5 \; \text{minutes}
+\end{align*} and clearly the number of tardy jobs here is now \textbf{3.} A summary of the values are given in the table below: \begin{table}[H]
+    \centering
+    \begin{tabular}{c c c c} \toprule
+        \textbf{Rule} & \textbf{Mean Flow Time} & \textbf{Average Tardiness} & \textbf{Number of Tardy Jobs} \\ \midrule
+        FCFS & 50.5 & 17 & 2 \\ 
+        SPT & 39.25 & 12 & 2 \\ 
+        EDD & 43.25 & 7.25 & 1 \\ 
+        CR & 54.74 & 18.5 & 3 \\ \bottomrule
+    \end{tabular}
+    \caption{Summary of Results for Four Scheduling Rates}
+    \label{tab:4-summary}
+\end{table}
 
 \newpage 
 
 \section*{Question 5}
 
+The context of the problem appears to be a scheduling problem for 5 jobs on two machines, with each job being one subject and the two machines being Laurel and Hardy. We rely on the crucial assumption here that each job must be processed in the order machine 1 (Laurel) then machine 2 (Hardy). Furthermore, we also assume that the optimization criterion here is to minimise the makespan. We consider the theorem: \\ 
+
+\begin{theorem}
+    The optimal solution for scheduling $n$ jobs on two machines is always a permutation schedule.
+\end{theorem} 
+
+\noindent Although the question \textbf{unintentionally left out details} on the order of the scheduled jobs, we will proceed with the previously stated assumptions regardless. We note that the total number of permutation schedules here is exactly $n! = 5! = 120$, and we can use the Johnson's Algorithm to efficiently solve the optimal schedule. Following Johnson's notation in the textbook, we first define the two machines as A and B (Laurel and Hardy) respectively. It is assumed that the jobs must be processed first on machine A then on B. Suppose that the jobs are labelled $i$, for $1\leq i\leq 5$, and define \begin{align*}
+    A_i = \text{ Processing time of job } i \text{ on machine A}. \\ 
+    B_i = \text{ Processing time of job } i \text{ on machine B}.
+\end{align*} Johnson's result is that the following rule is optimal for determining an order in which to process the jobs on the two machines: \begin{equation*}
+    \text{Rule: Job } i \text{ precedes job } i + 1 \text{ if } \min (A_i, B_{i+1}) < \min (A_{i+1}, B_i)
+\end{equation*} To implement this rule, we follow the steps: \begin{enumerate}
+    \item List the values of $A_i$ and $B_i$ in two columns
+    \item Find the smallest remaining element in the two columns. If it appears in column A, then schedule that job next. If it appears in column B, then schedule that job last. 
+    \item Cross of the jobs as they are scheduled. Stop when all jobs have been scheduled. 
+\end{enumerate} We have the following information in the table: \begin{table}[H]
+    \centering
+    \begin{tabular}{l r r }\toprule
+        \textbf{Job} & \textbf{Laurel (A)} & \textbf{Hardy (B)} \\ \midrule
+        1 & 40 & 20 \\ 
+        2 & 15 & 30 \\ 
+        3 & 25 & 10 \\
+        4 & 15 & 35 \\ 
+        5 & 20 & 25 \\ \bottomrule
+    \end{tabular}
+    \caption{Processing Times for each Job}
+    \label{tab:5-johnson}
+\end{table} 
+
+\noindent Following the algorithm, we get the following schedule:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/johnsoniterations.png}
+    \caption{Johnson Algorithm Iterations}
+    \label{fig:5-johnson}
+\end{figure} 
+
+\noindent This sequence gives us the following optimal sequencing schedule: $\left[ \text{HASS}, \text{ESA}, \text{AE}, \text{SMT}, \text{MSO} \right]$. To calculate the start and end times of each of the subjects, we schedule them accordingly for machine A and B: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/schedule.png}
+    \caption{Time Schedule for each subject}
+    \label{fig:5-schedule}
+\end{figure} 
+
+\noindent We note that there is no idle time here between each subject, even though machine B starts 15 minutes later than machine A. This is a feature of all optimal schedules.
 
 \newpage
 
