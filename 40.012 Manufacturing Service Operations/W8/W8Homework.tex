@@ -223,20 +223,27 @@ Let $Y_n$ be the number of people who board the bus at stop $n$. We have that $\
 \end{equation} Now, we can find the transition probability, which is \begin{align*}
     \mathbb{P}(X_{n+1} = j | X_n = i) &= \sum_{k=0}^{\infty} \mathbb{P}(X_{n+1} = j | X_n = i, Y_{n+1} = k) \cdot \mathbb{P}(Y_{n+1} = k) \\ 
     &= \sum_{k=0}^{\infty} \left( \displaystyle\binom{i}{i-j+k}p^{i - j + k}(1-p)^{j - k} \right) \cdot p_k
-\end{align*} To determine the limits of the summation operator, we need to consider the acceptable range of passengers alighting. Based on points 1 and 2 above, we need the inequalities $j \leq i + k$ and $k \leq j$ for the solution to be feasible. Reordering in terms of $k$, we get the following limits of summation: $k \geq j - i$ and $k \leq j$. We also need to consider that the lower limit must be $k \geq 0$, so we take the absolute value instead: $k \geq \vert j - i \vert$. Putting this together, we have an expression for the transition probability: \begin{equation}\label{eq:4-pij}
-     p_{i,\; j} = \mathbb{P}(X_{n+1} = j | X_n = i) = \sum_{k=\vert j - i \vert}^{j} \left( \displaystyle\binom{i}{i-j+k}p^{i - j + k}(1-p)^{j - k} \right) \cdot p_k \\ 
-\end{equation} The transition matrix will look something like (ignore first) \begin{equation}
-    P_{i, \; j} = \begin{blockarray}{cccccc}
-                    & \matindex{0} & \matindex{1} & \matindex{2} &\matindex{3} &\matindex{\dots} \\ 
-                \begin{block}{c[ccccc]}
-                    \matindex{0} & p_{1} & 1-p_{1} & 0 & 0 & \dots \\ 
-                    \matindex{1} & \frac{p_{2}}{ \sum_{i=2}^{\infty} p_i} & 0 & 1-\frac{p_{2}}{ \sum_{i=2}^{\infty} p_i} & 0 & \dots \\ 
-                    \matindex{2} & \frac{p_{3}}{ \sum_{i=3}^{\infty} p_i} & 0 & 0 & 1-\frac{p_{3}}{ \sum_{i=3}^{\infty} p_i} & \dots \\ 
-                    \matindex{3} & \frac{p_{4}}{ \sum_{i=4}^{\infty} p_i} & 0 & 0 & 0 & \dots \\ 
-                    \matindex{\vdots} & \vdots & \vdots & \vdots & \vdots & \ddots \\
-                \end{block}
-            \end{blockarray}
-\end{equation} To prove that $\{X_n, n \geq 0\}$ is a DTMC, we need to satisfy the Markov properties. It is memoryless as $X_{n+1}$, the number of passengers as it leaves the $(n+1)^{\text{th}}$ stop, only depends on the number of passengers as it leaves the $n^{\text{th}}$ stop $X_n$, the number of passengers that alight at the $n^{\text{th}}$ stop $A_n$, and the number of passengers who board at the $(n+1)^{\text{th}}$ stop $Y_{n+1}$. It is also time-invariant as the transition probabilities remain the same across all bus stops in the state space $\mathcal{S}$, from equation \ref{eq:4-pij}. 
+\end{align*} To determine the limits of the summation operator, we need to consider the acceptable range of passengers alighting. Based on points 1 and 2 above, we need the inequalities $j \leq i + k$ and $k \leq j$ for the solution to be feasible. Reordering in terms of $k$, we get the following limits of summation: $k \geq j - i$ and $k \leq j$. We also need to consider that the lower limit must be $k \geq 0$ for obvious reasons. Note that if $j - i < 0$, then this equality is not preserved, in which case we simply set $k = 0$ here. Putting this together, we have an expression for the transition probability: \begin{equation}\label{eq:4-pij}
+     p_{i,\; j} = \begin{cases}
+        \mathbb{P}(X_{n+1} = j | X_n = i) = \displaystyle\sum_{k= j - i}^{j} \left( \displaystyle\binom{i}{i-j+k}p^{i - j + k}(1-p)^{j - k} \right) \cdot p_k, \quad & \forall j \geq i \\ 
+        \mathbb{P}(X_{n+1} = j | X_n = i) = \displaystyle\sum_{k=0}^{j} \left( \displaystyle\binom{i}{i-j+k}p^{i - j + k}(1-p)^{j - k} \right) \cdot p_k, \quad & \forall j < i 
+     \end{cases}
+\end{equation} The transition probability matrix will just be a matrix of the individual transition probabilities for all valid values for $i$ and $j$, $P_{i,\;j} = \begin{bmatrix}
+    p_{i,j}
+\end{bmatrix}$. The transition matrix is too complicated to express here so we will leave it as that. \\ 
+
+%  The transition matrix will look something like (ignore first) \begin{equation}
+%     P_{i, \; j} = \begin{blockarray}{cccccc}
+%                     & \matindex{0} & \matindex{1} & \matindex{2} &\matindex{3} &\matindex{\dots} \\ 
+%                 \begin{block}{c[ccccc]}
+%                     \matindex{0} & p_{0} & p_{1} & p_{2} & p_{3} & \dots \\ 
+%                     \matindex{1} & p_{0}\cdot p^{1} & 0 & 1-\frac{p_{2}}{ \sum_{i=2}^{\infty} p_i} & 0 & \dots \\ 
+%                     \matindex{2} & p_{0}\cdot p^{2} & 0 & 0 & 1-\frac{p_{3}}{ \sum_{i=3}^{\infty} p_i} & \dots \\ 
+%                     \matindex{3} & p_{0}\cdot p^{3} & 0 & 0 & 0 & \dots \\ 
+%                     \matindex{\vdots} & \vdots & \vdots & \vdots & \vdots & \ddots \\
+%                 \end{block}
+%             \end{blockarray}
+\noindent To prove that $\{X_n, n \geq 0\}$ is a DTMC, we need to satisfy the Markov properties. It is memoryless as $X_{n+1}$, the number of passengers as it leaves the $(n+1)^{\text{th}}$ stop, only depends on the number of passengers as it leaves the $n^{\text{th}}$ stop $X_n$, the number of passengers that alight at the $n^{\text{th}}$ stop $A_n$, and the number of passengers who board at the $(n+1)^{\text{th}}$ stop $Y_{n+1}$. It is also time-invariant as the transition probabilities remain the same across all bus stops in the state space $\mathcal{S}$, from equation \ref{eq:4-pij}. 
 
 % \newpage
 

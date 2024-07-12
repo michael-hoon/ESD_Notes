@@ -1,0 +1,417 @@
+\documentclass[12pt]{article}
+
+\usepackage{Homework}
+% \usepackage{kbordermatrix}
+\usepackage{blkarray, bigstrut}
+\newcommand{\matindex}[1]{\mbox{\scriptsize#1}}% Matrix index
+
+% Creates the header and footer.
+\pagestyle{fancy}
+\fancyhead[l]{Michael Hoon, $1006617$}
+\fancyhead[c]{40.012 MSO 2.0 Homework 2}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt} %Creates a horizontal line underneath the header
+\renewcommand{\footrulewidth}{0.2pt}
+\setlength{\headheight}{15pt} %Sets enough space for the header
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\newcolumntype{L}{>{\centering\arraybackslash}m{4cm}}
+
+
+\begin{document}
+
+% \title{Another fancyhdr demo}
+% \author{\texttt{tex.stackexchange} \textit{et al}}
+% \maketitle
+% \newpage
+
+
+\title{ \normalsize \textsc{} 
+        \\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{40.012 Manufacturing and Service Operations 2.0} 
+        \HRule{2.0pt} \\ [0.6cm]
+        \LARGE{Homework 2} \vspace*{10\baselineskip}}
+		}
+\date{\today}
+\author{\textbf{Michael Hoon} \\ 1006617}
+
+\maketitle 
+
+\newpage
+
+\section*{Question 1}
+
+For a DTMC $\{X_n , n\geq 0\}$ with state space $\mathcal{S} = \{1,2,3,4,5\}$ and transition probability matrix \begin{equation}
+    P = \begin{bmatrix}
+        0.1 & 0.0 & 0.2 & 0.3 & 0.4 \\ 
+        0.0 & 0.6 & 0.0 & 0.4 & 0.0 \\ 
+        0.2 & 0.0 & 0.0 & 0.4 & 0.4 \\ 
+        0.0 & 0.4 & 0.0 & 0.5 & 0.1 \\ 
+        0.6 & 0.0 & 0.3 & 0.1 & 0.0
+    \end{bmatrix}
+\end{equation} We also have the initial distribution \begin{equation}
+    a = \begin{bmatrix}
+        0.5 & 0.0 & 0.0 & 0.0 & 0.5
+    \end{bmatrix}
+\end{equation}
+
+\subsection*{(a)}
+
+All computations in this homework have been done in \texttt{Python} with \texttt{Numpy} arrays. To compute $ \mathbb{P} \{X_2 = j\}, \; \forall j \in \mathcal{S}$, we consider a 2-step transition for $P$: \begin{align*}
+    \mathbb{P}\{X_2 = j\} &= [a \times P^{2}]_j \\ 
+    &= \begin{blockarray}{ccccc}
+        \matindex{1} & \matindex{2} & \matindex{3} & \matindex{4} & \matindex{5} \\ 
+        \begin{block}{[ccccc]}
+        0.205 & 0.08 & 0.13 & 0.325 & 0.26 \\ 
+        \end{block}
+    \end{blockarray}
+\end{align*}
+
+\subsection*{(b)}
+
+\begin{align*}
+    \mathbb{P}\{X_2 = 2 , X_4 = 5\} &= \mathbb{P}\{X_4 = 5 , X_2 = 2\} \\ 
+    &= \frac{ \mathbb{P}(X_4 = 5, X_2 = 2)}{ \mathbb{P}(X_2 = 2)} \times \mathbb{P}(X_2 = 2) \\ 
+    &= \mathbb{P}\{X_4 = 5 | X_2 = 2\} \times \mathbb{P}\{X_2 = 2\} \\ 
+    &= [a_2 \times P^{2}]_5 \times [a \times P^{2}]_2 \\ 
+    &= 0.00320
+\end{align*}
+
+\subsection*{(c)}
+
+Since we are given that $X_3 = 4$, we define a new initial distribution $a_2 = \begin{bmatrix}
+    0&0&0&1&0
+\end{bmatrix}$. Then, we have \begin{align*}
+    \mathbb{P}\{X_7 = 3 | X_3 = 4\} &= [a_3 \times P^{4}]_3 \\ 
+    &= 0.0318
+\end{align*}
+
+\section*{Question 2}
+
+For a DTMC $\{X_n, n\geq 0\}$ on the state space $\mathcal{S} = \{1,2,3,4\}$ with $X_0 = 1$, and transition probability matrix \begin{equation}
+    P = \begin{bmatrix}
+            0.4& 0.3& 0.2& 0.1 \\ 
+            0.5&0.0&0.0&0.5 \\ 
+            0.5&0.0&0.0&0.5 \\ 
+            0.1&0.2&0.3&0.4
+    \end{bmatrix}
+\end{equation}
+
+\subsection*{(a)}
+
+We first evaluate $P^{2}$: \begin{equation}
+    P^{2} = \begin{blockarray}{ccccc}
+            & \matindex{1} & \matindex{2} & \matindex{3} &\matindex{4} \\ 
+            \begin{block}{c[cccc]}
+                \matindex{1} & 0.42 & 0.14 & 0.11 & 0.33 \\ 
+                \matindex{2} & 0.25 & 0.25 & 0.25 & 0.25 \\ 
+                \matindex{3} & 0.25 & 0.25 & 0.25 & 0.25 \\ 
+                \matindex{4} & 0.33 & 0.11 & 0.14 & 0.42 \\
+            \end{block}
+    \end{blockarray}
+\end{equation} To find $ \mathbb{P}\{X_2 = 4\}$, we have a two-step transition: \begin{align*}
+    \mathbb{P}\{X_2 = 4 | X_{0} = 1\} &= \left[ P^{2} \right]_{1 \to 4} \\ 
+    &= 0.33
+\end{align*}
+
+\subsection*{(b)}
+
+\begin{align*}
+    \mathbb{P}(X_{1} = 2, X_{2} = 4, X_{3} = 1) &= \frac{ \mathbb{P}(X_{3} = 1. X_{2} = 4, X_{1} = 2)}{ \mathbb{P}(X_{2} = 4, X_{1} = 2)} \times \frac{ \mathbb{P}(X_{2} = 4, X_{1} = 2)}{ \mathbb{P}(X_{1} = 2)} \times \mathbb{P}(X_{1} = 2) \\ 
+    &= \mathbb{P}(X_{3} = 1 | X_2 = 4) \times \mathbb{P}(X_{2} = 4 | X_{1} = 2) \times \mathbb{P}(X_{1} = 2) \\ 
+    &= \left[ P \right]_{4 \to 1} \times \left[ P \right]_{2 \to 4} \times \left[ P \right]_{1 \to 2} \\ 
+    &= 0.015
+\end{align*}
+
+\subsection*{(c)}
+
+We note that this is a two-step transition probability, where \begin{align*}
+    \mathbb{P}(X_{7} = 4 | X_{5} = 2) &= \left[ P^{2} \right]_{2 \to  4} \\ 
+    &= 0.25
+\end{align*}
+
+\subsection*{(d)}
+
+Since we have that $X_{0} = 1$, then we set the initial distribution to be $a_3 = \begin{bmatrix}
+    1&0&0&0
+\end{bmatrix}$ Then, we can evaluate the expected value of $X_{3}$, given by a 3-step transition: \begin{align*}
+    \mathbb{E}(X_{3}) &= \sum_{i=0}^{\infty} i \cdot \mathbb{P}(X = i) \\ 
+    &= \begin{bmatrix}
+        1 & 2 & 3 & 4
+    \end{bmatrix} \times \left[ a_{3} \times P^{3} \right]^{\top} \\ 
+    &= 2.455
+\end{align*}
+
+\section*{Question 3}
+
+\subsection*{(a)}
+
+For a transition probability matrix, the row sum must equal to 1. Thus, it is given by \begin{equation}
+    P = \begin{blockarray}{cccc}
+        & \matindex{0} & \matindex{1} & \matindex{2} \\ 
+        \begin{block}{c[ccc]}
+            \matindex{0} & 0.8 & 0.2 & \mathbf{0} \\ 
+            \matindex{1} & 0.4 & 0.4 & \mathbf{0.2} \\ 
+            \matindex{2} & 0 & 0.4 & \mathbf{0.6} \\ 
+        \end{block}
+    \end{blockarray}   
+\end{equation}
+
+\subsection*{(b)}
+
+Given that there were 2 messages left in the data buffer after the third token bus departure, we want to find the probability that there will be no messages in the data buffer after the fifth token bus departure. This corresponds to the transition probability: \begin{align*}
+    \mathbb{P}(X_{5} = 0 | X_{3} = 2) &= \left[ P^{2} \right]_{2 \to 0} \\ 
+\end{align*} We then calculate $P^{2}$: \begin{equation}
+    P^{2} = \begin{blockarray}{cccc}
+        & \matindex{0} & \matindex{1} & \matindex{2} \\ 
+        \begin{block}{c[ccc]}
+            \matindex{0} & 0.72 & 0.24 & 0.04 \\ 
+            \matindex{1} & 0.48 & 0.32 & 0.2 \\ 
+            \matindex{2} & \mathbf{0.16} & 0.4 & 0.44 \\ 
+        \end{block}
+    \end{blockarray}
+\end{equation} We see that clearly, $\left[ P^{2} \right]_{2 \to 0} = 0.16$
+
+\subsection*{(c)}
+
+To obtain the long-run probabilities, we need to consider the limiting distribution $\pi$ of the DTMC. A limiting distribution exists if the DTMC is of a finite state, irreducible, and aperiodic. Since we are given that $\mathcal{S} = \{0,1,2\}$, this is clearly a finite-state space. We also have that $\left[ P^{2} \right]_{i,j} > 0, \; \forall i, j$, so the DTMC is irreducible. Lastly, $\left[ P \right]_{i,i} > 0$ for some state $i \in \mathcal{S}$, so the DTMC is aperiodic. Thus, a limiting distribution $\pi$ exists. To obtain $\pi$, we use the steady-state equations: \begin{align*}
+    \begin{bmatrix}
+        \pi_0 & \pi_1 & \pi_2
+    \end{bmatrix} &= \begin{bmatrix}
+        \pi_0 & \pi_1 & \pi_2
+    \end{bmatrix} \times P \\ 
+    &= \begin{bmatrix}
+        \pi_0 & \pi_1 & \pi_2
+    \end{bmatrix} \times \begin{bmatrix}
+        0.8 & 0.2 & 0 \\ 
+        0.4 & 0.4 & 0.2 \\ 
+        0 & 0.4 & 0.6
+    \end{bmatrix}
+\end{align*} and the sum property \begin{equation*}
+    \sum_{j=1}^{N} \pi_j = 1
+\end{equation*} From here, we solve the three simultaneous equations (omitting one of the redundant rows): \begin{align}
+    -0.2\pi_0 + 0.4 \pi_1 + 0 = 0 \\ 
+    0.2\pi_1 - 0.6 \pi_2 + 0.4 \pi_3 = 0 \\ 
+    \pi_1 + \pi_2 + \pi_3 = 1
+\end{align} and obtain the solution via a calculator: \begin{align*}
+    \pi_0 &= 0.57142857 & \pi_1 &= 0.28571429 & \pi_2 &= 0.14285714
+\end{align*} Therefore we have \begin{equation}
+    \pi = \begin{bmatrix}
+        0.57142857 & 0.28571429 & 0.14285714
+    \end{bmatrix}
+\end{equation} We can also confirm this with Python using a numpy array by exponentiating $P$ by a large power, say $1000$: \texttt{np.linalg.matrix\_power(P, 1000)}, which yields the same result. 
+
+\section*{Question 4}
+
+We have a DTMC with state space $\mathcal{S} = \{1,2,3\}$ and transition probability matrix \begin{equation}
+    P = \begin{blockarray}{cccc}
+        & \matindex{0} & \matindex{1} & \matindex{2} \\ 
+        \begin{block}{c[ccc]}
+            \matindex{0} & 0.6 & 0.4 & 0 \\ 
+            \matindex{1} & 0 & 0.5 & 0.5 \\ 
+            \matindex{2} & 0.2 & 0 & 0.8 \\ 
+        \end{block}
+    \end{blockarray}
+\end{equation} To compute the steady-state probabilities $\pi = \begin{bmatrix}
+    \pi_1 & \pi_2 & \pi_3
+\end{bmatrix}$, we use the steady-state equations: \begin{align*}
+    \begin{bmatrix}
+        \pi_1 & \pi_2 & \pi_3
+    \end{bmatrix} &= \begin{bmatrix}
+        \pi_1 & \pi_2 & \pi_3
+    \end{bmatrix} \times P \\ 
+    &= \begin{bmatrix}
+        \pi_1 & \pi_2 & \pi_3
+    \end{bmatrix} \times \begin{bmatrix}
+        0.6 & 0.4 & 0 \\ 
+        0 & 0.5 & 0.5 \\ 
+        0.2 & 0 & 0.8
+    \end{bmatrix}
+\end{align*} and the sum property \begin{equation*}
+    \sum_{j=1}^{N} \pi_j = 1
+\end{equation*} From here, we solve the three simultaneous equations (omitting one of the redundant rows): \begin{align}
+    -0.4\pi_0 + 0 + 0.2\pi_3 = 0 \\ 
+    0.4\pi_1 - 0.5 \pi_2 + 0 = 0 \\ 
+    \pi_1 + \pi_2 + \pi_3 = 1
+\end{align} and obtain the solution via a calculator: \begin{align*}
+    \pi_1 &= \frac{5}{19} & \pi_2 &= \frac{4}{19} & \pi_3 &= \frac{10}{19}
+\end{align*} Therefore we have \begin{equation}
+    \pi = \begin{bmatrix}
+        \displaystyle\frac{5}{19} & \displaystyle\frac{4}{19} & \displaystyle\frac{10}{19}
+    \end{bmatrix}
+\end{equation} We can also use Python with numpy arrays to calculate $P^{k}$ for a large $k = 1000$, using \\ \texttt{np.linalg.matrix\_power(P, 1000)} which yields: \begin{equation}
+    P^{\infty} = \begin{bmatrix}
+        0.26315789& 0.21052632& 0.52631579 \\ 
+        0.26315789& 0.21052632& 0.52631579 \\ 
+        0.26315789& 0.21052632& 0.52631579 
+    \end{bmatrix} \approx \begin{bmatrix}
+        \frac{5}{19} & \frac{4}{19} & \frac{10}{19} \\ 
+        \frac{5}{19} & \frac{4}{19} & \frac{10}{19} \\ 
+        \frac{5}{19} & \frac{4}{19} & \frac{10}{19} 
+    \end{bmatrix}
+\end{equation} which is corroborated with $\pi$. 
+
+\section*{Question 5}
+
+We have a DTMC with state space $\mathcal{S} = \{0,1,2, \dots\}$ and transition probabilities \begin{equation}
+    p_{i,\;j} = \begin{cases}
+        \frac{1}{i+2}, \quad & 0 \leq j \leq i + 1, \quad \text{ and } i \geq 0 \\ 
+        0, \quad &\text{otherwise}
+    \end{cases}
+\end{equation} To determine the steady-state probabilities of $X_n$ as $n \to \infty$, we need to determine the limiting distribution $\pi$. Here, we first look at a representation of the transition matrix for more intuition and to observe any patterns: \begin{equation*}
+    P_{i,\;j} = \begin{blockarray}{cccccc}
+        & \matindex{0} & \matindex{1} & \matindex{2} & \matindex{3} & \dots \\ 
+        \begin{block}{c[ccccc]}
+            \matindex{0} & \frac{1}{2} & \frac{1}{2} & 0 & 0 & \dots\\ [6pt]
+            \matindex{1} & \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 & \dots \\ [6pt]
+            \matindex{2} & \frac{1}{4} & \frac{1}{4} & \frac{1}{4} & \frac{1}{4} & \dots \\ [6pt]
+            \matindex{3} & \frac{1}{5} & \frac{1}{5} & \frac{1}{5} & \frac{1}{5} & \dots \\ 
+            \matindex{\vdots} & \vdots & \vdots & \vdots & \vdots & \ddots \\ 
+        \end{block}
+    \end{blockarray}
+\end{equation*} We will use the steady-state equations here: \begin{align*}
+    \begin{bmatrix}
+        \pi_0 & \pi_1 & \pi_2 & \pi_3 & \dots
+    \end{bmatrix} &= \begin{bmatrix}
+        \pi_0 & \pi_1 & \pi_2 & \pi_3 & \dots
+    \end{bmatrix} \times P_{i,\;j} \\ 
+    &= \begin{bmatrix}
+        \pi_0 & \pi_1 & \pi_2 & \pi_3 & \dots
+    \end{bmatrix} \times \begin{bmatrix}
+            \frac{1}{2} & \frac{1}{2} & 0 & 0 & \dots \\
+            \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 & \dots \\
+            \frac{1}{4} & \frac{1}{4} & \frac{1}{4} & \frac{1}{4} & \dots \\
+            \frac{1}{5} & \frac{1}{5} & \frac{1}{5} & \frac{1}{5} & \dots \\
+            \vdots & \vdots & \vdots & \vdots & \ddots 
+    \end{bmatrix}
+\end{align*} Now, we have a set of infinite simultaneous equations: \begin{align*}
+    \pi_0 &= \frac{1}{2}\pi_0 + \frac{1}{3 }\pi_1 + \frac{1}{4}\pi_2 + \frac{1}{5}\pi_3 + \dots \\ 
+    \pi_1 &= \frac{1}{2}\pi_0 + \frac{1}{3 }\pi_1 + \frac{1}{4}\pi_2 + \frac{1}{5}\pi_3 + \dots \\ 
+    \pi_2 &= 0 + \frac{1}{3 }\pi_1 + \frac{1}{4}\pi_2 + \frac{1}{5}\pi_3 + \dots \\ 
+    \pi_3 &= 0 + 0 + \frac{1}{4}\pi_2 + \frac{1}{5}\pi_3 + \dots \\ 
+    \pi_4 &= 0 + 0 + 0 + \frac{1}{5}\pi_3 + \dots \\ 
+    \vdots & =\quad \vdots
+\end{align*} We can identify a trend here, by substituting parts of the equations that are infinitely repeating: \begin{align}
+    \pi_0 &= \pi_1 \\ 
+    \pi_2 &= \pi_1 - \frac{1}{2}\pi_0 \\ \nonumber
+    &= \pi_1 - \frac{1}{2}\pi_1 \\ \nonumber
+    &= \pi_0 - \frac{1}{2}\pi_0 \\ \nonumber
+    &= \left( \frac{1}{2} \right)\pi_0 \\ 
+    \pi_3 &= \pi_2 - \frac{1}{3}\pi_1 \\ \nonumber
+    &= \frac{1}{2}\pi_1 - \frac{1}{3} \pi_1 \\ \nonumber
+    &= \frac{1}{6}\pi_0 \\ \nonumber
+    &= \left( \frac{1}{2 \times 3}\right)\pi_0 
+\end{align} \begin{align}
+    \pi_4 &= \pi_3 - \frac{1}{4}\pi_2 \\ \nonumber
+    &= \frac{1}{6}\pi_0 - \frac{1}{4}\pi_2 \\ \nonumber
+    &= \frac{1}{6}\pi_0 - \frac{1}{4}\left( \frac{1}{2} \right)\pi_1 \\ \nonumber
+    &= \frac{1}{24} \pi_0 \\ \nonumber
+    &= \left( \frac{1}{2 \times 3 \times 4} \right)\pi_0 \\ \nonumber
+    \vdots &= \quad \vdots \\ \label{eq:5-steadystatepi}
+    \pi_i &= \left( \frac{1}{i!} \right)\pi_0
+\end{align} We use the sum property here where \begin{equation}
+    \sum_{i=0}^{\infty} \pi_i = 1
+\end{equation} so from Equation \ref{eq:5-steadystatepi} we have: \begin{equation}\label{eq:5-infsum}
+    \sum_{i=0}^{\infty} \left( \frac{1}{i!} \right)\pi_0 = 1 
+\end{equation} To evaluate the infinite sum on the left, we need to consider the Taylor series of $e^{x}$ as a function of $x$ around 0: \begin{equation}
+    e^{x} = \sum_{n = 0}^{\infty} \frac{x^{n}}{n!}
+\end{equation} Here, setting $x = 1$ gives us \begin{equation}
+    e = \sum_{n=0}^{\infty} \frac{1}{n!}
+\end{equation} Using this expression in Equation \ref{eq:5-infsum} gives us: \begin{align*}
+    \sum_{i=0}^{\infty} \left( \frac{1}{i!} \right)\pi_0 &= 1 \\ 
+    e \cdot \pi_0 &= 1 \\ 
+    \pi_0 &= \frac{1}{e}
+\end{align*} With this, we can finally form the final steady-state distribution $\pi$ from Equation \ref{eq:5-steadystatepi} as: \begin{equation}
+    \pi = \begin{bmatrix}
+        \pi_i
+    \end{bmatrix} = \begin{bmatrix}
+        \left( \displaystyle\frac{1}{e \cdot i!} \right)
+    \end{bmatrix}, \qquad \forall i \in \mathcal{S}
+\end{equation}
+
+\section*{Question 6}
+
+We have the probability of an item being nondefective is $p$, and probability of an item being defective is thus $1-p$. Let $X_n$ be the number of items in storage at the beginning of the $n^{\text{th}}$ day. Since the demand is one item per day at the end of the day, and any demand that cannot be satisfied immediately is lost, then we define the infinite state space here as $\mathcal{S} = \{0,1,2, \dots\}$. We now consider the possible cases for transition probabilities. There are two cases here, where the current state $X_n = i >0$, and $X_n = i = 0$. \\ 
+
+\noindent For the case where $X_n = i > 0$, in the next state we can either lose 1 item, remain the same, or increase by 1 item, depending on the defective-ness of the item produced. \begin{enumerate}
+    \item $X_{n+1} = X_n - 1$: where we lose 1 item to demand, this corresponds to both produced items being defective and discarded. The probability of this happening is $(1-p)^{2}$. 
+    \item $X_{n+1} = X_n$: where the number of items remains the same, this corresponds to losing 1 item to demand and only 1 non-defective item is produced. Since they are produced independently, then there are two cases of this happening, in which the probability corresponds to $2 \times p(1-p)$. 
+    \item $X_{n+1} = X_n + 1$: where the number of items increased by one, coresponding to losing 1 item to demand and producing 2 non-defective items. The probability of this happening is $p^{2}$. 
+\end{enumerate} 
+
+\noindent Now for the case where $X_n = i = 0$, if in the current state we do not have any items, unsatisfied demand is lost. Here, we only have two cases as a result: \begin{enumerate}
+    \item $X_{n+1} = X_n + 1$: where the number of items increases by 1, which corresponds to producing 2 non-defective items and then losing 1 item to demand at the end of the day, with probability $p^{2}$.
+    \item $X_{n+1} = X_n$: where the number of items stays the same, which we can evaluate as the complement of the other case since we only have 2 possible cases here, thus $1 - p^{2}$.
+\end{enumerate}
+
+\noindent With this, we can first visualise the transition matrix to identify if there are any trends: \begin{align*}
+    P_{i,\;j} = \begin{blockarray}{cccccc}
+        & \matindex{0} & \matindex{1} & \matindex{2} & \matindex{3} & \dots \\ 
+        \begin{block}{c[ccccc]}
+            \matindex{0} & 1-p^{2} & p^{2} & 0 & 0 & \dots\\ 
+            \matindex{1} & (1-p)^{2} & 2p(1-p) & p^{2} & 0 & \dots \\ 
+            \matindex{2} & 0 & (1-p)^{2} & 2p(1-p) & p^{2} & \dots \\ 
+            \matindex{3} & 0 & 0 & (1-p)^{2} & 2p(1-p) & \dots \\ 
+            \matindex{\vdots} & \vdots & \vdots & \vdots & \vdots & \ddots \\ 
+        \end{block}
+    \end{blockarray}
+\end{align*} Similar to Question 5, we will use the steady-state balance equations to solve for the limiting distribution to find the steady state probabilities. Here, we have \begin{align*}
+    \begin{bmatrix}
+        \pi_0 & \pi_1 & \pi_2 & \pi_3 & \dots
+    \end{bmatrix} &= \begin{bmatrix}
+        \pi_0 & \pi_1 & \pi_2 & \pi_3 & \dots
+    \end{bmatrix} \times P_{i,\;j} \\ 
+    &= \begin{bmatrix}
+        \pi_0 & \pi_1 & \pi_2 & \pi_3 & \dots
+    \end{bmatrix} \times \begin{bmatrix}
+            1-p^{2} & p^{2} & 0 & 0 & \dots\\ 
+            (1-p)^{2} & 2p(1-p) & p^{2} & 0 & \dots \\ 
+            0 & (1-p)^{2} & 2p(1-p) & p^{2} & \dots \\ 
+            0 & 0 & (1-p)^{2} & 2p(1-p) & \dots \\ 
+            \vdots & \vdots & \vdots & \vdots & \ddots 
+    \end{bmatrix}
+\end{align*} which gives us a set of infinite simultaneous equations: \begin{align}\label{eq:6-pi0}
+    \pi_0 &= (1-p^{2})\pi_0 + (1-p)^{2}\pi_1 \\ \label{eq:6-pi1}
+    \pi_1 &= p^{2}\pi_0 + 2p(1-p)\pi_1 + (1-p)^{2} \pi_2 \\ 
+    \pi_2 &= 0 + p^{2} \pi_1 + 2p(1-p)\pi_2 + (1-p)^{2}\pi_3 \\ \nonumber
+    \vdots & =\quad \vdots \\ \label{eq:6-pij}
+    \pi_j &= p^{2}\pi_{j-1} + 2p(1-p)\pi_j + (1-p)^{2}\pi_{j+1}
+\end{align} Expanding out Equation \ref{eq:6-pi0}, we get \begin{align*}
+    \pi_0 &= \pi_0 - p^{2} \pi_0 + (1-p^{2})\pi_1 \\ 
+    \pi_1 &= \frac{p^{2}}{(1-p)^{2}}\pi_0
+\end{align*} Similarly for Equation \ref{eq:6-pi1}, \begin{align*}
+    \pi_1 &= p^{2} \pi_0 + 2p(1-p)\pi_1 + (1-p)^{2}\pi_2 \\ 
+    &= (1-p)^{2}\pi_1 + 2p(1-p)\pi_1 + (1-p)^{2}\pi_2 \\ 
+    &= \pi_1 - p^{2}\pi_1 + (1-p)^{2}\pi_2 \\ 
+    \pi_2 &= \frac{p^{2}}{(1-p)^{2}} \pi_1
+\end{align*} We start to see a trend here where (lazy to simplify Equation \ref{eq:6-pij})\begin{equation}\label{eq:6-pij1}
+    \pi_{j+1} = \frac{p^{2}}{(1-p)^{2}}\pi_{j}, \quad \forall j \in \mathcal{S}
+\end{equation} Now, we can use the sum property \begin{equation}
+    \sum_{j=0}^{\infty} \pi_j = 1
+\end{equation} Here, we have \begin{align} \nonumber
+    \pi_0 + \pi_1 + \pi_2 + \dots &= \pi_0 + \left( \frac{p^{2}}{(1-p)^{2}} \right)\pi_0 + \left( \frac{p^{2}}{(1-p)^{2}} \right)\left( \frac{p^{2}}{(1-p)^{2}} \right)\pi_0 + \dots \\ \nonumber
+    1 &= \pi_0 + \left( \frac{p^{2}}{(1-p)^{2}} \right)\pi_0 + \left( \frac{p^{2}}{(1-p)^{2}} \right)^{2}\pi_0 + \dots \\ \nonumber
+    1 &= \pi_0 \left( 1 + \left( \frac{p^{2}}{(1-p)^{2}} \right) + \left( \frac{p^{2}}{(1-p)^{2}} \right)^{2} + \dots \right) \\ \nonumber
+    1 &= \pi_0 \left( \frac{1}{1 - \frac{p^{2}}{(1-p)^{2}}} \right) \\ \label{eq:6-pi02}
+    \pi_0 &= 1 - \frac{p^{2}}{(1-p)^{2}}
+\end{align} Note that we have used the formula for a geometric series here, and for an infinite series to be convergent, we must require the constant term to be less than 1, i.e. \begin{align*}
+    \frac{p^{2}}{(1-p)^{2}} &< 1 \\ 
+    p < \frac{1}{2}
+\end{align*} for this to hold true. This also implies that the DTMC is recurrent (and of finite-state and irreducible from $P_{i,\;j}$), and hence a limiting distribution $\pi$ can even exist in the first place. From Equation \ref{eq:6-pij1}, we can deduce that \begin{equation}
+    \pi_{j} = \left( \frac{p^{2}}{(1-p)^{2}} \right)^{j} \pi_0
+\end{equation} by applying the formula recursively. Substituting Equation \ref{eq:6-pi02}, we finally deduce a general expression for the steady state probabilities $\pi_j$ to be \begin{equation}
+    \pi = \begin{bmatrix}
+        \pi_j
+    \end{bmatrix} = \begin{bmatrix}
+        \left( 1- \displaystyle\frac{p^{2}}{(1-p)^{2}} \right)\left( \displaystyle\frac{p^{2}}{(1-p)^{2}} \right)^{j}
+    \end{bmatrix}, \quad \forall j \in \mathcal{S}
+\end{equation}
+
+
+% \newpage
+
+% \bibliographystyle{plain}
+% \bibliography{refs3}
+
+\end{document}
