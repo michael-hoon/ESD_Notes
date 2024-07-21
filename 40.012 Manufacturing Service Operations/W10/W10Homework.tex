@@ -1,0 +1,230 @@
+\documentclass[12pt]{article}
+
+\usepackage{Homework}
+% \usepackage{kbordermatrix}
+\usepackage{blkarray, bigstrut}
+\newcommand{\matindexx}[1]{\mbox{\tiny#1}}% Matrix index
+\newcommand{\matindex}[1]{\mbox{\scriptsize#1}}% Matrix index
+
+% Creates the header and footer.
+\pagestyle{fancy}
+\fancyhead[l]{Michael Hoon, $1006617$}
+\fancyhead[c]{40.012 MSO 2.0 Homework 3}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt} %Creates a horizontal line underneath the header
+\renewcommand{\footrulewidth}{0.2pt}
+\setlength{\headheight}{15pt} %Sets enough space for the header
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\newcolumntype{L}{>{\centering\arraybackslash}m{4cm}}
+
+\begin{document}
+
+% \title{Another fancyhdr demo}
+% \author{\texttt{tex.stackexchange} \textit{et al}}
+% \maketitle
+% \newpage
+
+
+\title{ \normalsize \textsc{} 
+        \\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{40.012 Manufacturing and Service Operations 2.0} 
+        \HRule{2.0pt} \\ [0.6cm]
+        \LARGE{Homework 3} \vspace*{10\baselineskip}}
+		}
+\date{\today}
+\author{\textbf{Michael Hoon} \\ 1006617}
+
+\maketitle 
+
+\newpage
+
+\section*{Question 1}
+
+Let $X(t)$ represent the number of items in inventory at time $t$. Consider the assumption that $K > R$ and $R < X(0) \leq K + R$. We define the state space as $\mathcal{S} = \{0, 1, 2, \dots, R + K\}$. Here, $0$ represents when the inventory is empty, $R$ is the reorder point inventory level when an order is placed, and $K + R$ is the maximum inventory level after restocking. We consider the transition state dynamics here, where there are only two possibilities: \begin{enumerate}
+    \item Demand Arrival: According to $PP(\lambda)$, with rate $\lambda$. Each demand decreases the inventory by 1 if it is greater than 0. 
+    \item Restocking: When inventory drops to $R$, an order for $K$ items is placed. This is fulfilled with rate $\theta$. 
+\end{enumerate} To model the CTMC, we need to consider the transition rate matrix $Q$. Considering the above points, we have that: \begin{equation}
+    Q_{i \to j} = \begin{cases}
+        \lambda,  & i \to i-1, \; \forall \; 1 \leq i \leq R + K \\ 
+        \theta, & i \to i + K, \; \forall \; 0 \leq i \leq R \\ 
+        -\theta, & 0 \to 0 \\ 
+        -\theta-\lambda, & i \to i, \; \forall \; 1 \leq i\leq R \\ 
+        -\lambda, & i \to  i, \; \forall \; R+1 \leq i \leq R + K \\ 
+        0, & \text{otherwise}
+    \end{cases}
+\end{equation} The transition diagram is represented in the Figure below: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/Q1.png}
+    \caption{Transition State Diagram}
+    \label{fig:1-tsd}
+\end{figure} 
+
+\noindent Similarly, the transition matrix is given by: \begin{equation*}
+    Q = \tiny\begin{blockarray}{ccccccccccccccc}
+        & \matindexx{0} & \matindexx{1} & \matindexx{2} & \matindexx{\dots} & \matindexx{R - 1} & \matindexx{R} & \matindexx{R + 1} & \matindexx{\dots} & \matindexx{K - 1} & \matindexx{K} & \matindexx{K + 1} & \matindexx{\dots} & \matindexx{R + K - 1} & \matindexx{R + K} \\ 
+        \begin{block}{c[cccccccccccccc]}
+            \matindexx{0} & -\theta & 0 & 0 & \dots & 0 & 0 & 0 & \dots & 0 & \theta & 0 & \dots & 0 & 0 \\
+            \matindexx{1} & \lambda & -\lambda-\theta & 0 & \dots & 0 & 0 & 0 & \dots & 0 & 0 & \theta & \dots & 0 & 0 \\
+            \matindexx{2} & 0 & \lambda & -\lambda-\theta & \dots & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & 0 & 0 \\
+            \matindexx{\vdots} & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            \matindexx{R - 1} & 0 & 0 & 0 & \dots & -\theta-\lambda & 0 & 0 & \dots & 0 & 0 & 0 & \dots & \theta & 0 \\
+            \matindexx{R} & 0 & 0 & 0 & \dots & \lambda & -\lambda-\theta & 0 & \dots & 0 & 0 & 0 & \dots & 0 & 0 \\
+            \matindexx{R + 1} & 0 & 0 & 0 & \dots & 0 & \lambda & -\lambda & \dots & 0 & 0 & 0 & \dots & 0 & 0 \\
+            \matindexx{\vdots} & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            \matindexx{K - 1} & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & -\lambda & 0 & 0 & \dots & 0 & 0 \\
+            \matindexx{K} & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & \lambda & -\lambda & 0 & \dots & 0 & 0 \\
+            \matindexx{K+1} & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & 0 & \lambda & -\lambda & \dots & 0 & 0 \\
+            \matindexx{\vdots} & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            \matindexx{R + K - 1} & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & -\lambda & 0 \\
+            \matindexx{R + K} & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & \lambda & -\lambda \\
+        \end{block}
+    \end{blockarray}
+\end{equation*}
+
+\section*{Question 2}
+
+Let $X(t)$ represent the number of customers waiting at the bus station at time $t$. Customers arrive in a $PP(\lambda)$ fashion with rate $\lambda$. The state space here is $\mathcal{S} = \{0,1,2,\dots\}$ since we have no limit to the number of customers arriving. We need to consider the transition dynamics: \begin{enumerate}
+    \item Customer Arrivals: Arrive with rate $\lambda$, increasing the nunmber of customers waiting by 1. 
+    \item Bus Arrivals: Arrive with rate $\mu$. When it arrives, it can take up to $k$ customers, departing with $\min (x,k)$ passengers with $x$ customers waiting. 
+\end{enumerate} 
+
+\noindent To model the CTMC, we consider the transition rate diagram. Considering the above points, we have that up until $k$, the transitions will all loop back to $0$ since the bus will depart with a maximum of $k$ customers. Beyond this, there will be leftover customers still waiting at the bus stop. The diagram is given below: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/Q2.png}
+    \caption{Transition State Diagram}
+    \label{fig:2-tsd}
+\end{figure} 
+
+\noindent Similarly, the transition matrix is given by: \begin{equation*}
+    Q = \begin{blockarray}{cccccccccc}
+        & \matindex{0} & \matindex{1} & \matindex{2} & \matindex{\dots} & \matindex{k - 1} & \matindex{k} & \matindex{k + 1} & \matindex{k + 2} & \matindex{\dots} \\
+        \begin{block}{c[ccccccccc]}
+            \matindex{0} & -\lambda & \lambda & 0 & \dots & 0 & 0 & 0 & 0 & \dots \\ 
+            \matindex{1} & -\mu & -\mu-\lambda & \lambda & \dots & 0 & 0 & 0 & 0 & \dots \\ 
+            \matindex{2} & -\mu & 0 & -\mu-\lambda & \dots & 0 & 0 & 0 & 0 & \dots \\ 
+            \matindex{\vdots} & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots & \ddots \\ 
+            \matindex{k-1} & -\mu & 0 & 0 & \dots & -\mu-\lambda & \lambda & 0 & 0 & \dots \\ 
+            \matindex{k} & -\mu & 0 & 0 & \dots & 0 & -\mu-\lambda & \lambda & 0 & \dots \\ 
+            \matindex{k+1} & 0 & -\mu & 0 & \dots & 0 & 0 & -\mu-\lambda & \lambda & \dots \\ 
+            \matindex{k+2} & 0 & 0 & -\mu & \dots & 0 & 0 & 0 & -\mu-\lambda & \dots \\ 
+            \matindex{\vdots} & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots & \ddots \\ 
+        \end{block}
+    \end{blockarray}
+\end{equation*}
+
+\section*{Question 3}
+
+To model the system, we need to define a bivariate CTMC $(X(t), Y(t))$, where $X(t)$ is the number of customers in the line at time $t$, and $Y(t)$ is an indicator variable, given by: \begin{equation}
+    Y(t) = \begin{cases}
+        1, & \text{staff assigned to line at time } t \\ 
+        0 & \text{otherwise}
+    \end{cases}
+\end{equation} To define the state space, we need to consider the possible transitions: \begin{enumerate}
+    \item Customer Arrivals: arrive according to $PP(\lambda)$ with rate $\lambda$, increasing $X(t)$ by 1 regardless of $Y(t)$. 
+    \item Processing Application: If $Y(t) = 1$, staff member processes applications one by one, with rate $\mu$. This decreases $X(t)$ by 1. 
+    \item Staff Assignment: If $Y(t) = 0$ and $X(t)$ reaches $N$, a staff member is assigned, and $Y(t) = 0 \to 1$. If $Y(t) = 1$ and $X(t) = x \to 0$, (after processing final customer), then the staff member leaves $Y(t) = 1 \to 0$.
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/Q3.png}
+    \caption{Transition State Diagram}
+    \label{fig:3-tsd}
+\end{figure} 
+
+\noindent We define explicitly the transition rate matrix $Q$ as follows: \begin{equation}
+    Q_{i \to j} = \begin{cases}
+        \lambda, & \text{if } (i,y) \to (i+1,y), \;\forall \; 0 \leq i \leq N-1, \; y \in \{0,1\} \\ 
+        \lambda, & \text{if } (N-1, 0) \to (N,1) \\ 
+        -\lambda, & \text{if } (i, 0) \to (i,0), \;\forall \; 0 \leq i \leq N-1 \\ 
+        \mu, & \text{if } (i, 1) \to (i-1,1), \; \forall \; i>1 \\ 
+        \mu, & \text{if } (1,1) \to (0,0) \\ 
+        -\lambda-\mu, & \text{if } (i, 1) \to  (i,1), \; \forall \; i > 1 \\ 
+        0, & \text{otherwise}
+    \end{cases}
+\end{equation} below shows the matrix: \begin{equation*}
+    Q = \begin{blockarray}{ccccccccccccc}
+        & \matindex{(0,0)} & \matindex{(1,0)} &\matindex{(2,0)} &\matindex{\dots} &\matindex{(N-1,0)} &\matindex{(1,1)} &\matindex{(2,1)} &\matindex{\dots} &\matindex{(N-1,1)} &\matindex{(N,1)} &\matindex{(N+1,1)} &\matindex{\dots} \\ 
+        \begin{block}{c[cccccccccccc]}
+            \matindex{(0,0)} & -\lambda & \lambda & 0 & \dots & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots \\
+            \matindex{(1,0)} & 0 & -\lambda & \lambda & \dots & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots \\
+            \matindex{(2,0)} & 0 & 0 & -\lambda & \dots & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots \\
+            \matindex{\vdots} & \vdots & \vdots &\vdots & \ddots &\vdots & \vdots &\vdots & \ddots &\vdots & \vdots &\vdots & \ddots \\ 
+            \matindex{(N-1,0)} & 0 & 0 & 0 & \dots & -\lambda & 0 & 0 & \dots & 0 & \lambda & 0 & \dots \\
+            \matindex{(1,1)} & \mu & 0 & 0 & \dots & 0 & -\mu-\lambda & \lambda & \dots & 0 & 0 & 0 & \dots \\
+            \matindex{(2,1)} & 0 & 0 & 0 & \dots & 0 & \mu & -\mu-\lambda & \dots & 0 & 0 & 0 & \dots \\
+            \matindex{\vdots} & \vdots & \vdots &\vdots & \ddots &\vdots & \vdots &\vdots & \ddots &\vdots & \vdots &\vdots & \ddots \\ 
+            \matindex{(N-1,1)} & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & -\mu-\lambda & \lambda & 0 & \dots \\
+            \matindex{(N,1)} & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & \mu & -\mu-\lambda & \lambda & \dots \\
+            \matindex{(N+1,1)} & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & 0 & \mu & -\mu-\lambda & \dots \\
+            \matindex{\vdots} & \vdots & \vdots &\vdots & \ddots &\vdots & \vdots &\vdots & \ddots &\vdots & \vdots &\vdots & \ddots \\ 
+        \end{block}
+    \end{blockarray}
+\end{equation*}
+
+\section*{Question 4}
+
+Let $X(t)$ be the number of customers in the system at time $t$. Since there can be any non-negative number of customers, the state space is $\mathcal{S} = \{0,1,2,\dots\}$. We consider the transition dynamics of the system: \begin{enumerate}
+    \item Customer Arrivals: Poisson process with rate $\lambda$, increases $X(t)$ by 1. 
+    \item Service Completions: Service times exponentially distributed with rate $\mu$, decreases $X(t)$ by 1. 
+    \item Customer Abandonment: Patience time exponentially distributed with rate $\theta$, decreases $X(t)$ by 1.
+\end{enumerate} With $n$ number of customers, the rate of their patience time increases with $n\theta$ as we need to consider the minimum of all the exponentially distributed patience times, as the minimum value is the customer who leaves the queue first. Thus, we have two variables which decrease $X(t)$. Considering this, we draw the transition state diagram, given below: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/Q4.png}
+    \caption{Transition State Diagram}
+    \label{fig:4-tsd}
+\end{figure} 
+
+\noindent The transition rate matrix is defined explicitly as: \begin{equation}
+    Q_{i \to j} = \begin{cases}
+        \lambda, & \text{if } i \to i+1 \\ 
+        -\lambda, & \text{if } 0 \to 0 \\ 
+        i\theta + \mu, & \text{if } i+1 \to i, \; \forall \; i \geq 0 \\ 
+        -(\lambda + i\theta+\mu), & \text{if } i \to i, \; \forall \; i \geq 1 
+    \end{cases}
+\end{equation} The matrix is expressed below: \begin{equation*}
+    Q = \begin{blockarray}{ccccccc}
+        & \matindex{0} & \matindex{1} & \matindex{2} & \matindex{3} &\matindex{4} &\matindex{\dots} \\
+        \begin{block}{c[cccccc]}
+            \matindex{0} & -\lambda & \lambda & 0 & 0 & 0 & \dots \\ 
+            \matindex{1} & \theta + \mu & -(\lambda+\theta+\mu) & \lambda & 0 & 0 & \dots \\ 
+            \matindex{2} & 0 & 2\theta+\mu & -(\lambda+2\theta+\mu) & \lambda & 0 & \dots \\ 
+            \matindex{3} & 0 & 0 & 3\theta+\mu & -(\lambda+3\theta+\mu) & \lambda & \dots \\ 
+            \matindex{4} & 0 & 0 & 0 & 4\theta+\mu & -(\lambda+4\theta+\mu) & \dots \\ 
+            \matindex{\vdots} & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots \\
+        \end{block}
+    \end{blockarray}
+\end{equation*}
+
+\section*{Question 5}
+
+Let $X(t)$ be the number of backlogged messages at time $t$, and $Y(t)$ represent an indicator variable where: \begin{equation}
+    Y(t) = \begin{cases}
+        1, & \text{if message under transmission} \\ 
+        0, & \text{otherwise}
+    \end{cases}
+\end{equation} Here, we have a bivariate CTMC $\left( X(t), Y(t) \right)$. To determine the state space, we need to consider the following processes: \begin{enumerate}
+    \item Arrivals, with rate $\lambda$: If no message is being transmitted ($Y(t) = 0$), an arriving message immediately starts transmission. This is represented by the state transition $(i,0) \to (i,1)$.
+    \item Collisions: If a message is being transmitted ($Y(t) = 1$), an arriving message that attempts transmission causes a collision, causing both messages to be backlogged. This is represented by the state transition $(i,1) \to (i+2,0)$, with rate $\lambda$. 
+    \item Successful Transmission: Occurs when a message transmission occurs without collisions. This is represented by the state transition $(i,1) \to (i,0)$, with rate $\mu$. 
+    \item Retransmission from backlogged message: Occurs when a backlogged message retries transmission. This is represented by the state transfer $(i,0) \to (i-1, 1)$, when there are no ongoing message transmission ($Y(t) = 0$). To determine the rate of this process, we need to consider the \textbf{minimum of all the waiting times} of the backlogged messages. The minimum of the exponentially distributed waiting times result in a faster rate, given by $i\theta$. For the case where there is an ongoing message transmission ($Y(t) = 1$) and a backlogged message tries to transmit, this is represented by the state transition: $(i,1) \to (i+1,0)$.
+\end{enumerate} The state space here is thus given by $\mathcal{S} = \{(n,y): n \geq 0, y \in \{0,1\}\}$. With this, we can visualise the state diagram:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Images/Q5.png}
+    \caption{Transition State Diagram}
+    \label{fig:5-tsd}
+\end{figure} 
+
+\noindent Since the question only asked for a rate diagram to model the CTMC process, I will not provide the transition rate matrix $Q$ here (also to save my sanity). 
+
+\end{document}
