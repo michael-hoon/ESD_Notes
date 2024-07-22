@@ -1,0 +1,347 @@
+\documentclass[12pt]{article}
+
+\usepackage{Homework}
+% \usepackage{kbordermatrix}
+\usepackage{blkarray, bigstrut}
+\newcommand{\matindexx}[1]{\mbox{\tiny#1}}% Matrix index
+\newcommand{\matindex}[1]{\mbox{\scriptsize#1}}% Matrix index
+
+% Creates the header and footer.
+\pagestyle{fancy}
+\fancyhead[l]{Michael Hoon, $1006617$}
+\fancyhead[c]{40.012 MSO 2.0 Homework 4}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt} %Creates a horizontal line underneath the header
+\renewcommand{\footrulewidth}{0.2pt}
+\setlength{\headheight}{15pt} %Sets enough space for the header
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\newcolumntype{L}{>{\centering\arraybackslash}m{4cm}}
+
+\begin{document}
+
+% \title{Another fancyhdr demo}
+% \author{\texttt{tex.stackexchange} \textit{et al}}
+% \maketitle
+% \newpage
+
+
+\title{ \normalsize \textsc{} 
+        \\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{40.012 Manufacturing and Service Operations 2.0} 
+        \HRule{2.0pt} \\ [0.6cm]
+        \LARGE{Homework 4} \vspace*{10\baselineskip}}
+		}
+\date{\today}
+\author{\textbf{Michael Hoon} \\ 1006617}
+
+\maketitle 
+
+\newpage
+
+\section*{Question 1 \& 2}
+
+Let $X(t)$ represent the number of items in inventory at time $t$. From Homework 1, the $Q$ matrix is given as: \begin{equation*}
+    Q = \tiny\begin{blockarray}{ccccccccccccccc}
+        & \matindexx{0} & \matindexx{1} & \matindexx{2} & \matindexx{\dots} & \matindexx{R - 1} & \matindexx{R} & \matindexx{R + 1} & \matindexx{\dots} & \matindexx{K - 1} & \matindexx{K} & \matindexx{K + 1} & \matindexx{\dots} & \matindexx{R + K - 1} & \matindexx{R + K} \\ 
+        \begin{block}{c[cccccccccccccc]}
+            \matindexx{0} & -\theta & 0 & 0 & \dots & 0 & 0 & 0 & \dots & 0 & \theta & 0 & \dots & 0 & 0 \\
+            \matindexx{1} & \lambda & -\lambda-\theta & 0 & \dots & 0 & 0 & 0 & \dots & 0 & 0 & \theta & \dots & 0 & 0 \\
+            \matindexx{2} & 0 & \lambda & -\lambda-\theta & \dots & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & 0 & 0 \\
+            \matindexx{\vdots} & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            \matindexx{R - 1} & 0 & 0 & 0 & \dots & -\theta-\lambda & 0 & 0 & \dots & 0 & 0 & 0 & \dots & \theta & 0 \\
+            \matindexx{R} & 0 & 0 & 0 & \dots & \lambda & -\lambda-\theta & 0 & \dots & 0 & 0 & 0 & \dots & 0 & 0 \\
+            \matindexx{R + 1} & 0 & 0 & 0 & \dots & 0 & \lambda & -\lambda & \dots & 0 & 0 & 0 & \dots & 0 & 0 \\
+            \matindexx{\vdots} & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            \matindexx{K - 1} & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & -\lambda & 0 & 0 & \dots & 0 & 0 \\
+            \matindexx{K} & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & \lambda & -\lambda & 0 & \dots & 0 & 0 \\
+            \matindexx{K+1} & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & 0 & \lambda & -\lambda & \dots & 0 & 0 \\
+            \matindexx{\vdots} & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            \matindexx{R + K - 1} & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & -\lambda & 0 \\
+            \matindexx{R + K} & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & 0 & 0 & 0 & \dots & \lambda & -\lambda \\
+        \end{block}
+    \end{blockarray}
+\end{equation*} From question 1, we are given the following values: $K = 4$, $\lambda = 2$ and $\frac{1}{\theta} = 1$. For the 3 different values of $R$, i.e. $R = 1$, $R = 2$, $R = 3$, we have 3 different matrices for $Q$, $Q_1$, $Q_{2}$, and $Q_3$, corresponding to each value of $R$ respectively. Starting with $R = 1$, we have: \begin{equation}
+    Q_1 = \begin{blockarray}{ccccccc}
+        & \matindex{0} & \matindex{1} & \matindex{2} & \matindex{3} &\matindex{4} &\matindex{5} \\
+        \begin{block}{c[cccccc]}
+            \matindex{0} & -1 & 0 & 0 & 0 & 1 & 0 \\ 
+            \matindex{1} & 2 & -3 & 0 & 0 & 0 & 1 \\ 
+            \matindex{2} & 0 & 2 & -2 & 0 & 0 & 0 \\ 
+            \matindex{3} & 0 & 0 & 2 & -2 & 0 & 0 \\ 
+            \matindex{4} & 0 & 0 & 0 & 2 & -2 & 0 \\ 
+            \matindex{5} & 0 & 0 & 0 & 0 & 2 & -2 \\ 
+        \end{block}
+    \end{blockarray}
+\end{equation} To obtain the long-run probabilities, we need to use the steady-state equations, i.e. \begin{equation}
+    \pi Q = \mathbf{0}
+\end{equation} where $\pi$ is the steady-state probability matrix with entries $p_i$, and $ \mathbf{0}$ is a vector of zeroes of similar dimension. From $Q_{1}$, we have the following expression: \begin{align*}
+    \begin{bmatrix}
+        p_1 & p_2 & p_3 & p_4 & p_5
+    \end{bmatrix} \begin{bmatrix}
+        -1 & 0 & 0 & 0 & 1 & 0 \\
+        2 & -3 & 0 & 0 & 0 & 1  \\
+        0 & 2 & -2 & 0 & 0 & 0  \\
+        0 & 0 & 2 & -2 & 0 & 0  \\
+        0 & 0 & 0 & 2 & -2 & 0 \\
+        0 & 0 & 0 & 0 & 2 & -2
+    \end{bmatrix} = \begin{bmatrix}
+        0 & 0 & 0 & 0 & 0
+    \end{bmatrix}
+\end{align*} which gives us the following simultaneous equations: \begin{align*}
+    -p_{0} + 2 p_{1} &= 0 \\ 
+    -3p_{1} + 2 p_{2} &= 0 \\ 
+    -2p_{2} + 2 p_{3} &= 0 \\ 
+    -2p_{3} + 2 p_{4} &= 0 \\ 
+    p_{0}-2p_{4} + 2 p_{5} &= 0 \\ 
+    p_{1}-p_{5} &= 0 \\ 
+    p_{1}+p_{2}+p_{3}+p_{4}+p_{5} &= 1 
+\end{align*} Solving this using an online solver, we get the following values for the steady-state distribution: \begin{align*}
+    \pi &= \begin{bmatrix}
+        p_{0} & p_{1} & p_{2} & p_{3} & p_{4} & p_{5}
+    \end{bmatrix} \\ 
+    &= \begin{bmatrix}
+        \displaystyle\frac{1}{4} & \displaystyle\frac{1}{8} & \displaystyle\frac{3}{16} & \displaystyle\frac{3}{16} & \displaystyle\frac{3}{16} & \displaystyle\frac{1}{16}
+    \end{bmatrix}
+\end{align*} Now we repeat the process for $Q_{2}$, with $R = 2$. \begin{equation}
+    Q_2 = \begin{blockarray}{cccccccc}
+        & \matindex{0} & \matindex{1} & \matindex{2} & \matindex{3} &\matindex{4} &\matindex{5} &\matindex{6}\\
+        \begin{block}{c[ccccccc]}
+            \matindex{0} & -1 & 0 & 0 & 0 & 1 & 0 & 0 \\ 
+            \matindex{1} & 2 & -3 & 0 & 0 & 0 & 1 & 0 \\ 
+            \matindex{2} & 0 & 2 & -3 & 0 & 0 & 0 & 1 \\ 
+            \matindex{3} & 0 & 0 & 2 & -2 & 0 & 0 & 0 \\ 
+            \matindex{4} & 0 & 0 & 0 & 2 & -2 & 0 & 0 \\ 
+            \matindex{5} & 0 & 0 & 0 & 0 & 2 & -2 & 0 \\ 
+            \matindex{6} & 0 & 0 & 0 & 0 & 0 & 2 & -2 \\ 
+        \end{block}
+    \end{blockarray}
+\end{equation} To obtain the long-run probabilities, we have from $Q_{2}$: \begin{align*}
+    \begin{bmatrix}
+        p_1 & p_2 & p_3 & p_4 & p_5 & p_6
+    \end{bmatrix} \begin{bmatrix}
+        -1 & 0 & 0 & 0 & 1 & 0 & 0 \\ 
+        2 & -3 & 0 & 0 & 0 & 1 & 0 \\ 
+        0 & 2 & -3 & 0 & 0 & 0 & 1 \\ 
+        0 & 0 & 2 & -2 & 0 & 0 & 0 \\ 
+        0 & 0 & 0 & 2 & -2 & 0 & 0 \\ 
+        0 & 0 & 0 & 0 & 2 & -2 & 0 \\ 
+        0 & 0 & 0 & 0 & 0 & 2 & -2
+    \end{bmatrix} = \begin{bmatrix}
+        0 & 0 & 0 & 0 & 0 & 0
+    \end{bmatrix}
+\end{align*} which gives us the following simultaneous equations: \begin{align*}
+    -p_{0} + 2 p_{1} &= 0 \\ 
+    -3p_{1} + 2 p_{2} &= 0 \\ 
+    -3p_{2} + 2 p_{3} &= 0 \\ 
+    -2p_{3} + 2 p_{4} &= 0 \\ 
+    -2p_{4} + 2 p_{5} &= 0 \\ 
+    p_{0}-2p_{4} + 2 p_{5} &= 0 \\ 
+    p_{1}-2p_{5} + 2 p_{6} &= 0 \\ 
+    p_{1}+p_{2}+p_{3}+p_{4}+p_{5} +p_6&= 1 
+\end{align*} Solving this using an online solver, we get the following values for the steady-state distribution: \begin{align*}
+    \pi &= \begin{bmatrix}
+        p_{0} & p_{1} & p_{2} & p_{3} & p_{4} & p_{5} & p_{6}
+    \end{bmatrix} \\ 
+    &= \begin{bmatrix}
+        \displaystyle\frac{2}{11} & \displaystyle\frac{1}{11} & \displaystyle\frac{3}{22} & \displaystyle\frac{9}{44} & \displaystyle\frac{9}{44} & \displaystyle\frac{5}{44} & \displaystyle\frac{3}{44}
+    \end{bmatrix}
+\end{align*} Now we repeat the process for $Q_{3}$, with $R = 3$: \begin{equation}
+    Q_3 = \begin{blockarray}{ccccccccc}
+        & \matindex{0} & \matindex{1} & \matindex{2} & \matindex{3} &\matindex{4} &\matindex{5} &\matindex{6}&\matindex{7}\\
+        \begin{block}{c[cccccccc]}
+            \matindex{0} & -1 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\ 
+            \matindex{1} & 2 & -3 & 0 & 0 & 0 & 1 & 0 & 0\\ 
+            \matindex{2} & 0 & 2 & -3 & 0 & 0 & 0 & 1 & 0\\ 
+            \matindex{3} & 0 & 0 & 2 & -3 & 0 & 0 & 0 & 1 \\ 
+            \matindex{4} & 0 & 0 & 0 & 2 & -2 & 0 & 0 & 0 \\ 
+            \matindex{5} & 0 & 0 & 0 & 0 & 2 & -2 & 0 & 0 \\ 
+            \matindex{6} & 0 & 0 & 0 & 0 & 0 & 2 & -2 & 0 \\ 
+            \matindex{7} & 0 & 0 & 0 & 0 & 0 & 0 & 2 & -2 \\ 
+        \end{block}
+    \end{blockarray}
+\end{equation} To obtain the long-run probabilities, we have from $Q_{3}$: \begin{align*}
+    \begin{bmatrix}
+        p_1 & p_2 & p_3 & p_4 & p_5 & p_6 & p_7
+    \end{bmatrix} \begin{bmatrix}
+        -1 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\ 
+        2 & -3 & 0 & 0 & 0 & 1 & 0 & 0\\ 
+        0 & 2 & -3 & 0 & 0 & 0 & 1 & 0\\ 
+        0 & 0 & 2 & -3 & 0 & 0 & 0 & 1 \\ 
+        0 & 0 & 0 & 2 & -2 & 0 & 0 & 0 \\ 
+        0 & 0 & 0 & 0 & 2 & -2 & 0 & 0 \\ 
+        0 & 0 & 0 & 0 & 0 & 2 & -2 & 0 \\ 
+        0 & 0 & 0 & 0 & 0 & 0 & 2 & -2
+    \end{bmatrix} = \begin{bmatrix}
+        0 & 0 & 0 & 0 & 0 & 0 & 0
+    \end{bmatrix}
+\end{align*} which gives us the following simultaneous equations: \begin{align*}
+    -p_{0} + 2 p_{1} &= 0 \\ 
+    -3p_{1} + 2 p_{2} &= 0 \\ 
+    -3p_{2} + 2 p_{3} &= 0 \\ 
+    -3p_{3} + 2 p_{4} &= 0 \\ 
+    p_{0}-2p_{4} + 2 p_{5} &= 0 \\ 
+    p_{1}-2p_{5} + 2 p_{6} &= 0 \\ 
+    p_{2}-2p_{6} + 2 p_{7} &= 0 \\ 
+    p_{1}+p_{2}+p_{3}+p_{4}+p_{5} +p_6&= 1 
+\end{align*} Solving this using an online solver, we get the following values for the steady-state distribution: \begin{align*}
+    \pi &= \begin{bmatrix}
+        p_{0} & p_{1} & p_{2} & p_{3} & p_{4} & p_{5} & p_{6}& p_{7}
+    \end{bmatrix} \\ 
+    &= \begin{bmatrix}
+        \displaystyle\frac{4}{31} & \displaystyle\frac{2}{31} & \displaystyle\frac{3}{31} & \displaystyle\frac{9}{62} & \displaystyle\frac{27}{124} & \displaystyle\frac{19}{124} & \displaystyle\frac{15}{124} & \displaystyle\frac{9}{124}
+    \end{bmatrix}
+\end{align*} For each of the 3 cases, we need to obtain the average number of items in inventory in steady-state, as well as the proportion of time there is nothing in inventory. This corresponds to the expected value of the number of items in steady-state and $p_{0}$ respectively. To calculate the expected value, for $\pi_1$: \begin{align*}
+    \mathbb{E}(x) &= \sum_{i=0}^{5} i\cdot p_i \\ 
+    &= 0\left( \frac{1}{4} \right) + 1\left( \frac{1}{8} \right) + 2\left( \frac{3}{16} \right) + 3\left( \frac{1}{16} \right) + 4\left( \frac{3}{16} \right) + 5\left( \frac{1}{16} \right) \\ 
+    &= \frac{17}{8} \\ 
+    &= 2.125
+\end{align*} for $\pi_2$: \begin{align*}
+    \mathbb{E}(x) &= \sum_{i=0}^{6} i\cdot p_i \\ 
+    &= 0\left( \frac{2}{11} \right) + 1\left( \frac{1}{11} \right) + 2\left( \frac{3}{22} \right) + 3\left( \frac{9}{44} \right) + 4\left( \frac{9}{44} \right) + 5\left( \frac{5}{44} \right) + 6\left( \frac{3}{44} \right)\\ 
+    &= \frac{61}{22} \\ 
+    &= 2.7727
+\end{align*} for $\pi_3$: \begin{align*}
+    \mathbb{E}(x) &= \sum_{i=0}^{7} i\cdot p_i \\ 
+    &= 0\left( \frac{4}{31} \right) + 1\left( \frac{2}{31} \right) + 2\left( \frac{3}{31} \right) + 3\left( \frac{9}{62} \right) + 4\left( \frac{27}{124} \right) + 5\left( \frac{19}{124} \right) + 6\left( \frac{15}{124} \right)+ 7\left( \frac{9}{124} \right)\\ 
+    &= \frac{221}{62} \\ 
+    &= 3.5645
+\end{align*} Putting all of these into a concise table, we have: \begin{table}[H]
+    \centering
+    \begin{tabular}{l|l|lllllll | l}
+        \toprule 
+        $R$ & $p_{0}$ & $p_{1}$ &$p_{2}$ &$p_{3}$ &$p_{4}$ &$p_{5}$ &$p_{6}$ &$p_{7}$ & $ \mathbb{E}(x)$ \\ \midrule 
+        1 & $\mathbf{\frac{1}{4}}$& $\frac{1}{8}$& $\frac{3}{16}$& $\frac{3}{16}$& $\frac{3}{16}$& $\frac{1}{16}$& $0$& $0$ & $\mathbf{2.125}$ \\ [6pt]
+        2 & $\mathbf{\frac{2}{11}}$& $\frac{1}{11}$& $\frac{3}{22}$& $\frac{9}{44}$& $\frac{9}{44}$& $\frac{5}{44}$& $\frac{3}{44}$& $0$ & $\mathbf{2.7727}$ \\ [6pt]
+        3 & $\mathbf{\frac{4}{31}}$& $\frac{2}{31}$& $\frac{3}{31}$& $\frac{9}{62}$& $\frac{27}{124}$& $\frac{19}{124}$& $\frac{15}{124}$& $\frac{9}{124}$ & $\mathbf{3.5645}$ \\ [6pt] \bottomrule
+    \end{tabular}
+    \caption{Table of Values}
+    \label{1-tabvalues}
+\end{table}
+
+\section*{Question 3}
+
+To compute the limiting distribution $\mathbf{\pi} = \begin{bmatrix}
+    p_{0} & p_{1} & p_{2}
+\end{bmatrix}$, we need to use the steady-state balance equations, given by \begin{equation}
+    \mathbf{\pi} Q = \mathbf{0}
+\end{equation} Given that we have \begin{equation}
+    Q = \begin{bmatrix}
+        -3 & 2 & 1 \\ 
+        2 & -4 & 2 \\ 
+        1 & 1 & -2
+    \end{bmatrix}
+\end{equation} the balance equation results in \begin{equation*}
+    \begin{bmatrix}
+        p_{0} & p_{1} & p_{2}
+    \end{bmatrix} \begin{bmatrix}
+        -3 & 2 & 1 \\ 
+        2 & -4 & 2 \\ 
+        1 & 1 & -2
+    \end{bmatrix} = \begin{bmatrix}
+        0 & 0 & 0
+    \end{bmatrix}
+\end{equation*} which gives us the system of equations: \begin{align*}
+    -3 p_{0} + 2 p_{1} + p_{2} &= 0 \\ 
+    2 p_{0} - 4 p_{1} + p_{2} &= 0 \\ 
+    p_{0} + 2 p_1 - 2 p_{2} &= 0 \\ 
+    p_{0} + p_{1} + p_{2} &= 1
+\end{align*} using an online solver yields the following limiting distribution: \begin{align*}
+    \pi = \begin{bmatrix}
+        p_{0} & p_{1} & p_{2}
+    \end{bmatrix} = \begin{bmatrix}
+        \displaystyle \frac{6}{19} & \displaystyle \frac{5}{19} & \displaystyle \frac{8}{19}
+    \end{bmatrix}
+\end{align*}
+
+\section*{Question 4}
+
+Similar to the class problems, we consider this to be a Poisson splitting process, where the customer picks either one of the servers with equal probabilities if both are free, i.e. $p = \frac{1}{2}$. We let $X_i(t)$ be the number of customers at server $i$, and $\left( X_1(t), X_2(t) \right)$ be a bivariate CTMC, the state of the system at time $t$, with state space $\mathcal{S} = \{(0,0), (1,0), (0,1), (1,1)\}$. Arrivals to the shop are $PP(\lambda)$ with rate $\lambda$, and server $i$ takes $\exp (\mu_i)$ time to serve a customer, with rate $\mu_i$. With this, the rate diagram is given below as 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/Q4.png}
+    \caption{Transition Rate Diagram}
+    \label{fig:4-diag}
+\end{figure} 
+
+\noindent The transition rate matrix $Q$ is given by \begin{equation}
+    Q = \begin{blockarray}{ccccc}
+        & \matindex{(0,0)} & \matindex{(1,0)} &\matindex{(0,1)} &\matindex{(1,1)} \\
+        \begin{block}{c[cccc]}
+            \matindex{(0,0)} & -\lambda & \frac{\lambda}{2} & \frac{\lambda}{2} & 0 \\
+            \matindex{(1,0)} & \mu_1 & -\mu_{1}-\lambda  & 0 & \lambda \\
+            \matindex{(0,1)} & \mu_2 & 0 & -\mu_{1}-\lambda & \lambda \\
+            \matindex{(1,1)} & 0 & \mu_2 & \mu_1 & -\mu_{2}-\mu_1 \\
+        \end{block}
+    \end{blockarray}
+\end{equation}
+
+\section*{Question 6}
+
+Let $X(t)$ represent the number of customers waiting at the bus station at time $t$. Customers arrive in a $PP(\lambda)$ fashion with rate $\lambda$. The state space here is $\mathcal{S} = \{0,1,2,\dots\}$ since we have no limit to the number of customers arriving. Since the bus has no limit to the number of customers boarding for departure, our rate diagram becomes: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/Q6.png}
+    \caption{Transition State Diagram}
+    \label{fig:6-trans}
+\end{figure} 
+
+\noindent The transition rate matrix is given by: \begin{equation}
+    Q = \begin{blockarray}{cccccccc}
+        & \matindex{0} & \matindex{1} & \matindex{2} & \matindex{3} &\matindex{4} &\matindex{5} &\matindex{\dots} \\
+        \begin{block}{c[ccccccc]}
+            \matindex{0} & -\lambda & \lambda & 0 & 0 & 0 & 0 & \dots \\ 
+            \matindex{1} & \mu & -\mu-\lambda & \lambda & 0 & 0 & 0 & \dots \\ 
+            \matindex{2} & \mu & 0 & -\mu-\lambda & \lambda & 0 & 0 & \dots \\ 
+            \matindex{3} & \mu & 0 & 0 & -\mu-\lambda & \lambda & 0 & \dots \\ 
+            \matindex{4} & \mu & 0 & 0 & 0 & -\mu-\lambda & \lambda & \dots \\ 
+            \matindex{5} & \mu & 0 & 0 & 0 & 0 & -\mu-\lambda & \dots \\ 
+            \matindex{\vdots} & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots \\ 
+        \end{block}
+    \end{blockarray}
+\end{equation} To find the steady-state distribution, we need to consider the balance equations: \begin{equation*}
+    \pi Q = \mathbf{0} 
+\end{equation*} expressed as \begin{equation*}
+    \begin{bmatrix}
+        p_{0} & p_{1} & p_{2} & \dots
+    \end{bmatrix} \begin{bmatrix}
+        -\lambda & \lambda & 0 & 0 & 0 & 0 & \dots \\ 
+        \mu & -\mu-\lambda & \lambda & 0 & 0 & 0 & \dots \\ 
+        \mu & 0 & -\mu-\lambda & \lambda & 0 & 0 & \dots \\ 
+        \mu & 0 & 0 & -\mu-\lambda & \lambda & 0 & \dots \\ 
+        \mu & 0 & 0 & 0 & -\mu-\lambda & \lambda & \dots \\ 
+        \mu & 0 & 0 & 0 & 0 & -\mu-\lambda & \dots \\ 
+        \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots
+    \end{bmatrix} = \begin{bmatrix}
+        0 & 0 & 0 & \dots
+    \end{bmatrix}
+\end{equation*} From this, we get the simultaneous equations: \begin{align}\label{eq:6-lambda}
+    -\lambda p_{0} - \mu p_{1} - \mu p_{2} - \mu p_{3} - \dots &= 0 & \\ \nonumber
+    \lambda p_{0} - (\mu + \lambda)p_{1} &= 0 & \Longrightarrow p_{1} &= \frac{\lambda}{\mu+\lambda}p_{0} \\ \nonumber
+    \lambda p_{1} - (\mu + \lambda)p_{2} &= 0 & \Longrightarrow p_{2} &= \left( \frac{\lambda}{\mu+\lambda} \right)^2p_{0}\\ \nonumber
+    \lambda p_{2} - (\mu + \lambda)p_{3} &= 0 & \Longrightarrow p_{3} &= \left( \frac{\lambda}{\mu+\lambda}\right)^{3} p_{0}\\ \nonumber
+    &\vdots &\vdots \\ \label{eq:6-sum}
+    p_{0} + p_{1} + p_{2} + \dots &= 1
+\end{align} From Equation \ref{eq:6-lambda}, we have \begin{equation}\label{eq:6-lambda2}
+    \lambda p_{0} + \mu\left( p_{1} + p_{2} + p_{3} + \dots \right) = 0
+\end{equation} From Equation \ref{eq:6-sum}, we have: \begin{align}\nonumber
+    p_{0} + p_{1} + p_{2} + \dots &= 1 \\ \label{eq:6-sum2}
+    p_{1} + p_{2} + p_{3} + \dots &= 1 - p_{0}
+\end{align} Substituting Equation \ref{eq:6-sum2} into Equation \ref{eq:6-lambda2}, we have \begin{align}\nonumber
+    \lambda p_{0} + \mu(1-p_{0}) &= 0 \\ \nonumber
+    \lambda p_{0} + \mu - \mu p_{0} &= 0 \\ \nonumber
+    (\lambda - \mu)p_{0} &= -\mu \\ \nonumber
+    p_{0} &= - \left( \frac{\mu}{\lambda-\mu} \right) \\ \label{eq:6-p0}
+    p_{0} &= \boxed{\frac{\mu}{\mu-\lambda}}
+\end{align} From the simultaneous equations above, we can see a trend where: \begin{equation}
+    p_i = \left( \frac{\lambda}{\mu + \lambda} \right)^{i} p_{0}
+\end{equation} Here, we substitute Equation \ref{eq:6-p0} into the above to obtain: \begin{equation}
+    p_i = \left( \frac{\lambda}{\mu+\lambda} \right)^{i}\left( \frac{\mu}{\mu-\lambda} \right)
+\end{equation} Thus, the steady-state distribution of the CTMC is the matrix formed by the values of $p_i$, i.e. $\pi = \begin{bmatrix}
+    p_i
+\end{bmatrix}$.
+
+\end{document}
