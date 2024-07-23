@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.29)  22 JUL 2024 22:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.29)  23 JUL 2024 16:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -952,35 +952,35 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 LaTeX Font Warning: Command \tiny invalid in math mode on input line 46.
 
-[2] [3] [4] [5]
-<Images/Q4.png, id=49, 878.28125pt x 473.77pt>
+[2] [3] [4] [5] [6]
+<Images/Q4.png, id=54, 878.28125pt x 473.77pt>
 File: Images/Q4.png Graphic file (type png)
 <use Images/Q4.png>
-Package pdftex.def Info: Images/Q4.png  used on input line 264.
+Package pdftex.def Info: Images/Q4.png  used on input line 268.
 (pdftex.def)             Requested size: 400.38872pt x 215.98497pt.
- [6 <./Images/Q4.png>]
-<Images/Q6.png, id=59, 761.84625pt x 352.31625pt>
+ [7 <./Images/Q4.png>]
+<Images/Q6.png, id=65, 761.84625pt x 352.31625pt>
 File: Images/Q6.png Graphic file (type png)
 <use Images/Q6.png>
-Package pdftex.def Info: Images/Q6.png  used on input line 287.
+Package pdftex.def Info: Images/Q6.png  used on input line 293.
 (pdftex.def)             Requested size: 400.38872pt x 185.15695pt.
- [7 <./Images/Q6.png>] [8] (./W11Homework.aux)
+ [8 <./Images/Q6.png>] [9] (./W11Homework.aux)
 Package rerunfilecheck Info: File `W11Homework.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 43341 strings out of 478287
- 1019992 string characters out of 5849289
+ 43342 strings out of 478287
+ 1019998 string characters out of 5849289
  1488921 words of memory out of 5000000
  60775 multiletter control sequences out of 15000+600000
  485107 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  114i,15n,118p,832b,781s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on W11Homework.pdf (8 pages, 230541 bytes).
+Output written on W11Homework.pdf (9 pages, 231061 bytes).
 PDF statistics:
- 150 PDF objects out of 1000 (max. 8388607)
- 108 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
+ 154 PDF objects out of 1000 (max. 8388607)
+ 111 compressed objects within 2 object streams
+ 32 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

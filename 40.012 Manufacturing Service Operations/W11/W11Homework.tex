@@ -220,6 +220,8 @@ Let $X(t)$ represent the number of items in inventory at time $t$. From Homework
     \label{1-tabvalues}
 \end{table}
 
+\newpage
+
 \section*{Question 3}
 
 To compute the limiting distribution $\mathbf{\pi} = \begin{bmatrix}
@@ -255,6 +257,8 @@ To compute the limiting distribution $\mathbf{\pi} = \begin{bmatrix}
     \end{bmatrix}
 \end{align*}
 
+\newpage
+
 \section*{Question 4}
 
 Similar to the class problems, we consider this to be a Poisson splitting process, where the customer picks either one of the servers with equal probabilities if both are free, i.e. $p = \frac{1}{2}$. We let $X_i(t)$ be the number of customers at server $i$, and $\left( X_1(t), X_2(t) \right)$ be a bivariate CTMC, the state of the system at time $t$, with state space $\mathcal{S} = \{(0,0), (1,0), (0,1), (1,1)\}$. Arrivals to the shop are $PP(\lambda)$ with rate $\lambda$, and server $i$ takes $\exp (\mu_i)$ time to serve a customer, with rate $\mu_i$. With this, the rate diagram is given below as 
@@ -272,11 +276,13 @@ Similar to the class problems, we consider this to be a Poisson splitting proces
         \begin{block}{c[cccc]}
             \matindex{(0,0)} & -\lambda & \frac{\lambda}{2} & \frac{\lambda}{2} & 0 \\
             \matindex{(1,0)} & \mu_1 & -\mu_{1}-\lambda  & 0 & \lambda \\
-            \matindex{(0,1)} & \mu_2 & 0 & -\mu_{1}-\lambda & \lambda \\
+            \matindex{(0,1)} & \mu_2 & 0 & -\mu_{2}-\lambda & \lambda \\
             \matindex{(1,1)} & 0 & \mu_2 & \mu_1 & -\mu_{2}-\mu_1 \\
         \end{block}
     \end{blockarray}
 \end{equation}
+
+\newpage
 
 \section*{Question 6}
 
@@ -319,29 +325,28 @@ Let $X(t)$ represent the number of customers waiting at the bus station at time 
         0 & 0 & 0 & \dots
     \end{bmatrix}
 \end{equation*} From this, we get the simultaneous equations: \begin{align}\label{eq:6-lambda}
-    -\lambda p_{0} - \mu p_{1} - \mu p_{2} - \mu p_{3} - \dots &= 0 & \\ \nonumber
+    -\lambda p_{0} + \mu p_{1} + \mu p_{2} + \mu p_{3} + \dots &= 0 & \\ \nonumber
     \lambda p_{0} - (\mu + \lambda)p_{1} &= 0 & \Longrightarrow p_{1} &= \frac{\lambda}{\mu+\lambda}p_{0} \\ \nonumber
     \lambda p_{1} - (\mu + \lambda)p_{2} &= 0 & \Longrightarrow p_{2} &= \left( \frac{\lambda}{\mu+\lambda} \right)^2p_{0}\\ \nonumber
     \lambda p_{2} - (\mu + \lambda)p_{3} &= 0 & \Longrightarrow p_{3} &= \left( \frac{\lambda}{\mu+\lambda}\right)^{3} p_{0}\\ \nonumber
     &\vdots &\vdots \\ \label{eq:6-sum}
     p_{0} + p_{1} + p_{2} + \dots &= 1
 \end{align} From Equation \ref{eq:6-lambda}, we have \begin{equation}\label{eq:6-lambda2}
-    \lambda p_{0} + \mu\left( p_{1} + p_{2} + p_{3} + \dots \right) = 0
+    \lambda p_{0} = \mu\left( p_{1} + p_{2} + p_{3} + \dots \right) 
 \end{equation} From Equation \ref{eq:6-sum}, we have: \begin{align}\nonumber
     p_{0} + p_{1} + p_{2} + \dots &= 1 \\ \label{eq:6-sum2}
     p_{1} + p_{2} + p_{3} + \dots &= 1 - p_{0}
 \end{align} Substituting Equation \ref{eq:6-sum2} into Equation \ref{eq:6-lambda2}, we have \begin{align}\nonumber
-    \lambda p_{0} + \mu(1-p_{0}) &= 0 \\ \nonumber
-    \lambda p_{0} + \mu - \mu p_{0} &= 0 \\ \nonumber
-    (\lambda - \mu)p_{0} &= -\mu \\ \nonumber
-    p_{0} &= - \left( \frac{\mu}{\lambda-\mu} \right) \\ \label{eq:6-p0}
-    p_{0} &= \boxed{\frac{\mu}{\mu-\lambda}}
+    \lambda p_{0} &= \mu(1-p_{0})\\ \nonumber
+    \lambda p_{0} &= \mu - \mu p_{0} \\ \nonumber
+    (\lambda + \mu)p_{0} &= \mu \\ \label{eq:6-p0}
+    p_{0} &= \left( \frac{\mu}{\lambda+\mu} \right)
 \end{align} From the simultaneous equations above, we can see a trend where: \begin{equation}
     p_i = \left( \frac{\lambda}{\mu + \lambda} \right)^{i} p_{0}
-\end{equation} Here, we substitute Equation \ref{eq:6-p0} into the above to obtain: \begin{equation}
-    p_i = \left( \frac{\lambda}{\mu+\lambda} \right)^{i}\left( \frac{\mu}{\mu-\lambda} \right)
+\end{equation} Here, we substitute $p_{0}$ from Equation \ref{eq:6-p0} into the above to obtain: \begin{equation}
+    p_i = \left( \frac{\lambda}{\mu+\lambda} \right)^{i}\left( \frac{\mu}{\mu+\lambda} \right)
 \end{equation} Thus, the steady-state distribution of the CTMC is the matrix formed by the values of $p_i$, i.e. $\pi = \begin{bmatrix}
     p_i
-\end{bmatrix}$.
+\end{bmatrix}$, $\forall i \in \mathcal{S}$.
 
 \end{document}
