@@ -1,0 +1,8 @@
+install.packages("wooldridge")
+library(wooldridge)
+data("wage1")
+attach(wage1)
+hist(wage)
+summary(wage)
+d <- density(wage, kernel = "epanechnikov")
+plot(d, lwd = 2, main = "Epanechnikov Kernel")
