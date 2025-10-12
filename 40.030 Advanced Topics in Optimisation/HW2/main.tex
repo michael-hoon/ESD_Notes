@@ -1,0 +1,281 @@
+\documentclass[12pt]{article}
+\usepackage{report}
+\usepackage[T1]{fontenc}
+
+% ------------------------------------------------------------------------------
+% Page Geometry 
+% ------------------------------------------------------------------------------
+
+% \setstretch{1.2}
+
+\geometry
+{
+    a4paper,
+    total={170mm,257mm},
+    left=15mm,
+    right=15mm,
+    top=15mm,
+    bottom=15mm
+}
+
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ \textsc{40.302 Advanced Topics in Optimisation} \\ [0.5cm]
+		\HRule{1pt} \\ [1.3cm]
+        \Huge \textsc{Homework II} \\ 
+        {\large Convex Optimisation} \\ [0.5cm]
+		\HRule{1pt} \\ [0.8cm] 
+        \vspace*{2\baselineskip}
+        }
+
+\author{Michael Hoon Yong Hau \\ 1006617}
+
+\maketitle
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{Images/SUTD_logo.png}
+\end{figure} 
+
+\thispagestyle{empty}
+
+\newpage
+
+\setcounter{page}{1}
+
+% ------------------------------------------------------------------------------
+
+\section*{Exercise 1}
+
+\subsection*{(1)}
+
+We let \begin{equation*}
+    S_f \coloneq \arg \max_{x \in \mathcal{X}} f(x), \qquad S_{\log f} \coloneq \arg \max_{x \in \mathcal{X}} \log [f(x)]
+\end{equation*} We take any $x^{*} \in S_f$. For any $x\in \mathcal{X}$, we have $f(x^{*}) \geq f(x)$. Since log is strictly increasing on $(0, \infty)$, \begin{equation*}
+    \log [f(x^{*})] \geq \log [f(x)]
+\end{equation*} so $x^{*} \in S_{\log f}$, thus $S_f \subseteq S_{\log f}$. \\ 
+
+\noindent Conversely, we take any $x^{*} \in S_{\log f}$. Then for any $x \in \mathcal{X}$, \begin{equation*}
+    \log (f(x^{*})) \geq \log (f(x)) \Longrightarrow f(x^{*}) \geq f(x)
+\end{equation*} As log is strictly increasing. Thus, $x^{*} \in S_f$, so $S_{\log f} \subseteq S_f$. Combining these 2 gives $S_f = S_{\log f}$, so solving $\max_{x\in\mathcal{X}}f(x)$ is equivalent to solving $\max_{x\in\mathcal{X}}\log [f(x)]$. As $f(x) > 0, \; \forall x \in \mathcal{X}$, applying log to $f(x)$ preserves the ordering of objective values, thus the maximisers of $f$ and $\log \circ f$ are the same.
+
+\subsection*{(2)}
+First we simplify the constraints to obtain the feasible region: \begin{equation}
+    \frac{x_{2}}{\exp (x_{1})} \leq 0 \Longleftrightarrow x_{2} \leq 0
+\end{equation} As $\exp (x_{1}) > 0, \; \forall x_{1} \in \mathbb{R}$. Furthermore, we have \begin{equation}
+    (x_{1} + x_{2})^{4} = 0 \Longleftrightarrow x_{1} + x_{2} = 0
+\end{equation} This gives the feasible region being convex: \begin{equation*}
+    \{x: x_{1} + x_{2} = 0, \quad x_{2} \leq 0\}
+\end{equation*} This formulation is \textbf{not a convex optimisation problem in explicit form} as the inequality constraint is initially written in nonconvex form $\frac{x_{2}}{\exp (x_{1})} \leq 0$, involving the exponential term. However, after simplification, the feasible set becomes convex and the problem can be written in explicit convex form. The objective function is convex as the pointwise maximum of affine functions is convex. \\ 
+
+\noindent We reformulate it to be convex as follows, introducing a scalar variable $t$ representing the value of the max: \begin{align*}
+    \min_{x \in \mathbb{R}^{2}, \; t \in \mathbb{R}} \quad & t \\
+    \text{s.t. } & a_i^\top x + b_i \leq t, \quad i = 1, \dots , 5, \\ 
+    & x_{1} + x_{2} = 0 \\ 
+    & x_{2} \leq 0
+\end{align*} which is now convex in both the objective function and constraints.
+
+\subsection*{(3)}
+
+If $f$ is a convex function and $\mathcal{X}$ is a convex set, trying to solve $\max \{f(x): x \in \mathcal{X}\}$ is generally \textbf{hard} as it is usually a non-convex global optimisation problem. Generally, we seek to minimise convex functions as its epigraph is a convex set (convex functions lie below any secant line connecting two points on their graph), so any interior stationary point is a global minimum. Furthermore, convex functions have no useful structure guaranteeing that a local maximum is global. Consider \begin{equation*}
+    \max _{x \in \mathcal{X}} f(x)
+\end{equation*} for convex $f$ and $\mathcal{X}$. For any convex $f$, the negative $-f$ is concave, so maximising $f$ is equivalent to minimising a concave function, which is generally a nonconvex problem. This is hard, as local maxima and saddle points can exist, and there is no guarantee of finding the global maximum efficiently (in polynomial time).
+
+\section*{Exercise 2}
+We are given the convex quadratic program: \begin{align*}
+    \min_{x_{1}, x_{2}} \quad & \frac{1}{2} (x_{1}^2 + 2x_{2}^2)- 3 x_{1} -2 x_{2} \\ 
+    \text{s.t. } \; & x_{1} + x_{2} \geq 2, \\ 
+    & x_{1} \geq 0.
+\end{align*} 
+
+\subsection*{KKT Conditions} We derive each of the KKT conditions as follows: 
+
+\subsubsection*{(1) Primal Feasibility}
+
+Since there are only inequality constraints (no equality), we rewrite the inequalities in standard form: \begin{align*}
+    x_{1} + x_{2} & \geq 2 \Longleftrightarrow 2 - x_{1} - x_{2} \leq 0, & x_{1} \geq 0 \Longleftrightarrow -x_{1} \leq 0 \\ 
+    f_{1}(x) &= 2 - x_{1} - x_{2}, & f_{2}(x) = -x_{1}
+\end{align*} The primal feasibility condition is thus given by $f_{1}(x) \leq 0$ and $f_{2}(x) \leq 0$. 
+
+\subsubsection*{(2) Dual Feasibility}
+
+Here, we introduce Langrange Multipliers for the above 2 constraints: \begin{equation*}
+    \lambda_1 \geq 0, \quad \lambda_2 \geq 0.
+\end{equation*}
+
+\subsubsection*{(3) Complementary Slackness}
+
+Here, we have \begin{align*}
+    \lambda_1 \cdot f_{1}(x) &=0 &  \lambda_2 \cdot f_{2}(x) &= 0 \\ 
+    \lambda_1 \cdot (2 - x_{1} - x_{2}) &= 0 & \lambda_2 \cdot (-x_{1}) &= 0 \\ 
+    & & \lambda_2 \cdot x_{1} &= 0
+\end{align*}
+
+\subsubsection*{(4) Stationarity Condition}
+
+We first compute the gradients for the Lagrangian. Let $f(x) = \frac{1}{2} (x_{1}^2 + 2x_{2}^2)- 3 x_{1} -2 x_{2}$. We have: \begin{align*}
+    \frac{\partial f}{\partial x_{1}} &= \frac{1}{2}(2 x_{1}) - 3 & \frac{\partial f}{\partial x_{2}} &= \frac{1}{2} (4 x_{2}) - 2 & \Longrightarrow \nabla f(x) &= \begin{pmatrix}
+        x_{1} - 3 \\ 
+        2 x_{2} - 2
+    \end{pmatrix}\\ 
+    &= x_{1} - 3 & &= 2 x_{2} - 2
+\end{align*} Similarly, we have the following for the two inequality constraints: \begin{align*}
+    \nabla f_{1} &= \begin{pmatrix}
+    -1 \\ -1
+    \end{pmatrix} & \nabla f_{2} &= \begin{pmatrix}
+        -1 \\ 0
+    \end{pmatrix}
+\end{align*} With this, the stationarity condition $\nabla f(x) + \lambda_1 \nabla f_{1} + \lambda_2 \nabla f_{2} = 0$ gives: \begin{align}
+    x_{1} - 3 - \lambda_1 - \lambda_2 &= 0 \\
+    2 x_{2} - 2 - \lambda_1 &= 0
+\end{align} These 4 conditions give the KKT conditions for this convex quadratic program.
+
+\subsection*{Optimal Solution \& Lagrange Multiplers}
+
+From the stationary condition, we have the two scalar equations (3) and (4) defined above. We re-arrange to form: \begin{align*}
+    x_{1} &= 3 + \lambda_1 + \lambda_2 \\
+    x_{2} &= 1 + \frac{\lambda_1}{2}
+\end{align*} To find the optimal solution, we consider the cases based on complementary slackness. Consider $\lambda_2 > 0$, complementary slackness with $f_{2}$ forces $x_{1} = 0$, but from (3) this would give $0 = 3 + \lambda_1 + \lambda_2$, which is \textbf{impossible} since $\lambda_1, \lambda_2 \geq 0$ from the Dual Feasibility. This means that $\lambda_2 = 0$. Similarly, complementary slackness forces $\lambda_1 = 0$ as well, since now we have $x_{1} = 3 + \lambda_1$ and $x_{2} = 1 + \frac{\lambda_1}{2}$. We find: \begin{equation*}
+    x_{1} + x_{2} = 4 + \frac{3\lambda_1}{2} > 4 
+\end{equation*} since $\lambda_1 \geq 0$, so the constraint $x_{1} + x_{2} \geq 2$ from the primal is inactive at $\lambda_1 = 0$. Now, given that $\lambda_1, \lambda_2 = 0$, we can find the optimal solution: \begin{equation*}
+    x_{1} = 3, \qquad x_{2} = 1.
+\end{equation*} Checking feasibility: $x_{1} + x_{2} = 4 \geq 2$, and $x_{1} = 3 \geq 0$, so dual feasibility is satisfied. $f_{1}(x) = 2 - 3 - 1 = -2 \leq 0$ and $f_{2}(x) = -3 \leq 0$, so primal feasibility is satisfied. Thus the KKT solution is: \begin{equation*}
+    x^{*} = (x_{1}^{*}, x_{2}^{*}) = (3,1), \qquad \lambda_1^{*}, \lambda_2^{*} = 0.
+\end{equation*} Checking Optimality: we find the Hessian to be: \begin{equation*}
+    \nabla^2 f = \begin{pmatrix}
+        1 & 0 \\ 
+        0 & 2
+    \end{pmatrix}
+\end{equation*} which is clearly positive definite as it is a diagonal matrix with positive entries, thus has positive eigenvalues. The feasible set is convex and Slater's condition holds, so strong duality holds and the KKT conditions are necessary and sufficient. So the point $(3,1)$ satisfying the KKT system is the unique global minimiser. 
+
+\subsection*{Sensitivity Analysis: First Order Approximation}
+
+Since the constraint $x_{1} + x_{2} \geq 2$ is replaced with $x_{1} + x_{2} \geq 2 + \varepsilon$, we need to use sensitivity analysis for the perturbed constraint, where we rewrite the perturbed problem as: \begin{align*}
+    p^{*}(\varepsilon) = \min_{x \in \mathbb{R}^{2}} \quad & \frac{1}{2} (x_{1}^2 + 2x_{2}^2)- 3 x_{1} -2 x_{2} \\
+    \text{s.t. } \; & 2 + \varepsilon - x_{1} - x_{2} \leq 0 \\ 
+    & - x_{1} \leq 0
+\end{align*} From the Lagrangian, we have \begin{equation*}
+    \mathcal{L} (x, \lambda; \varepsilon) = f(x) + \lambda_1 (2 + \varepsilon - x_{1} - x_{2}) + \lambda_2 (-x_{1})
+\end{equation*} From previously, we know that KKT and strong duality holds for the unperturbed problem in a neighbourhood of $\varepsilon = 0$. From the theorem in class, we know that \begin{equation}
+    \left. \frac{d p^*}{d \varepsilon} \right \vert_{\varepsilon=0} = -\lambda^*_1
+\end{equation} Since we found $\lambda^{*}_1 = 0$ earlier, we have: \begin{equation}
+    \left. \frac{d p^*}{d \varepsilon} \right \vert_{\varepsilon=0} = 0
+\end{equation} Thus the first order approximation of the optimal value $p^*(\varepsilon)$ is \begin{equation}
+    p^{*}(\varepsilon) \approx p^{*} (0) + \lambda_1^{*} \varepsilon, \qquad \text{for small } \varepsilon
+\end{equation} We know that $p^{*}(0) = f(3,1) = \frac{1}{2}(3^2 + 2(1)^2) - 3(3) - 2(1) = -5.5$, so the first-order approximation is \begin{equation*}
+    p^{*}(\varepsilon) \approx -5.5 + 0 \cdot \varepsilon = -5.5 
+\end{equation*}
+
+\subsection*{Shadow Price}
+
+We know that from before, the first-order change in the optimal value under a small perturbation $\varepsilon$ to the right-hand side of the constraint $x_{1} + x_{2} \geq 2 + \varepsilon$ is approximately \begin{equation*}
+    p^{*}(\varepsilon) \approx p^{*} (0) + \lambda_1^{*} \varepsilon
+\end{equation*} We are now given the following: \begin{equation*}
+    \lambda_1^* = 2, \qquad \varepsilon = 0.1 
+\end{equation*} so the change in objective value can be calculated: \begin{equation*}
+    \Delta p^* \approx \lambda_1^* \varepsilon = 2 \times 0.1 = 0.2 
+\end{equation*} Since $\lambda_1^{*} > 0$, the objective value \textbf{increases} by approximately 0.2. The shadow price of a constraint represents the rate at which the optimal objective value changes with respect to a small change in the constraint's right-hand side. $\lambda_1^* = 2$ represents the shadow price of the constraint $x_{1} + x_{2} \geq 2$, This means that for each unit increase in the right-hand side (tightening the constraint), the optimal (minimal) cost increases by approximately 2. So for an increase of $\varepsilon = 0.1$, the cost increases by 0.2.
+
+\section*{Exercise 3}
+
+\subsection*{Deriving Lagrangian}
+
+We are given the linear program: \begin{align}
+    \min \quad & 3 x_{1} - x_{2} + 2 x_{3} \nonumber \\
+    \text{s.t. } \; & x_{1} - 2 x_{2}+ x_{3} \leq 4 \tag{1}\\ 
+    & - x_{1} + x_{2} + 2 x_{3} \geq 1 \tag{2}\\ 
+    & x_{1} + x_{2} + x_{3} = 0 \tag{3}\\ 
+    & x_{1} \geq 0, x_{2} \leq 0, x_{3} \text{ free} \tag{4}
+\end{align} To form the Lagrangian, we express every constraint in the standard form and introduce multipliers and with the proper sign: \begin{enumerate}
+    \item Inequality constraint, let $f_{1}(x) = x_{1} - 2 x_{2} + x_{3} - 4 \leq 0$, with multiplier $\lambda_1 \geq 0$
+    \item Inequality constraint, let $f_{2}(x) = x_{1} - x_{2} - 2 x_{3} + 1 \leq 0$, with multiplier $\lambda_2 \geq 0$
+    \item Equality constraint, let $h(x) = x_{1} + x_{2} + x_{3} = 0$, with multiplier $v \in \mathbb{R}$ 
+    \item Bound constraint, let $f_{3}(x) = -x_{1} \leq 0$ with multiplier $\lambda_3 \geq 0$
+    \item Bound constraint, let $f_{4}(x) = x_{2} \leq 0$, with multiplier $\lambda_4 \geq 0$
+    \item $x_{3}$ is free, so there is no bound multiplier
+\end{enumerate} Given this, we can form the Lagrangian: \begin{align*}
+    \mathcal{L}(x, \lambda, v) &= f(x) + \sum_{i=1}^{m} \lambda_i f_i(x) + \sum_{i=1}^{p} v_i h_i(x) \\ 
+    &= 3 x_{1} - x_{2} + 2 x_{3} + \lambda_1 (x_{1} - 2 x_{2} + x_{3} - 4) + \lambda_2 (x_{1} - x_{2} - 2 x_{3} + 1) \\ 
+    & \quad - \lambda_3 (x_{1}) + \lambda_4 (x_{2}) + v(x_{1} + x_{2} + x_{3}) \\ 
+    &= (3 + \lambda_1 + \lambda_2 - \lambda_3 + v)x_{1} + (-1 -2 \lambda_1 - \lambda_2 + \lambda_4 + v)x_{2} \\ 
+    & \quad + (2 + \lambda_1 -2 \lambda_2 + v)x_{3} - 4\lambda_1 + \lambda_2
+\end{align*} 
+
+\subsection*{Deriving Dual Function}
+
+Now, the Lagrange Dual function is given by \begin{equation}
+    g(\lambda, v) = \inf_x \mathcal{L} (x, \lambda, v)
+\end{equation} We take the infimum over each $x_i$ from before, respecting the primal sign constraints: \begin{enumerate}
+    \item $x_{1} \geq 0$, and $\inf_{x_{1}\geq 0} \alpha_1 x_{1}$ is finite (equals 0) iff $\alpha_1 \geq 0$, otherwise $-\infty$, so we require: \begin{equation*}
+        \alpha_1 = 3 + \lambda_1 + \lambda_2 - \lambda_3 + v \geq 0
+    \end{equation*}
+    \item $x_{2} \leq 0$, and $\inf_{x_{2}\leq 0} \alpha_2 x_{2}$ is finite (equals 0) iff $\alpha_2 \leq 0$ iff $\alpha_2 \leq 0$, otherwise $-\infty$, so we require: \begin{equation*}
+        \alpha_2 = -1 -2 \lambda_1 - \lambda_2 + \lambda_4 + v \leq 0
+    \end{equation*}
+    \item $x_{3}$ is free, so $\inf_{x_{3}\in \mathbb{R}}\alpha_3 x_{3}$ is finite iff $\alpha_3 =0$, then the infimum is 0, so we require: \begin{equation*}
+        \alpha_3 = 2 + \lambda_1 -2\lambda_2 + v = 0
+    \end{equation*}
+\end{enumerate} if all 3 conditions above hold, then the infimum over all $x$ (the dual function) is just the constant term: \begin{equation*}
+    g(\lambda, v) = -4 \lambda_1 + \lambda_2 
+\end{equation*} otherwise, $g(\cdot) = -\infty$. i.e. we have the overall dual function: \begin{equation}
+    g(\lambda_1, \lambda_2, v) = \begin{cases}
+        -4 \lambda_1 + \lambda_2, \quad \text{if } \alpha_1 \geq 0,\; \alpha_2 \leq 0,\; \alpha_3 = 0 \\ 
+        -\infty, \quad \text{otherwise}
+    \end{cases}
+\end{equation}
+
+\subsection*{Deriving Dual Problem}
+
+The dual is the maximization of the dual function subject to multipliers' sign constraints and the finiteness conditions: \begin{equation}
+    \max \{g(\lambda, v): \lambda \geq 0, v \in \mathbb{R}^p\}
+\end{equation} so we have: \begin{align*}
+    \max_{\lambda_1, \lambda_2, \lambda_3, \lambda_4, v} \quad & -4\lambda_1 + \lambda_2 \\ 
+    \text{s.t. } & \; 3 + \lambda_1 + \lambda_2 - \lambda_3 + v \geq 0, \\ 
+    & -1 -2 \lambda_1 - \lambda_2 + \lambda_4 + v \leq 0, \\ 
+    & 2 + \lambda_1 -2\lambda_2 + v = 0 \\ 
+    & \lambda_1, \lambda_2, \lambda_3, \lambda_4 \geq 0, \; v \text{ free}
+\end{align*} We can still simplify this dual formulation by removing the bound multipliers $\lambda_3, \lambda_4$ as they only appear in the first 2 constraints and with nonnegativity. The existence of $\lambda_3 \geq 0$ satisfying $\alpha_1 \geq 0$ is equivalent to the scalar upper bound \begin{equation}
+    3 + \lambda_1 + \lambda_2 + v \geq 0 
+\end{equation} as we can choose $\lambda_3 \in [0, 3 + \lambda_1 + \lambda_2 + v]$. Similarly, the existence of $\lambda_4 \geq 0$ satisfying $\alpha_2 \geq 0$ is equivalent to \begin{equation}
+    -1 -2\lambda_1 - \lambda_2 + v \leq 0 \Longleftrightarrow 1 + 2\lambda_1 + \lambda_2 - v \geq 0
+\end{equation} We use the equality constraint to eliminate v, i.e. with \begin{equation}
+    v = -2 - \lambda_1 + 2\lambda_2
+\end{equation} Substituting equation (13) into (11): \begin{equation*}
+    3 + \lambda_1 + \lambda_2 + (-2 - \lambda_1 + 2\lambda_2) \geq 0 \; \Longrightarrow \; 1 + 3 \lambda_2 \geq 0
+\end{equation*} which is just always true for $\lambda_2 \geq 0$, and substituting into (12): \begin{equation*}
+    1 + 2\lambda_1 + \lambda_2 - (-2 - \lambda_1 + 2\lambda_2) \geq 0 \; \Longrightarrow \; 3 + 3\lambda_{1} - \lambda_2 \geq 0 \; \Longrightarrow \; \lambda_2 \leq 3 + 3\lambda_1 
+\end{equation*} With this, the dual problem can be rewritten in terms of only 2 multipliers $\lambda_1, \lambda_2 \geq 0$: \begin{align*}
+    \max_{\lambda_1, \lambda_2} \quad & -4\lambda_1 + \lambda_2 \\ 
+    \text{s.t. } \; & \lambda_1, \lambda_2 \geq 0, \\ 
+    & \lambda_2 \leq 3 + 3\lambda_1 
+\end{align*}
+
+\subsection*{Complementary Slackness}
+
+Complementary slackness conditions between the primal and dual variables are given by the KKT conditions. They are given by: \begin{equation*}
+    \lambda_i^* f_i (x^*) = 0, \quad \forall i = 1, \dots, m
+\end{equation*} From before, we have the following: \begin{enumerate}
+    \item $\lambda_1 f_{1}(x) = \lambda_1 (x_{1} - 2 x_{2} + x_{3} - 4) = 0$
+    \item $\lambda_2 f_{2}(x) = \lambda_2 (x_{1} - x_{2} - 2 x_{3} + 1) = 0$
+    \item $\lambda_3 f_{3}(x) = \lambda_3 (-x_{1}) = 0 \; \Longleftrightarrow \; \lambda_3 x_{1} = 0$
+    \item $\lambda_4 f_{4}(x) = \lambda_4 (x_{2}) = 0 \; \Longleftrightarrow \; \lambda_4 x_{2} = 0$
+\end{enumerate}
+
+\section*{Exercise 4}
+
+We are given a geometric program (GP) \begin{align*}
+    \min \quad & f(x) \\ 
+    \text{s.t. } & \; f_i(x) \leq 1, \quad i = 1, \dots , m \\ 
+    & h_i(x) = 1, \quad i = 1, \dots , p.
+\end{align*}
+
+
+\end{document}
